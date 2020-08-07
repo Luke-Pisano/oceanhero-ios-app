@@ -21,6 +21,8 @@ import UIKit
 
 extension String {
     
+    #warning("Font is commented out, to be replaced by ocean hero font in the future")
+    
     class FormattedString {
         var bold = false
         var string = ""
@@ -38,8 +40,8 @@ extension String {
 
             return NSMutableAttributedString(string: string, attributes: [
                 NSAttributedString.Key.paragraphStyle: paragraphStyle,
-                NSAttributedString.Key.foregroundColor: color,
-                NSAttributedString.Key.font: UIFont(name: "ProximaNova" + boldModifier, size: fontSize)!
+                NSAttributedString.Key.foregroundColor: color
+                //NSAttributedString.Key.font: UIFont(name: "ProximaNova" + boldModifier, size: fontSize)!
             ])
         }
     }
