@@ -27,7 +27,7 @@ public struct AppUrls {
             return isDebugBuild ? "?test=1" : ""
         }
         
-        static let base = ProcessInfo.processInfo.environment["BASE_URL", default: "https://duckduckgo.com"]
+        static let base = ProcessInfo.processInfo.environment["BASE_URL", default: "https://oceanhero.today"]
         static let externalContentBase = "https://external-content.duckduckgo.com"
         static let staticBase = "https://staticcdn.duckduckgo.com"
         

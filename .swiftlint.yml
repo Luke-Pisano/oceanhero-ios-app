@@ -1,6 +1,8 @@
 
 disabled_rules:
   - trailing_whitespace
+  - implicit_getter
+  - identifier_name
 
 # Rule Config
 line_length: 150
