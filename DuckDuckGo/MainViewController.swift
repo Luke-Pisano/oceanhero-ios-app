@@ -675,7 +675,11 @@ class MainViewController: UIViewController {
         currentTab?.findInPage?.delegate = self
         findInPageView.update(with: currentTab?.findInPage, updateTextField: true)
     }
-        
+
+    func increaseBottleCounter() {
+        userBottleCounter += 1
+        smallBottleLabel.text = String(userBottleCounter)
+    }
 }
 
 extension MainViewController: FindInPageDelegate {
@@ -778,6 +782,7 @@ extension MainViewController: OmniBarDelegate {
         dismissFavoritesOverlay()
         dismissAutcompleteSuggestions()
         showHomeRowReminder()
+        increaseBottleCounter()
     }
 
     func onSiteRatingPressed() {
