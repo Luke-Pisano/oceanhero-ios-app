@@ -239,6 +239,46 @@
                                     <outlet property="searchLoupe" destination="5Nz-IB-Q70" id="9qw-Ar-oVN"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Z-j3-rUO">
+                                <rect key="frame" x="352" y="125" width="29" height="19"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmallBottle" translatesAutoresizingMaskIntoConstraints="NO" id="8S1-fZ-zBA">
+                                <rect key="frame" x="294" y="114.5" width="36" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Ae-FV-DKe"/>
+                                    <constraint firstAttribute="width" constant="36" id="PMl-Ku-fYj"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qm-Qh-QMW">
+                                <rect key="frame" x="117.5" y="398" width="179.5" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7,374,384" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62x-iW-vBO">
+                                        <rect key="frame" x="0.0" y="33" width="133.5" height="34"/>
+                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="30"/>
+                                        <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmallBottle" translatesAutoresizingMaskIntoConstraints="NO" id="cDq-ij-KwB">
+                                        <rect key="frame" x="143.5" y="30" width="36" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="IPP-c4-hjw"/>
+                                            <constraint firstAttribute="height" constant="40" id="Lfg-lw-SD7"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="BZh-gx-JSD"/>
+                                    <constraint firstItem="cDq-ij-KwB" firstAttribute="centerY" secondItem="5qm-Qh-QMW" secondAttribute="centerY" id="SRo-GJ-xrW"/>
+                                    <constraint firstItem="62x-iW-vBO" firstAttribute="centerY" secondItem="5qm-Qh-QMW" secondAttribute="centerY" id="WoT-mt-slK"/>
+                                    <constraint firstAttribute="trailing" secondItem="cDq-ij-KwB" secondAttribute="trailing" id="ns6-ow-W6I"/>
+                                    <constraint firstItem="62x-iW-vBO" firstAttribute="leading" secondItem="5qm-Qh-QMW" secondAttribute="leading" id="obT-pK-Q4z"/>
+                                    <constraint firstItem="cDq-ij-KwB" firstAttribute="leading" secondItem="62x-iW-vBO" secondAttribute="trailing" constant="10" id="zb1-Bf-dFk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -262,14 +302,22 @@
                             <constraint firstAttribute="top" secondItem="iiL-6e-jxs" secondAttribute="top" id="ea4-zN-0Co"/>
                             <constraint firstItem="EJw-WC-cX3" firstAttribute="width" secondItem="Vxt-xD-aBt" secondAttribute="width" id="gmj-jq-FHp"/>
                             <constraint firstItem="Ylj-oJ-fqD" firstAttribute="top" secondItem="lJT-0B-l2J" secondAttribute="bottom" id="h5k-Sy-jb2"/>
+                            <constraint firstItem="Y5Z-j3-rUO" firstAttribute="centerY" secondItem="8S1-fZ-zBA" secondAttribute="centerY" id="hoe-vO-crR"/>
+                            <constraint firstItem="5qm-Qh-QMW" firstAttribute="centerY" secondItem="Vxt-xD-aBt" secondAttribute="centerY" id="jPY-RM-XkQ"/>
                             <constraint firstItem="Krm-hA-s9u" firstAttribute="width" secondItem="Vxt-xD-aBt" secondAttribute="width" id="m5V-dn-y07"/>
                             <constraint firstItem="nQT-PV-ULm" firstAttribute="centerX" secondItem="Vxt-xD-aBt" secondAttribute="centerX" id="mvu-GD-IuW"/>
+                            <constraint firstItem="Y5Z-j3-rUO" firstAttribute="top" secondItem="lJT-0B-l2J" secondAttribute="bottom" constant="29" id="nar-db-ehM"/>
+                            <constraint firstItem="5qm-Qh-QMW" firstAttribute="centerX" secondItem="Vxt-xD-aBt" secondAttribute="centerX" id="nvj-fo-e1K"/>
                             <constraint firstItem="yPc-P1-sCk" firstAttribute="centerX" secondItem="uBn-Md-Q2c" secondAttribute="centerX" id="pBv-7C-JRr"/>
                             <constraint firstItem="Krm-hA-s9u" firstAttribute="centerX" secondItem="Vxt-xD-aBt" secondAttribute="centerX" id="qlX-4E-B0z"/>
+                            <constraint firstItem="5qm-Qh-QMW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vxt-xD-aBt" secondAttribute="leading" id="r0Y-n8-5m9"/>
+                            <constraint firstItem="uBn-Md-Q2c" firstAttribute="trailing" secondItem="Y5Z-j3-rUO" secondAttribute="trailing" constant="33" id="r0v-W1-TDG"/>
                             <constraint firstAttribute="trailing" secondItem="Ylj-oJ-fqD" secondAttribute="trailing" id="ssm-8i-6VT"/>
                             <constraint firstItem="nQT-PV-ULm" firstAttribute="width" secondItem="Vxt-xD-aBt" secondAttribute="width" id="ukv-lF-Gp0"/>
                             <constraint firstItem="yPc-P1-sCk" firstAttribute="width" secondItem="Vxt-xD-aBt" secondAttribute="width" id="vAO-OO-UEQ"/>
+                            <constraint firstItem="Y5Z-j3-rUO" firstAttribute="leading" secondItem="8S1-fZ-zBA" secondAttribute="trailing" constant="22" id="xbW-ho-zht"/>
                             <constraint firstAttribute="top" secondItem="iiL-6e-jxs" secondAttribute="top" id="yOu-69-e3q"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5qm-Qh-QMW" secondAttribute="trailing" id="zHC-78-BaB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uBn-Md-Q2c"/>
                     </view>
@@ -293,10 +341,12 @@
                         <outlet property="notificationContainerHeight" destination="g5u-N0-iSI" id="QUq-JS-Eqd"/>
                         <outlet property="notificationContainerTop" destination="P7O-RF-g4h" id="4qK-Ti-ONY"/>
                         <outlet property="progressView" destination="kFG-OX-YkL" id="aTf-Ch-ha9"/>
+                        <outlet property="smallBottleLabel" destination="Y5Z-j3-rUO" id="i5V-Qp-vFi"/>
                         <outlet property="statusBarBackground" destination="iiL-6e-jxs" id="a4O-jb-Wke"/>
                         <outlet property="tabsButton" destination="K7o-WL-SC5" id="K5w-s3-8x3"/>
                         <outlet property="toolbar" destination="Krm-hA-s9u" id="JHv-PZ-ILs"/>
                         <outlet property="toolbarBottom" destination="UsQ-i7-pjr" id="nwd-gZ-QEh"/>
+                        <outlet property="totalBottleLabel" destination="62x-iW-vBO" id="wNp-DF-op5"/>
                         <segue destination="Lcg-P1-w26" kind="presentation" identifier="instructions" modalPresentationStyle="overCurrentContext" id="vjb-jn-qZe"/>
                         <segue destination="xj8-BF-A9c" kind="presentation" identifier="Settings" id="URp-Fv-PV5"/>
                         <segue destination="Idd-9P-bE6" kind="presentation" identifier="ReportBrokenSite" modalPresentationStyle="overFullScreen" id="Igb-19-s0y"/>
@@ -306,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QN-Mc-SXu" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218.40000000000001" y="-6.746626686656672"/>
+            <point key="canvasLocation" x="217.39130434782609" y="-7.3660714285714279"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="538-OF-E2q">
@@ -365,6 +415,7 @@
         <image name="Logo" width="459" height="87"/>
         <image name="NewTab" width="24" height="24"/>
         <image name="SearchLoupeMini" width="23" height="23"/>
+        <image name="SmallBottle" width="37" height="40.5"/>
         <image name="find-next-dark" width="19" height="20"/>
         <image name="find-previous-dark" width="19" height="20"/>
     </resources>

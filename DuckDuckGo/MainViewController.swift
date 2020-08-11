@@ -45,6 +45,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var navBarTop: NSLayoutConstraint!
     @IBOutlet weak var toolbarBottom: NSLayoutConstraint!
     @IBOutlet weak var containerViewTop: NSLayoutConstraint!
+    @IBOutlet weak var smallBottleLabel: UILabel!
+    @IBOutlet weak var totalBottleLabel: UILabel!
 
     @IBOutlet weak var notificationContainer: UIView!
     @IBOutlet weak var notificationContainerTop: NSLayoutConstraint!
@@ -95,6 +97,8 @@ class MainViewController: UIViewController {
     var currentTab: TabViewController? {
         return tabManager?.current
     }
+
+    var userBottleCounter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +124,9 @@ class MainViewController: UIViewController {
         registerForKeyboardNotifications()
 
         applyTheme(ThemeManager.shared.currentTheme)
+
+        smallBottleLabel.text = String(userBottleCounter)
+        totalBottleLabel.text = "7,746,739"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -1175,8 +1182,6 @@ extension MainViewController: Themable {
         tabManager.decorate(with: theme)
 
         findInPageView.decorate(with: theme)
-        
-        logoText.tintColor = theme.ddgTextTintColor
     }
     
 }
