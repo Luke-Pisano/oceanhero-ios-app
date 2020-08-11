@@ -153,8 +153,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>DuckDuckGoGroupIdentifierPrefix</key>
-	<string>$(GROUP_ID_PREFIX)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -174,6 +172,8 @@
 	<string>Allows you to share recordings</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Allows you to save images to your device</string>
+	<key>OceanHeroGroupIdentifierPrefix</key>
+	<string>group.oh.OceanHero</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>proximanova-extrabold.otf</string>
@@ -190,11 +190,11 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Paste from clipboard</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.duckduckgo.mobile.ios.clipboard</string>
+			<string>oh.OceanHero.clipboard</string>
 		</dict>
 	</array>
 	<key>UIApplicationShortcutWidget</key>
-	<string>$(APP_ID).QuickActionsTodayExtension</string>
+	<string>oh.OceanHero.QuickActionsTodayExtension</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

@@ -27,7 +27,7 @@ public let isDebugBuild = false
 
 struct Global {
     public static let groupIdPrefix: String = {
-        let groupIdPrefixKey = "DuckDuckGoGroupIdentifierPrefix"
+        let groupIdPrefixKey = "OceanHeroGroupIdentifierPrefix"
         guard let groupIdPrefix = Bundle.main.object(forInfoDictionaryKey: groupIdPrefixKey) as? String else {
             fatalError("Info.plist must contain a \"\(groupIdPrefixKey)\" entry with a string value")
         }

@@ -19,13 +19,20 @@
 
 import Foundation
 
+#warning("There was runtime error of unknown source here, guard added")
+
 public class ContentBlockerStringCache {
 
     public static func removeLegacyData() {
         let fileManager = FileManager.default
         let groupName = ContentBlockerStoreConstants.groupName
-        let cacheDir = fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupName)!.appendingPathComponent("string-cache")
-        try? fileManager.removeItem(atPath: cacheDir.path)
+
+        guard let cacheDir = fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupName) else {
+            print("container URL not found")
+            return
+        }
+
+        try? fileManager.removeItem(atPath: cacheDir.appendingPathComponent("string-cache").path)
     }
 
 }

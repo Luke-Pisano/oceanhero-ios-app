@@ -39,7 +39,7 @@ public class Database {
     
     convenience init() {
         let mainBundle = Bundle.main
-        let coreBundle = Bundle(identifier: "com.duckduckgo.mobile.ios.Core")!
+        let coreBundle = Bundle(identifier: "oh.OceanHero.Core")!
         
         guard let managedObjectModel = NSManagedObjectModel.mergedModel(from: [mainBundle, coreBundle]) else { fatalError("No DB scheme found") }
         
