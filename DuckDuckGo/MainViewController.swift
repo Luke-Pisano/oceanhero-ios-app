@@ -99,6 +99,7 @@ class MainViewController: UIViewController {
     }
 
     var userBottleCounter = 0
+    var totalBottleCounter = 7847586
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,11 +130,13 @@ class MainViewController: UIViewController {
         totalBottleLabel.text = "7,746,739"
     }
     
+    #warning("Onboarding turned off")
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        startOnboardingFlowIfNotSeenBefore()
-        
+        startTotalCounterAnimation()
+        //startOnboardingFlowIfNotSeenBefore()
     }
     
     func startOnboardingFlowIfNotSeenBefore() {
@@ -679,6 +682,18 @@ class MainViewController: UIViewController {
     func increaseBottleCounter() {
         userBottleCounter += 1
         smallBottleLabel.text = String(userBottleCounter)
+    }
+    
+    func startTotalCounterAnimation() {
+        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [unowned self] _ in
+            let numberFormatter = NumberFormatter()
+            numberFormatter.groupingSeparator = ","
+            numberFormatter.usesGroupingSeparator = true
+            numberFormatter.numberStyle = NumberFormatter.Style.decimal
+            
+            self.totalBottleLabel.text = numberFormatter.string(from: NSNumber(value: self.totalBottleCounter))
+            self.totalBottleCounter += 1
+        }
     }
 }
 
