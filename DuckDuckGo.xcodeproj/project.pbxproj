@@ -683,7 +683,7 @@
 		83ED3B8C1FA8E61D00B47556 /* ManualTestsScript.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ManualTestsScript.md; sourceTree = "<group>"; };
 		83ED3B8D1FA8E63700B47556 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		83EDCC3F1F86B895005CDFCD /* StatisticsLoaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsLoaderTests.swift; sourceTree = "<group>"; };
-		84E341921E2F7EFB00BDBA6F /* OceanHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OceanHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84E341921E2F7EFB00BDBA6F /* DuckDuckGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuckDuckGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E341951E2F7EFB00BDBA6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E3419A1E2F7EFB00BDBA6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84E3419F1E2F7EFB00BDBA6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1482,7 +1482,7 @@
 		84E341931E2F7EFB00BDBA6F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84E341921E2F7EFB00BDBA6F /* OceanHero.app */,
+				84E341921E2F7EFB00BDBA6F /* DuckDuckGo.app */,
 				84E341A61E2F7EFB00BDBA6F /* UnitTests.xctest */,
 				F143C2E41E4A4CD400CFDE3A /* Core.framework */,
 				8390446C20BDCE10006461CD /* OceanHero.appex */,
@@ -2890,7 +2890,7 @@
 			);
 			name = DuckDuckGo;
 			productName = DuckDuckGo;
-			productReference = 84E341921E2F7EFB00BDBA6F /* OceanHero.app */;
+			productReference = 84E341921E2F7EFB00BDBA6F /* DuckDuckGo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		84E341A51E2F7EFB00BDBA6F /* UnitTests */ = {
@@ -4325,7 +4325,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero;
-				PRODUCT_NAME = OceanHero;
+				PRODUCT_NAME = DuckDuckGo;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
@@ -4349,7 +4349,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero;
-				PRODUCT_NAME = OceanHero;
+				PRODUCT_NAME = DuckDuckGo;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
