@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G9p-Sf-e96">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G9p-Sf-e96">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tabs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy7-Lb-veV">
-                                <rect key="frame" x="190.33333333333334" y="18" width="33.666666666666657" height="16"/>
+                                <rect key="frame" x="190.33333333333334" y="16.666666666666664" width="33.666666666666657" height="18.666666666666664"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" header="YES"/>
                                 </accessibility>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-ek-lrC">
-                                <rect key="frame" x="0.0" y="52" width="414" height="640"/>
+                                <rect key="frame" x="0.0" y="53.333333333333314" width="414" height="638.66666666666674"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="14" minimumInteritemSpacing="14" id="bWt-k2-BEm">
                                     <size key="itemSize" width="327" height="206"/>
@@ -104,7 +104,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GE-Nf-lKM">
-                                                            <rect key="frame" x="36" y="13" width="261" height="13"/>
+                                                            <rect key="frame" x="36" y="13" width="261" height="15.333333333333336"/>
                                                             <accessibility key="accessibilityConfiguration">
                                                                 <accessibilityTraits key="traits" button="YES" staticText="YES"/>
                                                                 <bool key="isElement" value="YES"/>
@@ -218,7 +218,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GU-MM-UwX">
-                                                            <rect key="frame" x="45" y="18" width="234" height="16"/>
+                                                            <rect key="frame" x="45" y="18" width="234" height="18.666666666666671"/>
                                                             <accessibility key="accessibilityConfiguration">
                                                                 <accessibilityTraits key="traits" button="YES" staticText="YES"/>
                                                                 <bool key="isElement" value="YES"/>
@@ -228,7 +228,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbT-NO-T0G">
-                                                            <rect key="frame" x="45" y="41" width="234" height="14"/>
+                                                            <rect key="frame" x="45" y="38.666666666666664" width="234" height="16.333333333333336"/>
                                                             <accessibility key="accessibilityConfiguration">
                                                                 <bool key="isElement" value="NO"/>
                                                             </accessibility>
@@ -307,12 +307,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="C3E-Kk-DYK"/>
-                                    <barButtonItem title="Erase Tabs and Data" image="Fire" id="h1S-c2-Spf">
-                                        <inset key="imageInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <connections>
-                                            <action selector="onFirePressed" destination="G9p-Sf-e96" id="nP6-t4-jHf"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MHa-87-9H2"/>
                                     <barButtonItem title="New Tab" image="NewTab" id="nYf-xs-PE7">
                                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
@@ -364,7 +358,6 @@
                         <outlet property="collectionView" destination="XZT-ek-lrC" id="iNF-Uj-4dl"/>
                         <outlet property="displayModeButton" destination="L7l-vl-rDZ" id="F9o-yf-XT6"/>
                         <outlet property="doneButton" destination="S1O-aT-Bgw" id="8I7-gH-bhZ"/>
-                        <outlet property="fireButton" destination="h1S-c2-Spf" id="VfW-9h-WGv"/>
                         <outlet property="plusButton" destination="nYf-xs-PE7" id="9pP-uN-hsa"/>
                         <outlet property="titleView" destination="Cy7-Lb-veV" id="p6U-i5-pwf"/>
                         <outlet property="toolbar" destination="PrD-ff-flI" id="6c2-zx-gsM"/>
@@ -377,7 +370,6 @@
     </scenes>
     <resources>
         <image name="AddBookmarks" width="24" height="24"/>
-        <image name="Fire" width="19" height="24"/>
         <image name="GlobeSmall" width="24" height="24"/>
         <image name="NewTab" width="24" height="24"/>
         <image name="Remove" width="24" height="24"/>
