@@ -176,11 +176,8 @@
 	<string>group.oh.OceanHero</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>proximanova-extrabold.otf</string>
-		<string>proximanova-light.otf</string>
-		<string>proximanova-regular.otf</string>
-		<string>proximanova-bold.otf</string>
-		<string>proximanova-semibold.otf</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Bold.ttf</string>
 	</array>
 	<key>UIApplicationShortcutItems</key>
 	<array>
