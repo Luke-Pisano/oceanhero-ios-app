@@ -28,14 +28,19 @@ class AutocompleteParser {
             throw JsonError.invalidJson
         }
 
-        guard let jsonArray = json as? [[String: String]] else {
+        guard let jsonArray = json as? [Any] else {
             throw JsonError.typeMismatch
         }
 
         var suggestions = [Suggestion]()
-        for element in jsonArray {
-            if let type = element.keys.first, let suggestion = element[type] {
-                suggestions.append(Suggestion(type: type, suggestion: suggestion))
+
+        for item in jsonArray {
+            guard let elements = item as? [String] else {
+                continue
+            }
+
+            for suggestion in elements {
+                suggestions.append(Suggestion(type: "phrase", suggestion: suggestion))
             }
         }
 

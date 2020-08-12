@@ -45,6 +45,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var navBarTop: NSLayoutConstraint!
     @IBOutlet weak var toolbarBottom: NSLayoutConstraint!
     @IBOutlet weak var containerViewTop: NSLayoutConstraint!
+    @IBOutlet weak var smallBottleLabel: UILabel!
+    @IBOutlet weak var totalBottleLabel: UILabel!
 
     @IBOutlet weak var notificationContainer: UIView!
     @IBOutlet weak var notificationContainerTop: NSLayoutConstraint!
@@ -95,6 +97,9 @@ class MainViewController: UIViewController {
     var currentTab: TabViewController? {
         return tabManager?.current
     }
+
+    var userBottleCounter = 0
+    var totalBottleCounter = 7847586
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,13 +125,18 @@ class MainViewController: UIViewController {
         registerForKeyboardNotifications()
 
         applyTheme(ThemeManager.shared.currentTheme)
+
+        smallBottleLabel.text = String(userBottleCounter)
+        totalBottleLabel.text = "7,746,739"
     }
+    
+    #warning("Onboarding turned off")
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        startOnboardingFlowIfNotSeenBefore()
-        
+        startTotalCounterAnimation()
+        //startOnboardingFlowIfNotSeenBefore()
     }
     
     func startOnboardingFlowIfNotSeenBefore() {
@@ -668,7 +678,23 @@ class MainViewController: UIViewController {
         currentTab?.findInPage?.delegate = self
         findInPageView.update(with: currentTab?.findInPage, updateTextField: true)
     }
-        
+
+    func increaseBottleCounter() {
+        userBottleCounter += 1
+        smallBottleLabel.text = String(userBottleCounter)
+    }
+    
+    func startTotalCounterAnimation() {
+        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [unowned self] _ in
+            let numberFormatter = NumberFormatter()
+            numberFormatter.groupingSeparator = ","
+            numberFormatter.usesGroupingSeparator = true
+            numberFormatter.numberStyle = NumberFormatter.Style.decimal
+            
+            self.totalBottleLabel.text = numberFormatter.string(from: NSNumber(value: self.totalBottleCounter))
+            self.totalBottleCounter += 1
+        }
+    }
 }
 
 extension MainViewController: FindInPageDelegate {
@@ -771,6 +797,7 @@ extension MainViewController: OmniBarDelegate {
         dismissFavoritesOverlay()
         dismissAutcompleteSuggestions()
         showHomeRowReminder()
+        increaseBottleCounter()
     }
 
     func onSiteRatingPressed() {
@@ -1175,8 +1202,6 @@ extension MainViewController: Themable {
         tabManager.decorate(with: theme)
 
         findInPageView.decorate(with: theme)
-        
-        logoText.tintColor = theme.ddgTextTintColor
     }
     
 }
