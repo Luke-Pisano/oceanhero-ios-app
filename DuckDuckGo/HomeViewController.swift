@@ -112,7 +112,7 @@ class HomeViewController: UIViewController {
     
     func openedAsNewTab() {
         collectionView.openedAsNewTab()
-        showNextDaxDialog()
+        //showNextDaxDialog()
     }
     
     @IBAction func launchSettings() {
@@ -123,7 +123,7 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if presentedViewController == nil { // prevents these being called when settings forces this controller to be reattached
-            showNextDaxDialog()
+            //showNextDaxDialog()
             Pixel.fire(pixel: .homeScreenShown)
         }
                 
@@ -159,7 +159,7 @@ class HomeViewController: UIViewController {
     }
     
     func onboardingCompleted() {
-        showNextDaxDialog()
+        //showNextDaxDialog()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

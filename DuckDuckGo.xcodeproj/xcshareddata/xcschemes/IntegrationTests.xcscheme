@@ -15,7 +15,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84E341911E2F7EFB00BDBA6F"
-            BuildableName = "OceanHero.app"
+            BuildableName = "DuckDuckGo.app"
             BlueprintName = "DuckDuckGo"
             ReferencedContainer = "container:DuckDuckGo.xcodeproj">
          </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84E341911E2F7EFB00BDBA6F"
-            BuildableName = "OceanHero.app"
+            BuildableName = "DuckDuckGo.app"
             BlueprintName = "DuckDuckGo"
             ReferencedContainer = "container:DuckDuckGo.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84E341911E2F7EFB00BDBA6F"
-            BuildableName = "OceanHero.app"
+            BuildableName = "DuckDuckGo.app"
             BlueprintName = "DuckDuckGo"
             ReferencedContainer = "container:DuckDuckGo.xcodeproj">
          </BuildableReference>

@@ -54,13 +54,15 @@ class SettingsViewController: UITableViewController {
         return UIStoryboard(name: "Settings", bundle: nil).instantiateInitialViewController()!
     }
 
+    #warning("Removed some of styling to get rid of DDG branding")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMargins()
         configureThemeCellAccessory()
         configureDisableAutocompleteToggle()
         configureSecurityToggles()
-        configureVersionText()
+        //configureVersionText()
         configureUniversalLinksToggle()
         configureLinkPreviewsToggle()
         configureRememberLogins()
@@ -74,7 +76,7 @@ class SettingsViewController: UITableViewController {
         configureAutoClearCellAccessory()
         configureRememberLogins()
         configureHomePageCellAccessory()
-        configureIconViews()
+        //configureIconViews()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -273,7 +275,7 @@ extension SettingsViewController: Themable {
             label.textColor = theme.tableCellAccessoryTextColor
         }
         
-        versionText.textColor = theme.tableCellTextColor
+        //versionText.textColor = theme.tableCellTextColor
         
         autocompleteToggle.onTintColor = theme.buttonTintColor
         authenticationToggle.onTintColor = theme.buttonTintColor
