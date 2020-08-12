@@ -18,7 +18,7 @@
 //
 
 import Foundation
-@testable import DuckDuckGo
+@testable import OceanHero
 @testable import Core
 
 class MockBundle: InfoBundle {

@@ -18,7 +18,7 @@
 //
 
 import XCTest
-@testable import DuckDuckGo
+@testable import OceanHero
 
 class AppRatingPromptTests: XCTestCase {
     

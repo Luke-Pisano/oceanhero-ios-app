@@ -20,7 +20,7 @@
 import Foundation
 
 import XCTest
-@testable import DuckDuckGo
+@testable import OceanHero
 
 class OmniBarStateTests: XCTestCase {
 

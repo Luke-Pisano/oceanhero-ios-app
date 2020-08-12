@@ -19,7 +19,7 @@
 
 import XCTest
 @testable import Core
-@testable import DuckDuckGo
+@testable import OceanHero
 
 class UserDefaultsHomeRowReminderStorageTests: XCTestCase {
 

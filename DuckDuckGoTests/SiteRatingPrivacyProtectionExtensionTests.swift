@@ -21,7 +21,7 @@ import Foundation
 import XCTest
 
 @testable import Core
-@testable import DuckDuckGo
+@testable import OceanHero
 
 class SiteRatingPrivacyProtectionExtensionTests: XCTestCase {
 
