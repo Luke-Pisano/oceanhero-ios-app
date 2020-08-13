@@ -858,7 +858,7 @@ extension TabViewController: WKNavigationDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         delegate?.tabLoadingStateDidChange(tab: self)
      
-        showDaxDialogOrStartTrackerNetworksAnimationIfNeeded()
+        //showDaxDialogOrStartTrackerNetworksAnimationIfNeeded()
     }
     
     private func showDaxDialogOrStartTrackerNetworksAnimationIfNeeded() {

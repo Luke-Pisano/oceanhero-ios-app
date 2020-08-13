@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "Frame.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Frame@2x.png",
+      "filename" : "OH logo.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Frame@3x.png",
+      "filename" : "OH logo3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -22,7 +22,7 @@
         <!--Settings-->
         <scene sceneID="tpH-1C-rxA">
             <objects>
-                <tableViewController definesPresentationContext="YES" clearsSelectionOnViewWillAppear="NO" id="fAo-H3-Yyo" customClass="SettingsViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController definesPresentationContext="YES" clearsSelectionOnViewWillAppear="NO" id="fAo-H3-Yyo" customClass="SettingsViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Us0-75-vOB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,36 +31,8 @@
                         <sections>
                             <tableViewSection headerTitle="Customize" id="dj9-vh-Rig">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="f1O-6u-LFY" detailTextLabel="Gbx-kl-uOO" style="IBUITableViewCellStyleValue1" id="6If-9E-vOG">
-                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6If-9E-vOG" id="vlZ-xh-CdC">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f1O-6u-LFY">
-                                                    <rect key="frame" x="20" y="13.000000000000002" width="49" height="18.666666666666668"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="16"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Default" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gbx-kl-uOO">
-                                                    <rect key="frame" x="324" y="13.000000000000002" width="51" height="18.666666666666668"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="gMx-K0-9ev" kind="show" id="Pes-Ig-9hs"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="jy0-Hs-WSz" detailTextLabel="O9k-vm-boT" style="IBUITableViewCellStyleValue1" id="bFy-C4-rQT">
-                                        <rect key="frame" x="0.0" y="99.333332061767578" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bFy-C4-rQT" id="nJ1-Sf-uUF">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -88,7 +60,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="yoZ-jw-Cu3" style="IBUITableViewCellStyleDefault" id="9RH-AW-rsk">
-                                        <rect key="frame" x="0.0" y="143.33333206176758" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="99.333332061767578" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9RH-AW-rsk" id="s4N-yd-5mG">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -109,7 +81,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nwi-z5-yyq">
-                                        <rect key="frame" x="0.0" y="187.33333206176758" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="143.33333206176758" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="nwi-z5-yyq" id="d7f-Ah-aam">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -142,7 +114,7 @@
                                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4cy-nR-Oqa">
-                                        <rect key="frame" x="0.0" y="231.33333206176758" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="187.33333206176758" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="4cy-nR-Oqa" id="lje-xd-APn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -182,7 +154,7 @@
                             <tableViewSection headerTitle="Privacy &amp; Security" footerTitle="If Touch ID, Face ID or a system passcode is set, you’ll be requested to unlock the app when opening." id="dOj-jn-mSN" userLabel="Security">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="UNq-DI-x5m" detailTextLabel="QAv-VN-hEJ" style="IBUITableViewCellStyleValue1" id="Iez-TI-0JI">
-                                        <rect key="frame" x="0.0" y="338.66666412353516" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="294.66666412353516" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iez-TI-0JI" id="Wrd-s6-Sut">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -210,7 +182,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="FgW-X9-qoE" detailTextLabel="Ccm-w6-p6U" style="IBUITableViewCellStyleValue1" id="z07-QI-waz">
-                                        <rect key="frame" x="0.0" y="382.66666412353516" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="338.66666412353516" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z07-QI-waz" id="1HL-Ha-Yz0">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -238,7 +210,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="FHC-1z-Z3v" style="IBUITableViewCellStyleDefault" id="qdD-7s-mmM">
-                                        <rect key="frame" x="0.0" y="426.66666412353516" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="382.66666412353516" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qdD-7s-mmM" id="RVQ-jf-2kf">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -259,7 +231,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mSQ-M3-da5">
-                                        <rect key="frame" x="0.0" y="470.66666412353516" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="426.66666412353516" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="mSQ-M3-da5" id="uF1-dD-wAq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -296,7 +268,7 @@
                             <tableViewSection footerTitle="Disable to prevent links from automatically opening in other installed apps." id="0gU-rZ-pRc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PlN-Mw-1PX">
-                                        <rect key="frame" x="0.0" y="578.66666412353516" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="534.66666412353516" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="PlN-Mw-1PX" id="buN-xv-p62">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -336,7 +308,7 @@
                             <tableViewSection headerTitle="Help" id="zMK-jc-4bJ" userLabel="Help">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="74x-N4-jKV" style="IBUITableViewCellStyleDefault" id="flX-Op-Ik6">
-                                        <rect key="frame" x="0.0" y="706.66666412353516" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="662.66666412353516" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="flX-Op-Ik6" id="Ime-ez-dSU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -360,7 +332,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="yvj-LL-MiR" style="IBUITableViewCellStyleDefault" id="pfh-oL-Cic">
-                                        <rect key="frame" x="0.0" y="750.66666412353516" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="706.66666412353516" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pfh-oL-Cic" id="Ikg-ak-nRy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -384,7 +356,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="m23-t6-9cb" style="IBUITableViewCellStyleDefault" id="aJ8-VX-XrI">
-                                        <rect key="frame" x="0.0" y="794.66666412353516" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="750.66666412353516" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aJ8-VX-XrI" id="9Mf-ZL-aUg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -433,7 +405,6 @@
                         <outlet property="openUniversalLinksToggle" destination="cBU-D1-Ut8" id="LVX-uS-1Xi"/>
                         <outlet property="rememberLoginsAccessoryText" destination="QAv-VN-hEJ" id="iTM-4P-y54"/>
                         <outlet property="rememberLoginsCell" destination="Iez-TI-0JI" id="GXZ-Fh-Glp"/>
-                        <outlet property="themeAccessoryText" destination="Gbx-kl-uOO" id="h6S-um-CfT"/>
                         <outletCollection property="margins" destination="zJZ-MR-uhS" collectionClass="NSMutableArray" id="o3p-WG-avM"/>
                         <outletCollection property="margins" destination="QO8-S9-afk" collectionClass="NSMutableArray" id="U45-GQ-aTd"/>
                         <outletCollection property="labels" destination="FHC-1z-Z3v" collectionClass="NSMutableArray" id="IrB-hk-2iB"/>
@@ -446,8 +417,6 @@
                         <outletCollection property="labels" destination="m23-t6-9cb" collectionClass="NSMutableArray" id="7g6-RD-pp5"/>
                         <outletCollection property="labels" destination="yvj-LL-MiR" collectionClass="NSMutableArray" id="NvU-BV-yIi"/>
                         <outletCollection property="labels" destination="74x-N4-jKV" collectionClass="NSMutableArray" id="7ai-K6-ZBz"/>
-                        <outletCollection property="accessoryLabels" destination="Gbx-kl-uOO" collectionClass="NSMutableArray" id="Gnw-Cu-leX"/>
-                        <outletCollection property="labels" destination="f1O-6u-LFY" collectionClass="NSMutableArray" id="7iH-K1-eOt"/>
                         <outletCollection property="labels" destination="a1T-ui-4Nw" collectionClass="NSMutableArray" id="pfw-Kn-kET"/>
                         <outletCollection property="labels" destination="HLr-R8-xxF" collectionClass="NSMutableArray" id="dC1-tO-ALc"/>
                         <outletCollection property="labels" destination="UNq-DI-x5m" collectionClass="NSMutableArray" id="HzF-9j-VvL"/>
@@ -463,7 +432,7 @@
         <!--Themable Navigation Controller-->
         <scene sceneID="mFG-kj-9J2">
             <objects>
-                <navigationController id="w88-u3-TgK" customClass="ThemableNavigationController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="w88-u3-TgK" customClass="ThemableNavigationController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KnU-qQ-aLl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -507,7 +476,7 @@
         <!--About View Controller-->
         <scene sceneID="Z9e-Sp-3fR">
             <objects>
-                <viewController id="jEM-1g-lEl" customClass="AboutViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jEM-1g-lEl" customClass="AboutViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F90-sd-lQ0"/>
                         <viewControllerLayoutGuide type="bottom" id="BFC-LK-P05"/>
@@ -626,7 +595,7 @@ After all, the internet shouldn’t feel so creepy, and getting the privacy you 
         <!--Auto Clear Data-->
         <scene sceneID="y9R-2c-mBz">
             <objects>
-                <tableViewController storyboardIdentifier="AutoClearSettingsViewController" title="Auto Clear Data" id="fdJ-b1-Des" userLabel="Auto Clear Data" customClass="AutoClearSettingsViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AutoClearSettingsViewController" title="Auto Clear Data" id="fdJ-b1-Des" userLabel="Auto Clear Data" customClass="AutoClearSettingsViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="TDo-S0-c8g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -892,7 +861,7 @@ After all, the internet shouldn’t feel so creepy, and getting the privacy you 
         <!--New Tab-->
         <scene sceneID="QW9-t9-1MW">
             <objects>
-                <tableViewController title="New Tab" id="kab-gs-Drm" customClass="HomePageSettingsViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="New Tab" id="kab-gs-Drm" customClass="HomePageSettingsViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="l8V-7m-bz2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -993,7 +962,7 @@ After all, the internet shouldn’t feel so creepy, and getting the privacy you 
         <!--Icon-->
         <scene sceneID="vFr-UB-x7g">
             <objects>
-                <collectionViewController title="Icon" clearsSelectionOnViewWillAppear="NO" id="jbD-Oy-Cmw" customClass="AppIconSettingsViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Icon" clearsSelectionOnViewWillAppear="NO" id="jbD-Oy-Cmw" customClass="AppIconSettingsViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="uzR-oi-AoW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1006,7 +975,7 @@ After all, the internet shouldn’t feel so creepy, and getting the privacy you 
                             <inset key="sectionInset" minX="25" minY="38" maxX="25" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AppIconSettingsCell" id="uT3-fj-7Jx" customClass="AppIconSettingsCell" customModule="DuckDuckGo" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AppIconSettingsCell" id="uT3-fj-7Jx" customClass="AppIconSettingsCell" customModule="OceanHero" customModuleProvider="target">
                                 <rect key="frame" x="25" y="38" width="68" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JrS-9m-FTZ">
@@ -1058,7 +1027,7 @@ After all, the internet shouldn’t feel so creepy, and getting the privacy you 
         <!--Unprotected Sites-->
         <scene sceneID="tsd-dd-bMe">
             <objects>
-                <tableViewController storyboardIdentifier="Unprotected Sites" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UEu-y1-KbY" customClass="UnprotectedSitesViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Unprotected Sites" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UEu-y1-KbY" customClass="UnprotectedSitesViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="wBV-2d-nqZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1097,7 +1066,7 @@ enhanced by Privacy Protection.</string>
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UnprotectedSitesItemCell" id="F98-L0-AqM" customClass="UnprotectedSitesItemCell" customModule="DuckDuckGo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UnprotectedSitesItemCell" id="F98-L0-AqM" customClass="UnprotectedSitesItemCell" customModule="OceanHero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="127.33333206176758" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F98-L0-AqM" id="cYQ-bZ-RLd">
@@ -1128,7 +1097,7 @@ enhanced by Privacy Protection.</string>
                                     <outlet property="domainLabel" destination="EIq-Ev-nfj" id="QhA-qR-NwC"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AllProtectedCell" id="w3x-fs-5fy" userLabel="Empty" customClass="NoSuggestionsTableViewCell" customModule="DuckDuckGo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AllProtectedCell" id="w3x-fs-5fy" userLabel="Empty" customClass="NoSuggestionsTableViewCell" customModule="OceanHero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="171" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w3x-fs-5fy" id="Zj3-Tz-dY0">
@@ -1196,15 +1165,15 @@ enhanced by Privacy Protection.</string>
         <!--Theme-->
         <scene sceneID="Fn1-Ld-WqV">
             <objects>
-                <tableViewController id="gMx-K0-9ev" customClass="ThemeSettingsViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gMx-K0-9ev" customClass="ThemeSettingsViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mlK-PZ-aXX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThemeItemCell" id="Yae-R5-CPt" userLabel="ThemeItemCell" customClass="ThemeItemCell" customModule="DuckDuckGo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThemeItemCell" id="Yae-R5-CPt" userLabel="ThemeItemCell" customClass="ThemeItemCell" customModule="OceanHero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yae-R5-CPt" id="Jae-Iy-uPB">
@@ -1250,13 +1219,13 @@ enhanced by Privacy Protection.</string>
         <!--Fireproof Websites-->
         <scene sceneID="Kfp-VW-T6P">
             <objects>
-                <tableViewController id="Jzw-Jd-J97" customClass="PreserveLoginsSettingsViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Jzw-Jd-J97" customClass="PreserveLoginsSettingsViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="E4q-Ba-00H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" id="muL-zu-Lq9" customClass="PreserveLoginsSwitchCell" customModule="DuckDuckGo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" id="muL-zu-Lq9" customClass="PreserveLoginsSwitchCell" customModule="OceanHero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="muL-zu-Lq9" id="ecD-LG-VJV">
@@ -1293,7 +1262,7 @@ enhanced by Privacy Protection.</string>
                                     <outlet property="toggle" destination="cog-dF-53x" id="JEd-Em-k2S"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DomainCell" id="boV-eR-FvW" customClass="PreserveLoginDomainCell" customModule="DuckDuckGo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DomainCell" id="boV-eR-FvW" customClass="PreserveLoginDomainCell" customModule="OceanHero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="99" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="boV-eR-FvW" id="elF-qV-4sg">
@@ -1332,7 +1301,7 @@ enhanced by Privacy Protection.</string>
                                     <outlet property="label" destination="dud-qo-Ces" id="bJG-zL-8xz"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoDomainsCell" textLabel="OfP-Kw-IOk" style="IBUITableViewCellStyleDefault" id="x8x-nq-O62" customClass="PreserveLoginDomainCell" customModule="DuckDuckGo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoDomainsCell" textLabel="OfP-Kw-IOk" style="IBUITableViewCellStyleDefault" id="x8x-nq-O62" customClass="PreserveLoginDomainCell" customModule="OceanHero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="142.66666793823242" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x8x-nq-O62" id="A9T-Pk-dMg">
@@ -1351,7 +1320,7 @@ enhanced by Privacy Protection.</string>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClearAllCell" textLabel="UZx-52-aer" style="IBUITableViewCellStyleDefault" id="FhW-T7-2eE" customClass="PreserveLoginDomainCell" customModule="DuckDuckGo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClearAllCell" textLabel="UZx-52-aer" style="IBUITableViewCellStyleDefault" id="FhW-T7-2eE" customClass="PreserveLoginDomainCell" customModule="OceanHero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="186.33333587646484" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FhW-T7-2eE" id="Loh-1i-fLa">
@@ -1402,7 +1371,7 @@ enhanced by Privacy Protection.</string>
         <!--Home Screen-->
         <scene sceneID="fuM-fp-dKw">
             <objects>
-                <tableViewController title="Home Screen" id="zWP-d3-nVc" customClass="KeyboardSettingsViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Home Screen" id="zWP-d3-nVc" customClass="KeyboardSettingsViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dlI-6w-HWO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

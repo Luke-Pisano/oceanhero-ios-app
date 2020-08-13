@@ -59,7 +59,7 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMargins()
-        configureThemeCellAccessory()
+        //configureThemeCellAccessory()
         configureDisableAutocompleteToggle()
         configureSecurityToggles()
         //configureVersionText()
@@ -265,7 +265,7 @@ extension SettingsViewController: Themable {
     
     func decorate(with theme: Theme) {
         decorateNavigationBar(with: theme)
-        configureThemeCellAccessory()
+        //configureThemeCellAccessory()
         
         for label in labels {
             label.textColor = theme.tableCellTextColor

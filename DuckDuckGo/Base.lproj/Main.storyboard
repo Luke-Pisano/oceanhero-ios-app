@@ -70,7 +70,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJw-WC-cX3" userLabel="Logo Container">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="KGS-6D-8Qu">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoLightMode" translatesAutoresizingMaskIntoConstraints="NO" id="KGS-6D-8Qu">
                                         <rect key="frame" x="92.5" y="261.5" width="229" height="229"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KGS-6D-8Qu" secondAttribute="height" multiplier="1:1" id="8Sj-qV-mg4"/>
@@ -340,6 +340,7 @@
                         <outlet property="tabsButton" destination="K7o-WL-SC5" id="K5w-s3-8x3"/>
                         <outlet property="toolbar" destination="Krm-hA-s9u" id="JHv-PZ-ILs"/>
                         <outlet property="toolbarBottom" destination="UsQ-i7-pjr" id="nwd-gZ-QEh"/>
+                        <outlet property="totalBottleCounterImage" destination="cDq-ij-KwB" id="iDD-Ut-6hM"/>
                         <outlet property="totalBottleLabel" destination="62x-iW-vBO" id="wNp-DF-op5"/>
                         <segue destination="Lcg-P1-w26" kind="presentation" identifier="instructions" modalPresentationStyle="overCurrentContext" id="vjb-jn-qZe"/>
                         <segue destination="xj8-BF-A9c" kind="presentation" identifier="Settings" id="URp-Fv-PV5"/>
@@ -405,7 +406,7 @@
         <image name="Bookmarks" width="24" height="24"/>
         <image name="BrowseNext" width="24" height="24"/>
         <image name="BrowsePrevious" width="24" height="24"/>
-        <image name="Logo" width="459" height="87"/>
+        <image name="LogoLightMode" width="459" height="87"/>
         <image name="NewTab" width="24" height="24"/>
         <image name="SearchLoupeMini" width="23" height="23"/>
         <image name="SmallBottle" width="37" height="40.5"/>
