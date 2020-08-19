@@ -104,9 +104,9 @@ extension AuthenticationViewController: Themable {
         
         switch theme.currentImageSet {
         case .light:
-            logo?.image = UIImage(named: "LogoDarkText")
+            logo?.image = UIImage(named: "LogoLightMode")
         case .dark:
-            logo?.image = UIImage(named: "LogoLightText")
+            logo?.image = UIImage(named: "LogoDarkMode")
         }
     }
 }

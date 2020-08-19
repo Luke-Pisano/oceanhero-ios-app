@@ -23,7 +23,7 @@ import Core
 
 public struct UserText {
     
-    public static let appUnlock = NSLocalizedString("app.authentication.unlock", value: "Unlock DuckDuckGo", comment: "Unlock DuckDuckGo")
+    public static let appUnlock = NSLocalizedString("app.authentication.unlock", value: "Unlock OceanHero", comment: "Unlock DuckDuckGo")
     public static let searchDuckDuckGo = NSLocalizedString("search.hint.duckduckgo", value: "Search or enter address", comment: "Search or enter address")
     public static let webSaveBookmarkDone = NSLocalizedString("web.url.save.bookmark.done", value: "Bookmark saved", comment: "Bookmark saved")
     public static let webBookmarkAlreadySaved = NSLocalizedString("web.url.save.bookmark.exists", value: "Bookmark already saved", comment: "Bookmark already saved")

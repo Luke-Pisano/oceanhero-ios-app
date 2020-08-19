@@ -17,7 +17,7 @@
   limitations under the License.
 */
 
-"app.authentication.unlock" = "Unlock DuckDuckGo";
+"app.authentication.unlock" = "Unlock OceanHero";
 "search.hint.duckduckgo" = "Search or enter address";
 "web.url.save.bookmark.done" = "Bookmark saved";
 "web.url.save.bookmark.exists" = "Bookmark already saved";
