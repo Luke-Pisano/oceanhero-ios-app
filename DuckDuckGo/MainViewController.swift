@@ -22,6 +22,7 @@ import WebKit
 import Core
 import Lottie
 import Kingfisher
+import MatomoTracker
 
 // swiftlint:disable type_body_length
 // swiftlint:disable file_length
@@ -129,6 +130,8 @@ class MainViewController: UIViewController {
 
         smallBottleLabel.text = String(userBottleCounter)
         totalBottleLabel.text = "7,746,739"
+
+        MatomoTracker.shared.track(view: ["main-screen"])
     }
     
     #warning("Onboarding turned off")

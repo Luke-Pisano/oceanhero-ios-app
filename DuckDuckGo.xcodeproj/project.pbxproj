@@ -19,6 +19,9 @@
 		0317FE9924E427BE005F17A7 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0317FE8D24E427BD005F17A7 /* Roboto-Medium.ttf */; };
 		0317FE9A24E427BE005F17A7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0317FE8E24E427BE005F17A7 /* Roboto-Regular.ttf */; };
 		0317FE9B24E427BE005F17A7 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0317FE8F24E427BE005F17A7 /* Roboto-Thin.ttf */; };
+		038A156D24EBC52D00EB576D /* MatomoTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A156C24EBC52D00EB576D /* MatomoTracker.framework */; };
+		038A156E24EBC66700EB576D /* MatomoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A156A24EBC11700EB576D /* MatomoTracker.swift */; };
+		038A156F24EBC68400EB576D /* MatomoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A156A24EBC11700EB576D /* MatomoTracker.swift */; };
 		0A6CC0EF23904D5400E4F627 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A6CC0EE23904D5400E4F627 /* Settings.bundle */; };
 		1CB7B82123CEA1F800AA24EA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7B82023CEA1F800AA24EA /* DateExtension.swift */; };
 		1CB7B82323CEA28300AA24EA /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7B82223CEA28300AA24EA /* DateExtensionTests.swift */; };
@@ -641,6 +644,8 @@
 		0317FE8D24E427BD005F17A7 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		0317FE8E24E427BE005F17A7 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		0317FE8F24E427BE005F17A7 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		038A156A24EBC11700EB576D /* MatomoTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatomoTracker.swift; sourceTree = "<group>"; };
+		038A156C24EBC52D00EB576D /* MatomoTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MatomoTracker.framework; path = Carthage/Build/iOS/MatomoTracker.framework; sourceTree = "<group>"; };
 		03FEC7B024DD60BD002E12BE /* buddybuild_prebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = buddybuild_prebuild.sh; sourceTree = "<group>"; };
 		0A6CC0EE23904D5400E4F627 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		1CB7B82023CEA1F800AA24EA /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -1210,6 +1215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				038A156D24EBC52D00EB576D /* MatomoTracker.framework in Frameworks */,
 				85371D262121BA2800920548 /* Lottie.framework in Frameworks */,
 				F143C2EB1E4A4CD400CFDE3A /* Core.framework in Frameworks */,
 				F17BA43D1F1CD99800460FFA /* Device.framework in Frameworks */,
@@ -2092,6 +2098,7 @@
 				F1134EA91F3E2BA700B73467 /* Store */,
 				853A717520F62FE800FE60BC /* Pixel.swift */,
 				989CAC72239E5415005B3BA3 /* PixelCounter.swift */,
+				038A156A24EBC11700EB576D /* MatomoTracker.swift */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -2611,6 +2618,7 @@
 		F1AA545F1E48D90700223211 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				038A156C24EBC52D00EB576D /* MatomoTracker.framework */,
 				8537243F220C5BB3009D09CD /* Punycode.framework */,
 				85371D252121BA2800920548 /* Lottie.framework */,
 				8328AABA212ADAD100293140 /* CommonCrypto.framework */,
@@ -3487,6 +3495,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Lottie.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Punycode.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MatomoTracker.framework",
 			);
 			name = "Cathage Copy Frameworks";
 			outputPaths = (
@@ -3497,6 +3506,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Lottie.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CommonCrypto.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Punycode.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MatomoTracker.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3672,6 +3682,7 @@
 				8565A3431FC5995900239327 /* PrivacyProtectionTrackerNetworksController.swift in Sources */,
 				9872D205247DCAC100CEF398 /* TabPreviewsSource.swift in Sources */,
 				F130D73A1E5776C500C45811 /* OmniBarDelegate.swift in Sources */,
+				038A156E24EBC66700EB576D /* MatomoTracker.swift in Sources */,
 				984D035C24AE15CD0066CFB8 /* TabSwitcherSettings.swift in Sources */,
 				98B31292218CCB8C00E54DE1 /* AppDependencyProvider.swift in Sources */,
 				8540BBA22440857A00017FE4 /* PreserveLoginsWorker.swift in Sources */,
@@ -3895,6 +3906,7 @@
 				F14513571F46388F00710C46 /* SiteRating.swift in Sources */,
 				F159BDA71F0C073D00B4A01D /* WebCacheSummary.swift in Sources */,
 				8521FDEC238DA9E600A44CC3 /* TrackerDataManager.swift in Sources */,
+				038A156F24EBC68400EB576D /* MatomoTracker.swift in Sources */,
 				85C743902154E981005CF998 /* GradeCache.swift in Sources */,
 				85BA79911F6FF75000F59015 /* ContentBlockerStoreConstants.swift in Sources */,
 				85BDC3142434D8F80053DB07 /* DebugUserScript.swift in Sources */,
