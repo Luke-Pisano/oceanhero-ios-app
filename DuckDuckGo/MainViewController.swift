@@ -596,7 +596,7 @@ class MainViewController: UIViewController {
     }
     
     fileprivate func launchReportBrokenSite() {
-        performSegue(withIdentifier: "ReportBrokenSite", sender: self)
+        UIApplication.shared.open(AppUrls().feedback)
     }
     
     fileprivate func launchSettings() {
