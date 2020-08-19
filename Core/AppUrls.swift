@@ -51,6 +51,7 @@ public struct AppUrls {
 
         static let pixelBase = ProcessInfo.processInfo.environment["PIXEL_BASE_URL", default: "https://improving.duckduckgo.com"]
         static let pixel = "\(pixelBase)/t/%@_ios_%@"
+        static let feedbackPage = "https://forms.gle/iMgjqR6xCsfhtKpt5"
     }
 
     private struct Param {
@@ -98,7 +99,7 @@ public struct AppUrls {
     }
 
     public var feedback: URL {
-        return URL(string: Url.feedback)!
+        return URL(string: Url.feedbackPage)!
     }
 
     public var initialAtb: URL {

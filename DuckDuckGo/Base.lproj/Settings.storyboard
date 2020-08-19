@@ -327,9 +327,6 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
-                                        <connections>
-                                            <segue destination="Hvb-oi-0lX" kind="presentation" id="ufT-Pc-RCL"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
