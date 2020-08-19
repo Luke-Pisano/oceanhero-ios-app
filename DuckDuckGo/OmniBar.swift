@@ -150,6 +150,8 @@ class OmniBar: UIView {
         trackersAnimator.completeAnimations(in: self)
     }
 
+    #warning("Code commented out to show site rating all the time")
+
     fileprivate func refreshState(_ newState: OmniBarState) {
         if state.name != newState.name {
             os_log("OmniBar entering %s from %s", log: generalLog, type: .debug, newState.name, state.name)
@@ -161,7 +163,7 @@ class OmniBar: UIView {
         }
         
         if state.showSiteRating {
-            searchFieldContainer.revealSiteRatingView()
+            //searchFieldContainer.revealSiteRatingView()
         } else {
             searchFieldContainer.hideSiteRatingView()
         }
