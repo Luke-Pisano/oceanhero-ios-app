@@ -38,12 +38,12 @@ protocol HomePageSettings {
 
 class DefaultHomePageSettings: HomePageSettings {
 
-    @UserDefaultsWrapper(key: .layout, defaultValue: HomePageLayout.navigationBar.rawValue)
+    @UserDefaultsWrapper(key: .layout, defaultValue: HomePageLayout.centered.rawValue)
     var layoutRaw: Int
     
     var layout: HomePageLayout {
         get {
-            return HomePageLayout(rawValue: layoutRaw) ?? .navigationBar
+            return HomePageLayout(rawValue: layoutRaw) ?? .centered
         }
         
         set {

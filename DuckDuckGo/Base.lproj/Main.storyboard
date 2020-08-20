@@ -69,19 +69,6 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJw-WC-cX3" userLabel="Logo Container">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoLightMode" translatesAutoresizingMaskIntoConstraints="NO" id="KGS-6D-8Qu">
-                                        <rect key="frame" x="92.5" y="261.5" width="229" height="229"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="KGS-6D-8Qu" secondAttribute="height" multiplier="1:1" id="8Sj-qV-mg4"/>
-                                            <constraint firstAttribute="width" constant="229" id="cmA-xS-5w3"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="KGS-6D-8Qu" firstAttribute="centerX" secondItem="EJw-WC-cX3" secondAttribute="centerX" id="BOx-Fp-AoS"/>
-                                    <constraint firstItem="KGS-6D-8Qu" firstAttribute="centerY" secondItem="EJw-WC-cX3" secondAttribute="centerY" constant="-72" id="xSF-LC-mFj"/>
-                                </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ylj-oJ-fqD">
                                 <rect key="frame" x="0.0" y="96" width="414" height="722"/>

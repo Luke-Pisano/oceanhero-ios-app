@@ -110,6 +110,6 @@ extension CenteredSearchHomeCell: Themable {
         searchLoupe.tintColor = theme.barTintColor
         
         promptText.textColor = theme.searchBarTextPlaceholderColor
-        logoText.tintColor = theme.ddgTextTintColor
+        //logoText.tintColor = theme.ddgTextTintColor
     }
 }
