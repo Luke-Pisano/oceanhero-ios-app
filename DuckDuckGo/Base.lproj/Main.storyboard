@@ -38,7 +38,7 @@
                                 <rect key="frame" x="116.5" y="398" width="181.5" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7,374,384" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62x-iW-vBO">
-                                        <rect key="frame" x="0.0" y="32.5" width="135.5" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="32.5" width="135.5" height="35"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="30"/>
                                         <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -132,6 +132,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="C3T-24-oMr"/>
+                                    <barButtonItem title="Bookmarks" image="HomeButton" id="enY-1x-Lsh" userLabel="Home Button">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="Home"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="d6z-g6-mo7"/>
                                     <barButtonItem title="Bookmarks" image="Bookmarks" id="M7u-mw-fly">
                                         <userDefinedRuntimeAttributes>
@@ -328,6 +333,7 @@
                         <outlet property="findInPageBottomLayoutConstraint" destination="FWX-GD-c7o" id="sOR-Dj-VkC"/>
                         <outlet property="findInPageView" destination="yPc-P1-sCk" id="4A5-7s-6Cm"/>
                         <outlet property="forwardButton" destination="cUp-YP-aMf" id="7WB-lN-1AY"/>
+                        <outlet property="homeButton" destination="enY-1x-Lsh" id="lPf-gZ-vcA"/>
                         <outlet property="logo" destination="KGS-6D-8Qu" id="s74-lP-CUt"/>
                         <outlet property="logoContainer" destination="EJw-WC-cX3" id="XCK-NR-gCt"/>
                         <outlet property="navBarTop" destination="BrS-Dd-c0g" id="1ta-NK-q4L"/>
@@ -406,6 +412,7 @@
         <image name="Bookmarks" width="24" height="24"/>
         <image name="BrowseNext" width="24" height="24"/>
         <image name="BrowsePrevious" width="24" height="24"/>
+        <image name="HomeButton" width="22" height="21.333333969116211"/>
         <image name="LogoLightMode" width="459" height="87"/>
         <image name="NewTab" width="24" height="24"/>
         <image name="SearchLoupeMini" width="23" height="23"/>

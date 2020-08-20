@@ -119,6 +119,10 @@ class TabViewController: UIViewController {
         return webViewCanGoForward && !isError
     }
     
+    public var isHomePage: Bool {
+        return link?.url == nil
+    }
+    
     public var isError: Bool {
         return !error.isHidden
     }

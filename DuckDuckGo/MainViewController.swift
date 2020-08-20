@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var customNavigationBar: UIView!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var fireButton: UIBarButtonItem!
+    @IBOutlet weak var homeButton: UIBarButtonItem!
     @IBOutlet weak var bookmarksButton: UIBarButtonItem!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -94,6 +94,7 @@ class MainViewController: UIViewController {
     weak var tabSwitcherController: TabSwitcherViewController?
     let tabSwitcherButton = TabSwitcherButton()
     let gestureBookmarksButton = GestureToolbarButton()
+    let gestureHomeButton = GestureToolbarButton()
 
     fileprivate lazy var tabSwitcherTransition = TabSwitcherTransitionDelegate()
     var currentTab: TabViewController? {
@@ -116,6 +117,7 @@ class MainViewController: UIViewController {
         chromeManager.delegate = self
         initTabButton()
         initBookmarksButton()
+        initHomeButton()
         attachOmniBar()
         configureTabManager()
         loadInitialView()
@@ -251,6 +253,14 @@ class MainViewController: UIViewController {
         bookmarksButton.customView = gestureBookmarksButton
         bookmarksButton.isAccessibilityElement = true
         bookmarksButton.accessibilityTraits = .button
+    }
+    
+    private func initHomeButton() {
+        gestureHomeButton.delegate = self
+        gestureHomeButton.image = UIImage(named: "HomeButton")
+        homeButton.customView = gestureHomeButton
+        homeButton.isAccessibilityElement = true
+        homeButton.accessibilityTraits = .button
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -621,6 +631,7 @@ class MainViewController: UIViewController {
             // adjust frame to toolbar height change
             tabSwitcherButton.layoutSubviews()
             gestureBookmarksButton.layoutSubviews()
+            gestureHomeButton.layoutSubviews()
         }
     }
 
@@ -1135,11 +1146,25 @@ extension MainViewController: TabSwitcherButtonDelegate {
 extension MainViewController: GestureToolbarButtonDelegate {
     
     func singleTapDetected(in sender: GestureToolbarButton) {
-        Pixel.fire(pixel: .tabBarBookmarksPressed)
-        onBookmarksPressed()
+        switch sender {
+        case gestureHomeButton:
+            if currentTab?.isHomePage != nil {
+                newTab()
+            }
+        
+        case gestureBookmarksButton:
+            Pixel.fire(pixel: .tabBarBookmarksPressed)
+            onBookmarksPressed()
+        default:
+            break
+        }
     }
     
     func longPressDetected(in sender: GestureToolbarButton) {
+        guard sender.isEqual(gestureBookmarksButton) else {
+            return
+        }
+        
         UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         guard currentTab != nil else {
             view.showBottomToast(UserText.webSaveBookmarkNone)
@@ -1223,6 +1248,7 @@ extension MainViewController: Themable {
         
         tabSwitcherButton.decorate(with: theme)
         gestureBookmarksButton.decorate(with: theme)
+        gestureHomeButton.decorate(with: theme)
         tabsButton.tintColor = theme.barTintColor
         
         tabManager.decorate(with: theme)
