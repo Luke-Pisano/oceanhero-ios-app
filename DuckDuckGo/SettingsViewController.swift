@@ -75,7 +75,7 @@ class SettingsViewController: UITableViewController {
         
         configureAutoClearCellAccessory()
         configureRememberLogins()
-        configureHomePageCellAccessory()
+        //configureHomePageCellAccessory()
         //configureIconViews()
     }
 
