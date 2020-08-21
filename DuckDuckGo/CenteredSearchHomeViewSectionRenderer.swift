@@ -79,7 +79,7 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
         
     private func transitionFromColdStart() {
         DispatchQueue.main.async {
-            self.cell?.alpha = 0.0
+            //self.cell?.alpha = 0.0
             if let controller = self.controller?.parent,
                 let targetFrame = self.cell?.imageView.superview?.convert(self.cell?.imageView.frame ?? .zero, to: controller.view) {
                 let logo = UIImageView(image: UIImage(named: "LogoLightMode"))

@@ -27,10 +27,13 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var collectionView: HomeCollectionView!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var counterContainer: UIView!
     
     @IBOutlet weak var daxDialogContainer: UIView!
     @IBOutlet weak var daxDialogContainerHeight: NSLayoutConstraint!
     weak var daxDialogViewController: DaxDialogViewController?
+    
+    @IBOutlet weak var totalBottleLabel: UILabel!
     
     var logoContainer: UIView! {
         return delegate?.homeDidRequestLogoContainer(self)
@@ -56,6 +59,24 @@ class HomeViewController: UIViewController {
     private var viewHasAppeared = false
     private var defaultVerticalAlignConstant: CGFloat = 0
     
+    var userBottleCounter = 0
+    var startBottleCounter = 8291500
+    var currentBottleCounter = 8291500
+    var finishBottleCounter = 8291758
+
+    let serviceClient = ServiceClient()
+    let numberFormatter = NumberFormatter()
+    let animationTime = 1
+    var step = 0
+    var stepDuration = 0.05
+    
+    var stepsCount: Int {
+        return Int(Double(animationTime) / stepDuration)
+    }
+    
+    weak var timer: Timer?
+    weak var bottleTimer: Timer?
+    
     static func loadFromStoryboard() -> HomeViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {
@@ -72,6 +93,69 @@ class HomeViewController: UIViewController {
 
         configureCollectionView()
         applyTheme(ThemeManager.shared.currentTheme)
+        
+        oceanHeroSetup()
+        
+        bottleTimer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true, block: { [unowned self] _ in
+            self.checkBottleCount()
+        })
+    }
+    
+    func oceanHeroSetup() {
+        numberFormatter.groupingSeparator = ","
+        numberFormatter.usesGroupingSeparator = true
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+
+        totalBottleLabel.text = String(startBottleCounter)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if presentedViewController == nil { // prevents these being called when settings forces this controller to be reattached
+            //showNextDaxDialog()
+            Pixel.fire(pixel: .homeScreenShown)
+        }
+                
+        viewHasAppeared = true
+        startTotalCounterAnimation()
+        checkBottleCount()
+    }
+    
+    func checkBottleCount() {
+        serviceClient.getCurrentBottleCount { [unowned self] bottleCount in
+            self.finishBottleCounter = bottleCount / 5
+            self.startBottleCounter = self.currentBottleCounter
+            print(self.startBottleCounter, self.currentBottleCounter, self.finishBottleCounter)
+
+            self.startTotalCounterAnimation()
+        }
+    }
+    
+    func increaseBottleCounter() {
+        userBottleCounter += 1
+        //smallBottleLabel.text = String(userBottleCounter)
+    }
+    
+    func startTotalCounterAnimation() {
+        self.timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: stepDuration, repeats: true) { [unowned self] _ in
+            guard self.currentBottleCounter < self.finishBottleCounter else {
+                self.currentBottleCounter = self.finishBottleCounter
+                self.timer?.invalidate()
+                return
+            }
+            
+            var incrementation = (self.finishBottleCounter - self.startBottleCounter ) / self.stepsCount
+            
+            if incrementation == 0 {
+                incrementation = 1
+            }
+            
+            self.totalBottleLabel.text = self.numberFormatter.string(from: NSNumber(value: self.currentBottleCounter))
+            self.currentBottleCounter += incrementation
+        }
     }
     
     func configureCollectionView() {
@@ -117,17 +201,6 @@ class HomeViewController: UIViewController {
     
     @IBAction func launchSettings() {
         delegate?.showSettings(self)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if presentedViewController == nil { // prevents these being called when settings forces this controller to be reattached
-            //showNextDaxDialog()
-            Pixel.fire(pixel: .homeScreenShown)
-        }
-                
-        viewHasAppeared = true
     }
     
     var isShowingDax: Bool {

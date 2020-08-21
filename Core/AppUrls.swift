@@ -52,6 +52,8 @@ public struct AppUrls {
         static let pixelBase = ProcessInfo.processInfo.environment["PIXEL_BASE_URL", default: "https://improving.duckduckgo.com"]
         static let pixel = "\(pixelBase)/t/%@_ios_%@"
         static let feedbackPage = "https://forms.gle/iMgjqR6xCsfhtKpt5"
+        
+        static let counterAPICall = "https://oceanhero.today/api/counter"
     }
 
     private struct Param {
@@ -152,6 +154,10 @@ public struct AppUrls {
     public func exti(forAtb atb: String) -> URL {
         let extiUrl = URL(string: Url.exti)!
         return extiUrl.addParam(name: Param.atb, value: atb)
+    }
+    
+    public var counterAPICall: String {
+        return Url.counterAPICall
     }
 
     /**

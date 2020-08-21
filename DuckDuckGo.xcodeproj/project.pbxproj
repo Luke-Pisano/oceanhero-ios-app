@@ -22,6 +22,8 @@
 		038A156D24EBC52D00EB576D /* MatomoTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A156C24EBC52D00EB576D /* MatomoTracker.framework */; };
 		038A156E24EBC66700EB576D /* MatomoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A156A24EBC11700EB576D /* MatomoTracker.swift */; };
 		038A156F24EBC68400EB576D /* MatomoTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A156A24EBC11700EB576D /* MatomoTracker.swift */; };
+		038A157224EBE03D00EB576D /* ServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A157124EBE03D00EB576D /* ServiceClient.swift */; };
+		038A157324EBE17A00EB576D /* ServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A157124EBE03D00EB576D /* ServiceClient.swift */; };
 		0A6CC0EF23904D5400E4F627 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A6CC0EE23904D5400E4F627 /* Settings.bundle */; };
 		1CB7B82123CEA1F800AA24EA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7B82023CEA1F800AA24EA /* DateExtension.swift */; };
 		1CB7B82323CEA28300AA24EA /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7B82223CEA28300AA24EA /* DateExtensionTests.swift */; };
@@ -646,6 +648,7 @@
 		0317FE8F24E427BE005F17A7 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		038A156A24EBC11700EB576D /* MatomoTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatomoTracker.swift; sourceTree = "<group>"; };
 		038A156C24EBC52D00EB576D /* MatomoTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MatomoTracker.framework; path = Carthage/Build/iOS/MatomoTracker.framework; sourceTree = "<group>"; };
+		038A157124EBE03D00EB576D /* ServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClient.swift; sourceTree = "<group>"; };
 		03FEC7B024DD60BD002E12BE /* buddybuild_prebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = buddybuild_prebuild.sh; sourceTree = "<group>"; };
 		0A6CC0EE23904D5400E4F627 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		1CB7B82023CEA1F800AA24EA /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -1264,6 +1267,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		038A157024EBE03100EB576D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				038A157124EBE03D00EB576D /* ServiceClient.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		830FA79B1F8E81FB00FCE105 /* ContentBlocker */ = {
 			isa = PBXGroup;
 			children = (
@@ -2325,6 +2336,7 @@
 		F143C2E51E4A4CD400CFDE3A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				038A157024EBE03100EB576D /* Service */,
 				F11E23051ED33D8B00523BC9 /* API */,
 				F1CE42A71ECA0A520074A8DF /* Bookmarks */,
 				837774491F8E1ECE00E17A29 /* ContentBlocker */,
@@ -3627,6 +3639,7 @@
 				F14513551F45FBFD00710C46 /* SiteRatingView.swift in Sources */,
 				8C4724502217A14B004C9B2D /* TabViewControllerLongPressBookmarkExtension.swift in Sources */,
 				980891A72237D5D800313A70 /* FeedbackPresenter.swift in Sources */,
+				038A157324EBE17A00EB576D /* ServiceClient.swift in Sources */,
 				85F1E9AC1FB49C0F00A75AC1 /* DisplayableCertificateBuilder.swift in Sources */,
 				989B337522D7EF2100437824 /* EmptyCollectionReusableView.swift in Sources */,
 				8524CC94246C5C8900E59D45 /* DaxDialogViewController.swift in Sources */,
@@ -3879,6 +3892,7 @@
 				8328AAB9212A3DF200293140 /* BloomFilterWrapper.mm in Sources */,
 				98982B3422F8D8E400578AC9 /* Debounce.swift in Sources */,
 				F143C3291E4A9A0E00CFDE3A /* URLExtension.swift in Sources */,
+				038A157224EBE03D00EB576D /* ServiceClient.swift in Sources */,
 				F143C3271E4A9A0E00CFDE3A /* Logging.swift in Sources */,
 				855D914F206563A000C4B448 /* TLD.swift in Sources */,
 				85267D2521513FC700A0CE28 /* EntityMapping.swift in Sources */,
