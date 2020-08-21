@@ -699,12 +699,14 @@ class MainViewController: UIViewController {
 
         toolbar.setItems(newItems, animated: false)
     }
+    
+    #warning("Commented out to prevent focus on search when opening new tab")
 
     func newTab() {
         currentTab?.dismiss()
         tabManager.addHomeTab()
         attachHomeScreen()
-        homeController?.openedAsNewTab()
+        //homeController?.openedAsNewTab()
     }
     
     func updateFindInPage() {
