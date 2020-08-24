@@ -46,7 +46,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var navBarTop: NSLayoutConstraint!
     @IBOutlet weak var toolbarBottom: NSLayoutConstraint!
     @IBOutlet weak var containerViewTop: NSLayoutConstraint!
-    @IBOutlet weak var smallBottleLabel: UILabel!
     @IBOutlet weak var totalBottleLabel: UILabel!
 
     @IBOutlet weak var notificationContainer: UIView!
@@ -438,6 +437,7 @@ class MainViewController: UIViewController {
     }
 
     fileprivate func loadQuery(_ query: String) {
+        increaseBottleCounter()
         let queryUrl = appUrls.url(forQuery: query)
         loadUrl(queryUrl)
     }
@@ -713,6 +713,10 @@ class MainViewController: UIViewController {
         currentTab?.findInPage?.delegate = self
         findInPageView.update(with: currentTab?.findInPage, updateTextField: true)
     }
+    
+    func increaseBottleCounter() {
+        appSettings.individualBottleCounter += 1
+    }
 }
 
 extension MainViewController: FindInPageDelegate {
@@ -815,7 +819,6 @@ extension MainViewController: OmniBarDelegate {
         dismissFavoritesOverlay()
         dismissAutcompleteSuggestions()
         showHomeRowReminder()
-        //increaseBottleCounter()
     }
 
     func onSiteRatingPressed() {
@@ -858,6 +861,7 @@ extension MainViewController: OmniBarDelegate {
     }
     
     func onRefreshPressed() {
+        increaseBottleCounter()
         currentTab?.refresh()
     }
     

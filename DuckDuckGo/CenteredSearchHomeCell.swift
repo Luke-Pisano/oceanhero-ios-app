@@ -41,6 +41,7 @@ class CenteredSearchHomeCell: UICollectionViewCell {
     @IBOutlet weak var searchLoupeLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var promptText: UILabel!
     @IBOutlet weak var searchLoupe: UIImageView!
+    @IBOutlet weak var totalBottleLabel: UILabel!
     
     private lazy var tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
 

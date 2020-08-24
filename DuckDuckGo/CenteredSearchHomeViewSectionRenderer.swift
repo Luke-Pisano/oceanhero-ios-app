@@ -24,6 +24,8 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
     
     struct Constants {
         
+        static let bottleCouterHeight: CGFloat = 40
+        static let bottleCouterTopMargin: CGFloat = 15
         static let searchCenterOffset: CGFloat = 50
         static let scrollUpAdjustment: CGFloat = 46
         
@@ -133,9 +135,11 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
 
         let targetHeight = (scrollView.frame.height / heightRatio) - searchCenterOffset
         let y = scrollView.contentOffset.y
-
-        let diff = targetHeight - y - offsetY
-
+        
+        let diff = targetHeight - y - offsetY - (Constants.bottleCouterHeight + Constants.bottleCouterTopMargin)
+        
+        controller?.scrollViewOffset = y + scrollView.contentInset.top
+        
         guard diff < offsetY else {
             // search bar is in the center
             controller?.searchHeaderTransition = 0.0
@@ -168,7 +172,7 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
         
         var offset = controller.collectionView.contentOffset
         let omniBarBottomSpacing = controller.chromeDelegate?.omniBar.textFieldBottomSpacing ?? 0
-        offset.y = (cell?.bounds.height ?? 0) + overflowOffset + omniBarBottomSpacing
+        offset.y = (cell?.bounds.height ?? 0) + overflowOffset + omniBarBottomSpacing - (Constants.bottleCouterHeight + Constants.bottleCouterTopMargin)
         controller.collectionView.setContentOffset(offset, animated: true)
         controller.chromeDelegate?.omniBar.becomeFirstResponder()
     }

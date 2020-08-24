@@ -21,19 +21,20 @@ import UIKit
 import Core
 
 class HomeViewController: UIViewController {
-    
     @IBOutlet weak var ctaContainerBottom: NSLayoutConstraint!
     @IBOutlet weak var ctaContainer: UIView!
 
     @IBOutlet weak var collectionView: HomeCollectionView!
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var counterContainer: UIView!
     
     @IBOutlet weak var daxDialogContainer: UIView!
     @IBOutlet weak var daxDialogContainerHeight: NSLayoutConstraint!
     weak var daxDialogViewController: DaxDialogViewController?
     
-    @IBOutlet weak var totalBottleLabel: UILabel!
+    @IBOutlet weak var individualBottleCounterView: IndividualBottleCounterView!
+    @IBOutlet weak var settingButtonContainerTop: NSLayoutConstraint!
+    
+    fileprivate lazy var appSettings: AppSettings = AppUserDefaults()
     
     var logoContainer: UIView! {
         return delegate?.homeDidRequestLogoContainer(self)
@@ -50,6 +51,12 @@ class HomeViewController: UIViewController {
             
             delegate?.home(self, searchTransitionUpdated: percent)
             chromeDelegate?.omniBar.alpha = percent
+        }
+    }
+    
+    var scrollViewOffset: CGFloat = 0.0 {
+        didSet {
+            settingButtonContainerTop.constant = -scrollViewOffset
         }
     }
     
@@ -106,7 +113,7 @@ class HomeViewController: UIViewController {
         numberFormatter.usesGroupingSeparator = true
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
 
-        totalBottleLabel.text = String(startBottleCounter)
+        updateTotalBottle(value: String(startBottleCounter))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -120,6 +127,11 @@ class HomeViewController: UIViewController {
         viewHasAppeared = true
         startTotalCounterAnimation()
         checkBottleCount()
+        updateIndividualBottleCount()
+    }
+    
+    private func updateIndividualBottleCount() {
+        individualBottleCounterView.smallBottleLabel.text = String(appSettings.individualBottleCounter)
     }
     
     func checkBottleCount() {
@@ -130,11 +142,6 @@ class HomeViewController: UIViewController {
 
             self.startTotalCounterAnimation()
         }
-    }
-    
-    func increaseBottleCounter() {
-        userBottleCounter += 1
-        //smallBottleLabel.text = String(userBottleCounter)
     }
     
     func startTotalCounterAnimation() {
@@ -153,8 +160,21 @@ class HomeViewController: UIViewController {
                 incrementation = 1
             }
             
-            self.totalBottleLabel.text = self.numberFormatter.string(from: NSNumber(value: self.currentBottleCounter))
+            if let value = self.numberFormatter.string(from: NSNumber(value: self.currentBottleCounter)) {
+                self.updateTotalBottle(value: value)
+            }
+            
             self.currentBottleCounter += incrementation
+        }
+    }
+    
+    private func updateTotalBottle(value: String) {
+        collectionView.visibleCells.forEach { cell in
+            guard let centeredSearchHomeCell = cell as? CenteredSearchHomeCell else {
+                return
+            }
+            
+            centeredSearchHomeCell.totalBottleLabel.text = value
         }
     }
     
@@ -301,6 +321,8 @@ extension HomeViewController: Themable {
 
     func decorate(with theme: Theme) {
         collectionView.decorate(with: theme)
+        
         settingsButton.tintColor = theme.barTintColor
+        individualBottleCounterView.smallBottleLabel.textColor = theme.individualBottleCounterTextColor
     }
 }

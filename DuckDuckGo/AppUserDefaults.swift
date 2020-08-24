@@ -44,6 +44,8 @@ public class AppUserDefaults: AppSettings {
         static let notificationsEnabled = "com.duckduckgo.app.notificationsEnabled"
         static let allowUniversalLinks = "com.duckduckgo.app.allowUniversalLinks"
         static let longPressPreviews = "com.duckduckgo.app.longPressPreviews"
+        
+        static let individualBottleCounter = "com.duckduckgo.app.individualBottleCounter"
     }
 
     private var userDefaults: UserDefaults? {
@@ -64,6 +66,16 @@ public class AppUserDefaults: AppSettings {
             userDefaults?.setValue(newValue, forKey: Keys.autocompleteKey)
         }
 
+    }
+    
+    public var individualBottleCounter: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: Keys.individualBottleCounter)
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Keys.individualBottleCounter)
+            UserDefaults.standard.synchronize()
+        }
     }
     
     var currentThemeName: ThemeName {

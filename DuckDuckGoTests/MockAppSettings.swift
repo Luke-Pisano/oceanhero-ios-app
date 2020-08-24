@@ -20,7 +20,7 @@
 import Foundation
 
 class MockAppSettings: AppSettings {
-    
+    var individualBottleCounter: Int = 0
     var autocomplete: Bool = true
     var currentThemeName: ThemeName = ThemeName.dark
     var autoClearTiming: AutoClearSettingsModel.Timing = .termination

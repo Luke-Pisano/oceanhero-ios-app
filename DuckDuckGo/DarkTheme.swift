@@ -100,5 +100,6 @@ struct DarkTheme: Theme {
 
     var daxDialogBackgroundColor: UIColor = .nearlyBlackLight
     var daxDialogTextColor: UIColor = UIColor.nearlyWhite
-
+    
+    var individualBottleCounterTextColor: UIColor = UIColor.white
 }
