@@ -56,7 +56,8 @@ class HomeViewController: UIViewController {
     
     var scrollViewOffset: CGFloat = 0.0 {
         didSet {
-            settingButtonContainerTop.constant = -scrollViewOffset
+            print("scrollViewOffset: \(scrollViewOffset)")
+            settingButtonContainerTop.constant = -scrollViewOffset + 9.0
         }
     }
     
