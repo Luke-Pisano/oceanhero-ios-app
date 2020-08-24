@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Today View Controller-->
         <scene sceneID="cwh-vc-ff4">
             <objects>
-                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="QuickActionsTodayExtension" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="OceanHero_Shortcuts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
                                         <rect key="frame" x="8" y="90" width="304" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPI-Ro-ISr">
-                                                <rect key="frame" x="0.0" y="0.0" width="148" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="lHR-XP-OIi"/>
@@ -77,27 +77,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onBookmarksTapped:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="XeF-3h-r1P"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCS-jj-Eib">
-                                                <rect key="frame" x="156" y="0.0" width="148" height="44"/>
-                                                <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="WOh-ph-wGJ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <inset key="contentEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Clear Data" image="WidgetFire">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onFireTapped:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="bLH-nB-ky1"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -125,7 +104,6 @@
                     <size key="freeformSize" width="320" height="150"/>
                     <connections>
                         <outlet property="bookmarksButton" destination="vPI-Ro-ISr" id="jo0-9f-Gum"/>
-                        <outlet property="clearDataButton" destination="jCS-jj-Eib" id="gD9-WL-vAg"/>
                         <outlet property="loupeIcon" destination="fPp-b5-bf9" id="kwb-64-vLK"/>
                         <outlet property="searchLabel" destination="1k2-q0-Mzn" id="HUY-qh-q8P"/>
                     </connections>
@@ -143,6 +121,5 @@
     <resources>
         <image name="SearchLoupe" width="24" height="24"/>
         <image name="WidgetBookmarks" width="18" height="18"/>
-        <image name="WidgetFire" width="18" height="18"/>
     </resources>
 </document>
