@@ -179,7 +179,6 @@
 		854757B124088EFE00C47837 /* PaddingHomeViewSectionRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854757B024088EFE00C47837 /* PaddingHomeViewSectionRenderer.swift */; };
 		85482D8D2462DCD100EDEDD1 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482D8C2462DCD100EDEDD1 /* ActionViewController.swift */; };
 		85482D902462DCD100EDEDD1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85482D8E2462DCD100EDEDD1 /* MainInterface.storyboard */; };
-		85482D942462DCD100EDEDD1 /* OpenAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 85482D882462DCD100EDEDD1 /* OpenAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		85482D992462F1C600EDEDD1 /* ActionIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85482D982462F1C600EDEDD1 /* ActionIcons.xcassets */; };
 		85514FFD2372DA0100DBC528 /* ios13-home-row.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 85514FFC2372DA0000DBC528 /* ios13-home-row.mp4 */; };
 		85519125247468580010FDD0 /* TrackerRadarIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85519124247468580010FDD0 /* TrackerRadarIntegrationTests.swift */; };
@@ -574,13 +573,6 @@
 			remoteGlobalIDString = 84E341911E2F7EFB00BDBA6F;
 			remoteInfo = DuckDuckGo;
 		};
-		85482D922462DCD100EDEDD1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 85482D872462DCD100EDEDD1;
-			remoteInfo = OpenAction;
-		};
 		85F21DB2210F5E32002631A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
@@ -604,7 +596,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				85482D942462DCD100EDEDD1 /* OpenAction.appex in Embed App Extensions */,
 				83491192217F491200610F35 /* OceanHero Bookmarks.appex in Embed App Extensions */,
 				8370943A2142C4C200A58838 /* OceanHero Shortcuts.appex in Embed App Extensions */,
 				8390447620BDCE10006461CD /* OceanHero.appex in Embed App Extensions */,
@@ -2964,7 +2955,6 @@
 				8390447520BDCE10006461CD /* PBXTargetDependency */,
 				837094392142C4C200A58838 /* PBXTargetDependency */,
 				83491191217F491200610F35 /* PBXTargetDependency */,
-				85482D932462DCD100EDEDD1 /* PBXTargetDependency */,
 			);
 			name = DuckDuckGo;
 			productName = DuckDuckGo;
@@ -4007,11 +3997,6 @@
 			isa = PBXTargetDependency;
 			target = 84E341911E2F7EFB00BDBA6F /* DuckDuckGo */;
 			targetProxy = 84E341A71E2F7EFB00BDBA6F /* PBXContainerItemProxy */;
-		};
-		85482D932462DCD100EDEDD1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 85482D872462DCD100EDEDD1 /* OpenAction */;
-			targetProxy = 85482D922462DCD100EDEDD1 /* PBXContainerItemProxy */;
 		};
 		85F21DB3210F5E32002631A6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
