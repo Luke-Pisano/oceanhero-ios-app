@@ -110,8 +110,4 @@ class HomeRowInstructionsViewController: UIViewController {
     @objc func playerDidFinishPlaying(note: NSNotification) {
         playButton.isHidden = false
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 }

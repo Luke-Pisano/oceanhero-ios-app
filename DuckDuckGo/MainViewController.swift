@@ -137,17 +137,6 @@ class MainViewController: UIViewController {
         
         //startOnboardingFlowIfNotSeenBefore()
     }
-
-    
-    //    func updateInterfaceToDarkLightMode() {
-    //        if self.traitCollection.userInterfaceStyle == .dark {
-    //            totalBottleLabel.textColor = UIColor.white
-    //            //logo.image = UIImage.init(named: "LogoDarkMode")
-    //        } else {
-    //            totalBottleLabel.textColor = UIColor.init(red: 33/255.0, green: 111/255.0, blue: 251/255.0, alpha: 1)
-    //            //logo.image = UIImage.init(named: "LogoLightMode")
-    //        }
-    //    }
     
     func startOnboardingFlowIfNotSeenBefore() {
         

@@ -98,10 +98,6 @@ class OnboardingHomeRowViewController: OnboardingContentViewController {
         HomeRowReminder().setShown()
         playButton.isHidden = false
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 }
 
 class VideoContainerView: UIView {
