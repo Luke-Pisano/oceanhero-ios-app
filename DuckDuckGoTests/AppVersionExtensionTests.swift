@@ -24,7 +24,7 @@ import XCTest
 class AppVersionExtensionTests: XCTestCase {
 
     struct Constants {
-        static let name = "DuckDuckGo"
+        static let name = "OceanHero"
         static let version = "2.0.4"
         static let build = "14"
     }
@@ -48,6 +48,6 @@ class AppVersionExtensionTests: XCTestCase {
         mockBundle.add(name: AppVersion.Keys.name, value: Constants.name)
         mockBundle.add(name: AppVersion.Keys.versionNumber, value: Constants.version)
         mockBundle.add(name: AppVersion.Keys.buildNumber, value: Constants.build)
-        XCTAssertEqual("DuckDuckGo 2.0.4.14", testee.localized)
+        XCTAssertEqual("OceanHero 2.0.4.14", testee.localized)
     }
 }

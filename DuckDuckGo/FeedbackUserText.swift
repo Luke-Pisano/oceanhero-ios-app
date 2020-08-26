@@ -142,10 +142,10 @@ extension UserText {
                                                                               comment: "")
     
     public static let ddgSearchIssuesEntry = NSLocalizedString("feedback.ddgSearch.entry",
-                                                               value: "DuckDuckGo search isn’t good enough",
+                                                               value: "OceanHero search isn’t good enough",
                                                                comment: "")
     public static let ddgSearchIssuesDescription = NSLocalizedString("feedback.ddgSearch.description",
-                                                                     value: "DuckDuckGo Search Issues",
+                                                                     value: "OceanHero Search Issues",
                                                                      comment: "")
     public static let ddgSearchIssuesCaption = NSLocalizedString("feedback.ddgSearch.caption",
                                                                  value: "Which search feature can we add or improve?",

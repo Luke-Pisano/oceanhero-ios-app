@@ -23,7 +23,7 @@ import Core
 
 public struct UserText {
     
-    public static let appUnlock = NSLocalizedString("app.authentication.unlock", value: "Unlock OceanHero", comment: "Unlock DuckDuckGo")
+    public static let appUnlock = NSLocalizedString("app.authentication.unlock", value: "Unlock OceanHero", comment: "Unlock OceanHero")
     public static let searchDuckDuckGo = NSLocalizedString("search.hint.duckduckgo", value: "Search or enter address", comment: "Search or enter address")
     public static let webSaveBookmarkDone = NSLocalizedString("web.url.save.bookmark.done", value: "Bookmark saved", comment: "Bookmark saved")
     public static let webBookmarkAlreadySaved = NSLocalizedString("web.url.save.bookmark.exists", value: "Bookmark already saved", comment: "Bookmark already saved")
@@ -134,10 +134,10 @@ public struct UserText {
     
     public static let unknownErrorOccurred = NSLocalizedString("unknown.error.occurred", value: "An unknown error occured", comment: "Unknown error occurred")
     
-    public static let homeRowReminderTitle = NSLocalizedString("home.row.reminder.title", value: "Take DuckDuckGo home", comment: "Home Row Reminder Title")
-    public static let homeRowReminderMessage = NSLocalizedString("home.row.reminder.message", value: "Add DuckDuckGo to your dock for easy access!", comment: "Home Row Reminder Message")
+    public static let homeRowReminderTitle = NSLocalizedString("home.row.reminder.title", value: "Take OceanHero home", comment: "Home Row Reminder Title")
+    public static let homeRowReminderMessage = NSLocalizedString("home.row.reminder.message", value: "Add OceanHero to your dock for easy access!", comment: "Home Row Reminder Message")
     
-    public static let homeRowOnboardingHeader = NSLocalizedString("home.row.onboarding.header", value: "Add DuckDuckGo to your home screen!", comment: "Home Row onboarding Header")
+    public static let homeRowOnboardingHeader = NSLocalizedString("home.row.onboarding.header", value: "Add OceanHero to your home screen!", comment: "Home Row onboarding Header")
     
     public static let feedbackSumbittedConfirmation = NSLocalizedString("feedback.submitted.confirmation", value: "Thank You! Feedback submitted.", comment: "Feedback submitted confirmation")
     
@@ -187,9 +187,9 @@ public struct UserText {
     public static let keyCommandOpenInNewTab = NSLocalizedString("keyCommandOpenInNewTab", value: "Open Link in New Tab", comment: "Open in new tab")
     public static let keyCommandOpenInNewBackgroundTab = NSLocalizedString("keyCommandOpenInNewBackgroundTab", value: "Open Link in Background", comment: "Open in background")
     
-    public static let contextualOnboardingSearchPrivately = NSLocalizedString("contextualOnboardingSearchPrivately", value: "Your searches are always private on DuckDuckGo.", comment: "Searching with DuckDuckGo means your searches are never tracked. Ever.")
+    public static let contextualOnboardingSearchPrivately = NSLocalizedString("contextualOnboardingSearchPrivately", value: "Your searches are always private on OceanHero.", comment: "Searching with OceanHero means your searches are never tracked. Ever.")
     public static let contextualOnboardingCustomizeTheme = NSLocalizedString("contextualOnboardingCustomizeTheme", value: "Want a different look? Try changing the theme!", comment: "Want a different look? Try changing current theme!")
-    public static let contextualOnboardingPrivacyGrade = NSLocalizedString("contextualOnboardingPrivacyGrade", value: "DuckDuckGo enhances your privacy as you browse. Tap the privacy grade icon to learn how.", comment: "DuckDuckGo enhances your privacy as you browse. Tap the privacy grade icon to learn how.")
+    public static let contextualOnboardingPrivacyGrade = NSLocalizedString("contextualOnboardingPrivacyGrade", value: "OceanHero enhances your privacy as you browse. Tap the privacy grade icon to learn how.", comment: "OceanHero enhances your privacy as you browse. Tap the privacy grade icon to learn how.")
     public static let contextualOnboardingFireButton = NSLocalizedString("contextualOnboardingFireButton", value: "Tap the flame icon to erase your tabs and browsing data, or make it automatic in settings.", comment: "Tap the flame icon to erase your tabs and browsing data, or make it automatic in settings.")
     
     public static let bookmarkAllTabsNotFound = NSLocalizedString("bookmarkAll.tabs.notfound", value: "No tabs to bookmark", comment: "No open tabs found to bookmark")
@@ -232,7 +232,7 @@ public struct UserText {
     
     public static let favorite = NSLocalizedString("favorite", value: "Favorite", comment: "Favorite")
     
-    public static let onboardingWelcomeHeader = NSLocalizedString("onboardingWelcomeHeader", value: "Welcome to DuckDuckGo!", comment: "Welcome to DuckDuckGo!")
+    public static let onboardingWelcomeHeader = NSLocalizedString("onboardingWelcomeHeader", value: "Welcome to OceanHero!", comment: "Welcome to OceanHero!")
     public static let onboardingContinue = NSLocalizedString("onboardingContinue", value: "Continue", comment: "Continue")
     public static let onboardingSkip = NSLocalizedString("onboardingSkip", value: "Skip", comment: "Skip")
     public static let onboardingStartBrowsing = NSLocalizedString("onboardingStartBrowsing", value: "Start Browsing", comment: "Start browsing")
@@ -260,7 +260,7 @@ public struct UserText {
     public static let daxDialogHomeInitial = NSLocalizedString("dax.onboarding.home.initial", value: "Next, try visiting one of your favorite sites!nnI’ll block trackers so they can’t spy on you. I’ll also upgrade the security of your connection if possible. 🔒", comment: "Next, try visiting one of your favorite sites!")
     public static let daxDialogHomeSubsequent = NSLocalizedString("dax.onboarding.home.subsequent", value: "You’ve got this!nnRemember: every time you browse with me a creepy ad loses its wings. 👍", comment: "You’ve got this!")
     
-    public static let daxDialogBrowsingAfterSearch = NSLocalizedString("dax.onboarding.browsing.after.search", value: "Your DuckDuckGo searches are anonymous and I never store your search history.  Ever. 🙌", comment: "Your DuckDuckGo searches are anonymous...")
+    public static let daxDialogBrowsingAfterSearch = NSLocalizedString("dax.onboarding.browsing.after.search", value: "Your OceanHero searches are anonymous and I never store your search history.  Ever. 🙌", comment: "Your OceanHero searches are anonymous...")
     public static let daxDialogBrowsingAfterSearchCTA = NSLocalizedString("dax.onboarding.browsing.after.search.cta", value: "Phew!", comment: "Phew!")
     
     public static let daxDialogBrowsingWithoutTrackers = NSLocalizedString("dax.onboarding.browsing.without.trackers", value: "As you tap and scroll, I’ll block pesky trackers.nnGo ahead - keep browsing!", comment: "As you tap and scroll, I'll block pesky trackers.")

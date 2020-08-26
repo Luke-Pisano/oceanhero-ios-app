@@ -125,15 +125,15 @@
 
 "unknown.error.occurred" = "An unknown error occured";
 
-"home.row.reminder.title" = "Take DuckDuckGo home";
-"home.row.reminder.message" = "Add DuckDuckGo to your dock for easy access!";
+"home.row.reminder.title" = "Take OceanHero home";
+"home.row.reminder.message" = "Add OceanHero to your dock for easy access!";
 
-"home.row.onboarding.header" = "Add DuckDuckGo to your home screen!";
+"home.row.onboarding.header" = "Add OceanHero to your home screen!";
 
 "feedback.submitted.confirmation" = "Thank You! Feedback submitted.";
 
 "prompt.custom.url.scheme.title" = "Open in Another App?";
-"prompt.custom.url.scheme.prompt" = "Would you like to leave DuckDuckGo to view this content?";
+"prompt.custom.url.scheme.prompt" = "Would you like to leave OceanHero to view this content?";
 "prompt.custom.url.scheme.open" = "Yes";
 "prompt.custom.url.scheme.dontopen" = "No";
 
@@ -175,9 +175,9 @@
 "keyCommandOpenInNewTab" = "Open Link in New Tab";
 "keyCommandOpenInNewBackgroundTab" = "Open Link in Background";
 
-"contextualOnboardingSearchPrivately" = "Your searches are always private on DuckDuckGo.";
+"contextualOnboardingSearchPrivately" = "Your searches are always private on OceanHero.";
 "contextualOnboardingCustomizeTheme" = "Want a different look? Try changing the theme!";
-"contextualOnboardingPrivacyGrade" = "DuckDuckGo enhances your privacy as you browse. Tap the privacy grade icon to learn how.";
+"contextualOnboardingPrivacyGrade" = "OceanHero enhances your privacy as you browse. Tap the privacy grade icon to learn how.";
 "contextualOnboardingFireButton" = "Tap the flame icon to erase your tabs and browsing data, or make it automatic in settings.";
 
 "bookmarkAll.tabs.notfound" = "No tabs to bookmark";
@@ -249,8 +249,8 @@
 "feedback.websiteLoading.form.urlPlaceholder" = "Which website has issues?";
 "feedback.websiteLoading.form.placeholder" = "What content seems to be affected?";
 
-"feedback.ddgSearch.entry" = "DuckDuckGo search isn’t good enough";
-"feedback.ddgSearch.description" = "DuckDuckGo Search Issues";
+"feedback.ddgSearch.entry" = "OceanHero search isn’t good enough";
+"feedback.ddgSearch.description" = "OceanHero Search Issues";
 "feedback.ddgSearch.caption" = "Which search feature can we add or improve?";
 "feedback.ddgSearch.technical" = "Programming/technical search";
 "feedback.ddgSearch.layout" = "The layout should be more like Google";
@@ -283,7 +283,7 @@
 
 "feedback.form.caption" = "Please tell us what we can improve";
 
-"onboardingWelcomeHeader" = "Welcome to DuckDuckGo!";
+"onboardingWelcomeHeader" = "Welcome to OceanHero!";
 "onboardingContinue" = "Continue";
 "onboardingSkip" = "Skip";
 "onboardingStartBrowsing" = "Start Browsing";
@@ -312,7 +312,7 @@
 
 "dax.onboarding.home.subsequent" = "You’ve got this!\n\nRemember: every time you browse with me a creepy ad loses its wings. 👍";
 
-"dax.onboarding.browsing.after.search" = "Your DuckDuckGo searches are anonymous and I never store your search history.  Ever. 🙌";
+"dax.onboarding.browsing.after.search" = "Your OceanHero searches are anonymous and I never store your search history.  Ever. 🙌";
 "dax.onboarding.browsing.after.search.cta" = "Phew!";
 
 "dax.onboarding.browsing.without.trackers" = "As you tap and scroll, I’ll block pesky trackers.\n\nGo ahead - keep browsing!";
