@@ -235,9 +235,15 @@ class HomeViewSectionRenderers: NSObject, UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = renderers[indexPath.section].collectionView(collectionView, cellForItemAt: indexPath)
+        
         if let themable = cell as? Themable {
             themable.decorate(with: theme)
         }
+        
+        if let centeredSearchHomeCell = cell as? CenteredSearchHomeCell {
+            controller.updateTotalBottle(for: centeredSearchHomeCell)
+        }
+        
         return cell
     }
     

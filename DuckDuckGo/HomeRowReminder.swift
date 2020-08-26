@@ -73,7 +73,12 @@ public class UserDefaultsHomeRowReminderStorage: HomeRowReminderStorage {
     }
 
     var firstAccessDate: Date? {
-
+        get {
+            if let interval = userDefaults.object(forKey: Keys.firstAccessDate) as? Double {
+                return Date(timeIntervalSince1970: interval)
+            }
+            return nil
+        }
         set {
             if let date = newValue {
                 userDefaults.set(date.timeIntervalSince1970, forKey: Keys.firstAccessDate)
@@ -81,26 +86,16 @@ public class UserDefaultsHomeRowReminderStorage: HomeRowReminderStorage {
                 userDefaults.removeObject(forKey: Keys.firstAccessDate)
             }
         }
-
-        get {
-            if let interval = userDefaults.object(forKey: Keys.firstAccessDate) as? Double {
-                return Date(timeIntervalSince1970: interval)
-            }
-            return nil
-        }
-
     }
 
     var shown: Bool {
-
-        set {
-            userDefaults.set(newValue, forKey: Keys.shown)
-        }
-
         get {
             return userDefaults.bool(forKey: Keys.shown)
         }
-
+        
+        set {
+            userDefaults.set(newValue, forKey: Keys.shown)
+        }
     }
 
     private let userDefaults: UserDefaults

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -150,16 +150,16 @@
                                                     <rect key="frame" x="0.0" y="247" width="342" height="40"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbG-TM-q2x">
-                                                            <rect key="frame" x="80.333333333333329" y="0.0" width="181.33333333333337" height="40"/>
+                                                            <rect key="frame" x="139.33333333333334" y="0.0" width="63.333333333333343" height="40"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7,374,384" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3p-vs-jgW">
-                                                                    <rect key="frame" x="0.0" y="2.3333333333333428" width="135.33333333333334" height="35.333333333333336"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3p-vs-jgW">
+                                                                    <rect key="frame" x="0.0" y="2.3333333333333428" width="17.333333333333332" height="35.333333333333336"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="30"/>
                                                                     <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmallBottle" translatesAutoresizingMaskIntoConstraints="NO" id="WDX-gx-Tn0">
-                                                                    <rect key="frame" x="145.33333333333331" y="0.0" width="36" height="40"/>
+                                                                    <rect key="frame" x="27.333333333333314" y="0.0" width="36" height="40"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="085-va-RtD"/>
                                                                         <constraint firstAttribute="width" constant="36" id="Tdy-QU-B87"/>

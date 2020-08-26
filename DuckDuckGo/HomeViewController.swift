@@ -35,6 +35,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var settingButtonContainerTop: NSLayoutConstraint!
     
     fileprivate lazy var appSettings: AppSettings = AppUserDefaults()
+    private lazy var bottleCounter: BottleCounter = BottleCounter()
     
     var logoContainer: UIView! {
         return delegate?.homeDidRequestLogoContainer(self)
@@ -56,7 +57,6 @@ class HomeViewController: UIViewController {
     
     var scrollViewOffset: CGFloat = 0.0 {
         didSet {
-            print("scrollViewOffset: \(scrollViewOffset)")
             settingButtonContainerTop.constant = -scrollViewOffset + 9.0
         }
     }
@@ -66,24 +66,8 @@ class HomeViewController: UIViewController {
     
     private var viewHasAppeared = false
     private var defaultVerticalAlignConstant: CGFloat = 0
-    
-    var userBottleCounter = 0
-    var startBottleCounter = 8291500
-    var currentBottleCounter = 8291500
-    var finishBottleCounter = 8291758
 
-    let serviceClient = ServiceClient()
     let numberFormatter = NumberFormatter()
-    let animationTime = 1
-    var step = 0
-    var stepDuration = 0.05
-    
-    var stepsCount: Int {
-        return Int(Double(animationTime) / stepDuration)
-    }
-    
-    weak var timer: Timer?
-    weak var bottleTimer: Timer?
     
     static func loadFromStoryboard() -> HomeViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
@@ -101,20 +85,7 @@ class HomeViewController: UIViewController {
 
         configureCollectionView()
         applyTheme(ThemeManager.shared.currentTheme)
-        
         oceanHeroSetup()
-        
-        bottleTimer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true, block: { [unowned self] _ in
-            self.checkBottleCount()
-        })
-    }
-    
-    func oceanHeroSetup() {
-        numberFormatter.groupingSeparator = ","
-        numberFormatter.usesGroupingSeparator = true
-        numberFormatter.numberStyle = NumberFormatter.Style.decimal
-
-        updateTotalBottle(value: String(startBottleCounter))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -124,50 +95,30 @@ class HomeViewController: UIViewController {
             //showNextDaxDialog()
             Pixel.fire(pixel: .homeScreenShown)
         }
+        
+        if viewHasAppeared {
+            bottleCounter.refresh()
+        }
                 
         viewHasAppeared = true
-        startTotalCounterAnimation()
-        checkBottleCount()
         updateIndividualBottleCount()
     }
+    
+    func oceanHeroSetup() {
+        bottleCounter.didUpdatedTotalBottle = { [weak self] value in
+            self?.updateTotalBottle(value: value)
+        }
+        
+        bottleCounter.start()
+    }
+    
+    // MARK: - Individual Bottle Counter
     
     private func updateIndividualBottleCount() {
         individualBottleCounterView.smallBottleLabel.text = String(appSettings.individualBottleCounter)
     }
     
-    func checkBottleCount() {
-        serviceClient.getCurrentBottleCount { [unowned self] bottleCount in
-            self.finishBottleCounter = bottleCount / 5
-            self.startBottleCounter = self.currentBottleCounter
-            print(self.startBottleCounter, self.currentBottleCounter, self.finishBottleCounter)
-
-            self.startTotalCounterAnimation()
-        }
-    }
-    
-    func startTotalCounterAnimation() {
-        self.timer?.invalidate()
-        
-        timer = Timer.scheduledTimer(withTimeInterval: stepDuration, repeats: true) { [unowned self] _ in
-            guard self.currentBottleCounter < self.finishBottleCounter else {
-                self.currentBottleCounter = self.finishBottleCounter
-                self.timer?.invalidate()
-                return
-            }
-            
-            var incrementation = (self.finishBottleCounter - self.startBottleCounter ) / self.stepsCount
-            
-            if incrementation == 0 {
-                incrementation = 1
-            }
-            
-            if let value = self.numberFormatter.string(from: NSNumber(value: self.currentBottleCounter)) {
-                self.updateTotalBottle(value: value)
-            }
-            
-            self.currentBottleCounter += incrementation
-        }
-    }
+    // MARK: - Bottle Counter
     
     private func updateTotalBottle(value: String) {
         collectionView.visibleCells.forEach { cell in
@@ -175,9 +126,19 @@ class HomeViewController: UIViewController {
                 return
             }
             
-            centeredSearchHomeCell.totalBottleLabel.text = value
+            updateTotalBottle(for: centeredSearchHomeCell, value: value)
         }
     }
+    
+    func updateTotalBottle(for cell: CenteredSearchHomeCell) {
+        updateTotalBottle(for: cell, value: bottleCounter.currentValue)
+    }
+    
+    private func updateTotalBottle(for cell: CenteredSearchHomeCell, value: String) {
+        cell.totalBottleLabel.text = value
+    }
+    
+    // MARK: - Other
     
     func configureCollectionView() {
         collectionView.configure(withController: self, andTheme: ThemeManager.shared.currentTheme)
@@ -194,8 +155,8 @@ class HomeViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: { _ in
-            self.collectionView.viewDidTransition(to: size)
+        coordinator.animate(alongsideTransition: { [weak self] _ in
+            self?.collectionView.viewDidTransition(to: size)
         })
     }
 
@@ -238,10 +199,10 @@ class HomeViewController: UIViewController {
         hideLogo()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            UIView.animate(withDuration: 0.4, animations: {
-                self.daxDialogContainer.alpha = 1.0
-            }, completion: { _ in
-                self.daxDialogViewController?.start()
+            UIView.animate(withDuration: 0.4, animations: { [weak self] in
+                self?.daxDialogContainer.alpha = 1.0
+            }, completion: { [weak self] _ in
+                self?.daxDialogViewController?.start()
             })
         }
 
@@ -267,8 +228,8 @@ class HomeViewController: UIViewController {
 
     @IBAction func hideKeyboard() {
         // without this the keyboard hides instantly and abruptly
-        UIView.animate(withDuration: 0.5) {
-            self.chromeDelegate?.omniBar.resignFirstResponder()
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.chromeDelegate?.omniBar.resignFirstResponder()
         }
     }
 
@@ -288,7 +249,7 @@ class HomeViewController: UIViewController {
         view.setNeedsUpdateConstraints()
 
         if viewHasAppeared {
-            UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
+            UIView.animate(withDuration: duration) { [weak self] in self?.view.layoutIfNeeded() }
         }
     }
 
@@ -297,6 +258,7 @@ class HomeViewController: UIViewController {
     }
 
     func dismiss() {
+        bottleCounter.stop()
         delegate = nil
         chromeDelegate = nil
         removeFromParent()

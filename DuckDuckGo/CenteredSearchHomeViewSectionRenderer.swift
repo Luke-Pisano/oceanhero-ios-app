@@ -172,7 +172,9 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
         
         var offset = controller.collectionView.contentOffset
         let omniBarBottomSpacing = controller.chromeDelegate?.omniBar.textFieldBottomSpacing ?? 0
-        offset.y = (cell?.bounds.height ?? 0) + overflowOffset + omniBarBottomSpacing - (Constants.bottleCouterHeight + Constants.bottleCouterTopMargin)
+        let bottleCounterY = Constants.bottleCouterHeight + Constants.bottleCouterTopMargin
+        
+        offset.y = (cell?.bounds.height ?? 0) + overflowOffset + omniBarBottomSpacing - bottleCounterY
         controller.collectionView.setContentOffset(offset, animated: true)
         controller.chromeDelegate?.omniBar.becomeFirstResponder()
     }

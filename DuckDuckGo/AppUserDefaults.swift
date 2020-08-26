@@ -46,6 +46,8 @@ public class AppUserDefaults: AppSettings {
         static let longPressPreviews = "com.duckduckgo.app.longPressPreviews"
         
         static let individualBottleCounter = "com.duckduckgo.app.individualBottleCounter"
+        static let currentBottleCounter = "com.duckduckgo.app.currentBottleCounter"
+        static let animationFromCurrentBottleCounterValue = "com.duckduckgo.app.animationFromCurrentBottleCounterValue"
     }
 
     private var userDefaults: UserDefaults? {
@@ -57,7 +59,6 @@ public class AppUserDefaults: AppSettings {
     }
 
     var autocomplete: Bool {
-
         get {
             return userDefaults?.bool(forKey: Keys.autocompleteKey, defaultValue: true) ?? true
         }
@@ -65,7 +66,16 @@ public class AppUserDefaults: AppSettings {
         set {
             userDefaults?.setValue(newValue, forKey: Keys.autocompleteKey)
         }
+    }
+    
+    var animationFromCurrentBottleCounterValue: Bool {
+        get {
+            return userDefaults?.bool(forKey: Keys.animationFromCurrentBottleCounterValue, defaultValue: true) ?? true
+        }
 
+        set {
+            userDefaults?.setValue(newValue, forKey: Keys.animationFromCurrentBottleCounterValue)
+        }
     }
     
     public var individualBottleCounter: Int {
@@ -74,6 +84,16 @@ public class AppUserDefaults: AppSettings {
         }
         set {
             UserDefaults.standard.setValue(newValue, forKey: Keys.individualBottleCounter)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    public var currentBottleCounter: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: Keys.currentBottleCounter)
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Keys.currentBottleCounter)
             UserDefaults.standard.synchronize()
         }
     }

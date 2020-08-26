@@ -138,7 +138,6 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
         //startOnboardingFlowIfNotSeenBefore()
         
         updateInterfaceToDarkLightMode()
@@ -371,7 +370,7 @@ class MainViewController: UIViewController {
         controller.delegate = self
 
         addToView(controller: controller)
-
+        
         refreshControls()
     }
 

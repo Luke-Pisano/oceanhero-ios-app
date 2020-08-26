@@ -20,6 +20,8 @@
 protocol AppSettings: AnyObject {
     var autocomplete: Bool { get set }
     var individualBottleCounter: Int { get set }
+    var currentBottleCounter: Int { get set }
+    var animationFromCurrentBottleCounterValue: Bool { get set }
     var currentThemeName: ThemeName { get set }
     
     var autoClearAction: AutoClearSettingsModel.Action { get set }
