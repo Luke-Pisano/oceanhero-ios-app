@@ -103,7 +103,7 @@ class TabViewGridCell: TabViewCell {
     }
     
     static let logoImage: UIImage = {
-        let image = UIImage(named: "Logo")!
+        let image = UIImage(named: "logoTab")!
         let renderFormat = UIGraphicsImageRendererFormat.default()
         renderFormat.opaque = false
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: Constants.cellLogoSize,
@@ -148,7 +148,7 @@ class TabViewGridCell: TabViewCell {
             self.preview.contentMode = .center
             
             title.text = UserText.homeTabTitle
-            favicon.image = UIImage(named: "Logo")
+            favicon.image = UIImage(named: "logoTab")
         } else {
             if let preview = preview {
                 self.updatePreviewToDisplay(image: preview)

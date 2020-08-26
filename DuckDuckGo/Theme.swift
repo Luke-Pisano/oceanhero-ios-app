@@ -109,4 +109,7 @@ protocol Theme {
     var daxDialogTextColor: UIColor { get }
     
     var individualBottleCounterTextColor: UIColor { get }
+    
+    var homeScreenTotalBottleLabelColor: UIColor { get }
+    var homeScreenLogoImage: UIImage { get }
 }

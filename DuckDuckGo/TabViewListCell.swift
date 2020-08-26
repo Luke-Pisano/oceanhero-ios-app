@@ -67,7 +67,7 @@ class TabViewListCell: TabViewCell {
             let linkText = homePageSettings.favorites ? UserText.homeTabSearchAndFavorites : UserText.homeTabSearchOnly
             title.text = UserText.homeTabTitle
             link.text = linkText
-            favicon.image = UIImage(named: "Logo")
+            favicon.image = UIImage(named: "logoTab")
         } else {
             removeButton.isHidden = false
             link.text = tab.link?.url.absoluteString ?? ""

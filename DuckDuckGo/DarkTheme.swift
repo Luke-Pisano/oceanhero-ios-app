@@ -102,4 +102,7 @@ struct DarkTheme: Theme {
     var daxDialogTextColor: UIColor = UIColor.nearlyWhite
     
     var individualBottleCounterTextColor: UIColor = UIColor.white
+    
+    var homeScreenTotalBottleLabelColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var homeScreenLogoImage: UIImage = #imageLiteral(resourceName: "LogoDarkMode")
 }

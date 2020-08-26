@@ -57,9 +57,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var findInPageBottomLayoutConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var logoContainer: UIView!
-    @IBOutlet weak var logo: UIImageView!
-    @IBOutlet weak var logoText: UIImageView!
-    @IBOutlet weak var totalBottleCounterImage: UIImageView!
 
     weak var notificationView: NotificationView?
 
@@ -139,23 +136,18 @@ class MainViewController: UIViewController {
         super.viewDidAppear(animated)
         
         //startOnboardingFlowIfNotSeenBefore()
-        
-        updateInterfaceToDarkLightMode()
     }
 
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        updateInterfaceToDarkLightMode()
-    }
     
-    func updateInterfaceToDarkLightMode() {
-        if self.traitCollection.userInterfaceStyle == .dark {
-            totalBottleLabel.textColor = UIColor.white
-            //logo.image = UIImage.init(named: "LogoDarkMode")
-        } else {
-            totalBottleLabel.textColor = UIColor.init(red: 33/255.0, green: 111/255.0, blue: 251/255.0, alpha: 1)
-            //logo.image = UIImage.init(named: "LogoLightMode")
-        }
-    }
+    //    func updateInterfaceToDarkLightMode() {
+    //        if self.traitCollection.userInterfaceStyle == .dark {
+    //            totalBottleLabel.textColor = UIColor.white
+    //            //logo.image = UIImage.init(named: "LogoDarkMode")
+    //        } else {
+    //            totalBottleLabel.textColor = UIColor.init(red: 33/255.0, green: 111/255.0, blue: 251/255.0, alpha: 1)
+    //            //logo.image = UIImage.init(named: "LogoLightMode")
+    //        }
+    //    }
     
     func startOnboardingFlowIfNotSeenBefore() {
         
@@ -304,8 +296,6 @@ class MainViewController: UIViewController {
             traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
             ThemeManager.shared.refreshSystemTheme()
         }
-        
-        updateInterfaceToDarkLightMode()
     }
 
     private func configureTabManager() {
@@ -355,8 +345,6 @@ class MainViewController: UIViewController {
 
     fileprivate func attachHomeScreen() {
         logoContainer.isHidden = false
-        totalBottleLabel.isHidden = false
-        totalBottleCounterImage.isHidden = false
         findInPageView.isHidden = true
         chromeManager.detach()
         
@@ -922,8 +910,6 @@ extension MainViewController: HomeControllerDelegate {
     
     func home(_ home: HomeViewController, didRequestHideLogo hidden: Bool) {
         logoContainer.isHidden = hidden
-        totalBottleLabel.isHidden = hidden
-        totalBottleCounterImage.isHidden = hidden
     }
     
     func homeDidRequestLogoContainer(_ home: HomeViewController) -> UIView {
