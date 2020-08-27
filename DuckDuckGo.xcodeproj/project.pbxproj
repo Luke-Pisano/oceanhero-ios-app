@@ -2883,7 +2883,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83491193217F491300610F35 /* Build configuration list for PBXNativeTarget "BookmarksTodayExtension" */;
 			buildPhases = (
-				6F1CE75E24F6879E00BB67BF /* Prevent Version Override */,
 				83491183217F491200610F35 /* Sources */,
 				83491184217F491200610F35 /* Frameworks */,
 				83491185217F491200610F35 /* Resources */,
@@ -2901,7 +2900,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8370943D2142C4C200A58838 /* Build configuration list for PBXNativeTarget "QuickActionsTodayExtension" */;
 			buildPhases = (
-				6F1CE75D24F6874E00BB67BF /* Prevent Version Override */,
 				8370942B2142C4C200A58838 /* Sources */,
 				8370942C2142C4C200A58838 /* Frameworks */,
 				8370942D2142C4C200A58838 /* Resources */,
@@ -2919,7 +2917,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8390447720BDCE10006461CD /* Build configuration list for PBXNativeTarget "ShareExtension" */;
 			buildPhases = (
-				6F1CE75F24F687A200BB67BF /* Prevent Version Override */,
 				8390446820BDCE10006461CD /* Sources */,
 				8390446920BDCE10006461CD /* Frameworks */,
 				8390446A20BDCE10006461CD /* Resources */,
@@ -2937,7 +2934,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84E341BA1E2F7EFC00BDBA6F /* Build configuration list for PBXNativeTarget "DuckDuckGo" */;
 			buildPhases = (
-				6F1CE76024F687A600BB67BF /* Prevent Version Override */,
 				84E3418E1E2F7EFB00BDBA6F /* Sources */,
 				8558AA7D20EE3CB200A346E9 /* Swift Lint */,
 				84E3418F1E2F7EFB00BDBA6F /* Frameworks */,
@@ -3063,7 +3059,7 @@
 						CreatedOnToolsVersion = 10.0;
 						DevelopmentTeam = TUYRJU635S;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -3074,7 +3070,7 @@
 						CreatedOnToolsVersion = 9.4.1;
 						DevelopmentTeam = TUYRJU635S;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -3085,13 +3081,13 @@
 						CreatedOnToolsVersion = 9.3.1;
 						DevelopmentTeam = TUYRJU635S;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					84E341911E2F7EFB00BDBA6F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = TUYRJU635S;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -3366,78 +3362,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6F1CE75D24F6874E00BB67BF /* Prevent Version Override */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Prevent Version Override";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SOURCE_ROOT/check_version.sh\"\n";
-		};
-		6F1CE75E24F6879E00BB67BF /* Prevent Version Override */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Prevent Version Override";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SOURCE_ROOT/check_version.sh\"\n";
-		};
-		6F1CE75F24F687A200BB67BF /* Prevent Version Override */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Prevent Version Override";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SOURCE_ROOT/check_version.sh\"\n";
-		};
-		6F1CE76024F687A600BB67BF /* Prevent Version Override */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Prevent Version Override";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SOURCE_ROOT/check_version.sh\"\n";
-		};
 		8558AA7D20EE3CB200A346E9 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4123,9 +4047,9 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = BookmarksTodayExtension/BookmarksTodayExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: Cezary Bielecki (TDK37U7BK8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Cezary Bielecki (TDK37U7BK8)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TUYRJU635S;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4141,6 +4065,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.BookmarksTodayExtension;
 				PRODUCT_NAME = "OceanHero Bookmarks";
+				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero bookmarks development";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4155,9 +4080,9 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = BookmarksTodayExtension/BookmarksTodayExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution: OceanHero GmbH (TUYRJU635S)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: OceanHero GmbH (TUYRJU635S)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TUYRJU635S;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4172,6 +4097,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.BookmarksTodayExtension;
 				PRODUCT_NAME = "OceanHero Bookmarks";
+				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero Bookmarks Ad Hoc";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4186,9 +4112,9 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = QuickActionsTodayExtension/QuickActionsTodayExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: Cezary Bielecki (TDK37U7BK8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Cezary Bielecki (TDK37U7BK8)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TUYRJU635S;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -4198,6 +4124,7 @@
 				MARKETING_VERSION = 7.49.10;
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.QuickActionsTodayExtension;
 				PRODUCT_NAME = "OceanHero Shortcuts";
+				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero quick actions development";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4212,9 +4139,9 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = QuickActionsTodayExtension/QuickActionsTodayExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution: OceanHero GmbH (TUYRJU635S)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: OceanHero GmbH (TUYRJU635S)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TUYRJU635S;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -4224,6 +4151,7 @@
 				MARKETING_VERSION = 7.49.10;
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.QuickActionsTodayExtension;
 				PRODUCT_NAME = "OceanHero Shortcuts";
+				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero QuickActionsTodayExtension Ad Hoc";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4237,9 +4165,9 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: Cezary Bielecki (TDK37U7BK8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Cezary Bielecki (TDK37U7BK8)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TUYRJU635S;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -4249,6 +4177,7 @@
 				MARKETING_VERSION = 7.49.10;
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.ShareExtension;
 				PRODUCT_NAME = OceanHero;
+				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero share extension Development";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4262,9 +4191,9 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution: DIGITAL FORMS SP. Z O.O. SP. K. (6WJV5F9M53)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: OceanHero GmbH (TUYRJU635S)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TUYRJU635S;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -4274,6 +4203,7 @@
 				MARKETING_VERSION = 7.49.10;
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.ShareExtension;
 				PRODUCT_NAME = OceanHero;
+				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero share extension Ad Hoc";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4401,8 +4331,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DuckDuckGo/DuckDuckGo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: Cezary Bielecki (TDK37U7BK8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: Cezary Bielecki (TDK37U7BK8)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TUYRJU635S;
@@ -4416,7 +4347,7 @@
 				MARKETING_VERSION = 7.49.10;
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero;
 				PRODUCT_NAME = OceanHero;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "OceanHero Development";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -4427,8 +4358,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DuckDuckGo/DuckDuckGo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Distribution: OceanHero GmbH (TUYRJU635S)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: OceanHero GmbH (TUYRJU635S)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TUYRJU635S;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4441,7 +4373,7 @@
 				MARKETING_VERSION = 7.49.10;
 				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero;
 				PRODUCT_NAME = OceanHero;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "OceanHero AdHoc";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
