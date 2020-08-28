@@ -92,7 +92,7 @@ class TabViewController: UIViewController {
     private var preserveLoginsWorker: PreserveLoginsWorker?
     
     private var trackersInfoWorkItem: DispatchWorkItem?
-    
+      
     public var url: URL? {
         didSet {
             updateTabModel()
@@ -150,6 +150,7 @@ class TabViewController: UIViewController {
         return activeLink.merge(with: storedLink)
     }
     
+    private var searchCounterUserScript = SearchCounterUserScript()
     private var faviconScript = FaviconUserScript()
     private var loginFormDetectionScript = LoginFormDetectionUserScript()
     private var contentBlockerScript = ContentBlockerUserScript()
@@ -191,33 +192,41 @@ class TabViewController: UIViewController {
     }
     
     func initUserScripts() {
+        searchCounterUserScript.didUpdateSearchCounter = { [weak self] value in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.delegate?.tabDidUpdateSearchCounter(tab: strongSelf, value: value)
+        }
         
-//        generalScripts = [
-//            debugScript,
-//            findInPageScript,
-//            contentBlockerScript,
-//            faviconScript
-//        ]
-//
-//        ddgScripts = [
-//            debugScript,
-//            findInPageScript
-//        ]
-//
-//        if #available(iOS 13, *) {
-//            if PreserveLogins.shared.loginDetectionEnabled {
-//                loginFormDetectionScript.delegate = self
-//                generalScripts.append(loginFormDetectionScript)
-//            }
-//        } else {
-//            generalScripts.append(documentScript)
-//            ddgScripts.append(documentScript)
-//        }
-//
-//        faviconScript.webView = webView
-//        debugScript.instrumentation = instrumentation
-//        contentBlockerScript.storageCache = storageCache
-//        contentBlockerScript.delegate = self
+        generalScripts = [
+            debugScript,
+            findInPageScript,
+            contentBlockerScript,
+            faviconScript,
+            searchCounterUserScript
+        ]
+
+        ddgScripts = [
+            debugScript,
+            findInPageScript
+        ]
+
+        if #available(iOS 13, *) {
+            if PreserveLogins.shared.loginDetectionEnabled {
+                loginFormDetectionScript.delegate = self
+                generalScripts.append(loginFormDetectionScript)
+            }
+        } else {
+            generalScripts.append(documentScript)
+            ddgScripts.append(documentScript)
+        }
+
+        faviconScript.webView = webView
+        debugScript.instrumentation = instrumentation
+        contentBlockerScript.storageCache = storageCache
+        contentBlockerScript.delegate = self
     }
     
     func updateTabModel() {
@@ -326,6 +335,7 @@ class TabViewController: UIViewController {
         self.url = url
         lastError = nil
         updateContentMode()
+        
         load(urlRequest: URLRequest(url: url))
     }
     
@@ -363,7 +373,7 @@ class TabViewController: UIViewController {
 
         case #keyPath(WKWebView.title):
             title = webView.title
-
+            
         default:
             os_log("Unhandled keyPath %s", log: generalLog, type: .debug, keyPath)
         }
@@ -486,13 +496,12 @@ class TabViewController: UIViewController {
         
         scripts.forEach { script in
             webView.configuration.userContentController.addUserScript(WKUserScript(source: script.source,
-                                                                                   injectionTime: script.injectionTime,
-                                                                                   forMainFrameOnly: script.forMainFrameOnly))
+            injectionTime: script.injectionTime,
+            forMainFrameOnly: script.forMainFrameOnly))
             
             script.messageNames.forEach { messageName in
                 webView.configuration.userContentController.add(script, name: messageName)
             }
-
         }
 
     }
@@ -808,6 +817,7 @@ extension TabViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+
         hideProgressIndicator()
         onWebpageDidFinishLoading()
         instrumentation.didLoadURL()
@@ -861,7 +871,7 @@ extension TabViewController: WKNavigationDelegate {
         tabModel.link = link
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         delegate?.tabLoadingStateDidChange(tab: self)
-     
+    
         //showDaxDialogOrStartTrackerNetworksAnimationIfNeeded()
     }
     

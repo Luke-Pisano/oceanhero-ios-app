@@ -413,7 +413,6 @@ class MainViewController: UIViewController {
     }
 
     fileprivate func loadQuery(_ query: String) {
-        increaseBottleCounter()
         let queryUrl = appUrls.url(forQuery: query)
         loadUrl(queryUrl)
     }
@@ -689,10 +688,6 @@ class MainViewController: UIViewController {
         currentTab?.findInPage?.delegate = self
         findInPageView.update(with: currentTab?.findInPage, updateTextField: true)
     }
-    
-    func increaseBottleCounter() {
-        appSettings.individualBottleCounter += 1
-    }
 }
 
 extension MainViewController: FindInPageDelegate {
@@ -837,7 +832,6 @@ extension MainViewController: OmniBarDelegate {
     }
     
     func onRefreshPressed() {
-        increaseBottleCounter()
         currentTab?.refresh()
     }
     
@@ -933,6 +927,10 @@ extension MainViewController: TabDelegate {
 
     func tabDidRequestClose(_ tab: TabViewController) {
         closeTab(tab.tabModel)
+    }
+    
+    func tabDidUpdateSearchCounter(tab: TabViewController, value: Int) {
+        appSettings.individualBottleCounter = value
     }
 
     func tabLoadingStateDidChange(tab: TabViewController) {
