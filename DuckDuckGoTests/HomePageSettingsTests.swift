@@ -29,8 +29,8 @@ class HomePageSettingsTests: XCTestCase {
         UserDefaults.standard.removeObject(forKey: UserDefaultsWrapper<String>.Key.favorites.rawValue)
     }
     
-    func testWhenNewThenDefaultLayoutIsNavigationBarAndFavoritesIsOn() {
-        XCTAssertEqual(DefaultHomePageSettings().layout, .navigationBar)
+    func testWhenNewThenDefaultLayoutIsCenteredAndFavoritesIsOn() {
+        XCTAssertEqual(DefaultHomePageSettings().layout, .centered)
         XCTAssertTrue(DefaultHomePageSettings().favorites)
     }
     

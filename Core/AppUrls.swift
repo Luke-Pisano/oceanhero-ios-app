@@ -129,16 +129,16 @@ public struct AppUrls {
 
     public func isDuckDuckGo(domain: String?) -> Bool {
         guard let domain = domain, let url = URL(string: "https://\(domain)") else { return false }
-        return isDuckDuckGo(url: url)
+        return isOceanHero(url: url)
     }
 
-    public func isDuckDuckGo(url: URL) -> Bool {
+    public func isOceanHero(url: URL) -> Bool {
         guard let searchHost = base.host else { return false }
         return url.isPart(ofDomain: searchHost)
     }
 
     public func searchQuery(fromUrl url: URL) -> String? {
-        if !isDuckDuckGo(url: url) {
+        if !isOceanHero(url: url) {
             return nil
         }
         return url.getParam(name: Param.search)
@@ -169,8 +169,8 @@ public struct AppUrls {
         return applyStatsParams(for: searchUrl)
     }
 
-    public func isDuckDuckGoSearch(url: URL) -> Bool {
-        if !isDuckDuckGo(url: url) { return false }
+    public func isOceanHeroSearch(url: URL) -> Bool {
+        if !isOceanHero(url: url) { return false }
         guard url.getParam(name: Param.search) != nil else { return false }
         return true
     }
@@ -215,7 +215,7 @@ public struct AppUrls {
     }
 
     public func removeATBAndSource(fromUrl url: URL) -> URL {
-        guard isDuckDuckGoSearch(url: url) else { return url }
+        guard isOceanHeroSearch(url: url) else { return url }
         return url.removeParam(name: Param.atb).removeParam(name: Param.source)
     }
 

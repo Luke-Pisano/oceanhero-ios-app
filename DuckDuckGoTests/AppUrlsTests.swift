@@ -56,7 +56,7 @@ class AppUrlsTests: XCTestCase {
 
     func testBaseUrlDoesNotHaveSubDomain() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
-        XCTAssertEqual(testee.base, URL(string: "https://duckduckgo.com"))
+        XCTAssertEqual(testee.base, URL(string: "https://oceanhero.today"))
     }
 
     func testWhenMobileStatsParamsAreAppliedThenTheyReturnAnUpdatedUrl() {
@@ -104,51 +104,51 @@ class AppUrlsTests: XCTestCase {
 
     func testWhenUrlIsDdgWithASearchParamThenIsSearchIsTrue() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
-        let result = testee.isDuckDuckGoSearch(url: URL(string: "http://duckduckgo.com?q=hello")!)
+        let result = testee.isOceanHeroSearch(url: URL(string: "http://oceanhero.today?q=hello")!)
         XCTAssertTrue(result)
     }
 
     func testWhenUrlHasNoSearchParamsThenIsSearchIsFalse() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
-        let result = testee.isDuckDuckGoSearch(url: URL(string: "http://duckduckgo.com?test=hello")!)
+        let result = testee.isOceanHeroSearch(url: URL(string: "http://duckduckgo.com?test=hello")!)
         XCTAssertFalse(result)
     }
 
     func testWhenUrlIsNonDdgThenIsSearchIsFalse() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
-        let result = testee.isDuckDuckGoSearch(url: URL(string: "http://www.example.com?q=hello")!)
+        let result = testee.isOceanHeroSearch(url: URL(string: "http://www.example.com?q=hello")!)
         XCTAssertFalse(result)
     }
 
     func testWhenNonDdgUrlHasDdgParamThenIsDdgIsFalse() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
-        let result = testee.isDuckDuckGo(url: URL(string: "http://www.example.com?x=duckduckgo.com")!)
+        let result = testee.isOceanHero(url: URL(string: "http://www.example.com?x=duckduckgo.com")!)
         XCTAssertFalse(result)
     }
 
     func testWhenDdgUrlIsHttpThenIsDddgIsTrue() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
-        let result = testee.isDuckDuckGo(url: URL(string: "http://duckduckgo.com")!)
+        let result = testee.isOceanHero(url: URL(string: "http://oceanhero.today")!)
         XCTAssertTrue(result)
     }
 
     func testWhenDdgUrlIsHttpsThenIsDddgIsTrue() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
-        let result = testee.isDuckDuckGo(url: URL(string: "https://duckduckgo.com")!)
+        let result = testee.isOceanHero(url: URL(string: "https://oceanhero.today")!)
         XCTAssertTrue(result)
     }
 
     func testWhenDdgUrlHasSubdomainThenIsDddgIsTrue() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
-        let result = testee.isDuckDuckGo(url: URL(string: "http://www.duckduckgo.com")!)
+        let result = testee.isOceanHero(url: URL(string: "http://oceanhero.today")!)
         XCTAssertTrue(result)
     }
 
     func testAutocompleteUrlCreatesCorrectUrlWithParams() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
         let actual = testee.autocompleteUrl(forText: "a term")
-        XCTAssertTrue(testee.isDuckDuckGo(url: actual))
-        XCTAssertEqual("/ac", actual.path)
+        XCTAssertTrue(testee.isOceanHero(url: actual))
+        XCTAssertEqual("/suggestions", actual.path)
         XCTAssertEqual("a term", actual.getParam(name: "q"))
     }
 
@@ -225,7 +225,7 @@ class AppUrlsTests: XCTestCase {
 
     func testWhenDdgUrlWithSearchParamThenSearchQueryReturned() {
         let testee = AppUrls(statisticsStore: mockStatisticsStore)
-        let url = URL(string: "https://www.duckduckgo.com/?ko=-1&kl=wt-wt&q=some%20search")!
+        let url = URL(string: "https://www.oceanhero.today/?ko=-1&kl=wt-wt&q=some%20search")!
         let expected = "some search"
         let actual = testee.searchQuery(fromUrl: url)
         XCTAssertEqual(actual, expected)

@@ -394,7 +394,7 @@ class TabViewController: UIViewController {
     }
     
     private func shouldReissueSearch(for url: URL) -> Bool {
-        return appUrls.isDuckDuckGoSearch(url: url) && !appUrls.hasCorrectMobileStatsParams(url: url)
+        return appUrls.isOceanHeroSearch(url: url) && !appUrls.hasCorrectMobileStatsParams(url: url)
     }
     
     private func reissueSearchWithStatsParams(for url: URL) {
@@ -478,7 +478,7 @@ class TabViewController: UIViewController {
         initUserScripts()
         
         let scripts: [UserScript]
-        if let url = url, appUrls.isDuckDuckGo(url: url) {
+        if let url = url, appUrls.isOceanHero(url: url) {
             scripts = ddgScripts
         } else {
             scripts = generalScripts
@@ -499,7 +499,7 @@ class TabViewController: UIViewController {
     
     private func isDuckDuckGoUrl() -> Bool {
         guard let url = url else { return false }
-        return appUrls.isDuckDuckGo(url: url)
+        return appUrls.isOceanHero(url: url)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -972,7 +972,7 @@ extension TabViewController: WKNavigationDelegate {
         
         decidePolicyFor(navigationAction: navigationAction) { [weak self] decision in
             if let url = navigationAction.request.url, decision != .cancel {
-                if let isDdg = self?.appUrls.isDuckDuckGoSearch(url: url), isDdg {
+                if let isDdg = self?.appUrls.isOceanHeroSearch(url: url), isDdg {
                     StatisticsLoader.shared.refreshSearchRetentionAtb()
                 }
                 

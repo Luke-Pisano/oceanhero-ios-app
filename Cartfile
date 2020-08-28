@@ -17,4 +17,4 @@ github "duckduckgo/lottie-ios" "tags/2.5.0"
 
 github "duckduckgo/PunycodeSwift" "master"
 
-github "matomo-org/matomo-sdk-ios" ~> v7.2.1
+github "matomo-org/matomo-sdk-ios" ~> 7.2.1

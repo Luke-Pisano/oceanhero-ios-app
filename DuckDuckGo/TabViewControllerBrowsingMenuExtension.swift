@@ -74,7 +74,7 @@ extension TabViewController {
     
     private func buildKeepSignInAction(forLink link: Link) -> UIAlertAction? {
         guard #available(iOS 13, *) else { return nil }
-        guard let domain = link.url.host, !appUrls.isDuckDuckGo(url: link.url) else { return nil }
+        guard let domain = link.url.host, !appUrls.isOceanHero(url: link.url) else { return nil }
         guard !PreserveLogins.shared.isAllowed(cookieDomain: domain) else { return nil }
         return UIAlertAction(title: UserText.preserveLoginsFireproofConfirm, style: .default) { [weak self] _ in
             self?.fireproofWebsite(domain: domain)

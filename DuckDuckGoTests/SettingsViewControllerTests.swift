@@ -58,27 +58,4 @@ class SettingsViewControllerTests: XCTestCase {
             XCTFail("Could not load Setting View Controller")
         }
     }
-
-    func testWhenOpeningSettingsThenThemeAccessoryIsSetBasedOnAppSettings() {
-        
-        let assertAccessoryLabel: (String) -> Void = { expected in
-            if let navController = SettingsViewController.loadFromStoryboard() as? UINavigationController,
-                let settingsController = navController.topViewController as? SettingsViewController {
-                settingsController.loadViewIfNeeded()
-                XCTAssertEqual(settingsController.themeAccessoryText.text, expected)
-            } else {
-                XCTFail("Could not load Setting View Controller")
-            }
-        }
-        
-        let settings = AppUserDefaults()
-        settings.currentThemeName = .dark
-        assertAccessoryLabel("Dark")
-        
-        settings.currentThemeName = .light
-        assertAccessoryLabel("Light")
-        
-        settings.currentThemeName = .systemDefault
-        assertAccessoryLabel("System")
-    }
 }

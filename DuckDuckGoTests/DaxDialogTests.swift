@@ -26,7 +26,7 @@ class DaxDialogTests: XCTestCase {
     struct URLs {
         
         static let example = URL(string: "https://www.example.com")!
-        static let ddg = URL(string: "https://duckduckgo.com?q=test")!
+        static let oh = URL(string: "https://oceanhero.today?q=test")!
         static let facebook = URL(string: "https://www.facebook.com")!
         static let google = URL(string: "https://www.google.com")!
         static let ownedByFacebook = URL(string: "https://www.instagram.com")!
@@ -90,7 +90,7 @@ class DaxDialogTests: XCTestCase {
     }
 
     func testWhenSearchShownThenNoTrackersIsShown() {
-        XCTAssertNotNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.ddg)))
+        XCTAssertNotNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.oh)))
         XCTAssertNotNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.example)))
     }
 
@@ -151,12 +151,12 @@ class DaxDialogTests: XCTestCase {
     }
     
     func testWhenSecondTimeOnSearchPageThenShowNothing() {
-        XCTAssertNotNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.ddg)))
-        XCTAssertNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.ddg)))
+        XCTAssertNotNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.oh)))
+        XCTAssertNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.oh)))
     }
     
     func testWhenFirstTimeOnSearchPageThenShowSearchPageMessage() {
-        XCTAssertEqual(DaxDialogs.BrowsingSpec.afterSearch, onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.ddg)))
+        XCTAssertEqual(DaxDialogs.BrowsingSpec.afterSearch, onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.oh)))
     }
 
     func testWhenDimissedThenShowNothing() {
@@ -167,14 +167,14 @@ class DaxDialogTests: XCTestCase {
     
     func testWhenThirdTimeOnHomeScreenAndAtLeastOneBrowsingDialogSeenThenShowNothing() {
         XCTAssertNotNil(onboarding.nextHomeScreenMessage())
-        XCTAssertNotNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.ddg)))
+        XCTAssertNotNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.oh)))
         XCTAssertEqual(DaxDialogs.HomeScreenSpec.subsequent, onboarding.nextHomeScreenMessage())
         XCTAssertNil(onboarding.nextHomeScreenMessage())
     }
 
     func testWhenSecondTimeOnHomeScreenAndAtLeastOneBrowsingDialogSeenThenShowSubsequentDialog() {
         XCTAssertNotNil(onboarding.nextHomeScreenMessage())
-        XCTAssertNotNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.ddg)))
+        XCTAssertNotNil(onboarding.nextBrowsingMessage(siteRating: SiteRating(url: URLs.oh)))
         XCTAssertEqual(DaxDialogs.HomeScreenSpec.subsequent, onboarding.nextHomeScreenMessage())
     }
 

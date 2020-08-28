@@ -139,7 +139,7 @@ class DaxDialogs {
         guard isEnabled else { return nil }
         guard let host = siteRating.domain else { return nil }
                 
-        if appUrls.isDuckDuckGoSearch(url: siteRating.url) {
+        if appUrls.isOceanHeroSearch(url: siteRating.url) {
             return searchMessage()
         }
         
