@@ -20,7 +20,8 @@
 import WebKit
 
 extension WKWebViewConfiguration {
-        
+    static let configuration = WKWebViewConfiguration()
+    
     public static func persistent() -> WKWebViewConfiguration {
         return configuration(persistsData: true)
     }
@@ -30,10 +31,13 @@ extension WKWebViewConfiguration {
     }
     
     private static func configuration(persistsData: Bool) -> WKWebViewConfiguration {
-        let configuration = WKWebViewConfiguration()
+        var configuration = self.configuration
+        
         if !persistsData {
+            configuration = WKWebViewConfiguration()
             configuration.websiteDataStore = WKWebsiteDataStore.nonPersistent()
         }
+        
         if #available(iOSApplicationExtension 10.0, *) {
             configuration.dataDetectorTypes = [.link, .phoneNumber]
         }
@@ -58,7 +62,7 @@ extension WKWebViewConfiguration {
           {
             "trigger": {
               "url-filter": ".*",
-              "if-domain": ["*duckduckgo.com"]
+              "if-domain": ["*oceanhero.today"]
             },
             "action": {
               "type": "css-display-none",

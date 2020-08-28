@@ -192,32 +192,32 @@ class TabViewController: UIViewController {
     
     func initUserScripts() {
         
-        generalScripts = [
-            debugScript,
-            findInPageScript,
-            contentBlockerScript,
-            faviconScript
-        ]
-        
-        ddgScripts = [
-            debugScript,
-            findInPageScript
-        ]
-        
-        if #available(iOS 13, *) {
-            if PreserveLogins.shared.loginDetectionEnabled {
-                loginFormDetectionScript.delegate = self
-                generalScripts.append(loginFormDetectionScript)
-            }
-        } else {
-            generalScripts.append(documentScript)
-            ddgScripts.append(documentScript)
-        }
-        
-        faviconScript.webView = webView
-        debugScript.instrumentation = instrumentation
-        contentBlockerScript.storageCache = storageCache
-        contentBlockerScript.delegate = self
+//        generalScripts = [
+//            debugScript,
+//            findInPageScript,
+//            contentBlockerScript,
+//            faviconScript
+//        ]
+//
+//        ddgScripts = [
+//            debugScript,
+//            findInPageScript
+//        ]
+//
+//        if #available(iOS 13, *) {
+//            if PreserveLogins.shared.loginDetectionEnabled {
+//                loginFormDetectionScript.delegate = self
+//                generalScripts.append(loginFormDetectionScript)
+//            }
+//        } else {
+//            generalScripts.append(documentScript)
+//            ddgScripts.append(documentScript)
+//        }
+//
+//        faviconScript.webView = webView
+//        debugScript.instrumentation = instrumentation
+//        contentBlockerScript.storageCache = storageCache
+//        contentBlockerScript.delegate = self
     }
     
     func updateTabModel() {

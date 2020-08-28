@@ -7126,6 +7126,22 @@
         },
         "class": "A"
     },
+    "oceanhero.today": {
+        "score": -100,
+        "all": {
+            "bad": [],
+            "good": [
+                "no tracking"
+            ]
+        },
+        "match": {
+            "bad": [],
+            "good": [
+                "no tracking"
+            ]
+        },
+        "class": "A"
+    },
     "duck.com": {
         "score": -100,
         "all": {
