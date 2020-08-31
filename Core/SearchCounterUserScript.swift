@@ -28,7 +28,10 @@ public class SearchCounterUserScript: NSObject, UserScript {
         switch message.name {
             
         case MessageNames.didUpdateSearchCounter:
-            guard let array = message.body as? [String: Any], let value = array["value"] as? Int else {
+            guard let array = message.body as? [String: Any],
+                let key = array["key"] as? String,
+                key == "searchCounter",
+                let value = array["value"] as? Int else {
                 return
             }
             
