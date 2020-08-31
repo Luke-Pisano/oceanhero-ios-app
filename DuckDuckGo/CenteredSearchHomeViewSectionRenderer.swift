@@ -77,19 +77,15 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
         
     }
     
-    #warning("Turned off for faster development, prepare a nice animation here after release")
-        
     private func transitionFromColdStart() {
         DispatchQueue.main.async {
-            //self.cell?.alpha = 0.0
             if let controller = self.controller?.parent,
                 let targetFrame = self.cell?.imageView.superview?.convert(self.cell?.imageView.frame ?? .zero, to: controller.view) {
                 let logo = UIImageView(image: UIImage(named: "LogoLightMode"))
 
                 logo.frame = targetFrame
                 logo.center = CGPoint(x: controller.view.center.x, y: controller.view.center.y + Constants.logoOffset)
-                //controller.view.addSubview(logo)
-
+    
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     UIView.animate(withDuration: 0.2, animations: {
                         logo.center = CGPoint(x: targetFrame.midX, y: targetFrame.midY)

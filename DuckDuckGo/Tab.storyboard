@@ -28,10 +28,6 @@
         <scene sceneID="AZu-6t-VLj">
             <objects>
                 <viewController storyboardIdentifier="TabViewController" id="Omk-JQ-4lU" customClass="TabViewController" customModule="OceanHero" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cfL-5d-Vrt"/>
-                        <viewControllerLayoutGuide type="bottom" id="KkU-8R-dtX"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sgm-Wo-lho">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,14 +114,14 @@
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="Kd4-Oi-JP2" firstAttribute="centerY" secondItem="t0t-53-xVf" secondAttribute="centerY" id="3qe-NM-ikO"/>
+                            <constraint firstItem="Kd4-Oi-JP2" firstAttribute="centerY" secondItem="Sgm-Wo-lho" secondAttribute="centerY" id="3qe-NM-ikO"/>
                             <constraint firstItem="Kd4-Oi-JP2" firstAttribute="width" secondItem="Sgm-Wo-lho" secondAttribute="width" id="WgD-oO-Ds7"/>
-                            <constraint firstItem="ypz-s2-KJB" firstAttribute="top" secondItem="cfL-5d-Vrt" secondAttribute="bottom" constant="-80" id="Zyh-vQ-fMz"/>
-                            <constraint firstAttribute="trailing" secondItem="ypz-s2-KJB" secondAttribute="trailing" id="bXU-Fx-c7D"/>
-                            <constraint firstItem="Kd4-Oi-JP2" firstAttribute="centerX" secondItem="t0t-53-xVf" secondAttribute="centerX" id="oFL-Ft-NQV"/>
-                            <constraint firstItem="ypz-s2-KJB" firstAttribute="leading" secondItem="Sgm-Wo-lho" secondAttribute="leading" id="ugB-DM-Oye"/>
+                            <constraint firstItem="ypz-s2-KJB" firstAttribute="top" secondItem="LE7-IF-0dH" secondAttribute="top" constant="-80" id="Zyh-vQ-fMz"/>
+                            <constraint firstItem="LE7-IF-0dH" firstAttribute="trailing" secondItem="ypz-s2-KJB" secondAttribute="trailing" id="bXU-Fx-c7D"/>
+                            <constraint firstItem="Kd4-Oi-JP2" firstAttribute="centerX" secondItem="LE7-IF-0dH" secondAttribute="centerX" id="oFL-Ft-NQV"/>
+                            <constraint firstItem="ypz-s2-KJB" firstAttribute="leading" secondItem="LE7-IF-0dH" secondAttribute="leading" id="ugB-DM-Oye"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="t0t-53-xVf"/>
+                        <viewLayoutGuide key="safeArea" id="LE7-IF-0dH"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Y72-bH-DMy" appends="YES" id="U3N-ac-3lN"/>
                         </connections>

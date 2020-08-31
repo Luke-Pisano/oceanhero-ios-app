@@ -130,14 +130,6 @@ class MainViewController: UIViewController {
         MatomoTracker.shared.track(view: ["main-screen"])
     }
     
-    #warning("Onboarding turned off")
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //startOnboardingFlowIfNotSeenBefore()
-    }
-    
     func startOnboardingFlowIfNotSeenBefore() {
         
         guard ProcessInfo.processInfo.environment["ONBOARDING"] != "false" else {
@@ -676,13 +668,10 @@ class MainViewController: UIViewController {
         toolbar.setItems(newItems, animated: false)
     }
     
-    #warning("Commented out to prevent focus on search when opening new tab")
-
     func newTab() {
         currentTab?.dismiss()
         tabManager.addHomeTab()
         attachHomeScreen()
-        //homeController?.openedAsNewTab()
     }
     
     func updateFindInPage() {
