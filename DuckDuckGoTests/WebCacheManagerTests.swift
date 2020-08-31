@@ -98,7 +98,7 @@ class WebCacheManagerTests: XCTestCase {
 
         let dataStore = MockDataStore()
         dataStore.cookieStore = MockHTTPCookieStore(cookies: [
-            .make(domain: "duckduckgo.com")
+            .make(domain: "oceanhero.today")
         ])
 
         let cookieStorage = MockCookieStorage()
@@ -110,7 +110,7 @@ class WebCacheManagerTests: XCTestCase {
         wait(for: [expect], timeout: 5.0)
         
         XCTAssertEqual(cookieStorage.cookies.count, 1)
-        XCTAssertEqual(cookieStorage.cookies[0].domain, "duckduckgo.com")
+        XCTAssertEqual(cookieStorage.cookies[0].domain, "oceanhero.today")
     }
     
     func testWhenClearedThenCookiesForLoginsAreRetained() {
