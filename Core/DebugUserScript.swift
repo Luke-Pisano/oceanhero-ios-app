@@ -49,7 +49,7 @@ public class DebugUserScript: NSObject, UserScript {
             
         case MessageNames.log:
             handleLog(message: message)
-            
+
         default: break
         }
     }

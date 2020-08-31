@@ -27,7 +27,8 @@ public struct AppUrls {
             return isDebugBuild ? "?test=1" : ""
         }
 
-        static let base = ProcessInfo.processInfo.environment["BASE_URL", default: "https://oceanhero.today"]
+        static let host = "oceanhero.today"
+        static let base = ProcessInfo.processInfo.environment["BASE_URL", default: "https://\(host)"]
         static let baseSearch = "\(base)/web"
 
         static let externalContentBase = "https://external-content.duckduckgo.com"
@@ -74,6 +75,10 @@ public struct AppUrls {
 
     public init(statisticsStore: StatisticsStore = StatisticsUserDefaults()) {
         self.statisticsStore = statisticsStore
+    }
+    
+    public var host: String {
+        return Url.host
     }
 
     public var base: URL {

@@ -35,6 +35,8 @@ protocol TabDelegate: class {
     func tab(_ tab: TabViewController, didRequestNewBackgroundTabForUrl url: URL)
     
     func tabLoadingStateDidChange(tab: TabViewController)
+    func tabDidUpdateSearchCounter(tab: TabViewController, value: Int)
+    
     func tab(_ tab: TabViewController, didUpdatePreview preview: UIImage)
 
     func tab(_ tab: TabViewController, didChangeSiteRating siteRating: SiteRating?)
