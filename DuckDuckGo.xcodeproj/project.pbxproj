@@ -29,6 +29,7 @@
 		22CB1ED8203DDD2C00D2C724 /* AppDeepLinksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CB1ED7203DDD2C00D2C724 /* AppDeepLinksTests.swift */; };
 		6809384E24F96C53004E882B /* SearchCounterUserScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809384D24F96C53004E882B /* SearchCounterUserScript.swift */; };
 		684A538A24F398E4005A2174 /* IndividualBottleCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A538924F398E4005A2174 /* IndividualBottleCounterView.swift */; };
+		6F8FF8CE24FE7B3100590198 /* moveOHtodock.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6F8FF8CD24FE7B2600590198 /* moveOHtodock.mp4 */; };
 		6FBE95DE24F64277000FFA14 /* BottleCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBE95DD24F64277000FFA14 /* BottleCounter.swift */; };
 		83004E802193BB8200DA013C /* WKNavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83004E7F2193BB8200DA013C /* WKNavigationExtension.swift */; };
 		83004E862193E5ED00DA013C /* TabViewControllerBrowsingMenuExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83004E852193E5ED00DA013C /* TabViewControllerBrowsingMenuExtension.swift */; };
@@ -180,7 +181,6 @@
 		85482D8D2462DCD100EDEDD1 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85482D8C2462DCD100EDEDD1 /* ActionViewController.swift */; };
 		85482D902462DCD100EDEDD1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85482D8E2462DCD100EDEDD1 /* MainInterface.storyboard */; };
 		85482D992462F1C600EDEDD1 /* ActionIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85482D982462F1C600EDEDD1 /* ActionIcons.xcassets */; };
-		85514FFD2372DA0100DBC528 /* ios13-home-row.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 85514FFC2372DA0000DBC528 /* ios13-home-row.mp4 */; };
 		85519125247468580010FDD0 /* TrackerRadarIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85519124247468580010FDD0 /* TrackerRadarIntegrationTests.swift */; };
 		8551912724746EDC0010FDD0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551912624746EDC0010FDD0 /* SnapshotHelper.swift */; };
 		855D914D2063EF6A00C4B448 /* TabSwitcherTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D914C2063EF6A00C4B448 /* TabSwitcherTransition.swift */; };
@@ -375,7 +375,6 @@
 		98F78B8E22419093007CACF4 /* ThemableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F78B8D22419093007CACF4 /* ThemableNavigationController.swift */; };
 		98FA4BB52440AA1A00894CD8 /* TrackersAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA4BB42440AA1A00894CD8 /* TrackersAnimator.swift */; };
 		98FA4BB72440D0A800894CD8 /* PrivacyProtectionIconSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA4BB62440D0A800894CD8 /* PrivacyProtectionIconSource.swift */; };
-		98FD3E2823A3010C005ABD42 /* ios12-home-row.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 98FD3E2723A3010C005ABD42 /* ios12-home-row.mp4 */; };
 		AA3D854523D9942200788410 /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D854423D9942200788410 /* AppIconSettingsViewController.swift */; };
 		AA3D854723D9E88E00788410 /* AppIconSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D854623D9E88E00788410 /* AppIconSettingsCell.swift */; };
 		AA3D854923DA1DFB00788410 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D854823DA1DFB00788410 /* AppIcon.swift */; };
@@ -648,6 +647,7 @@
 		22CB1ED7203DDD2C00D2C724 /* AppDeepLinksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDeepLinksTests.swift; sourceTree = "<group>"; };
 		6809384D24F96C53004E882B /* SearchCounterUserScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCounterUserScript.swift; sourceTree = "<group>"; };
 		684A538924F398E4005A2174 /* IndividualBottleCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualBottleCounterView.swift; sourceTree = "<group>"; };
+		6F8FF8CD24FE7B2600590198 /* moveOHtodock.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moveOHtodock.mp4; sourceTree = "<group>"; };
 		6FB030C7234331B400A10DB9 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Configuration.xcconfig; path = Configuration/Configuration.xcconfig; sourceTree = "<group>"; };
 		6FBE95DD24F64277000FFA14 /* BottleCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCounter.swift; sourceTree = "<group>"; };
 		83004E7F2193BB8200DA013C /* WKNavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKNavigationExtension.swift; sourceTree = "<group>"; };
@@ -803,7 +803,6 @@
 		85482D8F2462DCD100EDEDD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		85482D912462DCD100EDEDD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85482D982462F1C600EDEDD1 /* ActionIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ActionIcons.xcassets; sourceTree = "<group>"; };
-		85514FFC2372DA0000DBC528 /* ios13-home-row.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ios13-home-row.mp4"; sourceTree = "<group>"; };
 		85519124247468580010FDD0 /* TrackerRadarIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerRadarIntegrationTests.swift; sourceTree = "<group>"; };
 		8551912624746EDC0010FDD0 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		855D914C2063EF6A00C4B448 /* TabSwitcherTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSwitcherTransition.swift; sourceTree = "<group>"; };
@@ -998,7 +997,6 @@
 		98F78B8D22419093007CACF4 /* ThemableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemableNavigationController.swift; sourceTree = "<group>"; };
 		98FA4BB42440AA1A00894CD8 /* TrackersAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersAnimator.swift; sourceTree = "<group>"; };
 		98FA4BB62440D0A800894CD8 /* PrivacyProtectionIconSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionIconSource.swift; sourceTree = "<group>"; };
-		98FD3E2723A3010C005ABD42 /* ios12-home-row.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ios12-home-row.mp4"; sourceTree = "<group>"; };
 		AA3D854423D9942200788410 /* AppIconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsViewController.swift; sourceTree = "<group>"; };
 		AA3D854623D9E88E00788410 /* AppIconSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsCell.swift; sourceTree = "<group>"; };
 		AA3D854823DA1DFB00788410 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
@@ -1595,8 +1593,7 @@
 		84E341E31E2FC0E400BDBA6F /* UserInterfaceResources */ = {
 			isa = PBXGroup;
 			children = (
-				98FD3E2723A3010C005ABD42 /* ios12-home-row.mp4 */,
-				85514FFC2372DA0000DBC528 /* ios13-home-row.mp4 */,
+				6F8FF8CD24FE7B2600590198 /* moveOHtodock.mp4 */,
 				F143C2B11E49D78C00CFDE3A /* Assets.xcassets */,
 				F1A169F21F3B2A8A00BE3E3B /* FlamesAnimation.xcassets */,
 				F18641FF1E949E1900B2A911 /* Fonts */,
@@ -3206,7 +3203,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98FD3E2823A3010C005ABD42 /* ios12-home-row.mp4 in Resources */,
 				F1EEAC541EAFC783006128D9 /* proximanova-bold.otf in Resources */,
 				AA4D6A8D23DE49A5007E8790 /* AppIconBlack40x40@3x.png in Resources */,
 				0317FE9024E427BE005F17A7 /* Roboto-BoldItalic.ttf in Resources */,
@@ -3233,7 +3229,6 @@
 				0317FE9B24E427BE005F17A7 /* Roboto-Thin.ttf in Resources */,
 				AA4D6AD123DE4D27007E8790 /* AppIconPurple40x40@2x.png in Resources */,
 				AAF2E28B23E049DF00962AF8 /* AppIconYellow83.5x83.5@2x.png in Resources */,
-				85514FFD2372DA0100DBC528 /* ios13-home-row.mp4 in Resources */,
 				F1E4A4471EE894CD006F2EAE /* Autocomplete.storyboard in Resources */,
 				AA4D6A9423DE49A5007E8790 /* AppIconBlack29x29@2x.png in Resources */,
 				F14513531F45FAAE00710C46 /* SiteRatingView.xib in Resources */,
@@ -3292,6 +3287,7 @@
 				AA4D6AE423DE4D33007E8790 /* AppIconGreen40x40@3x.png in Resources */,
 				AAF2E28323E0495E00962AF8 /* AppIconBlue83.5x83.5@2x.png in Resources */,
 				AA4D6AE223DE4D33007E8790 /* AppIconGreen40x40@2x.png in Resources */,
+				6F8FF8CE24FE7B3100590198 /* moveOHtodock.mp4 in Resources */,
 				85EE7F55224667DD000FE757 /* WebContainer.storyboard in Resources */,
 				984E291B22CD68D600EE7154 /* PrivacyProtectionHomeCell.xib in Resources */,
 				0A6CC0EF23904D5400E4F627 /* Settings.bundle in Resources */,
