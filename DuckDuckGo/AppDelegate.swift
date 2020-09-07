@@ -95,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let domains = PreserveLogins.shared.legacyAllowedDomains
         guard !domains.isEmpty else { return }
         WebCacheManager.shared.removeCookies(forDomains: domains, completion: {
-            os_log("Removed cookies for %d legacy allowed domains", domains.count)
+            //os_log("Removed cookies for %d legacy allowed domains", domains.count)
             PreserveLogins.shared.clearLegacyAllowedDomains()
         })
     }
@@ -110,12 +110,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !(overlayWindow?.rootViewController is AuthenticationViewController) {
             removeOverlay()
         }
-        
+        /*
         StatisticsLoader.shared.load {
             StatisticsLoader.shared.refreshAppRetentionAtb()
             Pixel.fire(pixel: .appLaunch)
         }
-        
+        */
         if appIsLaunching {
             appIsLaunching = false
             onApplicationLaunch(application)
@@ -159,7 +159,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        os_log("App launched with url %s", log: lifecycleLog, type: .debug, url.absoluteString)
+        //os_log("App launched with url %s", log: lifecycleLog, type: .debug, url.absoluteString)
         mainViewController?.clearNavigationStack()
         autoClear?.applicationWillMoveToForeground()
         showKeyboardIfSettingOn = false
@@ -242,7 +242,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) {
-        os_log("Handling shortcut item: %s", log: generalLog, type: .debug, shortcutItem.type)
+        //os_log("Handling shortcut item: %s", log: generalLog, type: .debug, shortcutItem.type)
         mainViewController?.clearNavigationStack()
         autoClear?.applicationWillMoveToForeground()
         if shortcutItem.type ==  ShortcutKey.clipboard, let query = UIPasteboard.general.string {

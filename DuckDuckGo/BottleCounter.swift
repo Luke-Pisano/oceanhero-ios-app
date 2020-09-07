@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Core
 
 class BottleCounter {
-    private lazy var appSettings: AppSettings = AppUserDefaults()
-    private lazy var serviceClient: ServiceClient = ServiceClient()
+    private lazy var appSettings: AppSettings = AppUserDefaults() 
+    private lazy var apiClient = APIClient(apiService: APIService(baseURL: AppUrls().counterAPICall), apiParser: APIParser())
     
     private var userBottleCounter: Int = 0
     private var startBottleCounter: Int = 0
@@ -21,7 +22,7 @@ class BottleCounter {
     
     private var timer: Timer?
     private var bottleTimer: Timer?
-    private var isStared: Bool = false
+    private var isStarted: Bool = false
     
     private let numberFormatter = NumberFormatter()
     
@@ -76,7 +77,7 @@ class BottleCounter {
 
 extension BottleCounter {
     func start() {
-        isStared = true
+        isStarted = true
         
         if appSettings.animationFromCurrentBottleCounterValue {
             startBottleCounter = finishBottleCounter
@@ -103,7 +104,7 @@ extension BottleCounter {
     }
     
     func stop() {
-        isStared = false
+        isStarted = false
         bottleTimer?.invalidate()
         timer?.invalidate()
     }
@@ -111,26 +112,35 @@ extension BottleCounter {
 
 extension BottleCounter {
     private func checkBottleCount() {
-        serviceClient.getCurrentBottleCount { [weak self] bottleCount in
+        _ = apiClient.request(routerType: RouterType.bottleCount, onSuccess: { [weak self] (response: BottleCountResponse) in
             guard let selfStrong = self else {
                 return
             }
             
-            selfStrong.finishBottleCounter = bottleCount / 5
+            selfStrong.finishBottleCounter = response.counter / 5
             selfStrong.startBottleCounter = selfStrong.currentBottleCounter
             
-            guard selfStrong.isStared else {
+            print("CALL COME", selfStrong.startBottleCounter, selfStrong.finishBottleCounter)
+            
+            guard selfStrong.isStarted else {
                 return
             }
             
-            selfStrong.startTotalCounterAnimation()
-        }
+            DispatchQueue.main.async {
+                selfStrong.startTotalCounterAnimation()
+            }
+        }, onFailure: { error in
+            print(error)
+        })
     }
     
     private func startTotalCounterAnimation() {
+        print("INVALIDATE")
         timer?.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: stepDuration, repeats: true) { [weak self] _ in
+            print("LAUNCH")
+            
             guard let selfStrong = self else {
                 return
             }
@@ -139,6 +149,8 @@ extension BottleCounter {
                 selfStrong.currentBottleCounter = selfStrong.finishBottleCounter
                 selfStrong.didUpdatedTotalBottle?(selfStrong.currentValue)
                 selfStrong.timer?.invalidate()
+                
+                print("COUNTERS MEET, INVALIDATE")
                 
                 return
             }
