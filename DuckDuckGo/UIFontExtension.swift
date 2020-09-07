@@ -26,6 +26,9 @@ extension UIFont {
         case proximaNovaLight = "ProximaNova-Light"
         case proximaNovaSemibold = "ProximaNova-Semibold"
         case proximaNovaBold = "ProximaNova-Bold"
+        
+        case robotoRegular = "Roboto-Regular"
+        case robotoBold = "Roboto-Bold"
     }
 
     public static func appFont(ofSize size: CGFloat) -> UIFont {
@@ -45,6 +48,16 @@ extension UIFont {
 
     public static func boldAppFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: Name.proximaNovaBold.rawValue, size: size) ??
+               UIFont.boldSystemFont(ofSize: size)
+    }
+    
+    public static func robotoFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: Name.robotoRegular.rawValue, size: size) ??
+               UIFont.systemFont(ofSize: size)
+    }
+    
+    public static func boldRobotoFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: Name.robotoBold.rawValue, size: size) ??
                UIFont.boldSystemFont(ofSize: size)
     }
 }

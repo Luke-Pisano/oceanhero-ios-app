@@ -308,6 +308,14 @@
 "homeTab.searchAndFavorites" = "Search and favorites in a new tab";
 "homeTab.title" = "Home";
 
+"dax.onboarding.text.first" = "OceanHero is a search engine that recovers ocean-bound plastic when you use it";
+"dax.onboarding.text.second" = "Use it instead of Safari and we will take ad revenue to pay people to collect plastic";
+"dax.onboarding.text.third" = "People can exchange ocean-bound plastic for money at plastic collection hubs of our partner <b>Plastic Bank</b>";
+
+"dax.onboarding.button.first" = "CONTINUE";
+"dax.onboarding.button.second" = "THAT'S GREAT!";
+"dax.onboarding.button.third" = "START SEARCHING";
+
 "dax.onboarding.home.initial" = "Next, try visiting one of your favorite sites!\n\nI’ll block trackers so they can’t spy on you. I’ll also upgrade the security of your connection if possible. 🔒";
 
 "dax.onboarding.home.subsequent" = "You’ve got this!\n\nRemember: every time you browse with me a creepy ad loses its wings. 👍";

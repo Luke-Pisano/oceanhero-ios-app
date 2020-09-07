@@ -288,4 +288,12 @@ public struct UserText {
     public static let daxDialogHideMessage = NSLocalizedString("dax.hide.message", value: "There are only a few, and we tried to make them informative.", comment: "There are only a few, and we tried to make them informative.")
     public static let daxDialogHideButton = NSLocalizedString("dax.hide.button", value: "Hide tips forever", comment: "Hide tips forever")
     public static let daxDialogHideCancel = NSLocalizedString("dax.hide.cancel", value: "Cancel", comment: "Cancel")
+    
+    public static let daxOnBoardingTextFirst = NSLocalizedString("dax.onboarding.text.first", value: "OceanHero is a search engine that recovers ocean-bound plastic when you use it", comment: "OceanHero is a search engine that recovers ocean-bound plastic when you use it")
+    public static let daxOnBoardingTextSecond = NSLocalizedString("dax.onboarding.text.second", value: "Use it instead of Safari and we will take ad revenue to pay people to collect plastic", comment: "Use it instead of Safari and we will take ad revenue to pay people to collect plastic")
+    public static let daxOnBoardingTextThird = NSLocalizedString("dax.onboarding.text.third", value: "People can exchange ocean-bound plastic for money at plastic collection hubs of our partner Plastic Bank", comment: "People can exchange ocean-bound plastic for money at plastic collection hubs of our partner Plastic Bank")
+    
+    public static let daxOnBoardingButtonFirst = NSLocalizedString("dax.onboarding.button.first", value: "CONTINUE", comment: "CONTINUE")
+    public static let daxOnBoardingButtonSecond = NSLocalizedString("dax.onboarding.button.second", value: "THAT'S GREAT!", comment: "THAT'S GREAT!")
+    public static let daxOnBoardingButtonThird = NSLocalizedString("dax.onboarding.button.third", value: "START SEARCHING", comment: "START SEARCHING")
 }

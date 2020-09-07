@@ -125,13 +125,19 @@ class MainViewController: UIViewController {
 
         oceanHeroSetup()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        startOnboardingFlowIfNotSeenBefore()
+        
+    }
 
     func oceanHeroSetup() {
         MatomoTracker.shared.track(view: ["main-screen"])
     }
     
     func startOnboardingFlowIfNotSeenBefore() {
-        
         guard ProcessInfo.processInfo.environment["ONBOARDING"] != "false" else {
             // explicitly skip onboarding, e.g. for integration tests
             return
@@ -142,7 +148,7 @@ class MainViewController: UIViewController {
             // explicitly show onboarding, can be set in the scheme > Run > Environment Variables
             ProcessInfo.processInfo.environment["ONBOARDING"] == "true"
         guard showOnboarding else { return }
-
+        
         let onboardingFlow = "DaxOnboarding"
 
         performSegue(withIdentifier: onboardingFlow, sender: self)

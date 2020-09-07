@@ -19,6 +19,16 @@
 
 import UIKit
 
+enum OnboardingStep: Int {
+    case first = 0
+    case second = 1
+    case third = 2
+    
+    init(value: Int) {
+        self = OnboardingStep(rawValue: value) ?? .first
+    }
+}
+
 class DaxOnboardingViewController: UIViewController, Onboarding {
     
     struct Constants {
@@ -31,14 +41,29 @@ class DaxOnboardingViewController: UIViewController, Onboarding {
     weak var delegate: OnboardingDelegate?
     weak var daxDialog: DaxDialogViewController?
     
-    @IBOutlet weak var welcomeMessage: UIView!
-    @IBOutlet weak var daxDialogContainer: UIView!
-    @IBOutlet weak var daxDialogContainerHeight: NSLayoutConstraint!
-    @IBOutlet weak var daxIcon: UIView!
-    @IBOutlet weak var onboardingIcon: UIView!
-    @IBOutlet weak var transitionalIcon: UIView!
-    @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var imagesScrollView: UIScrollView!
+    @IBOutlet weak var textScrollView: UIScrollView!
+    
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
+    
+    @IBOutlet weak var onboardingImageFirst: UIImageView!
+    @IBOutlet weak var onboardingImageSecond: UIImageView!
+    @IBOutlet weak var onboardingImageThird: UIImageView!
+    
+    @IBOutlet weak var onboardingTextFirst: UILabel!
+    @IBOutlet weak var onboardingTextSecond: UILabel!
+    @IBOutlet weak var onboardingTextThird: UILabel!
+    
+    @IBOutlet weak var textScrollViewBackground: UIView!
+    
+    @IBOutlet weak var pageControl: CustomPageControl!
+    
+    private var currentStep = OnboardingStep.first {
+        didSet {
+            pageControl.currentPage = currentStep.rawValue
+        }
+    }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return isPad ? super.supportedInterfaceOrientations : [ .portrait ]
@@ -47,29 +72,30 @@ class DaxOnboardingViewController: UIViewController, Onboarding {
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return isPad ? super.preferredInterfaceOrientationForPresentation : .portrait
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        changeStep(for: size.width)
+    }
 
     override var shouldAutorotate: Bool {
         return true
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        daxDialog?.message = UserText.daxDialogOnboardingMessage
-        daxDialog?.theme = LightTheme()
-        daxDialog?.reset()
-        daxDialogContainerHeight.constant = isSmall ? 190 : 195
-
-        button.displayDropShadow()
-        daxIcon.isHidden = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        guard !view.isHidden else { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.animationDelay) {
-            self.transitionFromOnboarding()
-        }
+        
+        onboardingTextFirst.htmlBold(text: UserText.daxOnBoardingTextFirst)
+        onboardingTextSecond.htmlBold(text: UserText.daxOnBoardingTextSecond)
+        onboardingTextThird.htmlBold(text: UserText.daxOnBoardingTextThird)
+        
+        textScrollViewBackground.layer.cornerRadius = 50
+        textScrollViewBackground.layer.masksToBounds = true
+        
+        continueButton.layer.cornerRadius = 25
+        continueButton.layer.masksToBounds = true
+        
+        imagesScrollView.contentOffset.x = 0.0
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,78 +108,31 @@ class DaxOnboardingViewController: UIViewController, Onboarding {
         } else if let controller = segue.destination as? OnboardingViewController {
             controller.delegate = self
         }
-        
     }
-
-    func transitionFromOnboarding() {
-
-        // using snapshots means the original views don't get messed up by their constraints when subsequent animations kick off
-        let transitionIconSS: UIView = self.transitionalIcon.snapshotView(afterScreenUpdates: true) ?? self.transitionalIcon
-        transitionIconSS.frame = self.transitionalIcon.frame
-        view.addSubview(transitionIconSS)
-        self.transitionalIcon.isHidden = true
-        
-        let onboardingIconSS: UIView = self.onboardingIcon.snapshotView(afterScreenUpdates: true) ?? self.onboardingIcon
-        onboardingIconSS.frame = self.onboardingIcon.frame
-        view.addSubview(onboardingIconSS)
-        self.onboardingIcon.isHidden = true
-
-        UIView.animate(withDuration: 0.3, animations: {
-            
-            // the dax dialog icon is not exactly centered with or the same size as this icon so we need to account for this in the animation
-            onboardingIconSS.frame = CGRect(x: 0, y: 0, width: 76, height: 76)
-            onboardingIconSS.center = CGPoint(x: self.daxIcon.center.x, y: self.daxIcon.center.y - 2)
-            onboardingIconSS.alpha = 0.0
-
-            transitionIconSS.frame = self.daxIcon.frame
-            transitionIconSS.alpha = 1.0
-            
-            self.backgroundView.alpha = 0.0
-        }, completion: { _ in
-            self.daxIcon.isHidden = false
-            onboardingIconSS.isHidden = true
-            transitionIconSS.isHidden = true
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                onboardingIconSS.removeFromSuperview()
-                transitionIconSS.removeFromSuperview()
-                self.transitionToDaxDialog()
-            }
-            
-        })
-
+    
+    @IBAction func pageControlSelectionAction(_ sender: UIPageControl) {
+        currentStep = OnboardingStep(value: sender.currentPage)
+        changeStep(for: view.frame.size.width)
     }
-
-    func transitionToDaxDialog() {
-
-        let snapshot: UIView = self.daxIcon.snapshotView(afterScreenUpdates: true) ?? self.daxIcon
-        snapshot.frame = self.daxIcon.frame
-        view.addSubview(snapshot)
-        self.daxIcon.isHidden = true
-        
-        UIView.animate(withDuration: Constants.animationDuration, animations: {
-            self.welcomeMessage.alpha = 0.0
-
-            if let frame = self.daxDialog?.icon.frame,
-                let localFrame = self.daxDialog?.icon.superview!.convert(frame, to: self.view) {
-                self.daxIcon.frame = localFrame
-                snapshot.frame = localFrame
-            }
-
-        }, completion: { _ in
+    
+    @IBAction func continueButtonAction(_ sender: Any) {
+        switch currentStep {
+        case .first:
+            currentStep = .second
+            changeStep(for: view.frame.size.width)
             
-            // fade out while it's being shown again below, otherwise there's an abrupt change when the double dropshadow disappears
-            UIView.animate(withDuration: 1.0, animations: {
-                snapshot.alpha = 0.0
-            }, completion: { _ in
-                snapshot.removeFromSuperview()
-            })
+        case .second:
+            currentStep = .third
+            changeStep(for: view.frame.size.width)
             
-            self.showDaxDialog {
-                self.daxDialog?.start()
-            }
-        })
-        
+        case .third:
+            onboardingCompleted(controller: self)
+            return
+        }
+    }
+    
+    @IBAction func skipButtonTouched(_ sender: Any) {
+        onboardingCompleted(controller: self)
     }
     
     @IBAction func onTapButton() {
@@ -161,27 +140,52 @@ class DaxOnboardingViewController: UIViewController, Onboarding {
         performSegue(withIdentifier: segue, sender: self)
     }
     
-    func showDaxDialog(completion: @escaping () -> Void) {
-        daxDialogContainer.alpha = 0.0
-        daxDialogContainer.isHidden = false
+    private func changeStep(for width: CGFloat) {
+        switch currentStep {
+        case .first:
+            scrollViewAnimation(imageTargetPosition: 0.0, textTargetPosition: 0.0)
+            continueButton.setTitle(UserText.daxOnBoardingButtonFirst, for: UIControl.State.normal)
         
-        button.alpha = 0.0
-        button.isHidden = false
-        
-        UIView.animate(withDuration: Constants.animationDuration, animations: {
-            self.daxDialogContainer.alpha = 1.0
-            self.button.alpha = 1.0
-        }, completion: { _ in
-            completion()
-        })
+        case .second:
+            scrollViewAnimation(imageTargetPosition: width, textTargetPosition: width)
+            continueButton.setTitle(UserText.daxOnBoardingButtonSecond, for: UIControl.State.normal)
+            
+        case .third:
+            scrollViewAnimation(imageTargetPosition: width * 2, textTargetPosition: width * 2)
+            continueButton.setTitle(UserText.daxOnBoardingButtonThird, for: UIControl.State.normal)
+        }
     }
     
+    private func scrollViewAnimation(imageTargetPosition: CGFloat, textTargetPosition: CGFloat) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                self.imagesScrollView.contentOffset.x = imageTargetPosition
+                self.textScrollView.contentOffset.x = textTargetPosition
+            }, completion: nil)
+        }
+    }
 }
 
 extension DaxOnboardingViewController: OnboardingDelegate {
     func onboardingCompleted(controller: UIViewController) {
-        self.view.isHidden = true
         controller.dismiss(animated: true)
         self.delegate?.onboardingCompleted(controller: self)
     }
+}
+
+extension UIPageControl {
+    func customPageControl(dotFillColor: UIColor, dotBorderColor: UIColor, dotBorderWidth: CGFloat) {
+        for (pageIndex, dotView) in self.subviews.enumerated() {
+            if self.currentPage == pageIndex {
+                dotView.backgroundColor = dotFillColor
+                dotView.layer.cornerRadius = dotView.frame.size.height / 2
+                dotView.layer.borderColor = dotBorderColor.cgColor
+                dotView.layer.borderWidth = dotBorderWidth
+            } else {
+                dotView.backgroundColor = .clear
+                dotView.layer.cornerRadius = dotView.frame.size.height / 2
+            }
+        }
+    }
+
 }

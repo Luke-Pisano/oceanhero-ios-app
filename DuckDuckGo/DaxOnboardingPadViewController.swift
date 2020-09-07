@@ -22,7 +22,11 @@ import UIKit
 class DaxOnboardingPadViewController: UIViewController, Onboarding {
 
     weak var delegate: OnboardingDelegate?
-
+    
+    @IBAction func continueButtonAction(_ sender: Any) {
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let onboarding = segue.destination as? OnboardingViewController {
             onboarding.delegate = delegate
