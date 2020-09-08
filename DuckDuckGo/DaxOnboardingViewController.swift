@@ -19,7 +19,7 @@
 
 import UIKit
 
-enum OnboardingStep: Int {
+enum OnboardingStep: Int, CaseIterable {
     case first = 0
     case second = 1
     case third = 2
@@ -30,12 +30,9 @@ enum OnboardingStep: Int {
 }
 
 class DaxOnboardingViewController: UIViewController, Onboarding {
-    
     struct Constants {
-        
         static let animationDelay = 1.4
         static let animationDuration = 0.4
-        
     }
     
     weak var delegate: OnboardingDelegate?
@@ -96,6 +93,15 @@ class DaxOnboardingViewController: UIViewController, Onboarding {
         continueButton.layer.masksToBounds = true
         
         imagesScrollView.contentOffset.x = 0.0
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+            
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,6 +113,19 @@ class DaxOnboardingViewController: UIViewController, Onboarding {
             controller.delegate = self
         } else if let controller = segue.destination as? OnboardingViewController {
             controller.delegate = self
+        }
+    }
+    
+    @objc
+    func handleSwipes(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .left && currentStep.rawValue + 1 < OnboardingStep.allCases.count {
+            currentStep = OnboardingStep(value: currentStep.rawValue + 1)
+            changeStep(for: view.frame.size.width)
+        }
+            
+        if sender.direction == .right && currentStep.rawValue - 1 >= 0 {
+            currentStep = OnboardingStep(value: currentStep.rawValue - 1)
+            changeStep(for: view.frame.size.width)
         }
     }
     
