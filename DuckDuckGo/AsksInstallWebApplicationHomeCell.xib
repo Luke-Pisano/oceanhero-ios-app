@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="asksInstallWebApplication" id="WeL-Vr-mVJ" customClass="AsksInstallWebApplicationHomeCell" customModule="OceanHero" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="o9V-ew-ZBH" customClass="RoundedRectangleView" customModule="OceanHero" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="365" height="136"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zmY-ne-duP">
+                        <rect key="frame" x="10" y="10" width="345" height="106"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doG-Nz-guG">
+                                <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you use OceanHero on your computer?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXE-AO-cij">
+                                        <rect key="frame" x="5" y="7" width="335" height="43"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TXE-AO-cij" secondAttribute="trailing" constant="5" id="Akx-dE-hib"/>
+                                    <constraint firstItem="TXE-AO-cij" firstAttribute="top" secondItem="doG-Nz-guG" secondAttribute="top" constant="7" id="Asv-61-1s2"/>
+                                    <constraint firstItem="TXE-AO-cij" firstAttribute="leading" secondItem="doG-Nz-guG" secondAttribute="leading" constant="5" id="Ik8-tD-PEN"/>
+                                    <constraint firstAttribute="bottom" secondItem="TXE-AO-cij" secondAttribute="bottom" id="ftI-fp-aTp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ird-m2-aeL">
+                                <rect key="frame" x="0.0" y="56" width="345" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="iOX-Y2-BHL">
+                                        <rect key="frame" x="96" y="0.0" width="153" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYp-lZ-URB">
+                                                <rect key="frame" x="0.0" y="5.5" width="58" height="39"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
+                                                <state key="normal" title="Yes">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onLeftHandler:" destination="WeL-Vr-mVJ" eventType="touchUpInside" id="D9W-le-n1c"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zk-Kd-kFW">
+                                                <rect key="frame" x="69" y="5.5" width="84" height="39"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
+                                                <state key="normal" title="Not yet">
+                                                    <color key="titleColor" red="0.0" green="0.64313725490196072" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onRightHandler:" destination="WeL-Vr-mVJ" eventType="touchUpInside" id="R93-bY-Lt1"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="iOX-Y2-BHL" firstAttribute="centerX" secondItem="Ird-m2-aeL" secondAttribute="centerX" id="CQ3-Uw-xbg"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iOX-Y2-BHL" secondAttribute="trailing" id="JHK-rY-cjg"/>
+                                    <constraint firstItem="iOX-Y2-BHL" firstAttribute="top" secondItem="Ird-m2-aeL" secondAttribute="top" id="ce9-Tw-po5"/>
+                                    <constraint firstItem="iOX-Y2-BHL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ird-m2-aeL" secondAttribute="leading" id="l78-8K-L1e"/>
+                                    <constraint firstAttribute="bottom" secondItem="iOX-Y2-BHL" secondAttribute="bottom" id="p5F-bP-Qwa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" red="0.0" green="0.6470588235294118" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="zmY-ne-duP" firstAttribute="top" secondItem="o9V-ew-ZBH" secondAttribute="top" constant="10" id="UbB-Ol-YTA"/>
+                    <constraint firstAttribute="bottom" secondItem="zmY-ne-duP" secondAttribute="bottom" constant="20" id="m21-Wc-iWs"/>
+                    <constraint firstAttribute="trailing" secondItem="zmY-ne-duP" secondAttribute="trailing" constant="10" id="qY9-9f-g96"/>
+                    <constraint firstItem="zmY-ne-duP" firstAttribute="leading" secondItem="o9V-ew-ZBH" secondAttribute="leading" constant="10" id="twA-1N-7M5"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                        <real key="value" value="10"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
+            </collectionViewCellContentView>
+            <size key="customSize" width="365" height="121"/>
+            <connections>
+                <outlet property="leftButton" destination="EYp-lZ-URB" id="0Cf-qi-KiF"/>
+                <outlet property="rightButton" destination="6Zk-Kd-kFW" id="nwI-Eh-0Kx"/>
+                <outlet property="roundedBackground" destination="o9V-ew-ZBH" id="73v-Vz-QsN"/>
+                <outlet property="titleLabel" destination="TXE-AO-cij" id="s4G-Qc-JV3"/>
+            </connections>
+            <point key="canvasLocation" x="-520.79999999999995" y="120.53973013493254"/>
+        </collectionViewCell>
+    </objects>
+</document>

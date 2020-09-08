@@ -48,6 +48,10 @@ public class AppUserDefaults: AppSettings {
         static let individualBottleCounter = "com.duckduckgo.app.individualBottleCounter"
         static let currentBottleCounter = "com.duckduckgo.app.currentBottleCounter"
         static let animationFromCurrentBottleCounterValue = "com.duckduckgo.app.animationFromCurrentBottleCounterValue"
+        
+        static let homeAsksInstallWebApplicationLastVisit = "com.duckduckgo.app.homeAsksInstallWebApplicationLastVisit"
+        static let homeAsksInstallWebApplicationState = "com.duckduckgo.app.homeAsksInstallWebApplicationState"
+        static let homeAsksInstallWebApplicationCount = "com.duckduckgo.app.homeAsksInstallWebApplicationCount"
     }
 
     private var userDefaults: UserDefaults? {
@@ -185,6 +189,42 @@ public class AppUserDefaults: AppSettings {
         }
     }
     
+}
+
+extension AppUserDefaults: AppConfigurationHomeAsksInstallWebApplication {
+    public var homeAsksInstallWebApplicationLastVisit: Date? {
+        get {
+            guard let date = UserDefaults.standard.object(forKey: Keys.homeAsksInstallWebApplicationLastVisit) as? Date else {
+                return nil
+            }
+            
+            return date
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Keys.homeAsksInstallWebApplicationLastVisit)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    public var homeAsksInstallWebApplicationState: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: Keys.homeAsksInstallWebApplicationState)
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Keys.homeAsksInstallWebApplicationState)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    public var homeAsksInstallWebApplicationCount: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: Keys.homeAsksInstallWebApplicationCount)
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: Keys.homeAsksInstallWebApplicationCount)
+            UserDefaults.standard.synchronize()
+        }
+    }
 }
 
 extension AppUserDefaults: AppConfigurationFetchStatistics {

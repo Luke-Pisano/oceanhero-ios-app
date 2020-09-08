@@ -25,3 +25,20 @@ extension Date {
         return Calendar.current.isDate(self, inSameDayAs: otherDate)
     }
 }
+
+extension Date {
+    public func daysFrom(date: Date) -> Int {
+        let calendar = Calendar.current
+        
+        let date1 = calendar.startOfDay(for: self)
+        let date2 = calendar.startOfDay(for: date)
+        
+        let components = calendar.dateComponents([.day], from: date1, to: date2)
+        
+        guard let days = components.day else {
+            return 0
+        }
+        
+        return days
+    }
+}

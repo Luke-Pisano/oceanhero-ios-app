@@ -21,26 +21,31 @@ import Foundation
 import Core
 
 class HomePageConfiguration {
-    
     enum ConfigName: Int {
-
         case simple
         case centerSearch
         case centerSearchAndFavorites
-
     }
     
     enum Component: Equatable {
         case navigationBarSearch(fixed: Bool)
         case centeredSearch(fixed: Bool)
         case extraContent
+        case asksInstallWebApplication
         case favorites
         case padding
     }
     
     let settings: HomePageSettings
     
-    func components(bookmarksManager: BookmarksManager = BookmarksManager()) -> [Component] {
+    init(settings: HomePageSettings = DefaultHomePageSettings()) {
+        self.settings = settings
+    }
+}
+
+extension HomePageConfiguration {
+    func components(asksInstallWebApplication: HomeAsksInstallWebApplication,
+                    bookmarksManager: BookmarksManager = BookmarksManager()) -> [Component] {
         let fixed = !settings.favorites || bookmarksManager.favoritesCount == 0
 
         var components = [Component]()
@@ -53,6 +58,10 @@ class HomePageConfiguration {
 
         // Add extra content renderer here if needed
         
+        if asksInstallWebApplication.shouldDisplay {
+            components.append(.asksInstallWebApplication)
+        }
+        
         if settings.favorites {
             components.append(.favorites)
             if settings.layout == .centered {
@@ -62,9 +71,4 @@ class HomePageConfiguration {
 
         return components
     }
-    
-    init(settings: HomePageSettings = DefaultHomePageSettings()) {
-        self.settings = settings
-    }
-    
 }

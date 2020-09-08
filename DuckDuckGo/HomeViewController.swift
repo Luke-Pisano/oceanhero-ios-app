@@ -100,6 +100,7 @@ class HomeViewController: UIViewController {
             bottleCounter.refresh()
         }
                 
+        collectionView.asksInstallWebApplication.updateShouldDisplay()
         viewHasAppeared = true
         updateIndividualBottleCount()
     }
@@ -165,6 +166,14 @@ class HomeViewController: UIViewController {
     }
     
     func remove(_ renderer: ExtraContentHomeSectionRenderer) {
+        if let section = collectionView.renderers.remove(renderer: renderer) {
+            collectionView.performBatchUpdates({
+                collectionView.deleteSections(IndexSet(integer: section))
+            }, completion: nil)
+        }
+    }
+    
+    func remove(_ renderer: AsksInstallWebApplicationHomeSectionRenderer) {
         if let section = collectionView.renderers.remove(renderer: renderer) {
             collectionView.performBatchUpdates({
                 collectionView.deleteSections(IndexSet(integer: section))

@@ -29,6 +29,9 @@ class HomeCollectionView: UICollectionView {
     
     private(set) var renderers: HomeViewSectionRenderers!
     
+    lazy var asksInstallWebApplication = HomeAsksInstallWebApplication(appConfiguration: AppUserDefaults())
+    private var asksInstallWebApplicationSection: Int?
+    
     private lazy var collectionViewReorderingGesture =
         UILongPressGestureRecognizer(target: self, action: #selector(self.collectionViewReorderingGestureHandler(gesture:)))
     
@@ -57,6 +60,8 @@ class HomeCollectionView: UICollectionView {
                  forCellWithReuseIdentifier: "PrivacyHomeCell")
         register(UINib(nibName: "ExtraContentHomeCell", bundle: nil),
                  forCellWithReuseIdentifier: "extraContent")
+        register(UINib(nibName: "AsksInstallWebApplicationHomeCell", bundle: nil),
+                 forCellWithReuseIdentifier: "asksInstallWebApplication")
         
         register(EmptyCollectionReusableView.self,
                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -76,29 +81,26 @@ class HomeCollectionView: UICollectionView {
         self.controller = controller
         renderers = HomeViewSectionRenderers(controller: controller, theme: theme)
         
-        homePageConfiguration.components().forEach { component in
+        homePageConfiguration.components(asksInstallWebApplication: asksInstallWebApplication).forEach { component in
             switch component {
             case .navigationBarSearch(let fixed):
                 renderers.install(renderer: NavigationSearchHomeViewSectionRenderer(fixed: fixed))
-                
             case .centeredSearch(let fixed):
                 if controller.isShowingDax {
                     renderers.install(renderer: NavigationSearchHomeViewSectionRenderer(fixed: fixed))
                 } else {
                     renderers.install(renderer: CenteredSearchHomeViewSectionRenderer(fixed: fixed))
                 }
-                
+            case .asksInstallWebApplication:
+                renderers.install(renderer: AsksInstallWebApplicationHomeSectionRenderer(asksInstallWebApplication: asksInstallWebApplication))
+                asksInstallWebApplicationSection = renderers.numberOfSections(in: self) - 1
             case .extraContent:
                 renderers.install(renderer: ExtraContentHomeSectionRenderer())
-                
             case .favorites:
                 renderers.install(renderer: FavoritesHomeViewSectionRenderer())
-
             case .padding:
                 renderers.install(renderer: PaddingHomeViewSectionRenderer())
-
             }
-
         }
         
         dataSource = renderers

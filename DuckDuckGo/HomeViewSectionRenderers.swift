@@ -156,11 +156,8 @@ extension HomeViewSectionRenderer {
 }
 
 class HomeViewSectionRenderers: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
     struct Constants {
-        
-        static let sideInsets: CGFloat = 25
-        
+        static let sideInsets: CGFloat = 15
     }
     
     private weak var controller: HomeViewController!
@@ -170,6 +167,7 @@ class HomeViewSectionRenderers: NSObject, UICollectionViewDataSource, UICollecti
     init(controller: HomeViewController, theme: Theme) {
         self.controller = controller
         self.theme = theme
+        
         super.init()
     }
     

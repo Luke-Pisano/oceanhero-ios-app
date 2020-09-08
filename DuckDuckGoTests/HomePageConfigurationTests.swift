@@ -76,7 +76,7 @@ private func homePageConfigurationComponents(for test: Test) -> [HomePageConfigu
 
     let config = HomePageConfiguration(settings: settings)
 
-    return config.components(bookmarksManager: manager)
+    return config.components(asksInstallWebApplication: HomeAsksInstallWebApplication(appConfiguration: AppUserDefaults()), bookmarksManager: manager)
 }
 
 private struct Test {

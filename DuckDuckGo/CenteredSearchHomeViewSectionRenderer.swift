@@ -29,7 +29,7 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
         static let searchCenterOffset: CGFloat = 50
         static let scrollUpAdjustment: CGFloat = 46
         
-        static let fixedSearchCenterOffset: CGFloat = 40
+        static let fixedSearchCenterOffset: CGFloat = 76
         
         static let logoOffset: CGFloat = -72        
     }

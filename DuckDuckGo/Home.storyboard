@@ -73,35 +73,36 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="space" id="YY6-mj-6Xj">
-                                        <rect key="frame" x="0.0" y="118.66666666666667" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="105" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="centeredSearch" id="54m-Mn-tex" customClass="CenteredSearchHomeCell" customModule="OceanHero" customModuleProvider="target">
-                                        <rect key="frame" x="60" y="0.0" width="342" height="287"/>
+                                        <rect key="frame" x="60" y="0.0" width="342" height="260"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="287"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="260"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="eQ8-iA-i1e">
-                                                    <rect key="frame" x="46" y="92" width="250" height="87"/>
+                                                    <rect key="frame" x="36" y="14" width="270" height="94"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoLightMode" translatesAutoresizingMaskIntoConstraints="NO" id="39W-ag-iVs">
-                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="87"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="94"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="87" id="Bjw-cD-ULK"/>
-                                                                <constraint firstAttribute="width" constant="250" id="brf-yL-qjK"/>
+                                                                <constraint firstAttribute="width" constant="270" id="brf-yL-qjK"/>
+                                                                <constraint firstAttribute="width" secondItem="39W-ag-iVs" secondAttribute="height" multiplier="250:87" id="pJ0-c4-VKM"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <variation key="heightClass=compact" axis="horizontal"/>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jf-KE-oXj" customClass="RoundedRectangleView" customModule="OceanHero" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="184" width="342" height="48"/>
+                                                    <rect key="frame" x="0.0" y="133" width="342" height="48"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SuggestLoupe" translatesAutoresizingMaskIntoConstraints="NO" id="Cfx-pb-o8i">
                                                             <rect key="frame" x="15" y="12" width="30" height="24"/>
@@ -147,7 +148,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZD9-nq-lWP">
-                                                    <rect key="frame" x="0.0" y="247" width="342" height="40"/>
+                                                    <rect key="frame" x="0.0" y="210" width="342" height="40"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbG-TM-q2x">
                                                             <rect key="frame" x="139.33333333333334" y="0.0" width="63.333333333333343" height="40"/>
@@ -188,19 +189,20 @@
                                                 </view>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="7Jf-KE-oXj" firstAttribute="leading" secondItem="3i0-li-iSv" secondAttribute="leading" id="2Ia-p2-6HX"/>
-                                            <constraint firstItem="ZD9-nq-lWP" firstAttribute="top" secondItem="7Jf-KE-oXj" secondAttribute="bottom" constant="15" id="6ko-Uz-uhE"/>
+                                            <constraint firstItem="ZD9-nq-lWP" firstAttribute="top" secondItem="7Jf-KE-oXj" secondAttribute="bottom" constant="29" id="6ko-Uz-uhE"/>
                                             <constraint firstAttribute="trailing" secondItem="ZD9-nq-lWP" secondAttribute="trailing" id="Rwh-Oe-6SV"/>
-                                            <constraint firstAttribute="bottom" secondItem="ZD9-nq-lWP" secondAttribute="bottom" id="cob-FI-qvw"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZD9-nq-lWP" secondAttribute="bottom" constant="10" id="cob-FI-qvw"/>
                                             <constraint firstItem="eQ8-iA-i1e" firstAttribute="centerX" secondItem="3i0-li-iSv" secondAttribute="centerX" id="em6-ew-E3V"/>
                                             <constraint firstItem="3i0-li-iSv" firstAttribute="trailing" secondItem="7Jf-KE-oXj" secondAttribute="trailing" id="niW-Cm-waP"/>
-                                            <constraint firstItem="7Jf-KE-oXj" firstAttribute="top" secondItem="eQ8-iA-i1e" secondAttribute="bottom" constant="5" id="pw7-Bg-mC2"/>
+                                            <constraint firstItem="7Jf-KE-oXj" firstAttribute="top" secondItem="eQ8-iA-i1e" secondAttribute="bottom" constant="25" id="pw7-Bg-mC2"/>
                                             <constraint firstItem="ZD9-nq-lWP" firstAttribute="leading" secondItem="54m-Mn-tex" secondAttribute="leading" id="wHF-92-St1"/>
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="3i0-li-iSv"/>
-                                        <size key="customSize" width="342" height="287"/>
+                                        <size key="customSize" width="342" height="260"/>
                                         <connections>
                                             <outlet property="imageView" destination="39W-ag-iVs" id="ob1-89-hb0"/>
                                             <outlet property="promptText" destination="73D-OT-n1K" id="Cf8-Rg-Vw7"/>
