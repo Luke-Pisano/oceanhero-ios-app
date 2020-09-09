@@ -211,8 +211,9 @@ extension AppUserDefaults: AppConfigurationHomeAsksInstallWebApplication {
             return UserDefaults.standard.integer(forKey: Keys.homeAsksInstallWebApplicationState)
         }
         set {
-            UserDefaults.standard.setValue(newValue, forKey: Keys.homeAsksInstallWebApplicationState)
+            UserDefaults.standard.set(newValue, forKey: Keys.homeAsksInstallWebApplicationState)
             UserDefaults.standard.synchronize()
+            print("Set homeAsksInstallWebApplicationState: \(newValue)")
         }
     }
     
@@ -221,8 +222,9 @@ extension AppUserDefaults: AppConfigurationHomeAsksInstallWebApplication {
             return UserDefaults.standard.integer(forKey: Keys.homeAsksInstallWebApplicationCount)
         }
         set {
-            UserDefaults.standard.setValue(newValue, forKey: Keys.homeAsksInstallWebApplicationCount)
+            UserDefaults.standard.set(newValue, forKey: Keys.homeAsksInstallWebApplicationCount)
             UserDefaults.standard.synchronize()
+            print("Set homeAsksInstallWebApplicationCount: \(newValue)")
         }
     }
 }

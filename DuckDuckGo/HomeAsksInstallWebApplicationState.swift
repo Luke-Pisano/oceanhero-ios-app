@@ -24,6 +24,7 @@ enum HomeAsksInstallWebApplicationState: Int {
     
     init(value: Int) {
         self = HomeAsksInstallWebApplicationState(rawValue: value) ?? .doYouUseOceanHero
+        print("HomeAsksInstallWebApplicationState: \(value) self: \(self.rawValue)")
     }
 }
 

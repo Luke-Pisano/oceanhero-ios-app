@@ -11,7 +11,6 @@ import Core
 
 class HomeAsksInstallWebApplication {
     private var appConfiguration: AppConfigurationHomeAsksInstallWebApplication
-    
     private(set) var shouldDisplay: Bool = false
     
     var onChangedState: ((HomeAsksInstallWebApplicationState) -> Void)?
@@ -32,6 +31,11 @@ class HomeAsksInstallWebApplication {
             }
             
             appConfiguration.homeAsksInstallWebApplicationState = currentState.rawValue
+            
+            guard currentState != .rightTimeToGetOceanHero else {
+                return
+            }
+            
             onChangedState?(currentState)
         }
     }
@@ -82,11 +86,11 @@ extension HomeAsksInstallWebApplication {
         
         if count >= Constants.maxCount {
             shouldDisplay = false
-        } else if count == 0 && daysFrom >= Constants.firstStep { // first steps
+        } else if count == 0 && daysFrom >= Constants.firstStep && currentState == .doYouUseOceanHero { // first steps
             shouldDisplay = true
-        } else if count >= 1 && daysFrom >= Constants.remindStep && currentState == .rightTimeToGetOceanHero { // rightTimeToGetOceanHero
+        } else if count >= 0 && daysFrom >= Constants.remindStep && currentState == .rightTimeToGetOceanHero { // rightTimeToGetOceanHero
             shouldDisplay = true
-        } else if count >= 1 && daysFrom >= Constants.nextStep { // second / third steps
+        } else if count >= 0 && daysFrom >= Constants.nextStep { // second / third steps
             shouldDisplay = true
         }
         
@@ -96,7 +100,7 @@ extension HomeAsksInstallWebApplication {
     private func updateState() {
         let state =  HomeAsksInstallWebApplicationState(value: appConfiguration.homeAsksInstallWebApplicationState)
         
-        if state == .remindYouSomeOtherTime {
+        if state == .rightTimeToGetOceanHero {
             currentState = .rightTimeToGetOceanHero
         } else {
             currentState = .doYouUseOceanHero
@@ -106,8 +110,15 @@ extension HomeAsksInstallWebApplication {
 
 extension HomeAsksInstallWebApplication {
     private func installedIt() {
+        lastVisit = Date()
         count = Constants.maxCount
         shouldDisplay = false
+    }
+    
+    private func waitForNextAction() {
+        count += 1
+        shouldDisplay = false
+        onClose?()
     }
 }
 
@@ -119,20 +130,18 @@ extension HomeAsksInstallWebApplication {
         case .wouldYouMindTryingIt:
             currentState = .remindYouSomeOtherTime
         case .itIsVeryEasyVisitOceanhero:
-            break
+            fatalError("Shouldn't be happens")
         case .remindYouSomeOtherTime:
             // If user clicked Please don't, remind user again in 10 days. But after 2 attempts, never show again
             installedIt()
             onClose?()
         case .willSeeButton:
             // Show form: https://forms.gle/WvuPoRMLxHThCH6B6
-            shouldDisplay = false
-            onClose?()
+            UIApplication.shared.open(AppUrls().problemOceanHeroComputer)
+            waitForNextAction()
         case .rightTimeToGetOceanHero:
             // If user clicked sorry, but no, remind user again in 10 days. But after 2 attempts, never show again
-            count += 1
-            shouldDisplay = false
-            onClose?()
+            waitForNextAction()
         }
         
         print("4. count: \(count) currentState: \(currentState.rawValue) lastVisit: \(String(describing: lastVisit)) shouldDisplay: \(shouldDisplay)")
@@ -148,7 +157,8 @@ extension HomeAsksInstallWebApplication {
             currentState = .willSeeButton
         case .remindYouSomeOtherTime:
             // wait 7 days and next
-            count += 1
+            lastVisit = Date()
+            currentState = .rightTimeToGetOceanHero
             shouldDisplay = false
             onClose?()
         case .willSeeButton:
