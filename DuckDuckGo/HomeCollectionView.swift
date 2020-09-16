@@ -20,7 +20,6 @@
 import UIKit
 
 class HomeCollectionView: UICollectionView {
-    
     struct Constants {
         static let topInset: CGFloat = 79
     }
@@ -94,7 +93,7 @@ class HomeCollectionView: UICollectionView {
             strongSelf.controller.collectionView.reloadData()
         }
         
-        homePageConfiguration.components(asksInstallWebApplication: asksInstallWebApplication).forEach { component in
+        homePageConfiguration.components(asksInstallWebApplication: asksInstallWebApplication, isLoggedIn: isLoggedIn).forEach { component in
             switch component {
             case .navigationBarSearch(let fixed)://section 0
                 renderers.install(renderer: NavigationSearchHomeViewSectionRenderer(fixed: fixed))
@@ -106,6 +105,8 @@ class HomeCollectionView: UICollectionView {
                 }
             case .asksInstallWebApplication://section 1
                 installAsksInstallWebApplication()
+            case .user://section 1/2
+                installUser()
             case .extraContent:
                 renderers.install(renderer: ExtraContentHomeSectionRenderer())
             case .favorites:
@@ -119,14 +120,6 @@ class HomeCollectionView: UICollectionView {
         delegate = renderers
         collectionViewReorderingGesture.delegate = self
         addGestureRecognizer(collectionViewReorderingGesture)
-    }
-    
-    func installAsksInstallWebApplication() {
-        if renderers.numberOfSections(in: self) > 1, renderers.rendererFor(section: 1) as? AsksInstallWebApplicationHomeSectionRenderer != nil {
-            return
-        }
-        
-        renderers.install(renderer: AsksInstallWebApplicationHomeSectionRenderer(asksInstallWebApplication: asksInstallWebApplication), section: 1)
     }
     
     func launchNewSearch() {
@@ -183,26 +176,94 @@ class HomeCollectionView: UICollectionView {
     }
     
     func viewDidTransition(to size: CGSize) {
-        
         if let topIndexPath = topIndexPath {
             controller.collectionView.scrollToItem(at: topIndexPath, at: .top, animated: false)
         }
+        
         controller.collectionView.reloadData()
     }
-    
 }
 
-extension HomeCollectionView: Themable {
+extension HomeCollectionView {
+    func remove(_ renderer: ExtraContentHomeSectionRenderer) {
+        guard let section = renderers.remove(renderer: renderer) else {
+            return
+        }
+        
+        remove(component: .extraContent)
+        
+        performBatchUpdates({
+            deleteSections(IndexSet(integer: section))
+        }, completion: nil)
+    }
+    
+    func remove(_ renderer: AsksInstallWebApplicationHomeSectionRenderer) {
+        guard let section = renderers.remove(renderer: renderer) else {
+            return
+        }
+        
+        remove(component: .asksInstallWebApplication)
+        
+        performBatchUpdates({
+            deleteSections(IndexSet(integer: section))
+        }, completion: nil)
+    }
+}
 
+extension HomeCollectionView {
+    func reloadSection(for component: HomePageConfiguration.Component) {
+        guard let index = homePageConfiguration.index(for: component) else {
+            return
+        }
+        
+        reloadSections([index])
+    }
+    
+    private func remove(component: HomePageConfiguration.Component) {
+        homePageConfiguration.remove(component: component)
+    }
+}
+
+// MARK: - User
+
+extension HomeCollectionView {
+    private func installUser() {
+//        let isBlueCard = asksInstallWebApplication.shouldDisplay
+//        let index = isBlueCard ? 1 : 2
+//
+//        if renderers.numberOfSections(in: self) > 1, renderers.rendererFor(section: index) as? AsksInstallWebApplicationHomeSectionRenderer != nil {
+//            return
+//        }
+//
+//        renderers.install(renderer: AsksInstallWebApplicationHomeSectionRenderer(asksInstallWebApplication: asksInstallWebApplication), section: index)
+    }
+}
+
+// MARK: - Asks Install Web Application
+
+extension HomeCollectionView {
+    private func installAsksInstallWebApplication() {
+        guard !homePageConfiguration.isComponent(.asksInstallWebApplication) else {
+            return
+        }
+        
+        homePageConfiguration.add(component: .asksInstallWebApplication, section: 1)
+        renderers.install(renderer: AsksInstallWebApplicationHomeSectionRenderer(asksInstallWebApplication: asksInstallWebApplication), section: 1)
+    }
+}
+
+// MARK: - Themable
+
+extension HomeCollectionView: Themable {
     func decorate(with theme: Theme) {
         renderers.decorate(with: theme)
         reloadData()
     }
-    
 }
 
+// MARK: - UIGestureRecognizerDelegate
+
 extension HomeCollectionView: UIGestureRecognizerDelegate {
-    
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == collectionViewReorderingGesture,
             let indexPath = indexPathForItem(at: gestureRecognizer.location(in: self)) {

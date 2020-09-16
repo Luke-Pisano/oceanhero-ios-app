@@ -32,11 +32,14 @@ class HomePageConfiguration {
         case centeredSearch(fixed: Bool)
         case extraContent
         case asksInstallWebApplication
+        case user
         case favorites
         case padding
     }
     
     let settings: HomePageSettings
+    
+    private(set) var components = [Component]()
     
     init(settings: HomePageSettings = DefaultHomePageSettings()) {
         self.settings = settings
@@ -44,11 +47,36 @@ class HomePageConfiguration {
 }
 
 extension HomePageConfiguration {
-    func components(asksInstallWebApplication: HomeAsksInstallWebApplication,
+    func isComponent(_ component: Component) -> Bool {
+        return components.first { $0 == component } != nil
+    }
+    
+    func index(for component: Component) -> Int? {
+        return components.firstIndex { $0 == component }
+    }
+}
+
+extension HomePageConfiguration {
+    func add(component: Component, section: Int) {
+        components.insert(component, at: section)
+    }
+    
+    func remove(component: Component) {
+        guard let index = index(for: component) else {
+            return
+        }
+        
+        components.remove(at: index)
+    }
+}
+
+extension HomePageConfiguration {
+    func components(asksInstallWebApplication: HomeAsksInstallWebApplication, isLoggedIn: Bool,
                     bookmarksManager: BookmarksManager = BookmarksManager()) -> [Component] {
         let fixed = !settings.favorites || bookmarksManager.favoritesCount == 0
 
-        var components = [Component]()
+        components = [Component]()
+        
         switch settings.layout {
         case .navigationBar:
             components.append(.navigationBarSearch(fixed: fixed))
@@ -62,8 +90,13 @@ extension HomePageConfiguration {
             components.append(.asksInstallWebApplication)
         }
         
+        if !isLoggedIn {
+            components.append(.user)
+        }
+        
         if settings.favorites {
             components.append(.favorites)
+            
             if settings.layout == .centered {
                 components.append(.padding)
             }

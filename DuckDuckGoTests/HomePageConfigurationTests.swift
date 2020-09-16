@@ -76,7 +76,7 @@ private func homePageConfigurationComponents(for test: Test) -> [HomePageConfigu
 
     let config = HomePageConfiguration(settings: settings)
 
-    return config.components(asksInstallWebApplication: HomeAsksInstallWebApplication(appConfiguration: AppUserDefaults()), bookmarksManager: manager)
+    return config.components(asksInstallWebApplication: HomeAsksInstallWebApplication(appConfiguration: AppUserDefaults()), isLoggedIn: false, bookmarksManager: manager)
 }
 
 private struct Test {
@@ -86,12 +86,10 @@ private struct Test {
 }
 
 private struct StubHomePageSettings: HomePageSettings {
-
     var layout: HomePageLayout
     var favorites: Bool
     
     func migrate(from appSettigs: AppSettings) {
         // no-op
     }
-    
 }

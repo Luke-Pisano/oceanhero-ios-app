@@ -17,16 +17,15 @@ class AsksInstallWebApplicationHomeSectionRenderer: HomeViewSectionRenderer {
         self.asksInstallWebApplication = asksInstallWebApplication
         
         self.asksInstallWebApplication.onChangedState = { [weak self] state in
-            self?.controller?.collectionView.reloadSections([1])
+            self?.controller?.collectionView.reloadSection(for: .asksInstallWebApplication)
         }
         
         self.asksInstallWebApplication.onHide = { [weak self] in
-            print("--- onHide ---")
             guard let strongSelf = self else {
                 return
             }
             
-            strongSelf.controller?.remove(strongSelf)
+            strongSelf.controller?.collectionView.remove(strongSelf)
         }
     }
     

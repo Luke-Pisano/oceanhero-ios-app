@@ -42,7 +42,7 @@ class ExtraContentHomeSectionRenderer: HomeViewSectionRenderer {
         cell.onDismiss = { [weak self] _ in
             guard let strongSelf = self else { return }
             // Update settings here if there are some
-            strongSelf.controller?.remove(strongSelf)
+            strongSelf.controller?.collectionView.remove(strongSelf)
         }
         
         return cell

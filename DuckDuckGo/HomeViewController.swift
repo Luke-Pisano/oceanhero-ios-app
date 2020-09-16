@@ -151,22 +151,6 @@ class HomeViewController: UIViewController {
         bottleCounter.refresh()
     }
     
-    func remove(_ renderer: ExtraContentHomeSectionRenderer) {
-        if let section = collectionView.renderers.remove(renderer: renderer) {
-            collectionView.performBatchUpdates({
-                collectionView.deleteSections(IndexSet(integer: section))
-            }, completion: nil)
-        }
-    }
-    
-    func remove(_ renderer: AsksInstallWebApplicationHomeSectionRenderer) {
-        if let section = collectionView.renderers.remove(renderer: renderer) {
-            collectionView.performBatchUpdates({
-                collectionView.deleteSections(IndexSet(integer: section))
-            }, completion: nil)
-        }
-    }
-    
     func omniBarCancelPressed() {
         collectionView.omniBarCancelPressed()
     }
