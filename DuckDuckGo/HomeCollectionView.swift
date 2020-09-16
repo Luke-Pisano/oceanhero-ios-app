@@ -62,6 +62,8 @@ class HomeCollectionView: UICollectionView {
                  forCellWithReuseIdentifier: "extraContent")
         register(UINib(nibName: "AsksInstallWebApplicationHomeCell", bundle: nil),
                  forCellWithReuseIdentifier: "asksInstallWebApplication")
+        register(UINib(nibName: "UserHomeCell", bundle: nil),
+                 forCellWithReuseIdentifier: "userHomeCell")
         
         register(EmptyCollectionReusableView.self,
                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -89,7 +91,7 @@ class HomeCollectionView: UICollectionView {
                 return
             }
             
-            strongSelf.installAsksInstallWebApplication()
+            strongSelf.addAsksInstallWebApplication()
             strongSelf.controller.collectionView.reloadData()
         }
         
@@ -227,28 +229,46 @@ extension HomeCollectionView {
 // MARK: - User
 
 extension HomeCollectionView {
+    private func indexForUser() -> Int {
+        homePageConfiguration.isComponent(.asksInstallWebApplication) ? 2 : 1
+    }
+    
+    private func addUser() {
+        guard !homePageConfiguration.isComponent(.user) else {
+            return
+        }
+
+        homePageConfiguration.add(component: .user, section: indexForUser())
+        installUser()
+    }
+    
     private func installUser() {
-//        let isBlueCard = asksInstallWebApplication.shouldDisplay
-//        let index = isBlueCard ? 1 : 2
-//
-//        if renderers.numberOfSections(in: self) > 1, renderers.rendererFor(section: index) as? AsksInstallWebApplicationHomeSectionRenderer != nil {
-//            return
-//        }
-//
-//        renderers.install(renderer: AsksInstallWebApplicationHomeSectionRenderer(asksInstallWebApplication: asksInstallWebApplication), section: index)
+        guard let index = homePageConfiguration.index(for: .user) else {
+            return
+        }
+        
+        renderers.install(renderer: UserHomeSectionRenderer(), section: index)
     }
 }
 
 // MARK: - Asks Install Web Application
 
 extension HomeCollectionView {
-    private func installAsksInstallWebApplication() {
+    private func addAsksInstallWebApplication() {
         guard !homePageConfiguration.isComponent(.asksInstallWebApplication) else {
             return
         }
         
         homePageConfiguration.add(component: .asksInstallWebApplication, section: 1)
-        renderers.install(renderer: AsksInstallWebApplicationHomeSectionRenderer(asksInstallWebApplication: asksInstallWebApplication), section: 1)
+        installAsksInstallWebApplication()
+    }
+    
+    private func installAsksInstallWebApplication() {
+        guard let index = homePageConfiguration.index(for: .asksInstallWebApplication) else {
+            return
+        }
+        
+        renderers.install(renderer: AsksInstallWebApplicationHomeSectionRenderer(asksInstallWebApplication: asksInstallWebApplication), section: index)
     }
 }
 
