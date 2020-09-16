@@ -29,8 +29,9 @@ class HomeCollectionView: UICollectionView {
     
     private(set) var renderers: HomeViewSectionRenderers!
     
-    lazy var asksInstallWebApplication = HomeAsksInstallWebApplication(appConfiguration: AppUserDefaults())
-    private var asksInstallWebApplicationSection: Int?
+    private weak var asksInstallWebApplication: HomeAsksInstallWebApplication! //HomeAsksInstallWebApplication(appConfiguration: AppUserDefaults())
+    
+    private var asksInstallWebApplicationSection: Int = 1
     
     private lazy var collectionViewReorderingGesture =
         UILongPressGestureRecognizer(target: self, action: #selector(self.collectionViewReorderingGestureHandler(gesture:)))
@@ -77,23 +78,34 @@ class HomeCollectionView: UICollectionView {
         UIMenuController.shared.setMenuVisible(false, animated: true)
     }
     
-    func configure(withController controller: HomeViewController, andTheme theme: Theme) {
+    func configure(withController controller: HomeViewController, andTheme theme: Theme, asksInstallWebApplication: HomeAsksInstallWebApplication) {
         self.controller = controller
+        self.asksInstallWebApplication = asksInstallWebApplication
+        
         renderers = HomeViewSectionRenderers(controller: controller, theme: theme)
+        
+        asksInstallWebApplication.onShow = { [weak self] in
+            print("--- onShow ---")
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.installAsksInstallWebApplication()
+            strongSelf.controller.collectionView.reloadData()
+        }
         
         homePageConfiguration.components(asksInstallWebApplication: asksInstallWebApplication).forEach { component in
             switch component {
-            case .navigationBarSearch(let fixed):
+            case .navigationBarSearch(let fixed)://section 0
                 renderers.install(renderer: NavigationSearchHomeViewSectionRenderer(fixed: fixed))
-            case .centeredSearch(let fixed):
+            case .centeredSearch(let fixed)://section 0
                 if controller.isShowingDax {
                     renderers.install(renderer: NavigationSearchHomeViewSectionRenderer(fixed: fixed))
                 } else {
                     renderers.install(renderer: CenteredSearchHomeViewSectionRenderer(fixed: fixed))
                 }
-            case .asksInstallWebApplication:
-                renderers.install(renderer: AsksInstallWebApplicationHomeSectionRenderer(asksInstallWebApplication: asksInstallWebApplication))
-                asksInstallWebApplicationSection = renderers.numberOfSections(in: self) - 1
+            case .asksInstallWebApplication://section 1
+                installAsksInstallWebApplication()
             case .extraContent:
                 renderers.install(renderer: ExtraContentHomeSectionRenderer())
             case .favorites:
@@ -107,6 +119,14 @@ class HomeCollectionView: UICollectionView {
         delegate = renderers
         collectionViewReorderingGesture.delegate = self
         addGestureRecognizer(collectionViewReorderingGesture)
+    }
+    
+    func installAsksInstallWebApplication() {
+        if renderers.numberOfSections(in: self) > 1, renderers.rendererFor(section: 1) as? AsksInstallWebApplicationHomeSectionRenderer != nil {
+            return
+        }
+        
+        renderers.install(renderer: AsksInstallWebApplicationHomeSectionRenderer(asksInstallWebApplication: asksInstallWebApplication), section: 1)
     }
     
     func launchNewSearch() {

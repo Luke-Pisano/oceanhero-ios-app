@@ -62,6 +62,15 @@
 		6F6F49A22502548500AD02F9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03816F8F24FCFAA50067C97A /* Router.swift */; };
 		6F6F49A32502548800AD02F9 /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03816F9124FCFAC30067C97A /* RouterType.swift */; };
 		6F8FF8CE24FE7B3100590198 /* moveOHtodock.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6F8FF8CD24FE7B2600590198 /* moveOHtodock.mp4 */; };
+		6FA09F8B2512071200131C3A /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F8A2512071200131C3A /* BuddyBuildSDK.framework */; };
+		6FA09F8E251207A100131C3A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F8D251207A100131C3A /* CoreMedia.framework */; };
+		6FA09F90251207A700131C3A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F8F251207A700131C3A /* CoreTelephony.framework */; };
+		6FA09F92251207AF00131C3A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F91251207AF00131C3A /* SystemConfiguration.framework */; };
+		6FA09F94251207B800131C3A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F93251207B800131C3A /* QuartzCore.framework */; };
+		6FA09F96251207C200131C3A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F95251207C200131C3A /* CoreVideo.framework */; };
+		6FA09F98251207C900131C3A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F97251207C900131C3A /* AssetsLibrary.framework */; };
+		6FA09F9A251207D100131C3A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F99251207D100131C3A /* AVFoundation.framework */; };
+		6FA09F9C251207D800131C3A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F9B251207D800131C3A /* CoreText.framework */; };
 		6FBE95DE24F64277000FFA14 /* BottleCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBE95DD24F64277000FFA14 /* BottleCounter.swift */; };
 		6FF1AA8C2507A85E00BACDDB /* HomeAsksInstallWebApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF1AA8A2507A81100BACDDB /* HomeAsksInstallWebApplicationTests.swift */; };
 		6FFF803825063CCC000EA285 /* AsksInstallWebApplicationHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF803725063CCB000EA285 /* AsksInstallWebApplicationHomeCell.swift */; };
@@ -719,6 +728,15 @@
 		6F6F4991250246D300AD02F9 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		6F6F49932502538C00AD02F9 /* BottleCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCountResponse.swift; sourceTree = "<group>"; };
 		6F8FF8CD24FE7B2600590198 /* moveOHtodock.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moveOHtodock.mp4; sourceTree = "<group>"; };
+		6FA09F8A2512071200131C3A /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		6FA09F8D251207A100131C3A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		6FA09F8F251207A700131C3A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		6FA09F91251207AF00131C3A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6FA09F93251207B800131C3A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6FA09F95251207C200131C3A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		6FA09F97251207C900131C3A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		6FA09F99251207D100131C3A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6FA09F9B251207D800131C3A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		6FB030C7234331B400A10DB9 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Configuration.xcconfig; path = Configuration/Configuration.xcconfig; sourceTree = "<group>"; };
 		6FBE95DD24F64277000FFA14 /* BottleCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCounter.swift; sourceTree = "<group>"; };
 		6FF1AA8A2507A81100BACDDB /* HomeAsksInstallWebApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAsksInstallWebApplicationTests.swift; sourceTree = "<group>"; };
@@ -1288,8 +1306,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FA09F9C251207D800131C3A /* CoreText.framework in Frameworks */,
+				6FA09F9A251207D100131C3A /* AVFoundation.framework in Frameworks */,
+				6FA09F98251207C900131C3A /* AssetsLibrary.framework in Frameworks */,
+				6FA09F96251207C200131C3A /* CoreVideo.framework in Frameworks */,
+				6FA09F94251207B800131C3A /* QuartzCore.framework in Frameworks */,
+				6FA09F92251207AF00131C3A /* SystemConfiguration.framework in Frameworks */,
+				6FA09F90251207A700131C3A /* CoreTelephony.framework in Frameworks */,
+				6FA09F8E251207A100131C3A /* CoreMedia.framework in Frameworks */,
 				038A156D24EBC52D00EB576D /* MatomoTracker.framework in Frameworks */,
 				85371D262121BA2800920548 /* Lottie.framework in Frameworks */,
+				6FA09F8B2512071200131C3A /* BuddyBuildSDK.framework in Frameworks */,
 				F143C2EB1E4A4CD400CFDE3A /* Core.framework in Frameworks */,
 				F17BA43D1F1CD99800460FFA /* Device.framework in Frameworks */,
 				F17BA43E1F1CD99800460FFA /* Kingfisher.framework in Frameworks */,
@@ -2783,6 +2810,15 @@
 		F1AA545F1E48D90700223211 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FA09F9B251207D800131C3A /* CoreText.framework */,
+				6FA09F99251207D100131C3A /* AVFoundation.framework */,
+				6FA09F97251207C900131C3A /* AssetsLibrary.framework */,
+				6FA09F95251207C200131C3A /* CoreVideo.framework */,
+				6FA09F93251207B800131C3A /* QuartzCore.framework */,
+				6FA09F91251207AF00131C3A /* SystemConfiguration.framework */,
+				6FA09F8F251207A700131C3A /* CoreTelephony.framework */,
+				6FA09F8D251207A100131C3A /* CoreMedia.framework */,
+				6FA09F8A2512071200131C3A /* BuddyBuildSDK.framework */,
 				038A156C24EBC52D00EB576D /* MatomoTracker.framework */,
 				8537243F220C5BB3009D09CD /* Punycode.framework */,
 				85371D252121BA2800920548 /* Lottie.framework */,
@@ -3615,7 +3651,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+			shellScript = "set -e\n\nif ! which carthage > /dev/null; then\necho \"error: Carthage not found. Visit https://github.com/Carthage/Carthage to learn more.\"\nexit 1\nfi\n\ncarthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -4526,6 +4562,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -4552,6 +4589,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

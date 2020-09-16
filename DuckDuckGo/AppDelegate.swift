@@ -18,6 +18,7 @@
 //
 
 import UIKit
+import BuddyBuildSDK
 import Core
 import UserNotifications
 import os.log
@@ -55,6 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
             return true
         }
+        
+        // BuddyBuild setup
+        BuddyBuildSDK.setup()
 
         _ = UserAgentManager.shared
 

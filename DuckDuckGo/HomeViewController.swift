@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
     
     fileprivate lazy var appSettings: AppSettings = AppUserDefaults()
     private lazy var bottleCounter: BottleCounter = BottleCounter()
+    weak var asksInstallWebApplication: HomeAsksInstallWebApplication!
     
     var logoContainer: UIView! {
         return delegate?.homeDidRequestLogoContainer(self)
@@ -97,10 +98,10 @@ class HomeViewController: UIViewController {
         }
         
         if viewHasAppeared {
+            asksInstallWebApplication.updateShouldDisplay()
             bottleCounter.refresh()
         }
                 
-        collectionView.asksInstallWebApplication.updateShouldDisplay()
         viewHasAppeared = true
         updateIndividualBottleCount()
     }
@@ -142,7 +143,9 @@ class HomeViewController: UIViewController {
     // MARK: - Other
     
     func configureCollectionView() {
-        collectionView.configure(withController: self, andTheme: ThemeManager.shared.currentTheme)
+        collectionView.configure(withController: self,
+                                 andTheme: ThemeManager.shared.currentTheme,
+                                 asksInstallWebApplication: asksInstallWebApplication)
     }
     
     func enableContentUnderflow() -> CGFloat {
@@ -163,6 +166,11 @@ class HomeViewController: UIViewController {
 
     func refresh() {
         collectionView.reloadData()
+    }
+    
+    func refreshActiveElements() {
+        asksInstallWebApplication.updateShouldDisplay()
+        bottleCounter.refresh()
     }
     
     func remove(_ renderer: ExtraContentHomeSectionRenderer) {

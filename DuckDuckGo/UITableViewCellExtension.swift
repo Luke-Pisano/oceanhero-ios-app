@@ -20,7 +20,6 @@
 import UIKit
 
 extension UITableViewCell {
-    
     /// Even if `selectedBackgroundView` exists, setting its background color does not work. Hence, this workaround.
     func setHighlightedStateBackgroundColor(_ color: UIColor) {
         let view = UIView()
@@ -34,5 +33,4 @@ extension UITableViewCell {
         tintColor = theme.buttonTintColor
         setHighlightedStateBackgroundColor(theme.tableCellHighlightedBackgroundColor)
     }
-    
 }

@@ -63,13 +63,11 @@ public class UserAgentManager {
 struct UserAgent {
     
     private struct Constants {
-        // swiftlint:disable line_length
         static let fallbackWekKitVersion = "605.1.15"
         static let fallbackSafariComponent = "Safari/\(fallbackWekKitVersion)"
         static let fallbackDefaultAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/\(fallbackWekKitVersion) (KHTML, like Gecko) Mobile/15E148"
         static let desktopPrefixComponent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15)"
         static let fallbackVersionComponent = "Version/13.1.1"
-        // swiftlint:enable line_length
     }
     
     private struct Regex {

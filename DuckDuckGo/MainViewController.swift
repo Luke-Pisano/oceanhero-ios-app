@@ -59,6 +59,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var logoContainer: UIView!
 
     weak var notificationView: NotificationView?
+    
+    lazy var asksInstallWebApplication = HomeAsksInstallWebApplication(appConfiguration: AppUserDefaults())
 
     var omniBar: OmniBar!
     var chromeManager: BrowserChromeManager!
@@ -164,6 +166,17 @@ class MainViewController: UIViewController {
                                                selector: #selector(keyboardWillHide),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didBecomeActive),
+                                               name: UIApplication.didBecomeActiveNotification,
+                                               object: nil)
+    }
+    
+    // MARK: - Notification
+    
+    @objc private func didBecomeActive() {
+        homeController?.refreshActiveElements()
     }
 
     /// This is only really for iOS 10 devices that don't properly support the change frame approach.
@@ -341,6 +354,7 @@ class MainViewController: UIViewController {
         let controller = HomeViewController.loadFromStoryboard()
         homeController = controller
 
+        controller.asksInstallWebApplication = asksInstallWebApplication
         controller.chromeDelegate = self
         controller.delegate = self
 

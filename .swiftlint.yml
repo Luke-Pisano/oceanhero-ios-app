@@ -5,7 +5,7 @@ disabled_rules:
   - identifier_name
 
 # Rule Config
-line_length: 150
+line_length: 170
 identifier_name:
   min_length: 1
   max_length:

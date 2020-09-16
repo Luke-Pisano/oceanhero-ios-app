@@ -29,6 +29,8 @@ extension UIFont {
         
         case robotoRegular = "Roboto-Regular"
         case robotoBold = "Roboto-Bold"
+        
+        case arialRegular = "Arial-Regular"
     }
 
     public static func appFont(ofSize size: CGFloat) -> UIFont {
@@ -59,5 +61,10 @@ extension UIFont {
     public static func boldRobotoFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: Name.robotoBold.rawValue, size: size) ??
                UIFont.boldSystemFont(ofSize: size)
+    }
+    
+    public static func arialFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: Name.arialRegular.rawValue, size: size) ??
+               UIFont.systemFont(ofSize: size)
     }
 }

@@ -19,9 +19,7 @@
 
 import Foundation
 
-// swiftlint:disable line_length
 extension UserText {
-    
     public static let siteFeedbackTitle = NSLocalizedString("siteFeedback.title",
                                                             value: "Report a Broken Site",
                                                             comment: "This is a form title")
@@ -231,6 +229,4 @@ extension UserText {
     public static let feedbackFormCaption = NSLocalizedString("feedback.form.caption",
                                                               value: "Please tell us what we can improve",
                                                               comment: "")
-    
 }
-// swiftlint:enable line_length

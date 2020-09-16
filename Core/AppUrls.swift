@@ -44,7 +44,7 @@ public struct AppUrls {
         static let atb = "\(base)/atb.js\(devMode)"
         static let exti = "\(base)/exti/\(devMode)"
         static let feedback = "\(base)/feedback.js?type=app-feedback"
-        static let problemOceanHeroComputer = "https://forms.gle/WvuPoRMLxHThCH6B6"
+        static let problemOceanHeroComputer = "https://docs.google.com/forms/d/e/1FAIpQLSdnyXcj8lfNGY8_CkiSFEAU1ZDgZU2EcUh0NArdiJTyoq-OpA/viewform?usp=sf_link"
 
         static let httpsBloomFilter = "\(staticBase)/https/https-mobile-bloom.bin?cache-version=1"
         static let httpsBloomFilterSpec = "\(staticBase)/https/https-mobile-bloom-spec.json?cache-version=1"

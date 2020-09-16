@@ -17,25 +17,16 @@ class AsksInstallWebApplicationHomeSectionRenderer: HomeViewSectionRenderer {
         self.asksInstallWebApplication = asksInstallWebApplication
         
         self.asksInstallWebApplication.onChangedState = { [weak self] state in
-            self?.controller?.collectionView.visibleCells.forEach({ visibleCell in
-                guard let cell = visibleCell as? AsksInstallWebApplicationHomeCell else {
-                    return
-                }
-                
-                cell.state = state
-            })
+            self?.controller?.collectionView.reloadSections([1])
         }
         
-        self.asksInstallWebApplication.onClose = { [weak self] in
+        self.asksInstallWebApplication.onHide = { [weak self] in
+            print("--- onHide ---")
             guard let strongSelf = self else {
                 return
             }
             
             strongSelf.controller?.remove(strongSelf)
-        }
-        
-        self.asksInstallWebApplication.onHadProblem = { [weak self] in
-            
         }
     }
     
@@ -54,7 +45,6 @@ class AsksInstallWebApplicationHomeSectionRenderer: HomeViewSectionRenderer {
         }
         
         cell.state = asksInstallWebApplication.currentState
-        //cell.decorate(with: ThemeManager.shared.currentTheme)
         
         cell.onLeftAction = { [weak self] _ in
             self?.asksInstallWebApplication.nextLeftAction()
@@ -102,7 +92,9 @@ class AsksInstallWebApplicationHomeSectionRenderer: HomeViewSectionRenderer {
         let maxWidth = isPad ? CenteredSearchHomeCell.Constants.searchWidthPad : CenteredSearchHomeCell.Constants.searchWidth
         let width: CGFloat = min(preferredWidth, maxWidth)
         
-        return CGSize(width: width, height: 136)
+        let height = heightForText(text: asksInstallWebApplication.currentState.title, font: UIFont.arialFont(ofSize: 18.0), width: width - 30)
+        
+        return CGSize(width: width, height: height + 90)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -117,5 +109,21 @@ class AsksInstallWebApplicationHomeSectionRenderer: HomeViewSectionRenderer {
         return collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                withReuseIdentifier: EmptyCollectionReusableView.reuseIdentifier,
                                                                for: indexPath)
+    }
+    
+    func heightForText(text: String, font: UIFont, width: CGFloat) -> CGFloat {
+        let constrainedSize = CGSize.init(width: width, height: CGFloat(MAXFLOAT))
+        let attributesDictionary = [NSAttributedString.Key.font: font]
+        let mutablestring = NSAttributedString(string: text, attributes: attributesDictionary)
+
+        var requiredHeight = mutablestring.boundingRect(with: constrainedSize,
+                                                        options: NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin),
+                                                        context: nil)
+
+        if requiredHeight.size.width > width {
+            requiredHeight = CGRect(x: 0, y: 0, width: width, height: requiredHeight.height)
+        }
+        
+        return requiredHeight.size.height
     }
 }

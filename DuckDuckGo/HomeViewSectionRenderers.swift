@@ -176,6 +176,11 @@ class HomeViewSectionRenderers: NSObject, UICollectionViewDataSource, UICollecti
         renderers.append(renderer)
     }
     
+    func install(renderer: HomeViewSectionRenderer, section: Int) {
+        renderer.install(into: controller)
+        renderers.insert(renderer, at: section)
+    }
+    
     func remove(renderer: HomeViewSectionRenderer) -> Int? {
         renderer.remove(from: controller)
         guard let index = (renderers.firstIndex { $0 === renderer }) else {
