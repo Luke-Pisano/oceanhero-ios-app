@@ -424,7 +424,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    fileprivate func loadQuery(_ query: String) {
+    func loadQuery(_ query: String) {
         let queryUrl = appUrls.url(forQuery: query)
         loadUrl(queryUrl)
     }

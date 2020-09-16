@@ -21,15 +21,15 @@ import Foundation
 
 public struct AppDeepLinks {
 
-    public static let newSearch = "ddgNewSearch://"
+    public static let newSearch = "ohNewSearch://"
 
-    public static let quickLink = "ddgQuickLink://"
+    public static let quickLink = "ohQuickLink://"
 
-    public static let bookmarks = "ddgBookmarks://"
+    public static let bookmarks = "ohBookmarks://"
     
-    public static let fire = "ddgFire://"
+    public static let fire = "ohFire://"
 
-    public static let aboutLink = URL(string: "\(AppDeepLinks.quickLink)duckduckgo.com/about")!
+    public static let aboutLink = URL(string: "\(AppDeepLinks.quickLink)oceanhero.today/about")!
 
     public static func isNewSearch(url: URL) -> Bool {
         return isUrl(url, deepLink: AppDeepLinks.newSearch)

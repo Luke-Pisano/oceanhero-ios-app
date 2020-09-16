@@ -172,7 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             mainViewController?.newTab()
         } else if AppDeepLinks.isQuickLink(url: url) {
             let query = AppDeepLinks.query(fromQuickLink: url)
-            mainViewController?.loadQueryInNewTab(query)
+            mainViewController?.loadQuery(query)
         } else if AppDeepLinks.isBookmarks(url: url) {
             mainViewController?.onBookmarksPressed()
         } else if AppDeepLinks.isFire(url: url) {

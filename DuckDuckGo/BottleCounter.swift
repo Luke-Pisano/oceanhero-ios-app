@@ -115,8 +115,6 @@ extension BottleCounter {
             selfStrong.finalBottleCounter = response.counter / 5
             selfStrong.startBottleCounter = selfStrong.currentBottleCounter
             
-            print("CALL COME", selfStrong.startBottleCounter, selfStrong.finalBottleCounter)
-            
             guard selfStrong.isStarted else {
                 return
             }
@@ -130,12 +128,9 @@ extension BottleCounter {
     }
     
     private func startTotalCounterAnimation() {
-        print("INVALIDATE")
         timer?.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: stepDuration, repeats: true) { [weak self] _ in
-            print("LAUNCH")
-            
             guard let selfStrong = self else {
                 return
             }
@@ -144,8 +139,6 @@ extension BottleCounter {
                 selfStrong.currentBottleCounter = selfStrong.finalBottleCounter
                 selfStrong.didUpdatedTotalBottle?(selfStrong.currentValue)
                 selfStrong.timer?.invalidate()
-                
-                print("COUNTERS MEET, INVALIDATE")
                 
                 return
             }

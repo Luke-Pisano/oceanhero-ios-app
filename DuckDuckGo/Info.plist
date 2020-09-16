@@ -142,10 +142,10 @@
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ddgNewSearch</string>
-				<string>ddgQuickLink</string>
-				<string>ddgBookmarks</string>
-				<string>ddgFire</string>
+				<string>ohNewSearch</string>
+				<string>ohQuickLink</string>
+				<string>ohBookmarks</string>
+				<string>ohFire</string>
 				<string>http</string>
 				<string>https</string>
 			</array>

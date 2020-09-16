@@ -71,6 +71,7 @@
 		6FA09F98251207C900131C3A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F97251207C900131C3A /* AssetsLibrary.framework */; };
 		6FA09F9A251207D100131C3A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F99251207D100131C3A /* AVFoundation.framework */; };
 		6FA09F9C251207D800131C3A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F9B251207D800131C3A /* CoreText.framework */; };
+		6FA09F9E25121E9B00131C3A /* WKWebView+Cookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09F9D25121E9B00131C3A /* WKWebView+Cookies.swift */; };
 		6FBE95DE24F64277000FFA14 /* BottleCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBE95DD24F64277000FFA14 /* BottleCounter.swift */; };
 		6FF1AA8C2507A85E00BACDDB /* HomeAsksInstallWebApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF1AA8A2507A81100BACDDB /* HomeAsksInstallWebApplicationTests.swift */; };
 		6FFF803825063CCC000EA285 /* AsksInstallWebApplicationHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF803725063CCB000EA285 /* AsksInstallWebApplicationHomeCell.swift */; };
@@ -737,6 +738,7 @@
 		6FA09F97251207C900131C3A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		6FA09F99251207D100131C3A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6FA09F9B251207D800131C3A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		6FA09F9D25121E9B00131C3A /* WKWebView+Cookies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Cookies.swift"; sourceTree = "<group>"; };
 		6FB030C7234331B400A10DB9 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Configuration.xcconfig; path = Configuration/Configuration.xcconfig; sourceTree = "<group>"; };
 		6FBE95DD24F64277000FFA14 /* BottleCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCounter.swift; sourceTree = "<group>"; };
 		6FF1AA8A2507A81100BACDDB /* HomeAsksInstallWebApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAsksInstallWebApplicationTests.swift; sourceTree = "<group>"; };
@@ -2589,6 +2591,7 @@
 				85BDC3182436161C0053DB07 /* LoginFormDetectionUserScript.swift */,
 				836A941C247F23C600BF8EF5 /* UserAgentManager.swift */,
 				6809384D24F96C53004E882B /* SearchCounterUserScript.swift */,
+				6FA09F9D25121E9B00131C3A /* WKWebView+Cookies.swift */,
 			);
 			name = Web;
 			sourceTree = "<group>";
@@ -4069,6 +4072,7 @@
 				8521FDEE238DD1B500A44CC3 /* MockEntityMapping.swift in Sources */,
 				830C375E1F6C3A3B00E317A7 /* TermsOfServiceStore.swift in Sources */,
 				85F1E9AE1FB49EA200A75AC1 /* ServerTrustCache.swift in Sources */,
+				6FA09F9E25121E9B00131C3A /* WKWebView+Cookies.swift in Sources */,
 				857065701F6ABFA40044DCB1 /* APIRequest.swift in Sources */,
 				F14513571F46388F00710C46 /* SiteRating.swift in Sources */,
 				F159BDA71F0C073D00B4A01D /* WebCacheSummary.swift in Sources */,

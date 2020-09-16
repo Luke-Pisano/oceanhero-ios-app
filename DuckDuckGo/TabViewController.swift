@@ -822,10 +822,25 @@ extension TabViewController: WKNavigationDelegate {
         onWebpageDidFinishLoading()
         instrumentation.didLoadURL()
         checkLoginDetectionAfterNavigation()
+        getAuthorizationCookie(webView)
         
         // definitely finished with any potential login cycle by this point, so don't try and handle it any more
         detectedLoginURL = nil
         updatePreview()
+    }
+    
+    func getAuthorizationCookie(_ webView: WKWebView) {
+        if let url = webView.url, appUrls.isOceanHero(url: url) {
+            webView.getCookies(for: url.host) { data in
+                guard let authorization = data["authorization"] else {
+                    return
+                }
+                
+                os_log("=========================================", log: generalLog, type: .debug)
+                os_log("getAuthorizationCookie url: %s", log: generalLog, type: .debug, url.absoluteString)
+                os_log("getAuthorizationCookie data: %s", log: generalLog, type: .debug, String(describing: authorization))
+            }
+        }
     }
     
     func preparePreview(completion: @escaping (UIImage?) -> Void) {
