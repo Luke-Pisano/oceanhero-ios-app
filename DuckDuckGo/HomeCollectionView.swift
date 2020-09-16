@@ -78,7 +78,7 @@ class HomeCollectionView: UICollectionView {
         UIMenuController.shared.setMenuVisible(false, animated: true)
     }
     
-    func configure(withController controller: HomeViewController, andTheme theme: Theme, asksInstallWebApplication: HomeAsksInstallWebApplication) {
+    func configure(withController controller: HomeViewController, andTheme theme: Theme, asksInstallWebApplication: HomeAsksInstallWebApplication, isLoggedIn: Bool) {
         self.controller = controller
         self.asksInstallWebApplication = asksInstallWebApplication
         

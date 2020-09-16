@@ -33,6 +33,8 @@ public class AppUserDefaults: AppSettings {
         
         static let homePage = "com.duckduckgo.app.homePage"
         
+        static let userKey = "com.duckduckgo.app.userKey"
+        
         static let foregroundFetchStartCount = "com.duckduckgo.app.fgFetchStartCount"
         static let foregroundFetchNoDataCount = "com.duckduckgo.app.fgFetchNoDataCount"
         static let foregroundFetchNewDataCount = "com.duckduckgo.app.fgFetchNewDataCount"
@@ -189,6 +191,35 @@ public class AppUserDefaults: AppSettings {
         }
     }
     
+}
+
+extension AppUserDefaults: AppConfigurationUser {
+    public var user: User? {
+        get {
+            guard let value = UserDefaults.standard.object(forKey: Keys.userKey) as? Data else {
+                return nil
+            }
+            
+            let decoder = JSONDecoder()
+            
+            guard let user = try? decoder.decode(User.self, from: value) else {
+                return nil
+            }
+            
+            return user
+        }
+        
+        set {
+            let encoder = JSONEncoder()
+            
+            guard let encoded = try? encoder.encode(newValue) else {
+                return
+            }
+            
+            UserDefaults.standard.setValue(encoded, forKey: Keys.userKey)
+            UserDefaults.standard.synchronize()
+        }
+    }
 }
 
 extension AppUserDefaults: AppConfigurationHomeAsksInstallWebApplication {

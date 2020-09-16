@@ -61,6 +61,16 @@ class TabViewController: UIViewController {
     weak var delegate: TabDelegate?
     weak var chromeDelegate: BrowserChromeDelegate?
     
+    weak var userClient: UserClient? {
+        didSet {
+            guard let userClient = userClient else {
+                return
+            }
+            
+            isLoggedIn = userClient.isLoggedIn
+        }
+    }
+    
     var findInPage: FindInPage? {
         get { return findInPageScript.findInPage }
         set { findInPageScript.findInPage = newValue }
@@ -84,6 +94,7 @@ class TabViewController: UIViewController {
     private var lastError: Error?
     private var shouldReloadOnError = false
     private var failingUrls = Set<String>()
+    private var isLoggedIn: Bool = false
     
     private var trackerNetworksDetectedOnPage = Set<String>()
     private var pageHasTrackers = false
@@ -719,18 +730,49 @@ class TabViewController: UIViewController {
         removeMessageHandlers()
         removeObservers()
     }    
-}   
+}
+
+// MARK: - User
+
+extension TabViewController {
+    func didLogin() {
+        
+    }
+    
+    private func getAuthorizationCookie(_ webView: WKWebView) {
+        guard !isLoggedIn else {
+            return
+        }
+        
+        guard let url = webView.url, appUrls.isOceanHero(url: url) else {
+            return
+        }
+        
+        webView.getCookies(for: url.host) { [weak self] data in
+            guard let authorization = data["authorization"] as? [HTTPCookiePropertyKey: Any] else {
+                return
+            }
+            
+            os_log("=========================================", log: generalLog, type: .debug)
+            os_log("getAuthorizationCookie url: %s", log: generalLog, type: .debug, url.absoluteString)
+            os_log("getAuthorizationCookie data: %s", log: generalLog, type: .debug, String(describing: authorization))
+            
+            self?.userClient?.authorizationCookie(properties: authorization)
+        }
+    }
+}
+
+// MARK: - LoginFormDetectionDelegate
 
 extension TabViewController: LoginFormDetectionDelegate {
-    
     func loginFormDetectionUserScriptDetectedLoginForm(_ script: LoginFormDetectionUserScript) {
         detectedLoginURL = webView.url
     }
-    
 }
 
+// MARK: - WKNavigationDelegate
+
 extension TabViewController: WKNavigationDelegate {
-    
     func webView(_ webView: WKWebView,
                  didReceive challenge: URLAuthenticationChallenge,
                  completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
@@ -827,20 +869,6 @@ extension TabViewController: WKNavigationDelegate {
         // definitely finished with any potential login cycle by this point, so don't try and handle it any more
         detectedLoginURL = nil
         updatePreview()
-    }
-    
-    func getAuthorizationCookie(_ webView: WKWebView) {
-        if let url = webView.url, appUrls.isOceanHero(url: url) {
-            webView.getCookies(for: url.host) { data in
-                guard let authorization = data["authorization"] else {
-                    return
-                }
-                
-                os_log("=========================================", log: generalLog, type: .debug)
-                os_log("getAuthorizationCookie url: %s", log: generalLog, type: .debug, url.absoluteString)
-                os_log("getAuthorizationCookie data: %s", log: generalLog, type: .debug, String(describing: authorization))
-            }
-        }
     }
     
     func preparePreview(completion: @escaping (UIImage?) -> Void) {
@@ -1132,14 +1160,17 @@ extension TabViewController: WKNavigationDelegate {
     }
 }
 
+// MARK: - PrivacyProtectionDelegate
+
 extension TabViewController: PrivacyProtectionDelegate {
     func omniBarTextTapped() {
         chromeDelegate?.omniBar.becomeFirstResponder()
     }
 }
 
-extension TabViewController: WKUIDelegate {
+// MARK: - WKUIDelegate
 
+extension TabViewController: WKUIDelegate {
     public func webView(_ webView: WKWebView,
                         createWebViewWith configuration: WKWebViewConfiguration,
                         for navigationAction: WKNavigationAction,
@@ -1157,15 +1188,17 @@ extension TabViewController: WKUIDelegate {
         Pixel.fire(pixel: .webKitDidTerminate)
         delegate?.tabContentProcessDidTerminate(tab: self)
     }
-
 }
 
-extension TabViewController: UIPopoverPresentationControllerDelegate {
+// MARK: - UIPopoverPresentationControllerDelegate
 
+extension TabViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
     }
 }
+
+// MARK: - UIGestureRecognizerDelegate
 
 extension TabViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -1227,11 +1260,11 @@ extension TabViewController: UIGestureRecognizerDelegate {
     func webView(_ webView: WKWebView, shouldPreviewElement elementInfo: WKPreviewElementInfo) -> Bool {
         return false
     }
-    
 }
 
+// MARK: - ContentBlockerUserScriptDelegate
+
 extension TabViewController: ContentBlockerUserScriptDelegate {
-    
     func contentBlockerUserScriptShouldProcessTrackers(_ script: ContentBlockerUserScript) -> Bool {
         return siteRating?.isFor(self.url) ?? false
     }
@@ -1258,11 +1291,11 @@ extension TabViewController: ContentBlockerUserScriptDelegate {
         siteRating?.surrogateInstalled(host)
         contentBlockerUserScript(script, detectedTracker: tracker)
     }
-    
 }
 
-extension TabViewController: Themable {
+// MARK: - Themable
 
+extension TabViewController: Themable {
     func decorate(with theme: Theme) {
         view.backgroundColor = theme.backgroundColor
         error?.backgroundColor = theme.backgroundColor
@@ -1276,15 +1309,12 @@ extension TabViewController: Themable {
             errorInfoImage?.image = UIImage(named: "ErrorInfoDark")
         }
     }
-    
 }
 
 extension NSError {
-
     var failedUrl: URL? {
         return userInfo[NSURLErrorFailingURLErrorKey] as? URL
     }
-
 }
 
 // swiftlint:enable file_length

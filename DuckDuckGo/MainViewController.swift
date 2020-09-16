@@ -99,6 +99,19 @@ class MainViewController: UIViewController {
         return tabManager?.current
     }
     
+    fileprivate lazy var userClient: UserClient = {
+        var apiClient = APIClient(apiService: APIService(baseURL: AppUrls().counterAPICall), apiParser: APIParser())
+        var userData = UserData(appConfiguration: AppUserDefaults())
+        var userClient = UserClient(with: apiClient, userData: userData)
+        
+        userClient.didLogin = { [weak self] in
+            self?.currentTab?.didLogin()
+            self?.homeController?.didLogin()
+        }
+        
+        return userClient
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -354,6 +367,7 @@ class MainViewController: UIViewController {
         let controller = HomeViewController.loadFromStoryboard()
         homeController = controller
 
+        controller.userClient = userClient
         controller.asksInstallWebApplication = asksInstallWebApplication
         controller.chromeDelegate = self
         controller.delegate = self
@@ -465,10 +479,13 @@ class MainViewController: UIViewController {
         updateFindInPage()
         currentTab?.progressWorker.progressBar = nil
         currentTab?.chromeDelegate = nil
+        currentTab?.userClient = nil
+        
         addToView(controller: tab)
         tab.progressWorker.progressBar = progressView
         chromeManager.attach(to: tab.webView.scrollView)
         tab.chromeDelegate = self
+        tab.userClient = userClient
     }
 
     private func addToView(controller: UIViewController) {
@@ -573,6 +590,7 @@ class MainViewController: UIViewController {
             autocompleteController = controller
             omniBar.hideSeparator()
         }
+        
         guard let autocompleteController = autocompleteController else { return }
         autocompleteController.updateQuery(query: query)
     }
@@ -621,7 +639,6 @@ class MainViewController: UIViewController {
     }
 
     func showNotification(title: String, message: String, dismissHandler: @escaping NotificationView.DismissHandler) {
-
         let notificationView = NotificationView.loadFromNib(dismissHandler: dismissHandler)
 
         notificationView.setTitle(text: title)
@@ -637,24 +654,21 @@ class MainViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
-
     }
 
     func hideNotification() {
-
         notificationContainerTop.constant = -(notificationView?.frame.size.height ?? 0)
         notificationContainerHeight.constant = 0
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
         }, completion: { _ in
             self.notificationContainerTop.constant = 0
             self.notificationView?.removeFromSuperview()
         })
-
     }
 
     func showHomeRowReminder() {
-
         let feature = HomeRowReminder()
         guard feature.showNow() else { return }
 
@@ -699,24 +713,25 @@ class MainViewController: UIViewController {
     }
 }
 
+// MARK: - FindInPageDelegate
+
 extension MainViewController: FindInPageDelegate {
-    
     func updated(findInPage: FindInPage) {
         findInPageView.update(with: findInPage, updateTextField: false)
     }
-
 }
 
+// MARK: - FindInPageViewDelegate
+
 extension MainViewController: FindInPageViewDelegate {
-    
     func done(findInPageView: FindInPageView) {
         currentTab?.findInPage = nil
     }
-    
 }
 
-extension MainViewController: BrowserChromeDelegate {
+// MARK: - BrowserChromeDelegate
 
+extension MainViewController: BrowserChromeDelegate {
     struct ChromeAnimationConstants {
         static let duration = 0.1
     }
@@ -785,11 +800,11 @@ extension MainViewController: BrowserChromeDelegate {
     private func updateNavBarConstant(_ ratio: CGFloat) {
         navBarTop.constant = -self.customNavigationBar.frame.size.height * (1.0 - ratio)
     }
-
 }
 
-extension MainViewController: OmniBarDelegate {
+// MARK: - OmniBarDelegate
 
+extension MainViewController: OmniBarDelegate {
     func onOmniQueryUpdated(_ updatedQuery: String) {
         displayAutocompleteSuggestions(forQuery: updatedQuery)
     }
@@ -843,11 +858,11 @@ extension MainViewController: OmniBarDelegate {
     func onRefreshPressed() {
         currentTab?.refresh()
     }
-    
 }
 
+// MARK: - FavoritesOverlayDelegate
+
 extension MainViewController: FavoritesOverlayDelegate {
-    
     func favoritesOverlay(_ overlay: FavoritesOverlay, didSelect link: Link) {
         homeController?.chromeDelegate = nil
         dismissOmniBar()
@@ -857,8 +872,9 @@ extension MainViewController: FavoritesOverlayDelegate {
     }
 }
 
-extension MainViewController: AutocompleteViewControllerDelegate {
+// MARK: - AutocompleteViewControllerDelegate
 
+extension MainViewController: AutocompleteViewControllerDelegate {
     func autocomplete(selectedSuggestion suggestion: String) {
         homeController?.chromeDelegate = nil
         dismissOmniBar()
@@ -875,8 +891,9 @@ extension MainViewController: AutocompleteViewControllerDelegate {
     }
 }
 
+// MARK: - HomeControllerDelegate
+
 extension MainViewController: HomeControllerDelegate {
-    
     func home(_ home: HomeViewController, didRequestQuery query: String) {
         loadQueryInNewTab(query)
     }
@@ -912,11 +929,11 @@ extension MainViewController: HomeControllerDelegate {
         statusBarBackground?.alpha = percent
         customNavigationBar?.alpha = percent
     }
-    
 }
 
-extension MainViewController: TabDelegate {
+// MARK: - TabDelegate
 
+extension MainViewController: TabDelegate {
     func tab(_ tab: TabViewController,
              didRequestNewWebViewWithConfiguration configuration: WKWebViewConfiguration,
              for navigationAction: WKNavigationAction) -> WKWebView? {
@@ -1031,11 +1048,11 @@ extension MainViewController: TabDelegate {
             completion()
         })
     }
-
 }
 
-extension MainViewController: TabSwitcherDelegate {
+// MARK: - TabSwitcherDelegate
 
+extension MainViewController: TabSwitcherDelegate {
     func tabSwitcherDidRequestNewTab(tabSwitcher: TabSwitcherViewController) {
         newTab()
     }
@@ -1072,8 +1089,9 @@ extension MainViewController: TabSwitcherDelegate {
             tabSwitcher.dismiss(animated: false, completion: nil)
         }
     }
-    
 }
+
+// MARK: - BookmarksDelegate
 
 extension MainViewController: BookmarksDelegate {
     func bookmarksDidSelect(link: Link) {
@@ -1086,8 +1104,9 @@ extension MainViewController: BookmarksDelegate {
     }
 }
 
+// MARK: - TabSwitcherButtonDelegate
+
 extension MainViewController: TabSwitcherButtonDelegate {
-    
     func launchNewTab(_ button: TabSwitcherButton) {
         newTab()
     }
@@ -1111,8 +1130,9 @@ extension MainViewController: TabSwitcherButtonDelegate {
     }
 }
 
+// MARK: - GestureToolbarButtonDelegate
+
 extension MainViewController: GestureToolbarButtonDelegate {
-    
     func singleTapDetected(in sender: GestureToolbarButton) {
         switch sender {
         case gestureHomeButton:
@@ -1142,11 +1162,11 @@ extension MainViewController: GestureToolbarButtonDelegate {
         Pixel.fire(pixel: .tabBarBookmarksLongPressed)
         currentTab!.saveAsBookmark()
     }
-    
 }
 
+// MARK: - AutoClearWorker
+
 extension MainViewController: AutoClearWorker {
-    
     func clearNavigationStack() {
         dismissOmniBar()
         
@@ -1194,11 +1214,11 @@ extension MainViewController: AutoClearWorker {
         let window = UIApplication.shared.keyWindow
         window?.showBottomToast(UserText.actionForgetAllDone, duration: 1)
     }
-    
 }
 
+// MARK: - Themable
+
 extension MainViewController: Themable {
-    
     func decorate(with theme: Theme) {
         setNeedsStatusBarAppearanceUpdate()
 
@@ -1223,21 +1243,21 @@ extension MainViewController: Themable {
 
         findInPageView.decorate(with: theme)
     }
-    
 }
 
+// MARK: - HomePageSettingsDelegate
+
 extension MainViewController: HomePageSettingsDelegate {
-    
     func homePageChanged() {
         guard homeController != nil else { return }
         removeHomeScreen()
         attachHomeScreen()
     }
-    
 }
 
+// MARK: - OnboardingDelegate
+
 extension MainViewController: OnboardingDelegate {
-        
     func onboardingCompleted(controller: UIViewController) {
         markOnboardingSeen()
         controller.modalTransitionStyle = .crossDissolve
@@ -1249,7 +1269,6 @@ extension MainViewController: OnboardingDelegate {
         var settings = DefaultTutorialSettings()
         settings.hasSeenOnboarding = true
     }
-    
 }
 
 // swiftlint:enable file_length

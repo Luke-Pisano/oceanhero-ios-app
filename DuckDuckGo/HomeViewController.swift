@@ -36,7 +36,13 @@ class HomeViewController: UIViewController {
     
     fileprivate lazy var appSettings: AppSettings = AppUserDefaults()
     private lazy var bottleCounter: BottleCounter = BottleCounter()
+    
     weak var asksInstallWebApplication: HomeAsksInstallWebApplication!
+    weak var userClient: UserClient!
+    
+    private var userName: String? {
+        userClient.userName
+    }
     
     var logoContainer: UIView! {
         return delegate?.homeDidRequestLogoContainer(self)
@@ -114,38 +120,10 @@ class HomeViewController: UIViewController {
         bottleCounter.start()
     }
     
-    // MARK: - Individual Bottle Counter
-    
-    private func updateIndividualBottleCount() {
-        individualBottleCounterView.smallBottleLabel.text = String(appSettings.individualBottleCounter)
-    }
-    
-    // MARK: - Bottle Counter
-    
-    private func updateTotalBottle(value: String) {
-        collectionView.visibleCells.forEach { cell in
-            guard let centeredSearchHomeCell = cell as? CenteredSearchHomeCell else {
-                return
-            }
-            
-            updateTotalBottle(for: centeredSearchHomeCell, value: value)
-        }
-    }
-    
-    func updateTotalBottle(for cell: CenteredSearchHomeCell) {
-        updateTotalBottle(for: cell, value: bottleCounter.currentValue)
-    }
-    
-    private func updateTotalBottle(for cell: CenteredSearchHomeCell, value: String) {
-        cell.totalBottleLabel.text = value
-    }
-    
-    // MARK: - Other
-    
     func configureCollectionView() {
         collectionView.configure(withController: self,
                                  andTheme: ThemeManager.shared.currentTheme,
-                                 asksInstallWebApplication: asksInstallWebApplication)
+                                 asksInstallWebApplication: asksInstallWebApplication, isLoggedIn: userClient.isLoggedIn)
     }
     
     func enableContentUnderflow() -> CGFloat {
@@ -287,18 +265,57 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: FavoritesHomeViewSectionRendererDelegate {
+// MARK: - Individual Bottle Counter
+
+extension HomeViewController {
+    private func updateIndividualBottleCount() {
+        individualBottleCounterView.smallBottleLabel.text = String(appSettings.individualBottleCounter)
+    }
+}
+
+// MARK: - Total Bottle Counter
+
+extension HomeViewController {
+    private func updateTotalBottle(value: String) {
+        collectionView.visibleCells.forEach { cell in
+            guard let centeredSearchHomeCell = cell as? CenteredSearchHomeCell else {
+                return
+            }
+            
+            updateTotalBottle(for: centeredSearchHomeCell, value: value)
+        }
+    }
     
+    func updateTotalBottle(for cell: CenteredSearchHomeCell) {
+        updateTotalBottle(for: cell, value: bottleCounter.currentValue)
+    }
+    
+    private func updateTotalBottle(for cell: CenteredSearchHomeCell, value: String) {
+        cell.totalBottleLabel.text = value
+    }
+}
+
+// MARK: - User
+
+extension HomeViewController {
+    func didLogin() {
+        
+    }
+}
+
+// MARK: - FavoritesHomeViewSectionRendererDelegate
+
+extension HomeViewController: FavoritesHomeViewSectionRendererDelegate {
     func favoritesRenderer(_ renderer: FavoritesHomeViewSectionRenderer, didSelect link: Link) {
         Pixel.fire(pixel: .homeScreenFavouriteLaunched)
         Favicons.shared.loadFavicon(forDomain: link.url.host, intoCache: .bookmarks, fromCache: .tabs)
         delegate?.home(self, didRequestUrl: link.url)
     }
-
 }
 
-extension HomeViewController: Themable {
+// MARK: - Themable
 
+extension HomeViewController: Themable {
     func decorate(with theme: Theme) {
         collectionView.decorate(with: theme)
         

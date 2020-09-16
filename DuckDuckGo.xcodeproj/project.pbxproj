@@ -72,6 +72,11 @@
 		6FA09F9A251207D100131C3A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F99251207D100131C3A /* AVFoundation.framework */; };
 		6FA09F9C251207D800131C3A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F9B251207D800131C3A /* CoreText.framework */; };
 		6FA09F9E25121E9B00131C3A /* WKWebView+Cookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09F9D25121E9B00131C3A /* WKWebView+Cookies.swift */; };
+		6FA09FA1251236C100131C3A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09FA0251236C100131C3A /* User.swift */; };
+		6FA09FA3251237D600131C3A /* AppConfigurationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09FA2251237D600131C3A /* AppConfigurationUser.swift */; };
+		6FA09FA5251239A500131C3A /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09FA4251239A500131C3A /* UserClient.swift */; };
+		6FA09FAB251239FD00131C3A /* UserDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09FAA251239FD00131C3A /* UserDataType.swift */; };
+		6FA09FAD25123A0200131C3A /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA09FAC25123A0200131C3A /* UserData.swift */; };
 		6FBE95DE24F64277000FFA14 /* BottleCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBE95DD24F64277000FFA14 /* BottleCounter.swift */; };
 		6FF1AA8C2507A85E00BACDDB /* HomeAsksInstallWebApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF1AA8A2507A81100BACDDB /* HomeAsksInstallWebApplicationTests.swift */; };
 		6FFF803825063CCC000EA285 /* AsksInstallWebApplicationHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF803725063CCB000EA285 /* AsksInstallWebApplicationHomeCell.swift */; };
@@ -739,6 +744,11 @@
 		6FA09F99251207D100131C3A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6FA09F9B251207D800131C3A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		6FA09F9D25121E9B00131C3A /* WKWebView+Cookies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Cookies.swift"; sourceTree = "<group>"; };
+		6FA09FA0251236C100131C3A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6FA09FA2251237D600131C3A /* AppConfigurationUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurationUser.swift; sourceTree = "<group>"; };
+		6FA09FA4251239A500131C3A /* UserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
+		6FA09FAA251239FD00131C3A /* UserDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataType.swift; sourceTree = "<group>"; };
+		6FA09FAC25123A0200131C3A /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		6FB030C7234331B400A10DB9 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Configuration.xcconfig; path = Configuration/Configuration.xcconfig; sourceTree = "<group>"; };
 		6FBE95DD24F64277000FFA14 /* BottleCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCounter.swift; sourceTree = "<group>"; };
 		6FF1AA8A2507A81100BACDDB /* HomeAsksInstallWebApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAsksInstallWebApplicationTests.swift; sourceTree = "<group>"; };
@@ -1440,6 +1450,17 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		6FA09F9F251236B600131C3A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				6FA09FA4251239A500131C3A /* UserClient.swift */,
+				6FA09FAA251239FD00131C3A /* UserDataType.swift */,
+				6FA09FAC25123A0200131C3A /* UserData.swift */,
+				6FA09FA0251236C100131C3A /* User.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		6FBE95DC24F6425F000FFA14 /* BottleCounter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1712,6 +1733,7 @@
 		84E341941E2F7EFB00BDBA6F /* DuckDuckGo */ = {
 			isa = PBXGroup;
 			children = (
+				6FA09F9F251236B600131C3A /* User */,
 				6FBE95DC24F6425F000FFA14 /* BottleCounter */,
 				F1C5ECF31E37812900C599A4 /* Application */,
 				9817C9C121EF58BA00884F65 /* AutoClear */,
@@ -2899,6 +2921,7 @@
 				850250B220D803F4002199C7 /* AtbAndVariantCleanup.swift */,
 				983EABB7236198F6003948D1 /* DatabaseMigration.swift */,
 				6FFF8041250671DB000EA285 /* AppConfigurationHomeAsksInstallWebApplication.swift */,
+				6FA09FA2251237D600131C3A /* AppConfigurationUser.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -3714,6 +3737,7 @@
 				F1F5337C1F26A9EF00D80D4F /* UserText.swift in Sources */,
 				853C5F6121C277C7001F7A05 /* global.swift in Sources */,
 				F13B4BD31F1822C700814661 /* Tab.swift in Sources */,
+				6FA09FAB251239FD00131C3A /* UserDataType.swift in Sources */,
 				F1BE54581E69DE1000FCF649 /* TutorialSettings.swift in Sources */,
 				858650D12469BCDE00C36F8A /* DaxDialogs.swift in Sources */,
 				98196CFA23AA75D0007809AC /* OnboardingHomeRowViewController.swift in Sources */,
@@ -3745,6 +3769,7 @@
 				98AA92B32456FBE100ED4B9E /* SearchFieldContainerView.swift in Sources */,
 				85C37D861FA8BE7100CDE257 /* PrivacyProtectionOverviewController.swift in Sources */,
 				85F200042216F5D8006BB258 /* FindInPageView.swift in Sources */,
+				6FA09FA1251236C100131C3A /* User.swift in Sources */,
 				98E6F6E4242A15CD00E7ED9D /* ExtraContentHomeSectionRenderer.swift in Sources */,
 				F1617C131E572E0300DEDCAF /* TabSwitcherViewController.swift in Sources */,
 				83BE9BC3215D69C1009844D9 /* AppConfigurationFetch.swift in Sources */,
@@ -3765,6 +3790,7 @@
 				851B128822200575004781BC /* Onboarding.swift in Sources */,
 				857EEB752095FFAC008A005C /* HomeRowInstructionsViewController.swift in Sources */,
 				F1617C151E57336D00DEDCAF /* TabManager.swift in Sources */,
+				6FA09FAD25123A0200131C3A /* UserData.swift in Sources */,
 				85449EF523FDA02800512AAF /* KeyboardSettingsViewController.swift in Sources */,
 				85058371219F424500ED4EDB /* PartiallyRoundedRectangleView.swift in Sources */,
 				85C11E4C2090888C00BFFEB4 /* HomeRowReminder.swift in Sources */,
@@ -3795,6 +3821,7 @@
 				854757B124088EFE00C47837 /* PaddingHomeViewSectionRenderer.swift in Sources */,
 				851B12CE2236CAB2004781BC /* HomePageSettingsViewController.swift in Sources */,
 				8505836D219F424500ED4EDB /* Point.swift in Sources */,
+				6FA09FA3251237D600131C3A /* AppConfigurationUser.swift in Sources */,
 				F114C5611E67599C0018F95F /* UseDuckDuckGoInSafariViewController.swift in Sources */,
 				981FED76220464EF008488D7 /* AutoClearSettingsModel.swift in Sources */,
 				984FD95823018E6700B3E4DE /* LocalNotifications.swift in Sources */,
@@ -3857,6 +3884,7 @@
 				9838059F2228208E00385F1A /* PositiveFeedbackViewController.swift in Sources */,
 				03816FBF24FD0B210067C97A /* SourceryProtocols.swift in Sources */,
 				F1AB2B421E3F7D5C00868554 /* SettingsViewController.swift in Sources */,
+				6FA09FA5251239A500131C3A /* UserClient.swift in Sources */,
 				85200F911FBA38E2001AF290 /* PrivacyProtectionScoreCardController.swift in Sources */,
 				F16390821E648B7A005B4550 /* HomeViewController.swift in Sources */,
 				98F3A1DA217B37200011A0D4 /* LightTheme.swift in Sources */,
