@@ -139,7 +139,9 @@ extension HomeAsksInstallWebApplication {
     func nextLeftAction() {
         switch currentState {
         case .doYouUseOceanHero:
-            currentState = .wouldYouMindTryingIt
+            lastVisit = Date()
+            count = Constants.maxCount
+            currentState = .success
         case .wouldYouMindTryingIt:
             currentState = .remindYouSomeOtherTime
         case .itIsVeryEasyVisitOceanhero:
@@ -150,9 +152,12 @@ extension HomeAsksInstallWebApplication {
         case .willSeeButton:
             // Show form: https://forms.gle/WvuPoRMLxHThCH6B6
             UIApplication.shared.open(AppUrls().problemOceanHeroComputer)
+            installedIt()
         case .rightTimeToGetOceanHero:
             // If user clicked sorry, but no, remind user again in 10 days. But after 2 attempts, never show again
             waitForNextAction()
+        case .success:
+            fatalError("Shouldn't be happens")
         }
         
         print("4. count: \(count) currentState: \(currentState.rawValue) lastVisit: \(String(describing: lastVisit)) shouldDisplay: \(shouldDisplay)")
@@ -173,9 +178,13 @@ extension HomeAsksInstallWebApplication {
             shouldDisplay = false
         case .willSeeButton:
             //Close dialogue if user clicks “Cool i installed it
-            installedIt()
+            lastVisit = Date()
+            count = Constants.maxCount
+            currentState = .success
         case .rightTimeToGetOceanHero:
             currentState = .itIsVeryEasyVisitOceanhero
+        case .success:
+            installedIt()
         }
         
         print("5. count: \(count) currentState: \(currentState.rawValue) lastVisit: \(String(describing: lastVisit)) shouldDisplay: \(shouldDisplay)")

@@ -296,4 +296,86 @@ public struct UserText {
     public static let daxOnBoardingButtonFirst = NSLocalizedString("dax.onboarding.button.first", value: "CONTINUE", comment: "CONTINUE")
     public static let daxOnBoardingButtonSecond = NSLocalizedString("dax.onboarding.button.second", value: "THAT'S GREAT!", comment: "THAT'S GREAT!")
     public static let daxOnBoardingButtonThird = NSLocalizedString("dax.onboarding.button.third", value: "START SEARCHING", comment: "START SEARCHING")
+    
+    // hAIWAState title
+    
+    public static let hAIWAStateDoYouUseOceanHeroTitle = NSLocalizedString("hAIWA.state.title.doYouUseOceanHero",
+                                                                           value: "Do you use OceanHero on your computer?",
+                                                                           comment: "Do you use OceanHero on your computer?")
+    
+    public static let hAIWAStateStateWouldYouMindTryingItTitle = NSLocalizedString("hAIWA.state.title.wouldYouMindTryingIt",
+                                                                                   value: "Would you mind trying it out on your computer?",
+                                                                                   comment: "Would you mind trying it out on your computer?")
+    
+    public static let hAIWAStateStateItIsVeryEasyVisitOceanheroTitle = NSLocalizedString("hAIWA.state.title.itIsVeryEasyVisitOceanhero",
+                                                                                         value: "Ok, it is very easy. Visit oceanhero.today on your computer",
+                                                                                         comment: "Ok, it is very easy. Visit oceanhero.today on your computer")
+    
+    public static let hAIWAStateStateRemindYouSomeOtherTimeTitle = NSLocalizedString("hAIWA.state.title.remindYouSomeOtherTime",
+                                                                                     value: "No problem! I’ll remind you some other time",
+                                                                                     comment: "No problem! I’ll remind you some other time")
+    
+    public static let hAIWAStateStateWillSeeButtonTitle = NSLocalizedString("hAIWA.state.title.willSeeButton",
+                                                                            value: "Great! Now, you will see a button that asks you to install our extension",
+                                                                            comment: "Great! Now, you will see a button that asks you to install our extension")
+    
+    public static let hAIWAStateStateRightTimeToGetOceanHeroTitle = NSLocalizedString("hAIWA.state.title.rightTimeToGetOceanHero",
+                                                                                      value: "Hello friend, is now the right time to get OceanHero set up on your computer?",
+                                                                                      comment: "Hello friend, is now the right time to get OceanHero set up on your computer?")
+    
+    public static let hAIWAStateStateSuccessTitle = NSLocalizedString("hAIWA.state.title.success",
+                                                                      value: "We ❤️ you",
+                                                                      comment: "We ❤️ you")
+    
+    // hAIWAState left button title
+    
+    public static let hAIWAStateDoYouUseOceanHeroLeftButtonTitle = NSLocalizedString("hAIWA.state.left.button.title.doYouUseOceanHero",
+                                                                                     value: "Yes",
+                                                                                     comment: "Yes")
+    
+    public static let hAIWAStateStateWouldYouMindTryingItLeftButtonTitle = NSLocalizedString("hAIWA.state.left.button.title.wouldYouMindTryingIt",
+                                                                                             value: "Maybe later",
+                                                                                             comment: "Maybe later")
+    
+    public static let hAIWAStateStateRemindYouSomeOtherTimeLeftButtonTitle = NSLocalizedString("hAIWA.state.left.button.title.remindYouSomeOtherTime",
+                                                                                               value: "Please don’t",
+                                                                                               comment: "Please don’t")
+    
+    public static let hAIWAStateStateWillSeeButtonLeftButtonTitle = NSLocalizedString("hAIWA.state.left.button.title.willSeeButton",
+                                                                                      value: "I had a problem",
+                                                                                      comment: "I had a problem")
+    
+    public static let hAIWAStateStateRightTimeToGetOceanHeroLeftButtonTitle = NSLocalizedString("hAIWA.state.left.button.title.rightTimeToGetOceanHero",
+                                                                                                value: "Sorry, but no",
+                                                                                                comment: "Sorry, but no")
+    
+    // hAIWAState right button title
+    
+    public static let hAIWAStateDoYouUseOceanHeroRightButtonTitle = NSLocalizedString("hAIWA.state.right.button.title.doYouUseOceanHero",
+                                                                                      value: "Not yet",
+                                                                                      comment: "Not yet")
+    
+    public static let hAIWAStateStateWouldYouMindTryingItRightButtonTitle = NSLocalizedString("hAIWA.state.right.button.title.wouldYouMindTryingIt",
+                                                                                              value: "Sure, let’s do it now",
+                                                                                              comment: "Sure, let’s do it now")
+    
+    public static let hAIWAStateStateItIsVeryEasyVisitOceanheroRightButtonTitle = NSLocalizedString("hAIWA.state.right.button.title.itIsVeryEasyVisitOceanhero",
+                                                                                                    value: "Ok, I am on it",
+                                                                                                    comment: "Ok, I am on it")
+    
+    public static let hAIWAStateStateRemindYouSomeOtherTimeRightButtonTitle = NSLocalizedString("hAIWA.state.right.button.title.remindYouSomeOtherTime",
+                                                                                                value: "Sure",
+                                                                                                comment: "Sure")
+    
+    public static let hAIWAStateStateWillSeeButtonRightButtonTitle = NSLocalizedString("hAIWA.state.right.button.title.willSeeButton",
+                                                                                       value: "Cool, I installed it",
+                                                                                       comment: "Cool, I installed it")
+    
+    public static let hAIWAStateStateRightTimeToGetOceanHeroRightButtonTitle = NSLocalizedString("hAIWA.state.right.button.title.rightTimeToGetOceanHero",
+                                                                                                 value: "Yes, let’s do it",
+                                                                                                 comment: "Yes, let’s do it")
+    
+    public static let hAIWAStateStateSuccessRightButtonTitle = NSLocalizedString("hAIWA.state.right.button.title.success",
+                                                                                 value: "You’re welcome!",
+                                                                                 comment: "You’re welcome!")
 }

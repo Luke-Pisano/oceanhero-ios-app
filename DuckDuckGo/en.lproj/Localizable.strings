@@ -348,3 +348,25 @@
 "dax.hide.message" = "There are only a few, and we tried to make them informative.";
 "dax.hide.button" = "Hide tips forever";
 "dax.hide.cancel" = "Cancel";
+
+"hAIWA.state.title.doYouUseOceanHero" = "Do you use OceanHero on your computer?";
+"hAIWA.state.title.wouldYouMindTryingIt" = "Would you mind trying it out on your computer?";
+"hAIWA.state.title.itIsVeryEasyVisitOceanhero" = "Ok, it is very easy. Visit oceanhero.today on your computer";
+"hAIWA.state.title.remindYouSomeOtherTime" = "No problem! I’ll remind you some other time";
+"hAIWA.state.title.willSeeButton"= "Great! Now, you will see a button that asks you to install our extension";
+"hAIWA.state.title.rightTimeToGetOceanHero" = "Hello friend, is now the right time to get OceanHero set up on your computer?";
+"hAIWA.state.title.success" = "We ❤️ you";
+
+"hAIWA.state.left.button.title.doYouUseOceanHero" = "Yes";
+"hAIWA.state.left.button.title.wouldYouMindTryingIt" = "Maybe later";
+"hAIWA.state.left.button.title.remindYouSomeOtherTime" = "Please don’t";
+"hAIWA.state.left.button.title.willSeeButton" = "I had a problem";
+"hAIWA.state.left.button.title.rightTimeToGetOceanHero" = "Sorry, but no";
+
+"hAIWA.state.right.button.title.doYouUseOceanHero" = "Not yet";
+"hAIWA.state.right.button.title.wouldYouMindTryingIt" = "Sure, let’s do it now";
+"hAIWA.state.right.button.title.itIsVeryEasyVisitOceanhero" = "Ok, I am on it";
+"hAIWA.state.right.button.title.remindYouSomeOtherTime" = "Sure";
+"hAIWA.state.right.button.title.willSeeButton" = "Cool, I installed it";
+"hAIWA.state.right.button.title.rightTimeToGetOceanHero" = "Yes, let’s do it";
+"hAIWA.state.right.button.title.success" = "You’re welcome!";

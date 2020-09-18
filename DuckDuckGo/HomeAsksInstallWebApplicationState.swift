@@ -22,6 +22,8 @@ enum HomeAsksInstallWebApplicationState: Int {
     // Hello friend, is now the right time to get OceanHero set up on your computer? ( Sorry, but no - Yes, let’s do it )
     case rightTimeToGetOceanHero = 5
     
+    case success = 6
+    
     init(value: Int) {
         self = HomeAsksInstallWebApplicationState(rawValue: value) ?? .doYouUseOceanHero
         print("HomeAsksInstallWebApplicationState: \(value) self: \(self.rawValue)")
@@ -32,51 +34,57 @@ extension HomeAsksInstallWebApplicationState {
     var title: String {
         switch self {
         case .doYouUseOceanHero:
-            return "Do you use OceanHero on your computer"
+            return UserText.hAIWAStateDoYouUseOceanHeroTitle
         case .wouldYouMindTryingIt:
-            return "Would you mind trying it out on your computer?"
+            return UserText.hAIWAStateStateWouldYouMindTryingItTitle
         case .itIsVeryEasyVisitOceanhero:
-            return "Ok, it is very easy. Visit oceanhero.today on your computer"
+            return UserText.hAIWAStateStateItIsVeryEasyVisitOceanheroTitle
         case .remindYouSomeOtherTime:
-            return "No problem! I’ll remind you some other time"
+            return UserText.hAIWAStateStateRemindYouSomeOtherTimeTitle
         case .willSeeButton:
-            return "Great! Now, you will see a button that asks you to install our extension"
+            return UserText.hAIWAStateStateWillSeeButtonTitle
         case .rightTimeToGetOceanHero:
-            return "Hello friend, is now the right time to get OceanHero set up on your computer?"
+            return UserText.hAIWAStateStateRightTimeToGetOceanHeroTitle
+        case .success:
+            return UserText.hAIWAStateStateSuccessTitle
         }
     }
     
     var leftButtonTitle: String? {
         switch self {
         case .doYouUseOceanHero:
-            return "Yes"
+            return UserText.hAIWAStateDoYouUseOceanHeroLeftButtonTitle
         case .wouldYouMindTryingIt:
-            return "Maybe later"
+            return UserText.hAIWAStateStateWouldYouMindTryingItLeftButtonTitle
         case .itIsVeryEasyVisitOceanhero:
             return nil
         case .remindYouSomeOtherTime:
-            return "Please don’t"
+            return UserText.hAIWAStateStateRemindYouSomeOtherTimeLeftButtonTitle
         case .willSeeButton:
-            return "I had a problem"
+            return UserText.hAIWAStateStateWillSeeButtonLeftButtonTitle
         case .rightTimeToGetOceanHero:
-            return "Sorry, but no"
+            return UserText.hAIWAStateStateRightTimeToGetOceanHeroLeftButtonTitle
+        case .success:
+            return nil
         }
     }
     
     var rightButtonTitle: String {
         switch self {
         case .doYouUseOceanHero:
-            return "Not yet"
+            return UserText.hAIWAStateDoYouUseOceanHeroRightButtonTitle
         case .wouldYouMindTryingIt:
-            return "Sure, let’s do it now"
+            return UserText.hAIWAStateStateWouldYouMindTryingItRightButtonTitle
         case .itIsVeryEasyVisitOceanhero:
-            return "Ok, I am on it"
+            return UserText.hAIWAStateStateItIsVeryEasyVisitOceanheroRightButtonTitle
         case .remindYouSomeOtherTime:
-            return "Sure"
+            return UserText.hAIWAStateStateRemindYouSomeOtherTimeRightButtonTitle
         case .willSeeButton:
-            return "Cool, I installed it"
+            return UserText.hAIWAStateStateWillSeeButtonRightButtonTitle
         case .rightTimeToGetOceanHero:
-            return "Yes, let’s do it"
+            return UserText.hAIWAStateStateRightTimeToGetOceanHeroRightButtonTitle
+        case .success:
+            return UserText.hAIWAStateStateSuccessRightButtonTitle
         }
     }
 }
