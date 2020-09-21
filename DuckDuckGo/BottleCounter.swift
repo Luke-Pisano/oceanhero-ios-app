@@ -123,7 +123,7 @@ extension BottleCounter {
                 selfStrong.startTotalCounterAnimation()
             }
         }, onFailure: { error in
-            print(error)
+            print("error: \(error)")
         })
     }
     

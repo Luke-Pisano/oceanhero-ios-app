@@ -55,7 +55,7 @@ public struct AppUrls {
         static let pixel = "\(pixelBase)/t/%@_ios_%@"
         static let feedbackPage = "https://forms.gle/iMgjqR6xCsfhtKpt5"
         
-        static let counterAPICall = "https://oceanhero.today/api/"
+        static let counterAPICall = "https://oceanhero.today/api"
         
         static let signin = "https://oceanhero.today/?signin=true"
         static let signup = "https://oceanhero.today/?signup=true"

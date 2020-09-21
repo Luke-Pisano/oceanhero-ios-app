@@ -29,8 +29,8 @@ extension APIClient {
             self.apiParser.parse(response: response, onSuccess: onSuccess, onFailure: { error in
                 onFailure(APIClientError(with: error))
             })
-            }, onFailure: { error in
-                onFailure(APIClientError(with: error))
+        }, onFailure: { error in
+            onFailure(APIClientError(with: error))
         })
     }
 }

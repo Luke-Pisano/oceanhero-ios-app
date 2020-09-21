@@ -26,6 +26,7 @@ extension Router {
     func route(type: RouterType) -> Route {
         return Route(method: type.method,
                      baseURL: baseURL,
-                     endpoint: type.endpoint)
+                     endpoint: type.endpoint,
+                     accessToken: type.token)
     }
 }

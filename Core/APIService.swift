@@ -53,7 +53,7 @@ public class APIService: APIServiceType {
     }
     
     public func request(type: RouterType, onSuccess: @escaping APIServiceSuccess, onFailure: @escaping APIServiceFailure) -> URLSessionTask? {
-        return makeRequest(using: Route(method: type.method, baseURL: self.router.baseURL, endpoint: type.endpoint),
+        return makeRequest(using: router.route(type: type),
                            onSuccess: onSuccess, onFailure: onFailure)
     }
 }

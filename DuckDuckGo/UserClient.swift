@@ -20,7 +20,7 @@ class UserClient {
     }
     
     var isLoggedIn: Bool {
-        userData.isLoggedIn
+        false //userData.isLoggedIn
     }
     
     var userName: String? {
@@ -43,16 +43,29 @@ class UserClient {
 }
 
 extension UserClient {
-    func authorizationCookie(properties: [HTTPCookiePropertyKey : Any]) {
+    func authorizationCookie(properties: [HTTPCookiePropertyKey: Any]) {
         guard let token = properties[HTTPCookiePropertyKey.value] as? String else {
             return
         }
         
-        let user = User(token: token)
-        userData.user = user
+        _ = apiClient.request(routerType: RouterType.authorization(token), onSuccess: { [weak self] (response: UsersResponse) in
+            guard let selfStrong = self else {
+                return
+            }
+            
+            let user = User(token: token, usersResponse: response)
+            selfStrong.userData.user = user
+            print("user: \(user.description)")
+            
+            DispatchQueue.main.async {
+                selfStrong.didLogin?()
+            }
+        }, onFailure: { error in
+            print("error: \(error)")
+        })
+    }
+    
+    private func login(for token: String) {
         
-        didLogin?()
-        
-        //[__C.NSHTTPCookiePropertyKey(_rawValue: Name): authorization, __C.NSHTTPCookiePropertyKey(_rawValue: Created): 621954799, __C.NSHTTPCookiePropertyKey(_rawValue: Expires): 2021-09-11 13:13:40 +0000, __C.NSHTTPCookiePropertyKey(_rawValue: Value): eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzY2Y5NmJkYS04ZDk4LTRkYjYtYWUwMC05ODkxYzQzNmNmNzciLCJlbWFpbCI6Im1hcml1c3ouZ3JhY3prb3dza2lAZGlnaXRhbGZvcm1zLnBsIiwiaWF0IjoxNjAwMjYyMDIwLCJleHAiOjE2MzE4MTk2MjAsImF1ZCI6Im9jZWFuaGVyby50b2RheSIsImlzcyI6Im9jZWFuaGVyby50b2RheSJ9.K7-4omhSnP7GVLr1Y7jc5PytMIJ1vb6HEYracyTtMgY, __C.NSHTTPCookiePropertyKey(_rawValue: Domain): oceanhero.today, __C.NSHTTPCookiePropertyKey(_rawValue: Version): 1, __C.NSHTTPCookiePropertyKey(_rawValue: Path): /]
     }
 }

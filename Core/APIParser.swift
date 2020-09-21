@@ -26,7 +26,7 @@ public class APIParser: APIParserType {
         DispatchQueue.global(qos: .utility).async {
             self.parse(response: response, onSuccess: {
                 do {
-                    let object = try JSONDecoder().decode(T.self, from: response.responseData)
+                    let object = try JSONDecoder.APIDecoder.decode(T.self, from: response.responseData)
                     onSuccess(object)
                 } catch {
                     onFailure(.parsingError(error: error))

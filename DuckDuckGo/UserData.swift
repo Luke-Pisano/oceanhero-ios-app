@@ -33,5 +33,6 @@ class UserData: UserDataType {
     
     init(appConfiguration: AppConfigurationUser) {
         self.appConfiguration = appConfiguration
+        user = appConfiguration.user
     }
 }

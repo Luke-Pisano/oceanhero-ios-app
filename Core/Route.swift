@@ -22,13 +22,15 @@ public struct Route: URLRequestConvertible {
     private let method: HTTPMethod
     private let baseURL: String
     private let endpoint: String
+    private let accessToken: String?
     
     // MARK: - Initializers
     
-    init(method: HTTPMethod, baseURL: String, endpoint: String) {
+    init(method: HTTPMethod, baseURL: String, endpoint: String, accessToken: String? = nil) {
         self.method = method
         self.baseURL = baseURL
         self.endpoint = endpoint
+        self.accessToken = accessToken
     }
 }
 
@@ -43,6 +45,10 @@ extension Route {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.timeoutInterval = 10
+        
+        if let accessToken = self.accessToken {
+            request.setValue(accessToken, forHTTPHeaderField: "Authorization")
+        }
         
         return request
     }

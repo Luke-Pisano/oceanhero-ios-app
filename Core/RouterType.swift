@@ -10,12 +10,22 @@ import Alamofire
 
 public enum RouterType {
     case bottleCount
+    case authorization(String)
 }
 
 extension RouterType {
-    public var method: HTTPMethod {
+    public var token: String? {
         switch self {
         case .bottleCount:
+            return nil
+        case .authorization(let token):
+            return token
+        }
+    }
+    
+    public var method: HTTPMethod {
+        switch self {
+        case .bottleCount, .authorization:
             return .get
         }
     }
@@ -26,6 +36,8 @@ extension RouterType {
         switch self {
         case .bottleCount:
             return "/counter"
+        case .authorization:
+            return "/users"
         }
     }
 }
