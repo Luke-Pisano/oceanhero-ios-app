@@ -292,7 +292,7 @@ extension HomeViewController {
     }
     
     func didLogin() {
-        
+        collectionView.removeUser()
     }
 }
 

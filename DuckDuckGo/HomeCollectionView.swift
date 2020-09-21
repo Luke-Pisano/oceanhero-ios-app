@@ -86,7 +86,6 @@ class HomeCollectionView: UICollectionView {
         renderers = HomeViewSectionRenderers(controller: controller, theme: theme)
         
         asksInstallWebApplication.onShow = { [weak self] in
-            print("--- onShow ---")
             guard let strongSelf = self else {
                 return
             }
@@ -187,32 +186,6 @@ class HomeCollectionView: UICollectionView {
 }
 
 extension HomeCollectionView {
-    func remove(_ renderer: ExtraContentHomeSectionRenderer) {
-        guard let section = renderers.remove(renderer: renderer) else {
-            return
-        }
-        
-        remove(component: .extraContent)
-        
-        performBatchUpdates({
-            deleteSections(IndexSet(integer: section))
-        }, completion: nil)
-    }
-    
-    func remove(_ renderer: AsksInstallWebApplicationHomeSectionRenderer) {
-        guard let section = renderers.remove(renderer: renderer) else {
-            return
-        }
-        
-        remove(component: .asksInstallWebApplication)
-        
-        performBatchUpdates({
-            deleteSections(IndexSet(integer: section))
-        }, completion: nil)
-    }
-}
-
-extension HomeCollectionView {
     func reloadSection(for component: HomePageConfiguration.Component) {
         guard let index = homePageConfiguration.index(for: component) else {
             return
@@ -226,9 +199,43 @@ extension HomeCollectionView {
     }
 }
 
+// MARK: - Extra Content
+
+extension HomeCollectionView {
+    func remove(_ renderer: ExtraContentHomeSectionRenderer) {
+        guard let section = renderers.remove(renderer: renderer) else {
+            return
+        }
+        
+        remove(component: .extraContent)
+        
+        performBatchUpdates({
+            deleteSections(IndexSet(integer: section))
+        }, completion: nil)
+    }
+}
+
 // MARK: - User
 
 extension HomeCollectionView {
+    func removeUser() {
+        guard let index = homePageConfiguration.index(for: .user) else {
+            return
+        }
+        
+        let renderer = renderers.rendererFor(section: index)
+        
+        guard let section = renderers.remove(renderer: renderer) else {
+            return
+        }
+        
+        remove(component: .user)
+        
+        performBatchUpdates({
+            deleteSections(IndexSet(integer: section))
+        }, completion: nil)
+    }
+    
     private func indexForUser() -> Int {
         homePageConfiguration.isComponent(.asksInstallWebApplication) ? 2 : 1
     }
@@ -254,6 +261,18 @@ extension HomeCollectionView {
 // MARK: - Asks Install Web Application
 
 extension HomeCollectionView {
+    func remove(_ renderer: AsksInstallWebApplicationHomeSectionRenderer) {
+        guard let section = renderers.remove(renderer: renderer) else {
+            return
+        }
+        
+        remove(component: .asksInstallWebApplication)
+        
+        performBatchUpdates({
+            deleteSections(IndexSet(integer: section))
+        }, completion: nil)
+    }
+    
     private func addAsksInstallWebApplication() {
         guard !homePageConfiguration.isComponent(.asksInstallWebApplication) else {
             return

@@ -95,13 +95,13 @@ extension HomePageConfiguration {
             components.append(.user)
         }
         
-//        if settings.favorites {
-//            components.append(.favorites)
-//            
+        if settings.favorites {
+            components.append(.favorites)
+            
 //            if settings.layout == .centered {
 //                components.append(.padding)
 //            }
-//        }
+        }
 
         return components
     }

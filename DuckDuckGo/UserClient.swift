@@ -20,7 +20,7 @@ class UserClient {
     }
     
     var isLoggedIn: Bool {
-        false //userData.isLoggedIn
+        userData.isLoggedIn
     }
     
     var userName: String? {
@@ -63,9 +63,5 @@ extension UserClient {
         }, onFailure: { error in
             print("error: \(error)")
         })
-    }
-    
-    private func login(for token: String) {
-        
     }
 }
