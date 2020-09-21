@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
     weak var daxDialogViewController: DaxDialogViewController?
     
     @IBOutlet weak var individualBottleCounterView: IndividualBottleCounterView!
-    @IBOutlet weak var settingButtonContainerTop: NSLayoutConstraint!
+    @IBOutlet weak var topElementsContainerTop: NSLayoutConstraint!
     
     fileprivate lazy var appSettings: AppSettings = AppUserDefaults()
     private lazy var bottleCounter: BottleCounter = BottleCounter()
@@ -68,7 +68,7 @@ class HomeViewController: UIViewController {
     
     var scrollViewOffset: CGFloat = 0.0 {
         didSet {
-            settingButtonContainerTop.constant = -scrollViewOffset + 9.0
+            topElementsContainerTop.constant = -scrollViewOffset + 9.0
         }
     }
     

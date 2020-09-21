@@ -333,6 +333,7 @@
                         <outlet property="daxDialogContainerHeight" destination="E7k-RF-RsZ" id="oGk-WJ-UXB"/>
                         <outlet property="individualBottleCounterView" destination="ULd-d5-qhO" id="dVG-id-VlV"/>
                         <outlet property="settingsButton" destination="kcN-YB-mZi" id="iyr-9W-6gY"/>
+                        <outlet property="topElementsContainerTop" destination="CSY-a1-JIc" id="1St-mU-s5z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vtg-6j-Bq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
