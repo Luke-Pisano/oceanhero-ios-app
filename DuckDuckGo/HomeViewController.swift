@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
     
     fileprivate lazy var appSettings: AppSettings = AppUserDefaults()
     private lazy var bottleCounter: BottleCounter = BottleCounter()
+    private lazy var appUrls: AppUrls = AppUrls()
     
     weak var asksInstallWebApplication: HomeAsksInstallWebApplication!
     weak var userClient: UserClient!
@@ -282,6 +283,14 @@ extension HomeViewController {
 // MARK: - User
 
 extension HomeViewController {
+    func openSignin() {
+        load(url: appUrls.signin)
+    }
+    
+    func openSignup() {
+        load(url: appUrls.signup)
+    }
+    
     func didLogin() {
         
     }

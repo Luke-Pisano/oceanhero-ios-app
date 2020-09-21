@@ -378,4 +378,16 @@ public struct UserText {
     public static let hAIWAStateStateSuccessRightButtonTitle = NSLocalizedString("hAIWA.state.right.button.title.success",
                                                                                  value: "You’re welcome!",
                                                                                  comment: "You’re welcome!")
+    
+    public static let homeBackupSyncTitle = NSLocalizedString("home.backupSync.title",
+                                                              value: "Backup and sync your score",
+                                                              comment: "Backup and sync your score")
+    
+    public static let homeBackupSyncCreateButtonTitle = NSLocalizedString("home.backupSync.button.title.create",
+                                                                          value: "Create an account",
+                                                                          comment: "Create an account")
+    
+    public static let homeBackupSyncLoginButtonTitle = NSLocalizedString("home.backupSync.button.title.login",
+                                                                         value: "Login",
+                                                                         comment: "Login")
 }

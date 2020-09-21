@@ -56,6 +56,9 @@ public struct AppUrls {
         static let feedbackPage = "https://forms.gle/iMgjqR6xCsfhtKpt5"
         
         static let counterAPICall = "https://oceanhero.today/api/"
+        
+        static let signin = "https://oceanhero.today/?signin=true"
+        static let signup = "https://oceanhero.today/?signup=true"
     }
 
     private struct Param {
@@ -112,6 +115,14 @@ public struct AppUrls {
 
     public var feedback: URL {
         return URL(string: Url.feedbackPage)!
+    }
+    
+    public var signin: URL {
+        return URL(string: Url.signin)!
+    }
+    
+    public var signup: URL {
+        return URL(string: Url.signup)!
     }
 
     public var initialAtb: URL {

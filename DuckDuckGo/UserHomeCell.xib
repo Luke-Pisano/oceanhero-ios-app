@@ -18,14 +18,14 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="VEm-rL-yEC">
-                        <rect key="frame" x="10" y="10" width="345" height="100"/>
+                        <rect key="frame" x="10" y="5" width="345" height="110"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4w-Gx-7Aw">
-                                <rect key="frame" x="0.0" y="0.0" width="345" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you use OceanHero r?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYV-ih-VtG">
-                                        <rect key="frame" x="5" y="0.0" width="335" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                        <rect key="frame" x="5" y="0.0" width="335" height="30"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -35,40 +35,49 @@
                                     <constraint firstAttribute="bottom" secondItem="uYV-ih-VtG" secondAttribute="bottom" id="Ick-G3-I1I"/>
                                     <constraint firstItem="uYV-ih-VtG" firstAttribute="top" secondItem="s4w-Gx-7Aw" secondAttribute="top" id="Ssj-wl-e0t"/>
                                     <constraint firstAttribute="trailing" secondItem="uYV-ih-VtG" secondAttribute="trailing" constant="5" id="gPP-LL-PxW"/>
+                                    <constraint firstAttribute="height" constant="30" id="tkb-Vc-iWz"/>
                                     <constraint firstItem="uYV-ih-VtG" firstAttribute="leading" secondItem="s4w-Gx-7Aw" secondAttribute="leading" constant="5" id="zTd-bX-nyb"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="358-Vg-Prm">
-                                <rect key="frame" x="0.0" y="20.5" width="345" height="39"/>
+                                <rect key="frame" x="0.0" y="30" width="345" height="47"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNb-4q-OWy">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="39"/>
-                                        <color key="backgroundColor" red="0.0" green="0.64705882349999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                        <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
+                                        <rect key="frame" x="138.5" y="5" width="68" height="40"/>
+                                        <color key="backgroundColor" red="0.14509803921568626" green="0.43137254901960786" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                         <state key="normal" title="Yes">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onCreateHandler:" destination="6WC-eu-5a5" eventType="touchUpInside" id="Dq3-bS-z1Z"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="JNb-4q-OWy" firstAttribute="leading" secondItem="358-Vg-Prm" secondAttribute="leading" id="5h4-rp-GuK"/>
-                                    <constraint firstItem="JNb-4q-OWy" firstAttribute="top" secondItem="358-Vg-Prm" secondAttribute="top" id="JI8-y8-pDT"/>
-                                    <constraint firstAttribute="trailing" secondItem="JNb-4q-OWy" secondAttribute="trailing" id="JeI-iQ-eLA"/>
-                                    <constraint firstAttribute="bottom" secondItem="JNb-4q-OWy" secondAttribute="bottom" id="Nfg-al-ogp"/>
+                                    <constraint firstItem="JNb-4q-OWy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="358-Vg-Prm" secondAttribute="leading" id="5h4-rp-GuK"/>
+                                    <constraint firstItem="JNb-4q-OWy" firstAttribute="top" secondItem="358-Vg-Prm" secondAttribute="top" constant="5" id="JI8-y8-pDT"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JNb-4q-OWy" secondAttribute="trailing" id="JeI-iQ-eLA"/>
+                                    <constraint firstAttribute="height" constant="47" id="KtQ-VQ-x10"/>
+                                    <constraint firstAttribute="bottom" secondItem="JNb-4q-OWy" secondAttribute="bottom" constant="2" id="Nfg-al-ogp"/>
+                                    <constraint firstItem="JNb-4q-OWy" firstAttribute="centerX" secondItem="358-Vg-Prm" secondAttribute="centerX" id="qnx-YZ-EgW"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucd-e6-OgC">
-                                <rect key="frame" x="0.0" y="59.5" width="345" height="40.5"/>
+                                <rect key="frame" x="0.0" y="77" width="345" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1I-8a-RRN">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="40.5"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="33"/>
+                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
                                         <state key="normal" title="Yes">
-                                            <color key="titleColor" red="0.0" green="0.64705882349999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.0" green="0.41960784313725491" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onLoginHandler:" destination="6WC-eu-5a5" eventType="touchUpInside" id="Xar-Qe-bTJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,11 +91,11 @@
                         </subviews>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="VEm-rL-yEC" secondAttribute="bottom" constant="10" id="D18-Me-CKe"/>
+                    <constraint firstAttribute="bottom" secondItem="VEm-rL-yEC" secondAttribute="bottom" constant="5" id="D18-Me-CKe"/>
                     <constraint firstAttribute="trailing" secondItem="VEm-rL-yEC" secondAttribute="trailing" constant="10" id="DYl-BH-f1r"/>
-                    <constraint firstItem="VEm-rL-yEC" firstAttribute="top" secondItem="BGd-wT-w03" secondAttribute="top" constant="10" id="hgx-jx-LoT"/>
+                    <constraint firstItem="VEm-rL-yEC" firstAttribute="top" secondItem="BGd-wT-w03" secondAttribute="top" constant="5" id="hgx-jx-LoT"/>
                     <constraint firstItem="VEm-rL-yEC" firstAttribute="leading" secondItem="BGd-wT-w03" secondAttribute="leading" constant="10" id="i2v-aM-UeZ"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
@@ -99,7 +108,13 @@
                 </userDefinedRuntimeAttributes>
             </collectionViewCellContentView>
             <size key="customSize" width="365" height="242"/>
-            <point key="canvasLocation" x="-521.01449275362324" y="160.71428571428569"/>
+            <connections>
+                <outlet property="createButton" destination="JNb-4q-OWy" id="B0W-ZL-UhA"/>
+                <outlet property="loginButton" destination="l1I-8a-RRN" id="HXO-pZ-oOs"/>
+                <outlet property="roundedBackground" destination="BGd-wT-w03" id="Slk-8a-nkm"/>
+                <outlet property="titleLabel" destination="uYV-ih-VtG" id="RLb-9B-9bP"/>
+            </connections>
+            <point key="canvasLocation" x="-521.01449275362324" y="160.04464285714286"/>
         </collectionViewCell>
     </objects>
 </document>

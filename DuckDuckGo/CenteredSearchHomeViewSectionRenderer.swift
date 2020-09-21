@@ -116,6 +116,7 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
         cell.targetSearchHeight = controller?.chromeDelegate?.omniBar.editingBackground.frame.height ?? 0
         cell.targetSearchRadius = controller?.chromeDelegate?.omniBar.editingBackground.layer.cornerRadius ?? 0
         self.cell = cell
+        
         return cell
     }
     

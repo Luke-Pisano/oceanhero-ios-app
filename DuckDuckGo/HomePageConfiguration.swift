@@ -73,7 +73,8 @@ extension HomePageConfiguration {
 extension HomePageConfiguration {
     func components(asksInstallWebApplication: HomeAsksInstallWebApplication, isLoggedIn: Bool,
                     bookmarksManager: BookmarksManager = BookmarksManager()) -> [Component] {
-        let fixed = !settings.favorites || bookmarksManager.favoritesCount == 0
+        // turn on scrolling
+        let fixed = false//!settings.favorites || bookmarksManager.favoritesCount == 0
 
         components = [Component]()
         
@@ -94,13 +95,13 @@ extension HomePageConfiguration {
             components.append(.user)
         }
         
-        if settings.favorites {
-            components.append(.favorites)
-            
-            if settings.layout == .centered {
-                components.append(.padding)
-            }
-        }
+//        if settings.favorites {
+//            components.append(.favorites)
+//            
+//            if settings.layout == .centered {
+//                components.append(.padding)
+//            }
+//        }
 
         return components
     }

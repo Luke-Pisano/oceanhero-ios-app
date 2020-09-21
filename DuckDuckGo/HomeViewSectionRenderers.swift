@@ -259,6 +259,7 @@ class HomeViewSectionRenderers: NSObject, UICollectionViewDataSource, UICollecti
         if let themable = cell as? Themable {
             themable.decorate(with: theme)
         }
+        
         return cell
     }
     
@@ -305,22 +306,18 @@ class HomeViewSectionRenderers: NSObject, UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath)
         -> CGSize {
-            return renderers[indexPath.section].collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
+        return renderers[indexPath.section].collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int)
         -> UIEdgeInsets {
-            
             return renderers[section].collectionView(collectionView, layout: collectionViewLayout, insetForSectionAt: section) ??
-                UIEdgeInsets(top: 0, left: Constants.sideInsets, bottom: 0, right: Constants.sideInsets)
+                UIEdgeInsets(top: 0, left: Constants.sideInsets, bottom: Constants.sideInsets, right: Constants.sideInsets)
     }
-    
 }
 
 extension HomeViewSectionRenderers: Themable {
-    
     func decorate(with theme: Theme) {
         self.theme = theme
     }
-    
 }

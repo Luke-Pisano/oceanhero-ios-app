@@ -26,6 +26,18 @@ class UserHomeSectionRenderer: HomeViewSectionRenderer {
             fatalError("not an Extra Content cell")
         }
         
+        cell.titleLabel.text = UserText.homeBackupSyncTitle
+        cell.createButton.setTitle(UserText.homeBackupSyncCreateButtonTitle, for: .normal)
+        cell.loginButton.setTitle(UserText.homeBackupSyncLoginButtonTitle, for: .normal)
+        
+        cell.onCreateAction = { [weak self] _ in
+            self?.controller?.openSignup()
+        }
+        
+        cell.onLoginAction = { [weak self] _ in
+            self?.controller?.openSignin()
+        }
+        
         return cell
     }
     
@@ -52,7 +64,7 @@ class UserHomeSectionRenderer: HomeViewSectionRenderer {
                         insetForSectionAt section: Int) -> UIEdgeInsets? {
         let margin = type(of: self).sectionMargin(in: collectionView)
         
-        return UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
+        return UIEdgeInsets(top: 0, left: margin, bottom: 10, right: margin)
     }
 
     func collectionView(_ collectionView: UICollectionView,

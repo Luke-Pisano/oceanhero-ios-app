@@ -370,3 +370,7 @@
 "hAIWA.state.right.button.title.willSeeButton" = "Cool, I installed it";
 "hAIWA.state.right.button.title.rightTimeToGetOceanHero" = "Yes, let’s do it";
 "hAIWA.state.right.button.title.success" = "You’re welcome!";
+
+"home.backupSync.title" = "Backup and sync your score";
+"home.backupSync.button.title.create" = "Create an account";
+"home.backupSync.button.title.login" = "Login";
