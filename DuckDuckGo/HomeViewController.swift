@@ -21,6 +21,9 @@ import UIKit
 import Core
 
 class HomeViewController: UIViewController {
+    @IBOutlet weak var avatarContainerView: UIView!
+    @IBOutlet weak var avatarView: AvatarView!
+    
     @IBOutlet weak var ctaContainerBottom: NSLayoutConstraint!
     @IBOutlet weak var ctaContainer: UIView!
 
@@ -94,6 +97,7 @@ class HomeViewController: UIViewController {
         configureCollectionView()
         applyTheme(ThemeManager.shared.currentTheme)
         oceanHeroSetup()
+        updateAvatar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -292,7 +296,18 @@ extension HomeViewController {
     }
     
     func didLogin() {
+        updateAvatar()
         collectionView.removeUser()
+    }
+    
+    func updateAvatar() {
+        guard let name = userName else {
+            avatarContainerView.isHidden = true
+            return
+        }
+        
+        avatarView.configure(name: name)
+        avatarContainerView.isHidden = false
     }
 }
 

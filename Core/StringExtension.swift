@@ -21,7 +21,6 @@ import Foundation
 import Punycode
 
 extension String {
-
     public func trimWhitespace() -> String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
@@ -110,5 +109,10 @@ extension String {
         }
         return ""
     }
+}
 
+extension String {
+    public subscript(i: Int) -> String {
+        return String(self[index(startIndex, offsetBy: i)])
+    }
 }

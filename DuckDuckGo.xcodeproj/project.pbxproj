@@ -48,6 +48,7 @@
 		6F1C15F82518CEF000E1DC01 /* JSONDecoder+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1C15F72518CEF000E1DC01 /* JSONDecoder+API.swift */; };
 		6F1C15FA2518CF0900E1DC01 /* JSONEncoder+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1C15F92518CF0900E1DC01 /* JSONEncoder+API.swift */; };
 		6F1C15FC2518CF2A00E1DC01 /* DateFormatter+Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1C15FB2518CF2A00E1DC01 /* DateFormatter+Formatters.swift */; };
+		6F1C15FF2518DB8600E1DC01 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1C15FE2518DB8600E1DC01 /* AvatarView.swift */; };
 		6F6F498E25023C0600AD02F9 /* NSMutableAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F498D25023C0600AD02F9 /* NSMutableAttributedString+Attributes.swift */; };
 		6F6F49902502424A00AD02F9 /* UILabel+HTMLBold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F498F2502424A00AD02F9 /* UILabel+HTMLBold.swift */; };
 		6F6F4992250246D300AD02F9 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F4991250246D300AD02F9 /* CustomPageControl.swift */; };
@@ -740,6 +741,7 @@
 		6F1C15F72518CEF000E1DC01 /* JSONDecoder+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+API.swift"; sourceTree = "<group>"; };
 		6F1C15F92518CF0900E1DC01 /* JSONEncoder+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+API.swift"; sourceTree = "<group>"; };
 		6F1C15FB2518CF2A00E1DC01 /* DateFormatter+Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Formatters.swift"; sourceTree = "<group>"; };
+		6F1C15FE2518DB8600E1DC01 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		6F6F498D25023C0600AD02F9 /* NSMutableAttributedString+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Attributes.swift"; sourceTree = "<group>"; };
 		6F6F498F2502424A00AD02F9 /* UILabel+HTMLBold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+HTMLBold.swift"; sourceTree = "<group>"; };
 		6F6F4991250246D300AD02F9 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
@@ -1465,6 +1467,14 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		6F1C15FD2518DB6600E1DC01 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				6F1C15FE2518DB8600E1DC01 /* AvatarView.swift */,
+			);
+			name = Avatar;
+			sourceTree = "<group>";
+		};
 		6FA09F9F251236B600131C3A /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1748,6 +1758,7 @@
 		84E341941E2F7EFB00BDBA6F /* DuckDuckGo */ = {
 			isa = PBXGroup;
 			children = (
+				6F1C15FD2518DB6600E1DC01 /* Avatar */,
 				6FA09F9F251236B600131C3A /* User */,
 				6FBE95DC24F6425F000FFA14 /* BottleCounter */,
 				F1C5ECF31E37812900C599A4 /* Application */,
@@ -3924,6 +3935,7 @@
 				8524CC9A246DA81700E59D45 /* FullscreenDaxDialogViewController.swift in Sources */,
 				F17669D71E43401C003D3222 /* MainViewController.swift in Sources */,
 				984D60B2222A1284003B9E3B /* FeedbackFormViewController.swift in Sources */,
+				6F1C15FF2518DB8600E1DC01 /* AvatarView.swift in Sources */,
 				85374D3821AC419800FF5A1E /* NavigationSearchHomeViewSectionRenderer.swift in Sources */,
 				98E888F2223FCC4A00B608A4 /* OnboardingViewController.swift in Sources */,
 				6F6F4992250246D300AD02F9 /* CustomPageControl.swift in Sources */,

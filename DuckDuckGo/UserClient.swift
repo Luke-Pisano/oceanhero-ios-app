@@ -24,7 +24,7 @@ class UserClient {
     }
     
     var userName: String? {
-        userData.token
+        userData.user?.name
     }
     
     // MARK: - Initializers
