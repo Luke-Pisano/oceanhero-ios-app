@@ -36,4 +36,6 @@ protocol HomeControllerDelegate: class {
     func homeDidRequestLogoContainer(_ home: HomeViewController) -> UIView
     
     func home(_ home: HomeViewController, searchTransitionUpdated percent: CGFloat)
+    
+    func showProfile(_ home: HomeViewController)
 }

@@ -123,6 +123,14 @@ class HomeViewController: UIViewController {
         }
         
         bottleCounter.start()
+        
+        avatarView.onTouchAction = { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.delegate?.showProfile(strongSelf)
+        }
     }
     
     func configureCollectionView() {

@@ -59,6 +59,7 @@ public struct AppUrls {
         
         static let signin = "https://oceanhero.today/?signin=true"
         static let signup = "https://oceanhero.today/?signup=true"
+        static let signout = "https://oceanhero.today/user/sign-out"
     }
 
     private struct Param {
@@ -123,6 +124,10 @@ public struct AppUrls {
     
     public var signup: URL {
         return URL(string: Url.signup)!
+    }
+    
+    public var signout: URL {
+        return URL(string: Url.signout)!
     }
 
     public var initialAtb: URL {

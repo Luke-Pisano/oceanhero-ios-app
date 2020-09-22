@@ -9,7 +9,7 @@
 import UIKit
 
 class AvatarView: UIView {
-    private let font = UIFont.arialFont(ofSize: 23)
+    var onTouchAction: (() -> Void)?
     
     private lazy var button: UIButton = {
         let button = UIButton(frame: .zero)
@@ -37,7 +37,6 @@ class AvatarView: UIView {
     
     private lazy var label: UILabel = {
         let label = UILabel(frame: .zero)
-//        label.text = initials()
         label.font = UIFont.arialFont(ofSize: 23)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
@@ -48,11 +47,15 @@ class AvatarView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[label]|", options: [], metrics: nil, views: ["label": label]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[label]-margin-|", options: [], metrics: ["margin": margin], views: ["label": label]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label]|", options: [], metrics: nil, views: ["label": label]))
         
         return label
     }()
+    
+    private var margin: CGFloat {
+        radius * 0.2
+    }
     
     private var radius: CGFloat {
         frame.size.width / 2
@@ -81,15 +84,11 @@ extension AvatarView {
         
         imageView.image = nil
         label.text = ""
-        button.addTarget(self, action: #selector(onActionHandler), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onTouchHandler), for: .touchUpInside)
     }
     
     private func updateUI() {
-        if font.pointSize > CGFloat(radius) {
-            label.font = UIFont.arialFont(ofSize: CGFloat(radius))
-        } else {
-            label.font = font
-        }
+        label.font = UIFont.arialFont(ofSize: CGFloat(radius))
     }
     
     func configure(name: String) {
@@ -111,7 +110,7 @@ extension AvatarView {
 
 extension AvatarView {
     @objc
-    func onActionHandler() {
-        
+    func onTouchHandler() {
+        onTouchAction?()
     }
 }

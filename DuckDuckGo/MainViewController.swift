@@ -109,6 +109,14 @@ class MainViewController: UIViewController {
             self?.homeController?.didLogin()
         }
         
+        userClient.didLogout = { [weak self] in
+            guard let selfStrong = self else {
+                return
+            }
+            
+            selfStrong.loadUrl(selfStrong.appUrls.signout)
+        }
+        
         return userClient
     }()
     
@@ -293,6 +301,12 @@ class MainViewController: UIViewController {
         if let navigationController = segue.destination as? UINavigationController,
             let controller = navigationController.topViewController as? SettingsViewController {
             controller.homePageSettingsDelegate = self
+            return
+        }
+        
+        if let navigationController = segue.destination as? UINavigationController,
+            let controller = navigationController.topViewController as? ProfileViewController {
+            controller.userClient = userClient
             return
         }
 
@@ -616,6 +630,10 @@ class MainViewController: UIViewController {
         Pixel.fire(pixel: .settingsOpened)
         performSegue(withIdentifier: "Settings", sender: self)
     }
+    
+    fileprivate func launchProfile() {
+        performSegue(withIdentifier: "Profile", sender: self)
+    }
 
     fileprivate func launchInstructions() {
         performSegue(withIdentifier: "instructions", sender: self)
@@ -928,6 +946,10 @@ extension MainViewController: HomeControllerDelegate {
     func home(_ home: HomeViewController, searchTransitionUpdated percent: CGFloat) {
         statusBarBackground?.alpha = percent
         customNavigationBar?.alpha = percent
+    }
+    
+    func showProfile(_ home: HomeViewController) {
+        launchProfile()
     }
 }
 

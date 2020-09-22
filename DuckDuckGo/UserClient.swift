@@ -14,6 +14,7 @@ class UserClient {
     private(set) var apiClient: APIClientType
     
     var didLogin: (() -> Void)?
+    var didLogout: (() -> Void)?
     
     private var token: String? {
         userData.token
@@ -25,6 +26,10 @@ class UserClient {
     
     var userName: String? {
         userData.user?.name
+    }
+    
+    var userEmail: String? {
+        userData.user?.email
     }
     
     // MARK: - Initializers
@@ -42,6 +47,12 @@ class UserClient {
     }
 }
 
+extension UserClient {
+    func logout() {
+        
+    }
+}
+    
 extension UserClient {
     func authorizationCookie(properties: [HTTPCookiePropertyKey: Any]) {
         guard let token = properties[HTTPCookiePropertyKey.value] as? String else {
