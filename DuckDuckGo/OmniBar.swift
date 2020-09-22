@@ -24,7 +24,8 @@ import os.log
 extension OmniBar: NibLoading {}
 
 class OmniBar: UIView {
-
+    @IBOutlet weak var avatarContainerView: UIView!
+    @IBOutlet weak var avatarView: AvatarView!
     @IBOutlet weak var searchLoupe: UIView!
     @IBOutlet weak var searchContainer: UIView!
     @IBOutlet weak var searchStackContainer: UIStackView!
@@ -55,12 +56,19 @@ class OmniBar: UIView {
     var siteRatingView: SiteRatingView {
         return siteRatingContainer.siteRatingView
     }
+    
+    var userName: String? = nil {
+        didSet {
+            
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         configureTextField()
         configureSeparator()
         configureEditingMenu()
+        configureAvatar()
         refreshState(state)
     }
     
@@ -82,6 +90,16 @@ class OmniBar: UIView {
     
     private func configureSeparator() {
         separatorHeightConstraint.constant = 1.0 / UIScreen.main.scale
+    }
+    
+    func configureAvatar() {
+        refreshState(state)
+        
+        guard let name = userName else {
+            return
+        }
+        
+        avatarView.configure(name: name)
     }
 
     private func configureEditingMenu() {
@@ -170,6 +188,7 @@ class OmniBar: UIView {
         setVisibility(settingsButton, hidden: !state.showSettings)
         setVisibility(cancelButton, hidden: !state.showCancel)
         setVisibility(refreshButton, hidden: !state.showRefresh)
+        setVisibility(avatarContainerView, hidden: userName == nil || !state.showMenu)
 
         updateSearchBarBorder()
     }
@@ -215,7 +234,6 @@ class OmniBar: UIView {
     }
 
     func refreshText(forUrl url: URL?) {
-
         if textField.isEditing {
             return
         }
@@ -233,7 +251,6 @@ class OmniBar: UIView {
     }
 
     public class func demphasisePath(forUrl url: URL) -> NSAttributedString? {
-        
         let s = url.absoluteString
         let attributedString = NSMutableAttributedString(string: s)
         guard let c = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
@@ -309,7 +326,6 @@ class OmniBar: UIView {
 }
 
 extension OmniBar: UITextFieldDelegate {
-    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         omniDelegate?.onTextFieldWillBeginEditing(self)
         return true
@@ -332,7 +348,6 @@ extension OmniBar: UITextFieldDelegate {
 }
 
 extension OmniBar: Themable {
-    
     public func decorate(with theme: Theme) {
         backgroundColor = theme.barBackgroundColor
         tintColor = theme.barTintColor
@@ -364,11 +379,9 @@ extension OmniBar: Themable {
 }
 
 extension OmniBar: UIGestureRecognizerDelegate {
- 
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return !textField.isFirstResponder
     }
-    
 }
 
 extension String {

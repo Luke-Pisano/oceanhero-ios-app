@@ -218,6 +218,15 @@ extension HomeCollectionView {
 // MARK: - User
 
 extension HomeCollectionView {
+    func addUser() {
+        guard !homePageConfiguration.isComponent(.user) else {
+            return
+        }
+
+        homePageConfiguration.add(component: .user, section: indexForUser())
+        installUser()
+    }
+    
     func removeUser() {
         guard let index = homePageConfiguration.index(for: .user) else {
             return
@@ -238,15 +247,6 @@ extension HomeCollectionView {
     
     private func indexForUser() -> Int {
         homePageConfiguration.isComponent(.asksInstallWebApplication) ? 2 : 1
-    }
-    
-    private func addUser() {
-        guard !homePageConfiguration.isComponent(.user) else {
-            return
-        }
-
-        homePageConfiguration.add(component: .user, section: indexForUser())
-        installUser()
     }
     
     private func installUser() {

@@ -68,7 +68,7 @@ class HomeViewController: UIViewController {
     
     var scrollViewOffset: CGFloat = 0.0 {
         didSet {
-            topElementsContainerTop.constant = -scrollViewOffset + 9.0
+            topElementsContainerTop.constant = -scrollViewOffset + 8.0
         }
     }
     
@@ -308,14 +308,19 @@ extension HomeViewController {
         collectionView.removeUser()
     }
     
-    func updateAvatar() {
+    func didLogout() {
+        updateAvatar()
+        collectionView.addUser()
+    }
+    
+    private func updateAvatar() {
+        avatarContainerView.isHidden = userName == nil
+        
         guard let name = userName else {
-            avatarContainerView.isHidden = true
             return
         }
         
         avatarView.configure(name: name)
-        avatarContainerView.isHidden = false
     }
 }
 

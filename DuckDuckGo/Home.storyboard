@@ -210,7 +210,7 @@
                                 </constraints>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Hmm-kL-jsd">
-                                <rect key="frame" x="247" y="53" width="162" height="35"/>
+                                <rect key="frame" x="244" y="52" width="165" height="35"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULd-d5-qhO" customClass="IndividualBottleCounterView" customModule="OceanHero" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="74" height="35"/>
@@ -244,10 +244,10 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssK-fX-PMR">
-                                        <rect key="frame" x="74" y="0.0" width="38" height="35"/>
+                                        <rect key="frame" x="74" y="0.0" width="41" height="35"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d24-du-aFm" customClass="AvatarView" customModule="OceanHero" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="2.6666666666666643" width="30" height="30"/>
+                                                <rect key="frame" x="9" y="2.6666666666666643" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -258,15 +258,15 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="d24-du-aFm" firstAttribute="leading" secondItem="ssK-fX-PMR" secondAttribute="leading" constant="8" id="8Fd-IY-Yx9"/>
+                                            <constraint firstItem="d24-du-aFm" firstAttribute="leading" secondItem="ssK-fX-PMR" secondAttribute="leading" constant="9" id="8Fd-IY-Yx9"/>
                                             <constraint firstItem="d24-du-aFm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ssK-fX-PMR" secondAttribute="top" id="AWS-Ps-ik2"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="d24-du-aFm" secondAttribute="bottom" id="Ijs-JX-1lO"/>
                                             <constraint firstItem="d24-du-aFm" firstAttribute="centerY" secondItem="ssK-fX-PMR" secondAttribute="centerY" id="J1m-sL-LJa"/>
-                                            <constraint firstAttribute="trailing" secondItem="d24-du-aFm" secondAttribute="trailing" id="xeb-WJ-vkd"/>
+                                            <constraint firstAttribute="trailing" secondItem="d24-du-aFm" secondAttribute="trailing" constant="2" id="xeb-WJ-vkd"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxn-xU-e30">
-                                        <rect key="frame" x="112" y="0.0" width="50" height="35"/>
+                                        <rect key="frame" x="115" y="0.0" width="50" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcN-YB-mZi">
                                                 <rect key="frame" x="8" y="0.6666666666666643" width="34" height="34"/>
@@ -302,7 +302,7 @@
                             <constraint firstItem="3ms-eB-DjL" firstAttribute="width" secondItem="klK-ZJ-wmA" secondAttribute="width" priority="750" id="12Q-iD-RrD"/>
                             <constraint firstItem="H74-G9-0WZ" firstAttribute="height" secondItem="klK-ZJ-wmA" secondAttribute="height" id="1lu-2N-IOp"/>
                             <constraint firstItem="H74-G9-0WZ" firstAttribute="width" secondItem="ijV-Vn-w9w" secondAttribute="width" id="BjB-Gh-zsj"/>
-                            <constraint firstItem="Hmm-kL-jsd" firstAttribute="top" secondItem="ijV-Vn-w9w" secondAttribute="top" constant="9" id="CSY-a1-JIc"/>
+                            <constraint firstItem="Hmm-kL-jsd" firstAttribute="top" secondItem="ijV-Vn-w9w" secondAttribute="top" constant="8" id="CSY-a1-JIc"/>
                             <constraint firstItem="5Rf-oV-2W5" firstAttribute="width" secondItem="klK-ZJ-wmA" secondAttribute="width" id="GIH-4s-2om"/>
                             <constraint firstItem="Hmm-kL-jsd" firstAttribute="trailing" secondItem="ijV-Vn-w9w" secondAttribute="trailing" constant="-5" id="Wju-Zw-0wL"/>
                             <constraint firstItem="H74-G9-0WZ" firstAttribute="centerX" secondItem="ijV-Vn-w9w" secondAttribute="centerX" id="ZUA-A0-82X"/>

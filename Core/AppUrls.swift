@@ -27,15 +27,19 @@ public struct AppUrls {
             return isDebugBuild ? "?test=1" : ""
         }
 
-        static let host = "oceanhero.today"
+        #if DEBUG
+            static let host = "oceanhero.today"//"oceanhero-search-git-mobileauth.oceanhero.vercel.app"
+        #else
+            static let host = "oceanhero.today"
+        #endif
+        
         static let base = ProcessInfo.processInfo.environment["BASE_URL", default: "https://\(host)"]
         static let baseSearch = "\(base)/web"
 
-        static let externalContentBase = "https://external-content.duckduckgo.com"
-        static let staticBase = "https://staticcdn.duckduckgo.com"
+        static let externalContentBase = "https://external-content.oceanhero.today"
+        static let staticBase = "https://staticcdn.oceanhero.today"
 
-        static let autocomplete = "https://api.oceanhero.today/suggestions"
-        //static let autocomplete = "https://duckduckgo.com/ac/"
+        static let autocomplete = "https://api.\(host)/suggestions"
 
         static let surrogates = "\(base)/contentblocking.js?l=surrogates"
         static let temporaryUnprotectedSites = "\(base)/contentblocking/trackers-whitelist-temporary.txt"
@@ -51,15 +55,15 @@ public struct AppUrls {
         static let httpsExcludedDomains = "\(staticBase)/https/https-mobile-whitelist.json?cache-version=1"
         static let httpsLookupService = "\(base)/smarter_encryption.js"
 
-        static let pixelBase = ProcessInfo.processInfo.environment["PIXEL_BASE_URL", default: "https://improving.duckduckgo.com"]
+        static let pixelBase = ProcessInfo.processInfo.environment["PIXEL_BASE_URL", default: "https://improving.oceanhero.today"]
         static let pixel = "\(pixelBase)/t/%@_ios_%@"
         static let feedbackPage = "https://forms.gle/iMgjqR6xCsfhtKpt5"
         
-        static let counterAPICall = "https://oceanhero.today/api"
+        static let counterAPICall = "https://\(host)/api"
         
-        static let signin = "https://oceanhero.today/?signin=true"
-        static let signup = "https://oceanhero.today/?signup=true"
-        static let signout = "https://oceanhero.today/user/sign-out"
+        static let signin = "https://\(host)/?signin=true"
+        static let signup = "https://\(host)/?signup=true"
+        static let signout = "https://\(host)/user/sign-out"
     }
 
     private struct Param {

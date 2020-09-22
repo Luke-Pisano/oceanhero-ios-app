@@ -107,14 +107,12 @@ class MainViewController: UIViewController {
         userClient.didLogin = { [weak self] in
             self?.currentTab?.didLogin()
             self?.homeController?.didLogin()
+            self?.updateAvatar()
         }
         
         userClient.didLogout = { [weak self] in
-            guard let selfStrong = self else {
-                return
-            }
-            
-            selfStrong.loadUrl(selfStrong.appUrls.signout)
+            self?.homeController?.didLogout()
+            self?.updateAvatar()
         }
         
         return userClient
@@ -139,7 +137,8 @@ class MainViewController: UIViewController {
         loadInitialView()
         previewsSource.prepare()
         addLaunchTabNotificationObserver()
-
+        updateAvatar()
+        
         findInPageView.delegate = self
         findInPageBottomLayoutConstraint.constant = 0
         registerForKeyboardNotifications()
@@ -307,6 +306,15 @@ class MainViewController: UIViewController {
         if let navigationController = segue.destination as? UINavigationController,
             let controller = navigationController.topViewController as? ProfileViewController {
             controller.userClient = userClient
+            
+            controller.didLogout = { [weak self] in
+                guard let selfStrong = self else {
+                    return
+                }
+                
+                selfStrong.loadUrl(selfStrong.appUrls.signout)
+            }
+            
             return
         }
 
@@ -728,6 +736,15 @@ class MainViewController: UIViewController {
     func updateFindInPage() {
         currentTab?.findInPage?.delegate = self
         findInPageView.update(with: currentTab?.findInPage, updateTextField: true)
+    }
+}
+
+// MARK: - User
+
+extension MainViewController {
+    private func updateAvatar() {
+        omniBar.userName = userClient.userName
+        omniBar.configureAvatar()
     }
 }
 

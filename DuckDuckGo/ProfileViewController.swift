@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     
     weak var userClient: UserClient!
+    var didLogout: (() -> Void)?
     
     private var userName: String {
         userClient.userName ?? ""
@@ -56,6 +57,7 @@ extension ProfileViewController {
     }
     
     @IBAction func onLogoutHandler(_ sender: Any) {
-        userClient.logout()
+        didLogout?()
+        dismiss(animated: true, completion: nil)
     }
 }

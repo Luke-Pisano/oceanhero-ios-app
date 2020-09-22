@@ -49,7 +49,8 @@ class UserClient {
 
 extension UserClient {
     func logout() {
-        
+        userData.user = nil
+        didLogout?()
     }
 }
     

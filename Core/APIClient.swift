@@ -25,8 +25,8 @@ extension APIClient {
     public func request<T: Decodable>(routerType: RouterType,
                                       onSuccess: @escaping (T) -> Void,
                                       onFailure: @escaping APICompletionFailure) -> URLSessionTask? {
-        return apiService.request(type: routerType, onSuccess: { [unowned self] response in
-            self.apiParser.parse(response: response, onSuccess: onSuccess, onFailure: { error in
+        return apiService.request(type: routerType, onSuccess: { [weak self] response in
+            self?.apiParser.parse(response: response, onSuccess: onSuccess, onFailure: { error in
                 onFailure(APIClientError(with: error))
             })
         }, onFailure: { error in

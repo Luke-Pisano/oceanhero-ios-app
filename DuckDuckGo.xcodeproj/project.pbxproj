@@ -1482,8 +1482,8 @@
 		6F1C16022519D41F00E1DC01 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				6F1C16032519D44C00E1DC01 /* Profile.storyboard */,
 				6F1C16052519D4A300E1DC01 /* ProfileViewController.swift */,
+				6F1C16032519D44C00E1DC01 /* Profile.storyboard */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
