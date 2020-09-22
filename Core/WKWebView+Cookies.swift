@@ -9,11 +9,13 @@
 import Foundation
 import WebKit
 
-public extension WKWebView {
-    private var httpCookieStore: WKHTTPCookieStore  { return WKWebsiteDataStore.default().httpCookieStore }
+extension WKWebView {
+    private var httpCookieStore: WKHTTPCookieStore {
+        return WKWebsiteDataStore.default().httpCookieStore
+    }
 
-    public func getCookies(for domain: String? = nil, completion: @escaping ([String : Any])->())  {
-        var cookieDict = [String : AnyObject]()
+    public func getCookies(for domain: String? = nil, completion: @escaping ([String: Any]) -> Void) {
+        var cookieDict = [String: AnyObject]()
         
         httpCookieStore.getAllCookies { cookies in
             for cookie in cookies {

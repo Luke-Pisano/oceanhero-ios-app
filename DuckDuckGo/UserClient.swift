@@ -52,14 +52,8 @@ extension UserClient {
         userData.user = nil
         didLogout?()
     }
-}
     
-extension UserClient {
-    func authorizationCookie(properties: [HTTPCookiePropertyKey: Any]) {
-        guard let token = properties[HTTPCookiePropertyKey.value] as? String else {
-            return
-        }
-        
+    func login(token: String) {
         _ = apiClient.request(routerType: RouterType.authorization(token), onSuccess: { [weak self] (response: UsersResponse) in
             guard let selfStrong = self else {
                 return
@@ -75,5 +69,15 @@ extension UserClient {
         }, onFailure: { error in
             print("error: \(error)")
         })
+    }
+}
+    
+extension UserClient {
+    func authorizationCookie(properties: [HTTPCookiePropertyKey: Any]) {
+        guard let token = properties[HTTPCookiePropertyKey.value] as? String else {
+            return
+        }
+        
+        login(token: token)
     }
 }

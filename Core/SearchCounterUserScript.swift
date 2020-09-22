@@ -13,7 +13,7 @@ public class SearchCounterUserScript: NSObject, UserScript {
     public var source: String = ""
     
     struct MessageNames {
-        static let didUpdateSearchCounter = "didUpdateSearchCounter"
+        static let searchCounter = "searchCounter"
     }
     
     public var didUpdateSearchCounter: ((Int) -> Void)?
@@ -22,16 +22,13 @@ public class SearchCounterUserScript: NSObject, UserScript {
     
     public var forMainFrameOnly: Bool = false
     
-    public var messageNames: [String] = [ MessageNames.didUpdateSearchCounter ]
+    public var messageNames: [String] = [ MessageNames.searchCounter ]
 
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         switch message.name {
             
-        case MessageNames.didUpdateSearchCounter:
-            guard let array = message.body as? [String: Any],
-                let key = array["key"] as? String,
-                key == "searchCounter",
-                let value = array["value"] as? Int else {
+        case MessageNames.searchCounter:
+            guard let value = message.body as? Int else {
                 return
             }
             

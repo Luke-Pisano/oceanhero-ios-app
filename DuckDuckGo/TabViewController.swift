@@ -162,6 +162,7 @@ class TabViewController: UIViewController {
     }
     
     private var searchCounterUserScript = SearchCounterUserScript()
+    private var authorizationUserScript = AuthorizationUserScript()
     private var faviconScript = FaviconUserScript()
     private var loginFormDetectionScript = LoginFormDetectionUserScript()
     private var contentBlockerScript = ContentBlockerUserScript()
@@ -211,12 +212,21 @@ class TabViewController: UIViewController {
             strongSelf.delegate?.tabDidUpdateSearchCounter(tab: strongSelf, value: value)
         }
         
+        authorizationUserScript.didLogin = { [weak self] value in
+            self?.userClient?.login(token: value)
+        }
+        
+        authorizationUserScript.didLogout = { [weak self] in
+            self?.userClient?.logout()
+        }
+        
         generalScripts = [
             debugScript,
             findInPageScript,
             contentBlockerScript,
             faviconScript,
-            searchCounterUserScript
+            searchCounterUserScript,
+            authorizationUserScript
         ]
 
         ddgScripts = [

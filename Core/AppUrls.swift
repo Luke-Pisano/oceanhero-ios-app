@@ -28,7 +28,7 @@ public struct AppUrls {
         }
 
         #if DEBUG
-            static let host = "oceanhero.today"//"oceanhero-search-git-mobileauth.oceanhero.vercel.app"
+            static let host = "oceanhero-search-git-mobileauth.oceanhero.vercel.app"
         #else
             static let host = "oceanhero.today"
         #endif
