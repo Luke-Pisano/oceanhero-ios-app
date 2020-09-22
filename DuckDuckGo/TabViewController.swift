@@ -907,7 +907,7 @@ extension TabViewController: WKNavigationDelegate {
     }
     
     private func onWebpageDidFinishLoading() {
-        os_log("webpageLoading finished", log: generalLog, type: .debug)
+        os_log("webpageLoading finished: %s", log: generalLog, type: .debug, url?.absoluteString ?? "")
         
         siteRating?.finishedLoading = true
         updateSiteRating()

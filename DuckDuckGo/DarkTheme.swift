@@ -105,4 +105,9 @@ struct DarkTheme: Theme {
     
     var homeScreenTotalBottleLabelColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     var homeScreenLogoImage: UIImage = #imageLiteral(resourceName: "LogoDarkMode")
+    
+    var userHomeCellTitleColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    var userHomeCellLoginTitleColor: UIColor = #colorLiteral(red: 0.4901960784, green: 0.8078431373, blue: 1, alpha: 1)
+    var userHomeCellBackgroundColor: UIColor = UIColor.nearlyBlackLight
+    var userHomeCellBorderColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
 }

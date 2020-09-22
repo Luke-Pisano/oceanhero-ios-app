@@ -26,6 +26,8 @@ class UserHomeSectionRenderer: HomeViewSectionRenderer {
             fatalError("not an Extra Content cell")
         }
         
+        cell.decorate(with: ThemeManager.shared.currentTheme)
+        
         cell.titleLabel.text = UserText.homeBackupSyncTitle
         cell.createButton.setTitle(UserText.homeBackupSyncCreateButtonTitle, for: .normal)
         cell.loginButton.setTitle(UserText.homeBackupSyncLoginButtonTitle, for: .normal)

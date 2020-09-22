@@ -112,4 +112,9 @@ protocol Theme {
     
     var homeScreenTotalBottleLabelColor: UIColor { get }
     var homeScreenLogoImage: UIImage { get }
+    
+    var userHomeCellTitleColor: UIColor { get }
+    var userHomeCellLoginTitleColor: UIColor { get }
+    var userHomeCellBackgroundColor: UIColor { get }
+    var userHomeCellBorderColor: UIColor { get }
 }

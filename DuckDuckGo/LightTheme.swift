@@ -111,4 +111,9 @@ struct LightTheme: Theme {
     
     var homeScreenTotalBottleLabelColor: UIColor = #colorLiteral(red: 0.1294117647, green: 0.4352941176, blue: 0.9843137255, alpha: 1)
     var homeScreenLogoImage: UIImage = #imageLiteral(resourceName: "LogoLightMode")
+    
+    var userHomeCellTitleColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    var userHomeCellLoginTitleColor: UIColor = #colorLiteral(red: 0, green: 0.4196078431, blue: 0.9882352941, alpha: 1)
+    var userHomeCellBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+    var userHomeCellBorderColor: UIColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
 }

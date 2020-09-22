@@ -21,7 +21,7 @@ class UserHomeCell: UICollectionViewCell {
         super.awakeFromNib()
     
         roundedBackground.layer.masksToBounds = true
-        roundedBackground.layer.borderColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
+        roundedBackground.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         roundedBackground.layer.borderWidth = 1.0
         roundedBackground.layer.cornerRadius = 10.0
         
@@ -38,4 +38,14 @@ extension UserHomeCell {
     @IBAction func onLoginHandler(_ sender: UIButton) {
         onLoginAction?(self)
     }
+}
+
+extension UserHomeCell: Themable {
+    func decorate(with theme: Theme) {
+        titleLabel.textColor = theme.userHomeCellTitleColor
+        loginButton.setTitleColor(theme.userHomeCellLoginTitleColor, for: .normal)
+        roundedBackground.backgroundColor = theme.userHomeCellBackgroundColor
+        roundedBackground.layer.borderColor = theme.userHomeCellBorderColor.cgColor
+    }
+
 }
