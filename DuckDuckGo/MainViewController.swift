@@ -272,7 +272,6 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
         if segue.destination.children.count > 0,
             let controller = segue.destination.children[0] as? BookmarksViewController {
             controller.delegate = self
@@ -321,7 +320,6 @@ class MainViewController: UIViewController {
         if var onboarding = segue.destination as? Onboarding {
             onboarding.delegate = self
         }
-
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -336,6 +334,7 @@ class MainViewController: UIViewController {
     private func configureTabManager() {
         let tabsModel: TabsModel
         let shouldClearTabsModelOnStartup = AutoClearSettingsModel(settings: appSettings) != nil
+        
         if shouldClearTabsModelOnStartup {
             tabsModel = TabsModel()
             tabsModel.save()
@@ -349,6 +348,7 @@ class MainViewController: UIViewController {
                 tabsModel = TabsModel()
             }
         }
+        
         tabManager = TabManager(model: tabsModel,
                                 previewsSource: previewsSource,
                                 delegate: self)
@@ -515,7 +515,6 @@ class MainViewController: UIViewController {
         containerView.addSubview(controller.view)
         controller.view.frame = containerView.bounds
         controller.didMove(toParent: self)
-
     }
 
     fileprivate func updateCurrentTab() {

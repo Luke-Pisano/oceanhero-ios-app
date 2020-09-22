@@ -24,8 +24,8 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
     
     struct Constants {
         
-        static let bottleCouterHeight: CGFloat = 40
-        static let bottleCouterTopMargin: CGFloat = 15
+        static let bottleCouterHeight: CGFloat = 48
+        static let bottleCouterTopMargin: CGFloat = 20
         static let searchCenterOffset: CGFloat = 50
         static let scrollUpAdjustment: CGFloat = 46
         

@@ -21,15 +21,12 @@ import UIKit
 import Core
 
 class CenteredSearchHomeCell: UICollectionViewCell {
-    
     struct Constants {
-        
         static let searchWidth: CGFloat = 380
         static let searchWidthPad: CGFloat = 455
-        static let targetSearchLeadingOffset: CGFloat = -18
-        static let targetSearchTrailingOffset: CGFloat = 16
+        static let targetSearchLeadingOffset: CGFloat = -8
+        static let targetSearchTrailingOffset: CGFloat = 26
         static let targetSearchLoupeOffset: CGFloat = -9
-        
     }
     
     @IBOutlet weak var imageView: UIImageView!
@@ -54,7 +51,6 @@ class CenteredSearchHomeCell: UICollectionViewCell {
     var defaultSearchRadius: CGFloat!
 
     var defaultSearchBackgroundMargin: CGFloat {
-
         if isPad {
             return (frame.width - Constants.searchWidthPad) / 2
         }
@@ -99,7 +95,6 @@ class CenteredSearchHomeCell: UICollectionViewCell {
         
         searchBackground.isAccessibilityElement = searchHeaderTransition < 1.0
     }
-    
 }
 
 extension CenteredSearchHomeCell: Themable {
