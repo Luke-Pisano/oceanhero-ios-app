@@ -29,7 +29,7 @@ class HomeCollectionView: UICollectionView {
     
     private(set) var renderers: HomeViewSectionRenderers!
     
-    private weak var asksInstallWebApplication: HomeAsksInstallWebApplication! //HomeAsksInstallWebApplication(appConfiguration: AppUserDefaults())
+    private weak var asksInstallWebApplication: HomeAsksInstallWebApplication!
     
     private var asksInstallWebApplicationSection: Int = 1
     

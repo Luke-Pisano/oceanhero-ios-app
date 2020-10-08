@@ -65,42 +65,46 @@ class HomeAsksInstallWebApplicationTests: XCTestCase {
     func testWhenYouRunMoreThatThreeTimesYouDontShouldDisplay() {
         var day = -2
         var count = 0
-        var shouldDisplay = true
         
-        for i in 0..<4 {
-            if i > 2 {
-                shouldDisplay = false
-            }
-            
+        appUserDefaults.homeAsksInstallWebApplicationLastVisit = Calendar.current.date(byAdding: .day, value: day, to: Date())
+        sut.updateShouldDisplay()
+        
+        XCTAssertTrue(sut.currentState == .doYouUseOceanHero)
+        XCTAssertTrue(sut.shouldDisplay)
+        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
+        
+        sut.nextRightAction()
+        XCTAssertTrue(sut.currentState == .wouldYouMindTryingIt)
+        XCTAssertTrue(sut.shouldDisplay)
+        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
+        
+        sut.nextLeftAction()
+        XCTAssertTrue(sut.currentState == .remindYouSomeOtherTime)
+        XCTAssertTrue(sut.shouldDisplay)
+        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
+        
+        sut.nextRightAction()
+        XCTAssertTrue(sut.currentState == .rightTimeToGetOceanHero)
+        XCTAssertFalse(sut.shouldDisplay)
+        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
+        
+        for _ in 0..<4 {
+            day -= 7
             appUserDefaults.homeAsksInstallWebApplicationLastVisit = Calendar.current.date(byAdding: .day, value: day, to: Date())
             sut.updateShouldDisplay()
             
-            XCTAssertTrue(sut.currentState == .doYouUseOceanHero)
-            XCTAssertTrue(sut.shouldDisplay == shouldDisplay)
-            XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
-            
-            sut.nextRightAction()
-            XCTAssertTrue(sut.currentState == .wouldYouMindTryingIt)
-            XCTAssertTrue(sut.shouldDisplay == shouldDisplay)
-            XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
-            
-            sut.nextRightAction()
-            XCTAssertTrue(sut.currentState == .itIsVeryEasyVisitOceanhero)
-            XCTAssertTrue(sut.shouldDisplay == shouldDisplay)
-            XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
-            
-            sut.nextRightAction()
-            XCTAssertTrue(sut.currentState == .willSeeButton)
-            XCTAssertTrue(sut.shouldDisplay == shouldDisplay)
-            XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
-            
-            sut.nextLeftAction()
-            count += 1
-            XCTAssertTrue(sut.currentState == .willSeeButton)
-            XCTAssertTrue(sut.shouldDisplay == false)
-            XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
-            
-            day -= 10
+            if count < 3 {
+                XCTAssertTrue(sut.shouldDisplay)
+            } else {
+                XCTAssertFalse(sut.shouldDisplay)
+            }
+
+            if sut.shouldDisplay {
+                sut.nextLeftAction()
+                count += 1
+                XCTAssertTrue(sut.currentState == .rightTimeToGetOceanHero)
+                XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, count)
+            }
         }
     }
 }
@@ -108,7 +112,7 @@ class HomeAsksInstallWebApplicationTests: XCTestCase {
 extension HomeAsksInstallWebApplicationTests {
     func testWhenUseNextLeftActionThenChangeCurrentStatus() {
         var changedStateCount = 0
-        var currentState: HomeAsksInstallWebApplicationState = .wouldYouMindTryingIt
+        let currentState: HomeAsksInstallWebApplicationState = .success
         
         appUserDefaults.homeAsksInstallWebApplicationLastVisit = Calendar.current.date(byAdding: .day, value: -2, to: Date())
         sut.updateShouldDisplay()
@@ -121,13 +125,7 @@ extension HomeAsksInstallWebApplicationTests {
         sut.nextLeftAction()
         XCTAssertTrue(sut.shouldDisplay == true)
         
-        currentState = .remindYouSomeOtherTime
-        sut.nextLeftAction()
-        XCTAssertTrue(sut.shouldDisplay == true)
-        
-        sut.nextLeftAction()
-        XCTAssertTrue(sut.shouldDisplay == false)
-        XCTAssertEqual(changedStateCount, 2)
+        XCTAssertEqual(changedStateCount, 1)
         XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 3)
         XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationState, sut.currentState.rawValue)
     }
@@ -156,11 +154,11 @@ extension HomeAsksInstallWebApplicationTests {
         sut.nextRightAction()
         XCTAssertTrue(sut.shouldDisplay == true)
         
-        currentState = .willSeeButton
+        currentState = .success
         sut.nextRightAction()
         
-        XCTAssertTrue(sut.shouldDisplay == false)
-        XCTAssertEqual(changedStateCount, 3)
+        XCTAssertTrue(sut.shouldDisplay == true)
+        XCTAssertEqual(changedStateCount, 4)
         XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 3)
         XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationState, sut.currentState.rawValue)
     }
@@ -171,12 +169,6 @@ extension HomeAsksInstallWebApplicationTests {
         appUserDefaults.homeAsksInstallWebApplicationLastVisit = Calendar.current.date(byAdding: .day, value: -2, to: Date())
         sut.updateShouldDisplay()
 
-        sut.nextLeftAction()
-        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 0)
-        
-        sut.nextLeftAction()
-        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 0)
-        
         sut.nextLeftAction()
         XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 3)
     }
@@ -198,23 +190,6 @@ extension HomeAsksInstallWebApplicationTests {
         XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 3)
     }
     
-    func testWhenUseNextLeftAndRightActionThenCoutIsCorrect() {
-        appUserDefaults.homeAsksInstallWebApplicationLastVisit = Calendar.current.date(byAdding: .day, value: -2, to: Date())
-        sut.updateShouldDisplay()
-
-        sut.nextLeftAction()
-        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 0)
-        XCTAssertTrue(sut.shouldDisplay == true)
-        
-        sut.nextLeftAction()
-        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 0)
-        XCTAssertTrue(sut.shouldDisplay == true)
-        
-        sut.nextRightAction()
-        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 0)
-        XCTAssertTrue(sut.shouldDisplay == false)
-    }
-    
     func testWhenUseNextRightAndLeftActionThenCoutIsCorrect() {
         appUserDefaults.homeAsksInstallWebApplicationLastVisit = Calendar.current.date(byAdding: .day, value: -2, to: Date())
         sut.updateShouldDisplay()
@@ -232,7 +207,7 @@ extension HomeAsksInstallWebApplicationTests {
         XCTAssertTrue(sut.shouldDisplay == true)
         
         sut.nextLeftAction()
-        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 1)
+        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 3)
         XCTAssertTrue(sut.shouldDisplay == false)
     }
     
@@ -240,7 +215,7 @@ extension HomeAsksInstallWebApplicationTests {
         appUserDefaults.homeAsksInstallWebApplicationLastVisit = Calendar.current.date(byAdding: .day, value: -2, to: Date())
         sut.updateShouldDisplay()
 
-        sut.nextLeftAction()
+        sut.nextRightAction()
         XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 0)
         XCTAssertTrue(sut.shouldDisplay == true)
         
@@ -277,6 +252,10 @@ extension HomeAsksInstallWebApplicationTests {
         
         sut.nextRightAction()
         XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 3)
+        XCTAssertTrue(sut.shouldDisplay == true)
+        
+        sut.nextRightAction()
+        XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 3)
         XCTAssertTrue(sut.shouldDisplay == false)
     }
     
@@ -284,7 +263,7 @@ extension HomeAsksInstallWebApplicationTests {
         appUserDefaults.homeAsksInstallWebApplicationLastVisit = Calendar.current.date(byAdding: .day, value: -2, to: Date())
         sut.updateShouldDisplay()
 
-        sut.nextLeftAction()
+        sut.nextRightAction()
         XCTAssertEqual(appUserDefaults.homeAsksInstallWebApplicationCount, 0)
         XCTAssertTrue(sut.shouldDisplay == true)
         

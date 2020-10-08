@@ -78,39 +78,13 @@ class HomeAsksInstallWebApplication {
     
     init(appConfiguration: AppConfigurationHomeAsksInstallWebApplication) {
         self.appConfiguration = appConfiguration
+        
         updateState()
         updateShouldDisplay()
     }
 }
 
 extension HomeAsksInstallWebApplication {
-    func updateShouldDisplay() {
-        print("1. count: \(count) currentState: \(currentState.rawValue) lastVisit: \(String(describing: lastVisit)) shouldDisplay: \(shouldDisplay)")
-        
-        guard let date = lastVisit else {
-            lastVisit = Date()
-            return
-        }
-        
-        let daysFrom = date.daysFrom(date: Date())
-        
-        print("2. daysFrom: \(daysFrom) count: \(count) currentState: \(currentState.rawValue) lastVisit: \(date) shouldDisplay: \(shouldDisplay)")
-        
-        if count >= Constants.maxCount {
-            shouldDisplay = false
-        } else if count == 0 && daysFrom >= Constants.firstStep && currentState != .rightTimeToGetOceanHero { // first steps
-            shouldDisplay = true
-        } else if count >= 0 && daysFrom >= Constants.remindStep && currentState == .rightTimeToGetOceanHero { // rightTimeToGetOceanHero
-            shouldDisplay = true
-        } else if count >= 0 && daysFrom >= Constants.nextStep { // second / third steps
-            shouldDisplay = true
-        } else {
-            shouldDisplay = false
-        }
-        
-        print("3. daysFrom: \(daysFrom) count: \(count) currentState: \(currentState.rawValue) lastVisit: \(date) shouldDisplay: \(shouldDisplay)")
-    }
-    
     private func updateState() {
         let state =  HomeAsksInstallWebApplicationState(value: appConfiguration.homeAsksInstallWebApplicationState)
         
@@ -120,10 +94,34 @@ extension HomeAsksInstallWebApplication {
             currentState = .doYouUseOceanHero
         }
     }
+    
+    func updateShouldDisplay() {
+        guard let date = lastVisit else {
+            lastVisit = Date()
+            return
+        }
+        
+        let daysFrom = date.daysFrom(date: Date())
+        shouldDisplay = getShouldDisplay(for: daysFrom)
+    }
+    
+    private func getShouldDisplay(for days: Int) -> Bool {
+        if count >= Constants.maxCount {
+            return false
+        } else if count == 0 && days >= Constants.firstStep && currentState != .rightTimeToGetOceanHero { // first steps
+            return true
+        } else if count >= 0 && days >= Constants.remindStep && currentState == .rightTimeToGetOceanHero { // rightTimeToGetOceanHero
+            return true
+        } else if count >= 0 && days >= Constants.nextStep { // second / third steps
+            return true
+        }
+        
+        return false
+    }
 }
 
 extension HomeAsksInstallWebApplication {
-    private func installedIt() {
+    private func finalAction() {
         lastVisit = Date()
         count = Constants.maxCount
         shouldDisplay = false
@@ -145,22 +143,20 @@ extension HomeAsksInstallWebApplication {
         case .wouldYouMindTryingIt:
             currentState = .remindYouSomeOtherTime
         case .itIsVeryEasyVisitOceanhero:
-            fatalError("Shouldn't be happens")
+            fatalError("The left action shouldn't happen on the itIsVeryEasyVisitOceanhero state")
         case .remindYouSomeOtherTime:
             // If user clicked Please don't, remind user again in 10 days. But after 2 attempts, never show again
-            installedIt()
+            finalAction()
         case .willSeeButton:
             // Show form: https://forms.gle/WvuPoRMLxHThCH6B6
             UIApplication.shared.open(AppUrls().problemOceanHeroComputer)
-            installedIt()
+            finalAction()
         case .rightTimeToGetOceanHero:
             // If user clicked sorry, but no, remind user again in 10 days. But after 2 attempts, never show again
             waitForNextAction()
         case .success:
-            fatalError("Shouldn't be happens")
+            fatalError("The left action shouldn't happen on the success state")
         }
-        
-        print("4. count: \(count) currentState: \(currentState.rawValue) lastVisit: \(String(describing: lastVisit)) shouldDisplay: \(shouldDisplay)")
     }
     
     func nextRightAction() {
@@ -184,9 +180,7 @@ extension HomeAsksInstallWebApplication {
         case .rightTimeToGetOceanHero:
             currentState = .itIsVeryEasyVisitOceanhero
         case .success:
-            installedIt()
+            finalAction()
         }
-        
-        print("5. count: \(count) currentState: \(currentState.rawValue) lastVisit: \(String(describing: lastVisit)) shouldDisplay: \(shouldDisplay)")
     }
 }

@@ -111,7 +111,6 @@ extension CenteredSearchHomeCell: Themable {
         searchLoupe.tintColor = theme.barTintColor
         
         promptText.textColor = theme.searchBarTextPlaceholderColor
-        //logoText.tintColor = theme.ddgTextTintColor
         
         totalBottleLabel.textColor = theme.homeScreenTotalBottleLabelColor
         imageView.image = theme.homeScreenLogoImage

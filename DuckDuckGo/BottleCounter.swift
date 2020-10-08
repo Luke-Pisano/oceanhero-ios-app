@@ -30,7 +30,7 @@ class BottleCounter {
         return Int(Double(animationTime) / stepDuration)
     }
     
-    private var finishBottleCounter: Int {
+    private var finalBottleCounter: Int {
         get {
             let value = appSettings.currentBottleCounter
             
@@ -48,7 +48,7 @@ class BottleCounter {
     
     var currentValue: String {
         guard let value = numberFormatter.string(from: NSNumber(value: currentBottleCounter)) else {
-            return "8,291,758"
+            return ""
         }
         
         return value
@@ -80,20 +80,15 @@ extension BottleCounter {
         isStarted = true
         
         if appSettings.animationFromCurrentBottleCounterValue {
-            startBottleCounter = finishBottleCounter
-            currentBottleCounter = finishBottleCounter
+            startBottleCounter = finalBottleCounter
+            currentBottleCounter = finalBottleCounter
         } else {
             appSettings.animationFromCurrentBottleCounterValue = true
             startBottleCounter = 0
             currentBottleCounter = 0
         }
         
-        if finishBottleCounter == 0 {
-            finishBottleCounter = 8291758
-        }
-        
         didUpdatedTotalBottle?(currentValue)
-        
         startTotalCounterAnimation()
         checkBottleCount()
     }
@@ -117,10 +112,10 @@ extension BottleCounter {
                 return
             }
             
-            selfStrong.finishBottleCounter = response.counter / 5
+            selfStrong.finalBottleCounter = response.counter / 5
             selfStrong.startBottleCounter = selfStrong.currentBottleCounter
             
-            print("CALL COME", selfStrong.startBottleCounter, selfStrong.finishBottleCounter)
+            print("CALL COME", selfStrong.startBottleCounter, selfStrong.finalBottleCounter)
             
             guard selfStrong.isStarted else {
                 return
@@ -145,8 +140,8 @@ extension BottleCounter {
                 return
             }
             
-            guard selfStrong.currentBottleCounter < selfStrong.finishBottleCounter else {
-                selfStrong.currentBottleCounter = selfStrong.finishBottleCounter
+            guard selfStrong.currentBottleCounter < selfStrong.finalBottleCounter else {
+                selfStrong.currentBottleCounter = selfStrong.finalBottleCounter
                 selfStrong.didUpdatedTotalBottle?(selfStrong.currentValue)
                 selfStrong.timer?.invalidate()
                 
@@ -155,7 +150,7 @@ extension BottleCounter {
                 return
             }
             
-            var incrementation = (selfStrong.finishBottleCounter - selfStrong.startBottleCounter ) / selfStrong.stepsCount
+            var incrementation = (selfStrong.finalBottleCounter - selfStrong.startBottleCounter ) / selfStrong.stepsCount
             
             if incrementation == 0 {
                 incrementation = 1
