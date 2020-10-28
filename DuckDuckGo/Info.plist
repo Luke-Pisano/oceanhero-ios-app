@@ -173,7 +173,7 @@
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Allows you to save images to your device</string>
 	<key>OceanHeroGroupIdentifierPrefix</key>
-	<string>group.oh.OceanHero</string>
+	<string>group.browser.oceanhero</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Regular.ttf</string>
@@ -187,11 +187,11 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Paste from clipboard</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>oh.OceanHero.clipboard</string>
+			<string>browser.oceanhero.clipboard</string>
 		</dict>
 	</array>
 	<key>UIApplicationShortcutWidget</key>
-	<string>oh.OceanHero.QuickActionsTodayExtension</string>
+	<string>browser.oceanhero.QuickActionsTodayExtension</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

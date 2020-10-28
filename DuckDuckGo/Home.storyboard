@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULd-d5-qhO" customClass="IndividualBottleCounterView" customModule="OceanHero" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULd-d5-qhO" customClass="IndividualBottleCounterView" customModule="OceanHero" customModuleProvider="target">
                                 <rect key="frame" x="300" y="52.666666666666657" width="67" height="35"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmallBottle" translatesAutoresizingMaskIntoConstraints="NO" id="WVb-OI-cqM">
@@ -89,7 +89,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="eQ8-iA-i1e">
-                                                    <rect key="frame" x="36" y="14" width="270" height="94"/>
+                                                    <rect key="frame" x="36" y="54" width="270" height="94"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoLightMode" translatesAutoresizingMaskIntoConstraints="NO" id="39W-ag-iVs">
                                                             <rect key="frame" x="0.0" y="0.0" width="270" height="94"/>
@@ -102,22 +102,22 @@
                                                     <variation key="heightClass=compact" axis="horizontal"/>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jf-KE-oXj" customClass="RoundedRectangleView" customModule="OceanHero" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="133" width="342" height="48"/>
+                                                    <rect key="frame" x="0.0" y="173" width="342" height="48"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SuggestLoupe" translatesAutoresizingMaskIntoConstraints="NO" id="Cfx-pb-o8i">
-                                                            <rect key="frame" x="15" y="12" width="30" height="24"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchProvider_Google" translatesAutoresizingMaskIntoConstraints="NO" id="Cfx-pb-o8i">
+                                                            <rect key="frame" x="25" y="13.666666666666657" width="21" height="21"/>
                                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="24" id="MeG-td-OLY"/>
-                                                                <constraint firstAttribute="width" constant="30" id="Nin-Am-qlx"/>
+                                                                <constraint firstAttribute="height" constant="21" id="MeG-td-OLY"/>
+                                                                <constraint firstAttribute="width" constant="21" id="Nin-Am-qlx"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search or enter address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73D-OT-n1K">
-                                                            <rect key="frame" x="49.999999999999986" y="14.666666666666659" width="171.66666666666663" height="18.666666666666671"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search or type URL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73D-OT-n1K">
+                                                            <rect key="frame" x="92.000000000000014" y="13.666666666666657" width="158.33333333333337" height="21"/>
                                                             <accessibility key="accessibilityConfiguration">
                                                                 <bool key="isElement" value="NO"/>
                                                             </accessibility>
-                                                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -128,11 +128,11 @@
                                                         <bool key="isElement" value="YES"/>
                                                     </accessibility>
                                                     <constraints>
-                                                        <constraint firstItem="73D-OT-n1K" firstAttribute="leading" secondItem="Cfx-pb-o8i" secondAttribute="trailing" constant="5" id="ACN-RO-pzc"/>
+                                                        <constraint firstItem="73D-OT-n1K" firstAttribute="centerX" secondItem="7Jf-KE-oXj" secondAttribute="centerX" id="Am3-Uo-vKY"/>
                                                         <constraint firstItem="Cfx-pb-o8i" firstAttribute="centerY" secondItem="7Jf-KE-oXj" secondAttribute="centerY" id="EhU-6m-xZh"/>
                                                         <constraint firstItem="73D-OT-n1K" firstAttribute="centerY" secondItem="7Jf-KE-oXj" secondAttribute="centerY" id="L29-pe-UIV"/>
                                                         <constraint firstAttribute="height" constant="48" id="lfy-OM-K4Q"/>
-                                                        <constraint firstItem="Cfx-pb-o8i" firstAttribute="leading" secondItem="7Jf-KE-oXj" secondAttribute="leading" constant="15" id="zGY-Ek-4ip"/>
+                                                        <constraint firstItem="Cfx-pb-o8i" firstAttribute="leading" secondItem="7Jf-KE-oXj" secondAttribute="leading" constant="25" id="zGY-Ek-4ip"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
@@ -147,7 +147,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZD9-nq-lWP">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZD9-nq-lWP">
                                                     <rect key="frame" x="0.0" y="210" width="342" height="40"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbG-TM-q2x">
@@ -193,7 +193,7 @@
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="7Jf-KE-oXj" firstAttribute="leading" secondItem="3i0-li-iSv" secondAttribute="leading" id="2Ia-p2-6HX"/>
-                                            <constraint firstItem="ZD9-nq-lWP" firstAttribute="top" secondItem="7Jf-KE-oXj" secondAttribute="bottom" constant="29" id="6ko-Uz-uhE"/>
+                                            <constraint firstItem="ZD9-nq-lWP" firstAttribute="bottom" secondItem="7Jf-KE-oXj" secondAttribute="bottom" constant="29" id="6ko-Uz-uhE"/>
                                             <constraint firstAttribute="trailing" secondItem="ZD9-nq-lWP" secondAttribute="trailing" id="Rwh-Oe-6SV"/>
                                             <constraint firstAttribute="bottom" secondItem="ZD9-nq-lWP" secondAttribute="bottom" constant="10" id="cob-FI-qvw"/>
                                             <constraint firstItem="eQ8-iA-i1e" firstAttribute="centerX" secondItem="3i0-li-iSv" secondAttribute="centerX" id="em6-ew-E3V"/>
@@ -210,8 +210,10 @@
                                             <outlet property="searchBackgroundHeightConstraint" destination="lfy-OM-K4Q" id="MaW-TK-NzF"/>
                                             <outlet property="searchBackgroundLeadingConstraint" destination="2Ia-p2-6HX" id="NMn-4r-6Ny"/>
                                             <outlet property="searchBackgroundTrailingConstraint" destination="niW-Cm-waP" id="fMr-Et-hcZ"/>
-                                            <outlet property="searchLoupe" destination="Cfx-pb-o8i" id="796-zE-CwE"/>
-                                            <outlet property="searchLoupeLeadingConstraint" destination="zGY-Ek-4ip" id="RUp-zT-xMm"/>
+                                            <outlet property="searchProviderImageHeightConstraint" destination="MeG-td-OLY" id="bRz-sT-XJ1"/>
+                                            <outlet property="searchProviderImageLeadingConstraint" destination="zGY-Ek-4ip" id="RUp-zT-xMm"/>
+                                            <outlet property="searchProviderImageView" destination="Cfx-pb-o8i" id="796-zE-CwE"/>
+                                            <outlet property="searchProviderImageWidthConstraint" destination="Nin-Am-qlx" id="Yie-qz-ePf"/>
                                             <outlet property="totalBottleLabel" destination="r3p-vs-jgW" id="H4J-01-tbP"/>
                                         </connections>
                                     </collectionViewCell>
@@ -307,6 +309,6 @@
         <image name="LogoLightMode" width="459" height="87"/>
         <image name="Settings" width="24" height="24"/>
         <image name="SmallBottle" width="36.666667938232422" height="40.666667938232422"/>
-        <image name="SuggestLoupe" width="24" height="24"/>
+        <image name="searchProvider_Google" width="33" height="33"/>
     </resources>
 </document>

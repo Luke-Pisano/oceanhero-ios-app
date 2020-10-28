@@ -24,7 +24,7 @@ import Core
 public struct UserText {
     
     public static let appUnlock = NSLocalizedString("app.authentication.unlock", value: "Unlock OceanHero", comment: "Unlock OceanHero")
-    public static let searchDuckDuckGo = NSLocalizedString("search.hint.duckduckgo", value: "Search or enter address", comment: "Search or enter address")
+    public static let searchDuckDuckGo = NSLocalizedString("search.hint.duckduckgo", value: "Search or type URL", comment: "Search or type URL")
     public static let webSaveBookmarkDone = NSLocalizedString("web.url.save.bookmark.done", value: "Bookmark saved", comment: "Bookmark saved")
     public static let webBookmarkAlreadySaved = NSLocalizedString("web.url.save.bookmark.exists", value: "Bookmark already saved", comment: "Bookmark already saved")
     public static let webSaveFavoriteDone = NSLocalizedString("web.url.save.favorite.done", value: "Favorite saved", comment: "Favorite saved")
@@ -174,7 +174,7 @@ public struct UserText {
     public static let keyCommandBrowserForward = NSLocalizedString("keyCommandBrowserForward", value: "Browse Forward", comment: "Browse forward")
     public static let keyCommandBrowserBack = NSLocalizedString("keyCommandBrowserBack", value: "Browse Back", comment: "Browse back")
     public static let keyCommandFind = NSLocalizedString("keyCommandFind", value: "Find in Page", comment: "Find in page")
-    public static let keyCommandLocation = NSLocalizedString("keyCommandLocation", value: "Search or Enter Address", comment: "Search or enter address")
+    public static let keyCommandLocation = NSLocalizedString("keyCommandLocation", value: "Search or type URL", comment: "Search or type URL")
     public static let keyCommandFire = NSLocalizedString("keyCommandFire", value: "Clear All Tabs and Data", comment: "Clear all tabs and data")
     public static let keyCommandClose = NSLocalizedString("keyCommandClose", value: "Close", comment: "Close")
     public static let keyCommandSelect = NSLocalizedString("keyCommandSelect", value: "Select", comment: "Select")
@@ -378,4 +378,19 @@ public struct UserText {
     public static let hAIWAStateStateSuccessRightButtonTitle = NSLocalizedString("hAIWA.state.right.button.title.success",
                                                                                  value: "You’re welcome!",
                                                                                  comment: "You’re welcome!")
+    
+    public static let searchProviderOceanHeroTitle = NSLocalizedString("searchProvider.OceanHero.title", value: "OceanHero", comment: "OceanHero")
+    public static let searchProviderMicrosoftTitle = NSLocalizedString("searchProvider.Microsoft.title", value: "Microsoft Bing", comment: "Microsoft Bing")
+    public static let searchProviderGoogleTitle = NSLocalizedString("searchProvider.Google.title", value: "Google", comment: "Google")
+    public static let searchProviderYahooTitle = NSLocalizedString("searchProvider.Yahoo.title", value: "Yahoo", comment: "Yahoo")
+    
+    public static let chooseSearchProviderTopTitle = NSLocalizedString("choose.searchProvider.top.title",
+                                                                       value: "Choose your search provider",
+                                                                       comment: "Choose your search provider")
+    public static let chooseSearchProviderBottomTitle = NSLocalizedString("choose.searchProvider.bottom.title",
+                                                                          value: "You can still change your selection later",
+                                                                          comment: "You can still change your selection later")
+    public static let chooseSearchProviderButtonTitle = NSLocalizedString("choose.searchProvider.button.title",
+                                                                          value: "Choose",
+                                                                          comment: "Choose")
 }

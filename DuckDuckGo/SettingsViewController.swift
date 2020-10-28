@@ -115,6 +115,13 @@ class SettingsViewController: UITableViewController {
                 segue.destination.modalPresentationStyle = .formSheet
             }
         }
+        
+        if let controller = segue.destination as? ChooseSearchProviderViewController {
+            controller.onChooseSearchProviderCompleted = { [weak self] in
+                self?.homePageSettingsDelegate?.homePageChanged()
+                controller.dismiss(animated: true)
+            }
+        }
     }
 
     private func configureMargins() {

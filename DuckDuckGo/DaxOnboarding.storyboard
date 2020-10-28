@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YXw-O5-LLS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f7H-By-JPR">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -16,6 +16,23 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="nOq-f3-MMB">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="f7H-By-JPR" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DK4-Y4-mux">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YXw-O5-LLS" kind="relationship" relationship="rootViewController" id="PGV-Tl-8ww"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lp1-RH-2PT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-727" y="169"/>
+        </scene>
         <!--Dax Onboarding View Controller-->
         <scene sceneID="8Y2-Tw-v4h">
             <objects>
@@ -234,6 +251,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ASL-d6-ybT"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8oU-kE-vvx"/>
                     <connections>
                         <outlet property="continueButton" destination="y58-dq-0fC" id="nyy-SW-aBU"/>
                         <outlet property="imagesScrollView" destination="rIU-Lf-Tn4" id="F97-Dn-4zp"/>
@@ -249,6 +267,7 @@
                         <outlet property="textScrollViewBackground" destination="Jr4-1M-wr4" id="Uhw-Dh-m4e"/>
                         <segue destination="CDH-8I-u6b" kind="presentation" identifier="AddToHomeRow" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="SBX-Oj-Pz8"/>
                         <segue destination="V3g-Ms-vCf" kind="presentation" identifier="AddToHomeRow-iPad" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="XNL-bY-mB0"/>
+                        <segue destination="a7m-De-HWM" kind="show" identifier="AddToChooseSearchProvider" id="cKH-e5-Rxb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ank-Fd-gq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -262,6 +281,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcI-Z6-5Ua" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2020" y="-21"/>
+        </scene>
+        <!--ChooseSearchProvider-->
+        <scene sceneID="8eI-av-i3I">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChooseSearchProvider" id="a7m-De-HWM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="epj-Qg-ozh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhl-cu-IOZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1362" y="587"/>
         </scene>
         <!--Dax Onboarding Pad View Controller-->
         <scene sceneID="H80-CE-ohe">

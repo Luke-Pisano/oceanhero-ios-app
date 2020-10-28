@@ -35,8 +35,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var settingButtonContainerTop: NSLayoutConstraint!
     
     fileprivate lazy var appSettings: AppSettings = AppUserDefaults()
-    private lazy var bottleCounter: BottleCounter = BottleCounter()
     weak var asksInstallWebApplication: HomeAsksInstallWebApplication!
+    
+    //BottleCounter - We might add it back later - don't remove it
+    //private lazy var bottleCounter: BottleCounter = BottleCounter()
     
     var logoContainer: UIView! {
         return delegate?.homeDidRequestLogoContainer(self)
@@ -99,46 +101,51 @@ class HomeViewController: UIViewController {
         
         if viewHasAppeared {
             asksInstallWebApplication.updateShouldDisplay()
-            bottleCounter.refresh()
+            
+            //BottleCounter - We might add it back later - don't remove it
+            //bottleCounter.refresh()
         }
                 
         viewHasAppeared = true
-        updateIndividualBottleCount()
+        
+        //BottleCounter - We might add it back later - don't remove it
+        //updateIndividualBottleCount()
     }
     
     func oceanHeroSetup() {
-        bottleCounter.didUpdatedTotalBottle = { [weak self] value in
-            self?.updateTotalBottle(value: value)
-        }
-        
-        bottleCounter.start()
+        //BottleCounter - We might add it back later - don't remove it
+//        bottleCounter.didUpdatedTotalBottle = { [weak self] value in
+//            self?.updateTotalBottle(value: value)
+//        }
+//
+//        bottleCounter.start()
     }
     
     // MARK: - Individual Bottle Counter
-    
-    private func updateIndividualBottleCount() {
-        individualBottleCounterView.smallBottleLabel.text = String(appSettings.individualBottleCounter)
-    }
-    
-    // MARK: - Bottle Counter
-    
-    private func updateTotalBottle(value: String) {
-        collectionView.visibleCells.forEach { cell in
-            guard let centeredSearchHomeCell = cell as? CenteredSearchHomeCell else {
-                return
-            }
-            
-            updateTotalBottle(for: centeredSearchHomeCell, value: value)
-        }
-    }
-    
-    func updateTotalBottle(for cell: CenteredSearchHomeCell) {
-        updateTotalBottle(for: cell, value: bottleCounter.currentValue)
-    }
-    
-    private func updateTotalBottle(for cell: CenteredSearchHomeCell, value: String) {
-        cell.totalBottleLabel.text = value
-    }
+//BottleCounter - We might add it back later - don't remove it
+//    private func updateIndividualBottleCount() {
+//        individualBottleCounterView.smallBottleLabel.text = String(appSettings.individualBottleCounter)
+//    }
+//
+//    // MARK: - Bottle Counter
+//
+//    private func updateTotalBottle(value: String) {
+//        collectionView.visibleCells.forEach { cell in
+//            guard let centeredSearchHomeCell = cell as? CenteredSearchHomeCell else {
+//                return
+//            }
+//
+//            updateTotalBottle(for: centeredSearchHomeCell, value: value)
+//        }
+//    }
+//
+//    func updateTotalBottle(for cell: CenteredSearchHomeCell) {
+//        updateTotalBottle(for: cell, value: bottleCounter.currentValue)
+//    }
+//
+//    private func updateTotalBottle(for cell: CenteredSearchHomeCell, value: String) {
+//        cell.totalBottleLabel.text = value
+//    }
     
     // MARK: - Other
     
@@ -170,7 +177,9 @@ class HomeViewController: UIViewController {
     
     func refreshActiveElements() {
         asksInstallWebApplication.updateShouldDisplay()
-        bottleCounter.refresh()
+        
+        //BottleCounter - We might add it back later - don't remove it
+        //bottleCounter.refresh()
     }
     
     func remove(_ renderer: ExtraContentHomeSectionRenderer) {
@@ -232,6 +241,7 @@ class HomeViewController: UIViewController {
     
     func onboardingCompleted() {
         //showNextDaxDialog()
+        refresh()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -275,7 +285,9 @@ class HomeViewController: UIViewController {
     }
 
     func dismiss() {
-        bottleCounter.stop()
+        //BottleCounter - We might add it back later - don't remove it
+        //bottleCounter.stop()
+        
         delegate = nil
         chromeDelegate = nil
         removeFromParent()
@@ -303,6 +315,8 @@ extension HomeViewController: Themable {
         collectionView.decorate(with: theme)
         
         settingsButton.tintColor = theme.barTintColor
-        individualBottleCounterView.smallBottleLabel.textColor = theme.individualBottleCounterTextColor
+        
+        //BottleCounter - We might add it back later - don't remove it
+        //individualBottleCounterView.smallBottleLabel.textColor = theme.individualBottleCounterTextColor
     }
 }

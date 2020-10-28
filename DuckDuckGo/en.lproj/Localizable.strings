@@ -18,7 +18,7 @@
 */
 
 "app.authentication.unlock" = "Unlock OceanHero";
-"search.hint.duckduckgo" = "Search or enter address";
+"search.hint.duckduckgo" = "Search or type URL";
 "web.url.save.bookmark.done" = "Bookmark saved";
 "web.url.save.bookmark.exists" = "Bookmark already saved";
 "web.url.save.favorite.done" = "Favorite saved";
@@ -162,7 +162,7 @@
 "keyCommandBrowserForward" = "Browse Forward";
 "keyCommandBrowserBack" = "Browse Back";
 "keyCommandFind" = "Find in Page";
-"keyCommandLocation" = "Search or Enter Address";
+"keyCommandLocation" = "Search or type URL";
 "keyCommandFire" = "Clear All Tabs and Data";
 "keyCommandClose" = "Close";
 "keyCommandSelect" = "Select";
@@ -308,8 +308,8 @@
 "homeTab.searchAndFavorites" = "Search and favorites in a new tab";
 "homeTab.title" = "Home";
 
-"dax.onboarding.text.first" = "OceanHero is a search engine that recovers ocean-bound plastic when you use it";
-"dax.onboarding.text.second" = "Use it instead of Chrome and we will take ad revenue to pay people to collect plastic";
+"dax.onboarding.text.first" = "OceanHero is a search engine that recovers ocean-bound plastic";
+"dax.onboarding.text.second" = "We pay people to collect plastic before it enters the ocean";
 "dax.onboarding.text.third" = "People can exchange ocean-bound plastic for money at plastic collection hubs of our partner <b>Plastic Bank</b>";
 
 "dax.onboarding.button.first" = "CONTINUE";
@@ -370,3 +370,11 @@
 "hAIWA.state.right.button.title.willSeeButton" = "Cool, I installed it";
 "hAIWA.state.right.button.title.rightTimeToGetOceanHero" = "Yes, let’s do it";
 "hAIWA.state.right.button.title.success" = "You’re welcome!";
+
+"searchProvider.OceanHero.title" = "OceanHero";
+"searchProvider.Microsoft.title" = "Microsoft Bing";
+"searchProvider.Google.title" = "Google";
+"searchProvider.Yahoo.title" = "Yahoo";
+"choose.searchProvider.top.title" = "Choose your search provider";
+"choose.searchProvider.bottom.title" = "You can still change your selection later";
+"choose.searchProvider.button.title" = "Choose";

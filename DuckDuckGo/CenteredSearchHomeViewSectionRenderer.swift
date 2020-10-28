@@ -24,8 +24,8 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
     
     struct Constants {
         
-        static let bottleCouterHeight: CGFloat = 40
-        static let bottleCouterTopMargin: CGFloat = 15
+        static let bottleCouterHeight: CGFloat = 0
+        static let bottleCouterTopMargin: CGFloat = 39
         static let searchCenterOffset: CGFloat = 50
         static let scrollUpAdjustment: CGFloat = 46
         
@@ -50,13 +50,15 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
     private var indexPath: IndexPath?
     
     private let fixed: Bool
+    private let searchProviderStore: SearchProviderStore
     
     var centeredSearch: UIView? {
         return cell?.searchBackground
     }
     
-    init(fixed: Bool) {
+    init(fixed: Bool, searchProviderStore: SearchProviderStore = SearchProviderUserDefaults()) {
         self.fixed = fixed
+        self.searchProviderStore = searchProviderStore
     }
     
     func install(into controller: HomeViewController) {
@@ -116,6 +118,12 @@ class CenteredSearchHomeViewSectionRenderer: HomeViewSectionRenderer {
         cell.targetSearchHeight = controller?.chromeDelegate?.omniBar.editingBackground.frame.height ?? 0
         cell.targetSearchRadius = controller?.chromeDelegate?.omniBar.editingBackground.layer.cornerRadius ?? 0
         self.cell = cell
+        
+        if let searchProvider = SearchProvider(rawValue: searchProviderStore.searchProvider) {
+            cell.icon = searchProvider.icon
+            cell.iconSize = searchProvider.size
+        }
+        
         return cell
     }
     

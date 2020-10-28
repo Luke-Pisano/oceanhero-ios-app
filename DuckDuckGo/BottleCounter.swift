@@ -59,7 +59,8 @@ class BottleCounter {
     // MARK: - Init
     
     init() {
-        setup()
+        //BottleCounter - We might add it back later - don't remove it
+        //setup()
     }
     
     // MARK: - Setup
@@ -68,7 +69,7 @@ class BottleCounter {
         numberFormatter.groupingSeparator = ","
         numberFormatter.usesGroupingSeparator = true
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        
+
         bottleTimer = Timer.scheduledTimer(withTimeInterval: 15.0, repeats: true, block: { [weak self] _ in
             self?.checkBottleCount()
         })
@@ -78,7 +79,7 @@ class BottleCounter {
 extension BottleCounter {
     func start() {
         isStarted = true
-        
+
         if appSettings.animationFromCurrentBottleCounterValue {
             startBottleCounter = finalBottleCounter
             currentBottleCounter = finalBottleCounter
@@ -87,7 +88,7 @@ extension BottleCounter {
             startBottleCounter = 0
             currentBottleCounter = 0
         }
-        
+
         didUpdatedTotalBottle?(currentValue)
         startTotalCounterAnimation()
         checkBottleCount()
@@ -115,8 +116,6 @@ extension BottleCounter {
             selfStrong.finalBottleCounter = response.counter / 5
             selfStrong.startBottleCounter = selfStrong.currentBottleCounter
             
-            print("CALL COME", selfStrong.startBottleCounter, selfStrong.finalBottleCounter)
-            
             guard selfStrong.isStarted else {
                 return
             }
@@ -130,12 +129,9 @@ extension BottleCounter {
     }
     
     private func startTotalCounterAnimation() {
-        print("INVALIDATE")
         timer?.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: stepDuration, repeats: true) { [weak self] _ in
-            print("LAUNCH")
-            
             guard let selfStrong = self else {
                 return
             }
@@ -144,9 +140,7 @@ extension BottleCounter {
                 selfStrong.currentBottleCounter = selfStrong.finalBottleCounter
                 selfStrong.didUpdatedTotalBottle?(selfStrong.currentValue)
                 selfStrong.timer?.invalidate()
-                
-                print("COUNTERS MEET, INVALIDATE")
-                
+
                 return
             }
             

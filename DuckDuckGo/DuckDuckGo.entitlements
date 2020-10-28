@@ -4,9 +4,9 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.oh.OceanHero.bookmarks</string>
-		<string>group.oh.OceanHero.contentblocker</string>
-		<string>group.oh.OceanHero.database</string>
+		<string>group.browser.oceanhero.bookmarks</string>
+		<string>group.browser.oceanhero.contentblocker</string>
+		<string>group.browser.oceanhero.database</string>
 	</array>
 </dict>
 </plist>

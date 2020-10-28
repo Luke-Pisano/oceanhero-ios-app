@@ -283,7 +283,8 @@ class MainViewController: UIViewController {
             return
         }
 
-        if var onboarding = segue.destination as? Onboarding {
+        if let navigationController = segue.destination as? UINavigationController,
+            var onboarding = navigationController.topViewController as? Onboarding {
             onboarding.delegate = self
         }
 

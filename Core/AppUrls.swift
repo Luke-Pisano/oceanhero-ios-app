@@ -20,22 +20,19 @@
 import Foundation
 
 public struct AppUrls {
-
     private struct Url {
-
         static var devMode: String {
             return isDebugBuild ? "?test=1" : ""
         }
 
         static let host = "oceanhero.today"
         static let base = ProcessInfo.processInfo.environment["BASE_URL", default: "https://\(host)"]
-        static let baseSearch = "\(base)/web"
-
-        static let externalContentBase = "https://external-content.duckduckgo.com"
-        static let staticBase = "https://staticcdn.duckduckgo.com"
-
-        static let autocomplete = "https://api.oceanhero.today/suggestions"
-        //static let autocomplete = "https://duckduckgo.com/ac/"
+        
+        //-static let baseSearch = "\(base)/web"
+        //-static let autocomplete = "https://api.\(host)/suggestions"
+        
+        //static let externalContentBase = "https://external-content.oceanhero.today"
+        static let staticBase = "https://staticcdn.oceanhero.today"
 
         static let surrogates = "\(base)/contentblocking.js?l=surrogates"
         static let temporaryUnprotectedSites = "\(base)/contentblocking/trackers-whitelist-temporary.txt"
@@ -43,7 +40,6 @@ public struct AppUrls {
 
         static let atb = "\(base)/atb.js\(devMode)"
         static let exti = "\(base)/exti/\(devMode)"
-        static let feedback = "\(base)/feedback.js?type=app-feedback"
         static let problemOceanHeroComputer = "https://docs.google.com/forms/d/e/1FAIpQLSdnyXcj8lfNGY8_CkiSFEAU1ZDgZU2EcUh0NArdiJTyoq-OpA/viewform?usp=sf_link"
 
         static let httpsBloomFilter = "\(staticBase)/https/https-mobile-bloom.bin?cache-version=1"
@@ -51,15 +47,15 @@ public struct AppUrls {
         static let httpsExcludedDomains = "\(staticBase)/https/https-mobile-whitelist.json?cache-version=1"
         static let httpsLookupService = "\(base)/smarter_encryption.js"
 
-        static let pixelBase = ProcessInfo.processInfo.environment["PIXEL_BASE_URL", default: "https://improving.duckduckgo.com"]
+        static let pixelBase = ProcessInfo.processInfo.environment["PIXEL_BASE_URL", default: "https://improving.oceanhero.today"]
         static let pixel = "\(pixelBase)/t/%@_ios_%@"
-        static let feedbackPage = "https://forms.gle/iMgjqR6xCsfhtKpt5"
         
+        static let feedbackPage = "https://forms.gle/iMgjqR6xCsfhtKpt5"
         static let counterAPICall = "https://oceanhero.today/api/"
     }
 
     private struct Param {
-        static let search = "q"
+        //static let search = "q"
         static let source = "t"
         static let atb = "atb"
         static let setAtb = "set_atb"
@@ -68,30 +64,46 @@ public struct AppUrls {
     }
 
     private struct ParamValue {
-        static let source = "ddg_ios"
+        static let source = "oh_ios"
         static let appUsage = "app_use"
     }
 
     let statisticsStore: StatisticsStore
+    let searchProviderStore: SearchProviderStore
+    
+    private var searchProvider: SearchProvider {
+        guard let provider = SearchProvider(rawValue: searchProviderStore.searchProvider) else {
+            return .oceanHero
+        }
+        
+        return provider
+    }
 
-    public init(statisticsStore: StatisticsStore = StatisticsUserDefaults()) {
+    public init(statisticsStore: StatisticsStore = StatisticsUserDefaults(), searchProviderStore: SearchProviderStore = SearchProviderUserDefaults()) {
         self.statisticsStore = statisticsStore
+        self.searchProviderStore = searchProviderStore
     }
     
     public var host: String {
-        return Url.host
+        return searchProvider.host
     }
 
     public var base: URL {
-        return URL(string: Url.base)!
+        return URL(string: searchProvider.base)!
     }
 
     public var baseSearch: URL {
-        return URL(string: Url.baseSearch)!
+        return URL(string: searchProvider.baseSearch)!
     }
 
     public func autocompleteUrl(forText text: String) -> URL {
-        return URL(string: Url.autocomplete)!.addParam(name: Param.search, value: text)
+        var url = URL(string: searchProvider.autocomplete)!.addParam(name: searchProvider.autocompleteParam, value: text)
+        
+        searchProvider.additionalAutocompleteParams?.forEach({ key, value in
+            url = url.addParam(name: key, value: value)
+        })
+        
+        return url
     }
 
     public var surrogates: URL {
@@ -137,21 +149,22 @@ public struct AppUrls {
             .addParam(name: Param.setAtb, value: setAtb)
     }
 
-    public func isDuckDuckGo(domain: String?) -> Bool {
+    public func isMasterSearchProvider(domain: String?) -> Bool {
         guard let domain = domain, let url = URL(string: "https://\(domain)") else { return false }
-        return isOceanHero(url: url)
+        return isMasterSearchProvider(url: url)
     }
 
-    public func isOceanHero(url: URL) -> Bool {
+    public func isMasterSearchProvider(url: URL) -> Bool {
         guard let searchHost = base.host else { return false }
         return url.isPart(ofDomain: searchHost)
     }
 
     public func searchQuery(fromUrl url: URL) -> String? {
-        if !isOceanHero(url: url) {
+        if !isMasterSearchProvider(url: url) {
             return nil
         }
-        return url.getParam(name: Param.search)
+        
+        return url.getParam(name: searchProvider.searchParam)
     }
 
     public func url(forQuery query: String) -> URL {
@@ -170,23 +183,20 @@ public struct AppUrls {
         return Url.counterAPICall
     }
 
-    /**
-     Generates a search url with the source (t) https://duck.co/help/privacy/t
-     and cohort (atb) https://duck.co/help/privacy/atb
-     */
     public func searchUrl(text: String) -> URL {
-        let searchUrl = baseSearch.addParam(name: Param.search, value: text)
+        let searchUrl = baseSearch.addParam(name: searchProvider.searchParam, value: text)
         return applyStatsParams(for: searchUrl)
     }
 
-    public func isOceanHeroSearch(url: URL) -> Bool {
-        if !isOceanHero(url: url) { return false }
-        guard url.getParam(name: Param.search) != nil else { return false }
+    public func isMasterSearchProviderSearch(url: URL) -> Bool {
+        if !isMasterSearchProvider(url: url) { return false }
+        guard url.getParam(name: searchProvider.searchParam) != nil else { return false }
         return true
     }
 
     public func applyStatsParams(for url: URL) -> URL {
         var searchUrl = url.addParam(name: Param.source, value: ParamValue.source)
+        
         if let atbWithVariant = statisticsStore.atbWithVariant {
             searchUrl = searchUrl.addParam(name: Param.atb, value: atbWithVariant)
         }
@@ -225,7 +235,7 @@ public struct AppUrls {
     }
 
     public func removeATBAndSource(fromUrl url: URL) -> URL {
-        guard isOceanHeroSearch(url: url) else { return url }
+        guard isMasterSearchProviderSearch(url: url) else { return url }
         return url.removeParam(name: Param.atb).removeParam(name: Param.source)
     }
 

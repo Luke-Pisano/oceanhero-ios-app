@@ -278,10 +278,12 @@ public class Pixel {
             .pixelUrl(forPixelNamed: pixel.rawValue, formFactor: formFactor)
             .addParams(newParams)
         
-        Alamofire.request(url, headers: headers).validate(statusCode: 200..<300).response { response in
-            os_log("Pixel fired %s %s", log: generalLog, type: .debug, pixel.rawValue, "\(params)")
-            onComplete(response.error)
-        }
+//        Alamofire.request(url, headers: headers).validate(statusCode: 200..<300).response { response in
+//            os_log("Pixel fired %s %s", log: generalLog, type: .debug, pixel.rawValue, "\(params)")
+//            onComplete(response.error)
+//        }
+        
+        onComplete(nil)
     }
     
 }

@@ -113,7 +113,16 @@ class DaxOnboardingViewController: UIViewController, Onboarding {
             controller.delegate = self
         } else if let controller = segue.destination as? OnboardingViewController {
             controller.delegate = self
+        } else if let controller = segue.destination as? ChooseSearchProviderViewController {
+            controller.onChooseSearchProviderCompleted = { [weak self] in
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                strongSelf.onboardingCompleted(controller: strongSelf)
+            }
         }
+    
     }
     
     @objc
@@ -145,18 +154,24 @@ class DaxOnboardingViewController: UIViewController, Onboarding {
             changeStep(for: view.frame.size.width)
             
         case .third:
-            onboardingCompleted(controller: self)
+            //onboardingCompleted(controller: self)
+            goToChooseSearchProvider()
             return
         }
     }
     
     @IBAction func skipButtonTouched(_ sender: Any) {
-        onboardingCompleted(controller: self)
+        //onboardingCompleted(controller: self)
+        goToChooseSearchProvider()
     }
     
     @IBAction func onTapButton() {
         let segue = isPad ? "AddToHomeRow-iPad" : "AddToHomeRow"
         performSegue(withIdentifier: segue, sender: self)
+    }
+    
+    private func goToChooseSearchProvider() {
+        performSegue(withIdentifier: "AddToChooseSearchProvider", sender: self)
     }
     
     private func changeStep(for width: CGFloat) {
@@ -188,7 +203,7 @@ class DaxOnboardingViewController: UIViewController, Onboarding {
 extension DaxOnboardingViewController: OnboardingDelegate {
     func onboardingCompleted(controller: UIViewController) {
         controller.dismiss(animated: true)
-        self.delegate?.onboardingCompleted(controller: self)
+        delegate?.onboardingCompleted(controller: self)
     }
 }
 

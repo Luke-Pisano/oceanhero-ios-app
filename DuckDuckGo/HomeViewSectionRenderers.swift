@@ -243,9 +243,10 @@ class HomeViewSectionRenderers: NSObject, UICollectionViewDataSource, UICollecti
             themable.decorate(with: theme)
         }
         
-        if let centeredSearchHomeCell = cell as? CenteredSearchHomeCell {
-            controller.updateTotalBottle(for: centeredSearchHomeCell)
-        }
+        //BottleCounter - We might add it back later - don't remove it
+//        if let centeredSearchHomeCell = cell as? CenteredSearchHomeCell {
+//            controller.updateTotalBottle(for: centeredSearchHomeCell)
+//        }
         
         return cell
     }

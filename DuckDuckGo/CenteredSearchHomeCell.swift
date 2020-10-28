@@ -23,13 +23,12 @@ import Core
 class CenteredSearchHomeCell: UICollectionViewCell {
     
     struct Constants {
-        
+        static let defaultIconSize: CGFloat = 30.0
         static let searchWidth: CGFloat = 380
         static let searchWidthPad: CGFloat = 455
-        static let targetSearchLeadingOffset: CGFloat = -18
-        static let targetSearchTrailingOffset: CGFloat = 16
+        static let targetSearchLeadingOffset: CGFloat = -8
+        static let targetSearchTrailingOffset: CGFloat = 26
         static let targetSearchLoupeOffset: CGFloat = -9
-        
     }
     
     @IBOutlet weak var imageView: UIImageView!
@@ -38,10 +37,14 @@ class CenteredSearchHomeCell: UICollectionViewCell {
     @IBOutlet weak var searchBackgroundHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchBackgroundLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchBackgroundTrailingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var searchLoupeLeadingConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var promptText: UILabel!
-    @IBOutlet weak var searchLoupe: UIImageView!
+    @IBOutlet weak var searchProviderImageView: UIImageView!
     @IBOutlet weak var totalBottleLabel: UILabel!
+    
+    @IBOutlet weak var searchProviderImageLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchProviderImageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchProviderImageWidthConstraint: NSLayoutConstraint!
     
     private lazy var tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
 
@@ -52,6 +55,20 @@ class CenteredSearchHomeCell: UICollectionViewCell {
     var defaultSearchLoupeOffset: CGFloat!
     var defaultSearchHeight: CGFloat!
     var defaultSearchRadius: CGFloat!
+    
+    var icon: UIImage? = #imageLiteral(resourceName: "searchProvider_Oceanhero") {
+        didSet {
+            searchProviderImageView.image = icon
+        }
+    }
+    
+    var iconSize: CGFloat = Constants.defaultIconSize {
+        didSet {
+            searchProviderImageHeightConstraint.constant = iconSize
+            searchProviderImageWidthConstraint.constant = iconSize
+            //searchProviderImageLeadingConstraint.constant = (Constants.defaultIconSize - iconSize) / 2
+        }
+    }
 
     var defaultSearchBackgroundMargin: CGFloat {
 
@@ -73,7 +90,7 @@ class CenteredSearchHomeCell: UICollectionViewCell {
         searchBackground.addGestureRecognizer(tapGesture)
         defaultSearchHeight = searchBackground.frame.height
         defaultSearchRadius = searchBackground.layer.cornerRadius
-        defaultSearchLoupeOffset = searchLoupeLeadingConstraint.constant
+        defaultSearchLoupeOffset = searchProviderImageLeadingConstraint.constant
     }
 
     @objc func onTap() {
@@ -95,7 +112,7 @@ class CenteredSearchHomeCell: UICollectionViewCell {
         searchBackgroundTrailingConstraint.constant = trailingOffset + (defaultSearchBackgroundMargin * (1 - searchHeaderTransition))
 
         let searchLoupeDiff: CGFloat = Constants.targetSearchLoupeOffset
-        searchLoupeLeadingConstraint.constant = defaultSearchLoupeOffset + (searchLoupeDiff * searchHeaderTransition)
+        searchProviderImageLeadingConstraint.constant = defaultSearchLoupeOffset + (searchLoupeDiff * searchHeaderTransition)
         
         searchBackground.isAccessibilityElement = searchHeaderTransition < 1.0
     }
@@ -108,7 +125,7 @@ extension CenteredSearchHomeCell: Themable {
         updateForTransition()
         
         searchBackground.backgroundColor = theme.centeredSearchBarBackgroundColor
-        searchLoupe.tintColor = theme.barTintColor
+        searchProviderImageView.tintColor = theme.barTintColor
         
         promptText.textColor = theme.searchBarTextPlaceholderColor
         

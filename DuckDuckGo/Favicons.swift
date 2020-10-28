@@ -268,7 +268,7 @@ public class Favicons {
             return nil
         }
 
-        if Constants.appUrls.isDuckDuckGo(domain: domain) {
+        if Constants.appUrls.isMasterSearchProvider(domain: domain) {
             return nil
         }
 

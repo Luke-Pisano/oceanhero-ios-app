@@ -44,6 +44,10 @@
 		22CB1ED8203DDD2C00D2C724 /* AppDeepLinksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CB1ED7203DDD2C00D2C724 /* AppDeepLinksTests.swift */; };
 		6809384E24F96C53004E882B /* SearchCounterUserScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6809384D24F96C53004E882B /* SearchCounterUserScript.swift */; };
 		684A538A24F398E4005A2174 /* IndividualBottleCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684A538924F398E4005A2174 /* IndividualBottleCounterView.swift */; };
+		6F1BAF49253DC6CD009F665C /* ChooseSearchProvider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F1BAF48253DC6CD009F665C /* ChooseSearchProvider.storyboard */; };
+		6F1BAF4B253DCA2F009F665C /* ChooseSearchProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1BAF4A253DCA2F009F665C /* ChooseSearchProviderViewController.swift */; };
+		6F1BAF4E253EC5CB009F665C /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1BAF4D253EC5CB009F665C /* RadioButton.swift */; };
+		6F206D5E253D8540009EDB0D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 6F206D5D253D8540009EDB0D /* Cartfile */; };
 		6F6F498E25023C0600AD02F9 /* NSMutableAttributedString+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F498D25023C0600AD02F9 /* NSMutableAttributedString+Attributes.swift */; };
 		6F6F49902502424A00AD02F9 /* UILabel+HTMLBold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F498F2502424A00AD02F9 /* UILabel+HTMLBold.swift */; };
 		6F6F4992250246D300AD02F9 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F4991250246D300AD02F9 /* CustomPageControl.swift */; };
@@ -72,6 +76,11 @@
 		6FA09F9A251207D100131C3A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F99251207D100131C3A /* AVFoundation.framework */; };
 		6FA09F9C251207D800131C3A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA09F9B251207D800131C3A /* CoreText.framework */; };
 		6FBE95DE24F64277000FFA14 /* BottleCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBE95DD24F64277000FFA14 /* BottleCounter.swift */; };
+		6FD8A736253ED3B30090E488 /* SeparatorLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8A735253ED3B30090E488 /* SeparatorLineView.swift */; };
+		6FD8A73A253F11D50090E488 /* SearchProviderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8A739253F11D50090E488 /* SearchProviderStore.swift */; };
+		6FD8A73C253F12330090E488 /* SearchProviderUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8A73B253F12330090E488 /* SearchProviderUserDefaults.swift */; };
+		6FD8A73F253F17AE0090E488 /* SearchProviderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8A73E253F17AE0090E488 /* SearchProviderExtension.swift */; };
+		6FD8A740253F189B0090E488 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8A737253EF0860090E488 /* SearchProvider.swift */; };
 		6FF1AA8C2507A85E00BACDDB /* HomeAsksInstallWebApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF1AA8A2507A81100BACDDB /* HomeAsksInstallWebApplicationTests.swift */; };
 		6FFF803825063CCC000EA285 /* AsksInstallWebApplicationHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF803725063CCB000EA285 /* AsksInstallWebApplicationHomeCell.swift */; };
 		6FFF803A25063CD4000EA285 /* AsksInstallWebApplicationHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FFF803925063CD4000EA285 /* AsksInstallWebApplicationHomeCell.xib */; };
@@ -723,6 +732,10 @@
 		22CB1ED7203DDD2C00D2C724 /* AppDeepLinksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDeepLinksTests.swift; sourceTree = "<group>"; };
 		6809384D24F96C53004E882B /* SearchCounterUserScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCounterUserScript.swift; sourceTree = "<group>"; };
 		684A538924F398E4005A2174 /* IndividualBottleCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualBottleCounterView.swift; sourceTree = "<group>"; };
+		6F1BAF48253DC6CD009F665C /* ChooseSearchProvider.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseSearchProvider.storyboard; sourceTree = "<group>"; };
+		6F1BAF4A253DCA2F009F665C /* ChooseSearchProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSearchProviderViewController.swift; sourceTree = "<group>"; };
+		6F1BAF4D253EC5CB009F665C /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		6F206D5D253D8540009EDB0D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		6F6F498D25023C0600AD02F9 /* NSMutableAttributedString+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Attributes.swift"; sourceTree = "<group>"; };
 		6F6F498F2502424A00AD02F9 /* UILabel+HTMLBold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+HTMLBold.swift"; sourceTree = "<group>"; };
 		6F6F4991250246D300AD02F9 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
@@ -739,6 +752,11 @@
 		6FA09F9B251207D800131C3A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		6FB030C7234331B400A10DB9 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Configuration.xcconfig; path = Configuration/Configuration.xcconfig; sourceTree = "<group>"; };
 		6FBE95DD24F64277000FFA14 /* BottleCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleCounter.swift; sourceTree = "<group>"; };
+		6FD8A735253ED3B30090E488 /* SeparatorLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLineView.swift; sourceTree = "<group>"; };
+		6FD8A737253EF0860090E488 /* SearchProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchProvider.swift; path = ../DuckDuckGo/SearchProvider.swift; sourceTree = "<group>"; };
+		6FD8A739253F11D50090E488 /* SearchProviderStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProviderStore.swift; sourceTree = "<group>"; };
+		6FD8A73B253F12330090E488 /* SearchProviderUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProviderUserDefaults.swift; sourceTree = "<group>"; };
+		6FD8A73E253F17AE0090E488 /* SearchProviderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProviderExtension.swift; sourceTree = "<group>"; };
 		6FF1AA8A2507A81100BACDDB /* HomeAsksInstallWebApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAsksInstallWebApplicationTests.swift; sourceTree = "<group>"; };
 		6FFF803725063CCB000EA285 /* AsksInstallWebApplicationHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsksInstallWebApplicationHomeCell.swift; sourceTree = "<group>"; };
 		6FFF803925063CD4000EA285 /* AsksInstallWebApplicationHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsksInstallWebApplicationHomeCell.xib; sourceTree = "<group>"; };
@@ -1438,12 +1456,39 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		6F1BAF47253DC6A2009F665C /* SearchProvider */ = {
+			isa = PBXGroup;
+			children = (
+				6F1BAF48253DC6CD009F665C /* ChooseSearchProvider.storyboard */,
+				6F1BAF4A253DCA2F009F665C /* ChooseSearchProviderViewController.swift */,
+			);
+			name = SearchProvider;
+			sourceTree = "<group>";
+		};
+		6F1BAF4C253EC5A8009F665C /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				6F1BAF4D253EC5CB009F665C /* RadioButton.swift */,
+			);
+			name = RadioButton;
+			sourceTree = "<group>";
+		};
 		6FBE95DC24F6425F000FFA14 /* BottleCounter */ = {
 			isa = PBXGroup;
 			children = (
 				6FBE95DD24F64277000FFA14 /* BottleCounter.swift */,
 			);
 			name = BottleCounter;
+			sourceTree = "<group>";
+		};
+		6FD8A73D253F17840090E488 /* SearchProvide */ = {
+			isa = PBXGroup;
+			children = (
+				6FD8A737253EF0860090E488 /* SearchProvider.swift */,
+				6FD8A739253F11D50090E488 /* SearchProviderStore.swift */,
+				6FD8A73B253F12330090E488 /* SearchProviderUserDefaults.swift */,
+			);
+			name = SearchProvide;
 			sourceTree = "<group>";
 		};
 		830FA79B1F8E81FB00FCE105 /* ContentBlocker */ = {
@@ -1670,6 +1715,7 @@
 		84E341891E2F7EFB00BDBA6F = {
 			isa = PBXGroup;
 			children = (
+				6F206D5D253D8540009EDB0D /* Cartfile */,
 				03FEC7B024DD60BD002E12BE /* buddybuild_prebuild.sh */,
 				6FB030C7234331B400A10DB9 /* Configuration.xcconfig */,
 				84E341941E2F7EFB00BDBA6F /* DuckDuckGo */,
@@ -1710,6 +1756,7 @@
 		84E341941E2F7EFB00BDBA6F /* DuckDuckGo */ = {
 			isa = PBXGroup;
 			children = (
+				6F1BAF47253DC6A2009F665C /* SearchProvider */,
 				6FBE95DC24F6425F000FFA14 /* BottleCounter */,
 				F1C5ECF31E37812900C599A4 /* Application */,
 				9817C9C121EF58BA00884F65 /* AutoClear */,
@@ -2514,6 +2561,7 @@
 		F143C2E51E4A4CD400CFDE3A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6FD8A73D253F17840090E488 /* SearchProvide */,
 				03816FAB24FD089F0067C97A /* Sourcery */,
 				038A157024EBE03100EB576D /* Service */,
 				F11E23051ED33D8B00523BC9 /* API */,
@@ -2958,6 +3006,7 @@
 		F1D796ED1E7AE4090019D451 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				6F1BAF4C253EC5A8009F665C /* RadioButton */,
 				980891A122369ADB00313A70 /* FeedbackUserText.swift */,
 				859872221F5743AF00041CB8 /* FireAnimation */,
 				985AAE4424899369007A43EC /* HomeScreenTransition.swift */,
@@ -2985,6 +3034,8 @@
 				6F6F498D25023C0600AD02F9 /* NSMutableAttributedString+Attributes.swift */,
 				6F6F498F2502424A00AD02F9 /* UILabel+HTMLBold.swift */,
 				6F6F4991250246D300AD02F9 /* CustomPageControl.swift */,
+				6FD8A735253ED3B30090E488 /* SeparatorLineView.swift */,
+				6FD8A73E253F17AE0090E488 /* SearchProviderExtension.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -3401,6 +3452,7 @@
 				AA4D6AB823DE4D15007E8790 /* AppIconYellow29x29@2x.png in Resources */,
 				6FFF803A25063CD4000EA285 /* AsksInstallWebApplicationHomeCell.xib in Resources */,
 				8563A0381F8E54F100F04442 /* Tab.storyboard in Resources */,
+				6F206D5E253D8540009EDB0D /* Cartfile in Resources */,
 				AA4D6AE123DE4D33007E8790 /* AppIconGreen76x76@2x.png in Resources */,
 				AA4D6A9123DE49A5007E8790 /* AppIconBlack60x60@3x.png in Resources */,
 				AA4D6A8E23DE49A5007E8790 /* AppIconBlack60x60@2x.png in Resources */,
@@ -3440,6 +3492,7 @@
 				AA4D6ABC23DE4D15007E8790 /* AppIconYellow60x60@3x.png in Resources */,
 				AA4D6AA823DE4CC4007E8790 /* AppIconBlue40x40@2x.png in Resources */,
 				859872241F5743D800041CB8 /* FireAnimation.xib in Resources */,
+				6F1BAF49253DC6CD009F665C /* ChooseSearchProvider.storyboard in Resources */,
 				AA4D6AE723DE4D33007E8790 /* AppIconGreen29x29@2x.png in Resources */,
 				AA4D6ACD23DE4D27007E8790 /* AppIconPurple29x29@3x.png in Resources */,
 				0317FE9724E427BE005F17A7 /* Roboto-Black.ttf in Resources */,
@@ -3767,6 +3820,7 @@
 				85C11E4C2090888C00BFFEB4 /* HomeRowReminder.swift in Sources */,
 				85374D3C21AC41E700FF5A1E /* FavoritesHomeViewSectionRenderer.swift in Sources */,
 				850365F323DE087800D0F787 /* UIImageViewExtension.swift in Sources */,
+				6F1BAF4B253DCA2F009F665C /* ChooseSearchProviderViewController.swift in Sources */,
 				9888F77B2224980500C46159 /* FeedbackViewController.swift in Sources */,
 				F14513551F45FBFD00710C46 /* SiteRatingView.swift in Sources */,
 				8C4724502217A14B004C9B2D /* TabViewControllerLongPressBookmarkExtension.swift in Sources */,
@@ -3800,6 +3854,7 @@
 				F1D796EC1E7AB8930019D451 /* SaveBookmarkActivity.swift in Sources */,
 				8531A08E1F9950E6000484F0 /* UnprotectedSitesViewController.swift in Sources */,
 				F1D477C61F2126CC0031ED49 /* OmniBarState.swift in Sources */,
+				6FD8A73F253F17AE0090E488 /* SearchProviderExtension.swift in Sources */,
 				85F2FFCD2211F615006BB258 /* MainViewController+KeyCommands.swift in Sources */,
 				6FFF8040250661A2000EA285 /* HomeAsksInstallWebApplication.swift in Sources */,
 				858650D9246B0D3C00C36F8A /* DaxOnboardingViewController.swift in Sources */,
@@ -3820,6 +3875,7 @@
 				85058369219F424500ED4EDB /* UIColorExtension.swift in Sources */,
 				85058368219C49E000ED4EDB /* HomeViewSectionRenderers.swift in Sources */,
 				85F1E9B01FB7BF3900A75AC1 /* NativeDisplayableCertificateBuilderDriver.swift in Sources */,
+				6FD8A736253ED3B30090E488 /* SeparatorLineView.swift in Sources */,
 				85BD869F1FAA0E1100252411 /* PrivacyProtectionInfoDisplaying.swift in Sources */,
 				9820EAF522613CD30089094D /* WebProgressWorker.swift in Sources */,
 				F1C4A70E1E57725800A6CA1B /* OmniBar.swift in Sources */,
@@ -3844,6 +3900,7 @@
 				983EABB8236198F6003948D1 /* DatabaseMigration.swift in Sources */,
 				F1AE54E81F0425FC00D9A700 /* AuthenticationViewController.swift in Sources */,
 				F103073B1E7C91330059FEC7 /* BookmarksDataSource.swift in Sources */,
+				6F1BAF4E253EC5CB009F665C /* RadioButton.swift in Sources */,
 				85200FA61FBCCD58001AF290 /* PrivacyProtectionNetworkLeaderboardController.swift in Sources */,
 				F1D796EE1E7AF2EB0019D451 /* UIViewControllerExtension.swift in Sources */,
 				F15D43201E706CC500BF2CDC /* AutocompleteViewController.swift in Sources */,
@@ -4046,6 +4103,7 @@
 				F143C3271E4A9A0E00CFDE3A /* Logging.swift in Sources */,
 				855D914F206563A000C4B448 /* TLD.swift in Sources */,
 				6F6F4995250253F400AD02F9 /* APIServiceResponseType.swift in Sources */,
+				6FD8A73A253F11D50090E488 /* SearchProviderStore.swift in Sources */,
 				85267D2521513FC700A0CE28 /* EntityMapping.swift in Sources */,
 				F11E22F61ED31CB600523BC9 /* JsonError.swift in Sources */,
 				85372447220DD103009D09CD /* UIKeyCommandExtension.swift in Sources */,
@@ -4091,6 +4149,7 @@
 				85F1C3CA1F7A4E8000161346 /* ContentBlockerStringCache.swift in Sources */,
 				6F6F49972502546800AD02F9 /* APIClient.swift in Sources */,
 				F16956421ECCA3D4009C35C9 /* ContentBlockerConfigurationUserDefaults.swift in Sources */,
+				6FD8A740253F189B0090E488 /* SearchProvider.swift in Sources */,
 				6F6F49A12502548300AD02F9 /* Route.swift in Sources */,
 				85D2187624BF6164004373D2 /* FaviconSourcesProvider.swift in Sources */,
 				85200FA11FBC5BB5001AF290 /* DDGPersistenceContainer.swift in Sources */,
@@ -4101,6 +4160,7 @@
 				F1D477CB1F2149C40031ED49 /* Type.swift in Sources */,
 				F1134EC61F40E3B400B73467 /* AppVersion.swift in Sources */,
 				85BDC30E24334D130053DB07 /* UserScript.swift in Sources */,
+				6FD8A73C253F12330090E488 /* SearchProviderUserDefaults.swift in Sources */,
 				1CB7B82123CEA1F800AA24EA /* DateExtension.swift in Sources */,
 				988F3DCF237D5C0F00AEE34C /* SchemeHandler.swift in Sources */,
 				9875E00722316B8400B1373F /* Instruments.swift in Sources */,
@@ -4282,12 +4342,12 @@
 				INFOPLIST_FILE = BookmarksTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.BookmarksTodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.BookmarksTodayExtension;
 				PRODUCT_NAME = "OceanHero Bookmarks";
-				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero bookmarks development";
+				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - Bookmarks development";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4315,11 +4375,11 @@
 				INFOPLIST_FILE = BookmarksTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.BookmarksTodayExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.BookmarksTodayExtension;
 				PRODUCT_NAME = "OceanHero Bookmarks";
-				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero Bookmarks Ad Hoc";
+				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - Bookmarks Ad Hoc";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4343,10 +4403,10 @@
 				INFOPLIST_FILE = QuickActionsTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.QuickActionsTodayExtension;
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.QuickActionsTodayExtension;
 				PRODUCT_NAME = "OceanHero Shortcuts";
-				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero quick actions development";
+				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - QuickActionsToday development";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4370,10 +4430,10 @@
 				INFOPLIST_FILE = QuickActionsTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.QuickActionsTodayExtension;
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.QuickActionsTodayExtension;
 				PRODUCT_NAME = "OceanHero Shortcuts";
-				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero QuickActionsTodayExtension Ad Hoc";
+				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - QuickActionsToday Ad Hoc";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4396,10 +4456,10 @@
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.ShareExtension;
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.ShareExtension;
 				PRODUCT_NAME = OceanHero;
-				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero share extension Development";
+				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - Share development";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4422,10 +4482,10 @@
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.ShareExtension;
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.ShareExtension;
 				PRODUCT_NAME = OceanHero;
-				PROVISIONING_PROFILE_SPECIFIER = "Ocean Hero share extension Ad Hoc";
+				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - Share Ad Hoc";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4567,10 +4627,10 @@
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero;
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero;
 				PRODUCT_NAME = OceanHero;
-				PROVISIONING_PROFILE_SPECIFIER = "OceanHero Development";
+				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - development";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -4594,10 +4654,10 @@
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero;
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero;
 				PRODUCT_NAME = OceanHero;
-				PROVISIONING_PROFILE_SPECIFIER = "OceanHero AdHoc";
+				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - AdHoc";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -4661,7 +4721,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.OpenAction;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.OpenAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -4687,7 +4747,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.OpenAction;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.OpenAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -4792,7 +4852,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.Core;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.Core;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4822,7 +4882,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oh.OceanHero.Core;
+				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.Core;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

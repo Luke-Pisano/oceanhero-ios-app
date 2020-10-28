@@ -53,7 +53,7 @@ extension UIImageView {
             }
         }
         
-        if UIImageViewConstants.appUrls.isDuckDuckGo(domain: domain) {
+        if UIImageViewConstants.appUrls.isMasterSearchProvider(domain: domain) {
             complete(UIImage(named: "Logo"))
             return
         }
