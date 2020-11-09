@@ -4342,7 +4342,7 @@
 				INFOPLIST_FILE = BookmarksTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.BookmarksTodayExtension;
@@ -4375,7 +4375,7 @@
 				INFOPLIST_FILE = BookmarksTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.BookmarksTodayExtension;
 				PRODUCT_NAME = "OceanHero Bookmarks";
@@ -4403,7 +4403,7 @@
 				INFOPLIST_FILE = QuickActionsTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.QuickActionsTodayExtension;
 				PRODUCT_NAME = "OceanHero Shortcuts";
 				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - QuickActionsToday development";
@@ -4430,7 +4430,7 @@
 				INFOPLIST_FILE = QuickActionsTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.QuickActionsTodayExtension;
 				PRODUCT_NAME = "OceanHero Shortcuts";
 				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - QuickActionsToday Ad Hoc";
@@ -4456,7 +4456,7 @@
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.ShareExtension;
 				PRODUCT_NAME = OceanHero;
 				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - Share development";
@@ -4482,7 +4482,7 @@
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero.ShareExtension;
 				PRODUCT_NAME = OceanHero;
 				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - Share Ad Hoc";
@@ -4627,7 +4627,7 @@
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero;
 				PRODUCT_NAME = OceanHero;
 				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - development";
@@ -4654,7 +4654,7 @@
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = browser.oceanhero;
 				PRODUCT_NAME = OceanHero;
 				PROVISIONING_PROFILE_SPECIFIER = "Browser Ocean Hero - AdHoc";
