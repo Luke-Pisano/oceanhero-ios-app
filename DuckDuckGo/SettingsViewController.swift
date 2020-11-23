@@ -83,11 +83,6 @@ class SettingsViewController: UITableViewController {
             Pixel.fire(pixel: .settingsThemeShown)
             return
         }
-
-        if segue.destination is AppIconSettingsViewController {
-            Pixel.fire(pixel: .settingsAppIconShown)
-            return
-        }
         
         if let controller = segue.destination as? HomePageSettingsViewController {
             Pixel.fire(pixel: .settingsNewTabShown)
@@ -139,14 +134,6 @@ class SettingsViewController: UITableViewController {
             themeAccessoryText.text = UserText.themeAccessoryLight
         case .dark:
             themeAccessoryText.text = UserText.themeAccessoryDark
-        }
-    }
-
-    private func configureIconViews() {
-        if AppIconManager.shared.isAppIconChangeSupported {
-            appIconImageView.image = AppIconManager.shared.appIcon.smallImage
-        } else {
-            appIconCell.isHidden = true
         }
     }
 
