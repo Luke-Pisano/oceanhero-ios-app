@@ -1,5 +1,7 @@
 # OceanHero iOS
 
+Download on the [App Store](https://apps.apple.com/us/app/oceanhero-browser/id1536398518).
+
 ## Building
 
 ### Submodules
