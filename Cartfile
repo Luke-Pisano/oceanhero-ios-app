@@ -1,20 +1,16 @@
-# If this is updated then check remove observers in Favicons.swift doesn't break anything
-github "duckduckgo/Kingfisher" ~> 5.14.1
+github "getsentry/sentry-cocoa"             ~> 4.2
+github "SnapKit/SnapKit"                    ~> 5.0
+github "SDWebImage/SDWebImage"              ~> 5.0
+github "swisspol/GCDWebServer"              ~> 3.3
+github "kif-framework/KIF"                  "v3.7.11"
+github "mozilla-mobile/onepassword-app-extension"    "add-framework-support"
+github "jrendel/SwiftKeychainWrapper"       ~> 3.2.0
+github "DaveWoodCom/XCGLogger"              ~> 7.0
+github "cezheng/Fuzi"                       ~> 3.0
+github "SwiftyJSON/SwiftyJSON"              ~> 5.0
+github "mozilla-mobile/telemetry-ios"      ~> 1.1
+github "mozilla-mobile/MappaMundi"          "master"
+github "mozilla-services/shavar-prod-lists" "89.0"
 
-github "duckduckgo/Device.swift" ~> 1.1.2
-
-github "duckduckgo/Toast-Swift" ~> 4.0.0
-
-github "duckduckgo/Alamofire" ~>  4.8.1
-
-github "duckduckgo/OHHTTPStubs" ~> 7.0.0
-
-github "duckduckgo/CommonCrypto" ~> 1.1.0
-
-github "duckduckgo/swifter" == 1.4.3
-
-github "duckduckgo/lottie-ios" "tags/2.5.0"
-
-github "duckduckgo/PunycodeSwift" "master"
-
-github "matomo-org/matomo-sdk-ios" ~> 7.2.1
+# Use release version of application-services
+github "mozilla/application-services"      "v82.1.0"

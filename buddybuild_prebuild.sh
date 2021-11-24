@@ -1,9 +1,16 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-#  buddybuild_prebuild.sh
-#  DuckDuckGo
+bundle install
+
+echo "Setting up Pocket Stories API Key"
+if [ "$BUDDYBUILD_SCHEME" == Firefox ]; then
+  /usr/libexec/PlistBuddy -c "Set PocketEnvironmentAPIKey $POCKET_PRODUCTION_API_KEY" "Client/Info.plist"
+else
+  /usr/libexec/PlistBuddy -c "Set PocketEnvironmentAPIKey $POCKET_STAGING_API_KEY" "Client/Info.plist"
+fi
+
 #
-#  Created by Cezary Bielecki on 07/08/2020.
-#  Copyright © 2020 DuckDuckGo. All rights reserved.
+# Set the build number to match the Buddybuild number
+#
 
-brew install swiftlint
+agvtool new-version -all "$BUDDYBUILD_BUILD_NUMBER"
