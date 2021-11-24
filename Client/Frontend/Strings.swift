@@ -1275,6 +1275,7 @@ extension String {
 // MARK: - App Settings
 extension String {
     public static let AppSettingsLicenses = MZLocalizedString("Licenses", comment: "Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG")
+    public static let AppSettingsRepository = MZLocalizedString("Repository", comment: "Repository")
     public static let AppSettingsYourRights = MZLocalizedString("Your Rights", comment: "Your Rights settings section title")
     public static let AppSettingsShowTour = MZLocalizedString("Show Tour", comment: "Show the on-boarding screen again from the settings")
     public static let AppSettingsSendFeedback = MZLocalizedString("Send Feedback", comment: "Menu item in settings used to open input.mozilla.org where people can submit feedback")

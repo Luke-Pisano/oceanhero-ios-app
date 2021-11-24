@@ -734,6 +734,21 @@ class LicenseAndAcknowledgementsSetting: Setting {
     }
 }
 
+// Opens the Repository URL
+class RepositorySetting: Setting {
+  override var title: NSAttributedString? {
+    return NSAttributedString(string: .AppSettingsRepository, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
+  }
+
+  override var url: URL? {
+    return URL(string: "https://github.com/oceanherosearch/oceanhero-ios-app")
+  }
+
+  override func onClick(_ navigationController: UINavigationController?) {
+    setUpAndPushSettingsContentViewController(navigationController, self.url)
+  }
+}
+
 // Opens about:rights page in the content view controller
 class YourRightsSetting: Setting {
     override var title: NSAttributedString? {

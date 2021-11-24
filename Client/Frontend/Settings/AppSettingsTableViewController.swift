@@ -128,6 +128,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             SettingSection(title: NSAttributedString(string: .AppSettingsAbout), children: [
                 VersionSetting(settings: self),
                 LicenseAndAcknowledgementsSetting(),
+                RepositorySetting(),
                 ExportBrowserDataSetting(settings: self),
                 ExportLogDataSetting(settings: self),
                 DeleteExportedDataSetting(settings: self),
