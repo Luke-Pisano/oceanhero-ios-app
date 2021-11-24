@@ -2,27 +2,68 @@
 
 Download on the [App Store](https://apps.apple.com/us/app/oceanhero-browser/id1536398518).
 
-## Building
+This branch (main)
+-----------
 
-### Submodules
-We use submodules, so you will need to bring them into the project in order to build and run it:
+This branch works with [Xcode 12.1](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_12.1/Xcode_12.1.xip), Swift 5.2 and supports iOS 12.0 and above.
 
-Run `git submodule update --init --recursive`
+Please make sure you aim your pull requests in the right direction.
 
-### Dependencies
-We use Carthage for dependency management. If you don't have Carthage installed refer to [Installing Carthage](https://github.com/Carthage/Carthage#installing-carthage).
+For bug fixes and features for a specific release use the version branch.
 
-Run `carthage bootstrap --platform iOS` before opening the project in Xcode
+Getting involved
+----------------
 
-You can also run the unit tests to do the above and ensure everything seems in order: `./run_tests.sh`
+Want to contribute but don't know where to start? Here is a list of [issues that are contributor friendly](https://github.com/oceanherosearch/oceanhero-ios-app/issues)
 
-### SwiftLint
-We use [SwifLint](https://github.com/realm/SwiftLint) for enforcing Swift style and conventions, so you'll need to [install it](https://github.com/realm/SwiftLint#installation).
+Building the code
+-----------------
 
-## Discussion
+1. Install the latest [Xcode developer tools](https://developer.apple.com/xcode/downloads/) from Apple.
+1. Install Carthage and Node
+    ```shell
+    brew update
+    brew install carthage
+    brew install node
+    ```
+1. Clone the repository:
+    ```shell
+    git clone -b qwant-3.0-v30 --single-branch https://github.com/oceanherosearch/oceanhero-ios-app.git
+    ```
+1. Pull in the project dependencies:
+    ```shell
+    cd oceanhero-ios
+    sh ./bootstrap.sh
+    ```
+1. Open `Client.xcodeproj` in Xcode.
+1. Build the `Fennec` scheme in Xcode.
 
-Ocean Hero browser is builded on top of DuckDuckGo implementation. Because it's builded on already working app, not a framework, there is no easy way to update it. We need to treat Ocean Hero as separated project from now on.
+## Building User Scripts
 
-## Contact 
+User Scripts (JavaScript injected into the `WKWebView`) are compiled, concatenated and minified using [webpack](https://webpack.js.org/). User Scripts to be aggregated are placed in the following directories:
 
-In case of any questions please contact me on cezary.bielecki@digitalforms.pl
+```
+/Client
+|-- /Frontend
+    |-- /UserContent
+        |-- /UserScripts
+            |-- /AllFrames
+            |   |-- /AtDocumentEnd
+            |   |-- /AtDocumentStart
+            |-- /MainFrame
+                |-- /AtDocumentEnd
+                |-- /AtDocumentStart
+```
+
+This reduces the total possible number of User Scripts down to four. The compiled output from concatenating and minifying the User Scripts placed in these folders resides in `/Client/Assets` and are named accordingly:
+
+* `AllFramesAtDocumentEnd.js`
+* `AllFramesAtDocumentStart.js`
+* `MainFrameAtDocumentEnd.js`
+* `MainFrameAtDocumentStart.js`
+
+To simplify the build process, these compiled files are checked-in to this repository. When adding or editing User Scripts, these files can be re-compiled with `webpack` manually. This requires Node.js to be installed and all required `npm` packages can be installed by running `npm install` in the root directory of the project. User Scripts can be compiled by running the following `npm` command in the root directory of the project:
+
+```
+npm run build
+```
